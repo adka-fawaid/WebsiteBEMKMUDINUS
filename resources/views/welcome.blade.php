@@ -204,13 +204,13 @@
     <div class="container py-5">
         <div class="row d-flex align-items-center">
             <div class="col-lg-6">
-                <img src="{{ asset('assets/icons/Logo BEM Arus Sinergitas.png') }}" class="img-fluid " width="100%"
+                <img src="{{ asset('assets/icons/Logo Aksa Sinergi.png') }}" class="img-fluid " width="100%"
                     height="200px" alt="">
             </div>
             <div class="col-lg-6">
                 <div class="d-flex align-items-center mb-3">
                     <div class="strip me-2"></div>
-                    <h3><b>Kabinet Arus Sinergitas</b></h3>
+                    <h3><b>Kabinet Aksa Sinergi</b></h3>
                 </div>
 
                 <h1 class="fw-bold mb-3">Filosofi Warna</h1>
