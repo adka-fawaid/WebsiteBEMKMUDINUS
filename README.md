@@ -1,66 +1,189 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# 🌐 Portal Website Resmi BEM KM UDINUS
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+![BEM KM UDINUS](public/img/logo/logo-bemkm-udinus.png)
 
-## About Laravel
+Website **Portal BEM KM UDINUS** adalah platform resmi yang berfungsi sebagai pusat informasi, publikasi, dan komunikasi Badan Eksekutif Mahasiswa Keluarga Mahasiswa Universitas Dian Nuswantoro (BEM KM UDINUS).  
+Website ini dirancang untuk meningkatkan transparansi, memperkuat citra kelembagaan, serta memudahkan mahasiswa dan publik dalam mengakses seluruh kegiatan dan informasi BEM KM.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+---
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## 🎯 **Tujuan**
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+Portal ini dibangun sebagai wadah digital untuk:
 
-## Learning Laravel
+-   Menyediakan informasi kegiatan dan program kerja BEM KM secara terbuka.
+-   Menjalin komunikasi antara BEM KM dan mahasiswa UDINUS.
+-   Menjadi pusat dokumentasi publikasi resmi BEM KM.
+-   Mendukung sistem administrasi digital kelembagaan BEM KM.
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+---
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+## ⚙️ **Fitur Utama**
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+### 🔐 1. Autentikasi
 
-## Laravel Sponsors
+Admin dapat melakukan login menggunakan **akun Google Orma BEM KM UDINUS** untuk mengakses **Dashboard Admin**, yang digunakan dalam mengelola seluruh konten website.
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+---
 
-### Premium Partners
+### 💬 2. Sambutan Presma
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
+Menampilkan **foto**, **nama**, serta **kalimat sambutan** dari Presiden Mahasiswa (Presma) periode berjalan sebagai bentuk representasi dan pengenalan kepemimpinan kabinet.
 
-## Contributing
+---
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+### 🎯 3. Visi dan Misi
 
-## Code of Conduct
+Berisi **nama kabinet**, **visi**, dan **misi** resmi dari kepengurusan **BEM KM UDINUS Periode 2025/2026**, untuk memberikan arah dan nilai perjuangan organisasi.
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+---
 
-## Security Vulnerabilities
+### 🏛️ 4. Struktur Kabinet
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+Menampilkan **struktur organisasi BEM KM**, yang meliputi:
 
-## License
+-   Nama **Divisi/Kementerian**
+-   **Logo Divisi/Kementerian**
+-   **Ketua/Menteri** dan **daftar anggota** di dalamnya
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+Fitur ini membantu pengunjung mengenal susunan kepengurusan dan tanggung jawab masing-masing bagian.
+
+---
+
+### 📅 5. Kegiatan
+
+Memuat daftar **program kerja** dan **duta kampus** dari BEM KM UDINUS.  
+Setiap kegiatan dapat menampilkan detail acara serta **formulir pendaftaran peserta** bila kegiatan bersifat terbuka untuk umum atau mahasiswa.
+
+---
+
+### 📰 6. Postingan
+
+Berisi kumpulan **berita**, **informasi**, **artikel kajian**, dan **berita acara kegiatan** hasil pelaksanaan program kerja BEM KM.  
+Fitur ini menjadi media publikasi dan dokumentasi digital resmi.
+
+---
+
+### 🤝 7. Partnership
+
+Memberikan informasi mengenai **SOP Kerjasama** antara pihak luar dengan BEM KM, mencakup:
+
+-   Media Partner
+-   Sponsorship
+-   Kolaborasi Mitra
+-   Kampus Visit
+-   Delegasi atau kegiatan eksternal lainnya
+
+---
+
+### 📞 8. Kontak
+
+Berisi informasi lengkap untuk menghubungi BEM KM UDINUS, antara lain:
+
+-   📧 **Email**
+-   📱 **Nomor Telepon**
+-   📸 **Instagram**
+-   🌐 **Website Resmi**
+-   📘 **Facebook**
+-   🎵 **TikTok**
+-   ▶️ **YouTube**
+
+---
+
+## 🛠️ Teknologi yang Digunakan
+
+-   **Framework:** Laravel 11
+-   **Frontend:** Tailwind CSS
+-   **Database:** MySQL
+-   **Environment:** Laragon (Local Development)
+-   **Version Control:** Git & GitHub
+
+---
+
+## 📋 Persyaratan Sistem
+
+-   PHP >= 8.2
+-   Composer
+-   Node.js & NPM >= 20.19.x
+-   MySQL Server
+-   Web Server (Laravel Herd, Laragon, XAMPP, atau Valet)
+
+---
+
+## ⚡ Instalasi & Setup Project
+
+### 1️⃣ Clone Repository
+
+```bash
+git clone https://github.com/adka-fawaid/PortalBEMKMUDINUS.git
+cd PortalBEMKMUDINUS
+```
+
+### 2️⃣ Install Dependencies
+
+```bash
+# Install PHP dependencies
+composer install
+
+# Install Node.js dependencies
+npm install
+```
+
+### 3️⃣ Environment Setup
+
+```bash
+# Copy environment file
+cp .env.example .env
+
+# Generate application key
+php artisan key:generate
+```
+
+### 4️⃣ Database Setup
+
+```bash
+# Run migrations
+php artisan migrate
+
+# Seed database with sample data
+php artisan db:seed
+```
+
+### 5️⃣ Storage Link
+
+```bash
+# Create storage link for file uploads
+php artisan storage:link
+```
+
+### 6️⃣ Build Assets
+
+```bash
+# Development
+npm run dev
+
+# Production
+npm run build
+```
+
+### 7️⃣ Run Application
+
+```bash
+# Start development server
+php artisan serve
+```
+
+---
+
+## 👥 **Dikembangkan Oleh**
+
+Kementerian Kreasi BEM KM UDINUS  
+_Kreasi JosJis_  
+**BEMKM UDINUS 2025/2026**
+
+---
+
+## 📜 Lisensi
+
+© 2025/2026 BEM KM Universitas Dian Nuswantoro.  
+Seluruh hak cipta dilindungi.
