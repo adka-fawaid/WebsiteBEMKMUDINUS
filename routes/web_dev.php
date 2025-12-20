@@ -120,5 +120,8 @@ Route::get('/unit/edit/{id}', [UkmController::class, 'edit'])->name('unit.edit')
 Route::post('/unit/update/{id}', [UkmController::class, 'update'])->name('unit.update')->middleware('auth');
 Route::post('unit/destroy/{id}', [UkmController::class, 'destroy'])->name('unit.destroy')->middleware('auth');
 
-require __DIR__.'/web_dev.php';
+// ====== PROFIL (DEV) ======
+Route::get('/profil', function () {
+    return view('profil.index');
+});
 
