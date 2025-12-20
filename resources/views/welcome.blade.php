@@ -1,4 +1,5 @@
 @extends('layouts.layouts')
+<!-- <section id +"bantuann yayasan" class= -->
 
 @section('content')
 <section id="hero" class="px-0 d-flex align-items-center justify-content-center">
