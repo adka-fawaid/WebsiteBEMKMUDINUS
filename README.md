@@ -177,7 +177,7 @@ php artisan serve
 
 ## 👥 **Dikembangkan Oleh**
 
-Kementerian Kreasi BEM KM UDINUS  
+Kementerian Kreativitas dan Inovasi BEM KM UDINUS  
 _Kreasi JosJis_  
 **BEMKM UDINUS 2025/2026**
 
