@@ -14,7 +14,7 @@ class UserSeeder extends Seeder
     public function run(): void
     {
         $user = [
-            'name' => 'Ristek',
+            'name' => 'Kementerian Kreasi',
             'email' => 'bemkm@orma.dinus.ac.id',
             'password' => \bcrypt('Kreasi2526')
         ];

@@ -1,16 +1,5 @@
 <?php
 
-use App\Http\Controllers\ProfileController;
-use Illuminate\Support\Facades\Route;
-
-/*
-* ADMIN CONTROLLER
-*/
-use App\Http\Controllers\Admin\DashboardAdminController;
-
-/*
-* OLD CONTROLLERS
-*/
 use App\Http\Controllers\AppController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\BlogController;
@@ -23,36 +12,17 @@ use App\Http\Controllers\PartnershipController;
 use App\Http\Controllers\PhotoController;
 use App\Http\Controllers\ProkerController;
 use App\Http\Controllers\UkmController;
-
-
+use Illuminate\Support\Facades\Route;
 
 /*
 |--------------------------------------------------------------------------
-| Web Routes
+| Old Routes
 |--------------------------------------------------------------------------
 |
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider and all of them will
-| be assigned to the "web" middleware group. Make something great!
+| These routes are loaded with 'old' prefix from web.php
 |
 */
 
-/*
-* ADMIN ROUTES
-*/
-Route::middleware(['auth', 'role:admin'])->group(function () {
-    Route::prefix('admin')->group(function () {
-        // DASHBOARD
-        Route::get('/dashboard', [DashboardAdminController::class, 'index'])
-            ->name('admin.dashboard');
-    });
-});
-
-
-
-/*
-*  OLD ROUTES
-*/
 Route::get('/', [AppController::class, 'index']);
 
 
@@ -147,6 +117,3 @@ Route::post('/unit/store', [UkmController::class, 'store'])->name('unit.store')-
 Route::get('/unit/edit/{id}', [UkmController::class, 'edit'])->name('unit.edit')->middleware('auth');
 Route::post('/unit/update/{id}', [UkmController::class, 'update'])->name('unit.update')->middleware('auth');
 Route::post('unit/destroy/{id}', [UkmController::class, 'destroy'])->name('unit.destroy')->middleware('auth');
-
-
-require __DIR__ . '/auth.php';
