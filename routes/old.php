@@ -58,9 +58,9 @@ Route::get('/ukm', [AppController::class, 'ukm']);
 
 Route::get('/detail_ukm/{slug}', [AppController::class, 'detail_ukm']);
 
-Route::get('/login', [AuthController::class, 'index'])->name('login')->middleware('guest');
-Route::post('/login', [AuthController::class, 'authenticate']);
-Route::post('/logout', [AuthController::class, 'logout']);
+// Route::get('/login', [AuthController::class, 'index'])->name('login')->middleware('guest');
+// Route::post('/login', [AuthController::class, 'authenticate']);
+// Route::post('/logout', [AuthController::class, 'logout']);
 
 Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard')->middleware('auth');
 

@@ -1,71 +1,9 @@
-<!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="csrf-token" content="{{ csrf_token() }}">
-
-    <title>{{ config('app.name', 'BEMKMUDINUS') }}</title>
-
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.bunny.net">
-    <link href="https://fonts.bunny.net/css?family=inter:400,500,600,700&display=swap" rel="stylesheet" />
-
-    <!-- Tailwind + Vite -->
-    @vite(['resources/css/app.css', 'resources/js/app.js'])
-
-    <!-- Blink animation -->
-    <style>
-        @keyframes blinkSlow {
-
-            0%,
-            100% {
-                opacity: 1;
-            }
-
-            50% {
-                opacity: 0.3;
-            }
-        }
-
-        .animate-blink-slow {
-            animation: blinkSlow 2.5s ease-in-out infinite;
-        }
-    </style>
-</head>
-
-<body class="antialiased font-inter bg-[#ebe7ff] text-gray-900">
-
+<!-- Extends Layout -->
+@extends('auth.components.layout')
+<!-- Section Content -->
+@section('content')
     <!-- Include Message Modal Component -->
     @include('auth.components.message-modal')
-
-    {{-- Toast error login (pojok kanan atas) --}}
-    {{-- @php
-        $loginError = $errors->first('email') ?: $errors->first('password');
-    @endphp
-    @if ($loginError)
-        <div id="toast-error" class="fixed top-4 right-4 z-50 transition-all duration-300">
-            <div class="flex items-start gap-3 bg-red-600 text-white px-4 py-3 rounded-lg shadow-lg">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 flex-shrink-0 mt-0.5" viewBox="0 0 24 24"
-                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                    stroke-linejoin="round">
-                    <path
-                        d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z" />
-                    <line x1="12" y1="9" x2="12" y2="13" />
-                    <line x1="12" y1="17" x2="12.01" y2="17" />
-                </svg>
-                <div class="text-sm font-medium">{{ $loginError }}</div>
-                <button type="button" id="toastClose" class="ml-2 text-white/80 hover:text-white focus:outline-none">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 24 24" fill="none"
-                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <line x1="18" y1="6" x2="6" y2="18" />
-                        <line x1="6" y1="6" x2="18" y2="18" />
-                    </svg>
-                </button>
-            </div>
-        </div>
-    @endif --}}
 
     <!-- Wrapper -->
     <div class="min-h-screen flex items-center justify-center"
@@ -140,9 +78,9 @@
                                     </svg>
 
                                     <!-- Eye Closed (hidden by default) -->
-                                    <svg id="eyeClosedIcon" xmlns="http://www.w3.org/2000/svg" width="20"
-                                        height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                    <svg id="eyeClosedIcon" xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+                                        viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                        stroke-linecap="round" stroke-linejoin="round"
                                         class="lucide lucide-eye-closed hidden">
                                         <path d="m15 18-.722-3.25" />
                                         <path d="M2 8a10.645 10.645 0 0 0 20 0" />
@@ -185,7 +123,7 @@
                                 class="w-full flex items-center justify-center gap-2 border border-gray-300 rounded-lg py-2 hover:bg-gray-50 transition">
                                 <img src="https://www.svgrepo.com/show/475656/google-color.svg" class="w-5 h-5"
                                     alt="google">
-                                <span class="text-sm text-gray-700">Login with Google</span>
+                                <span class="text-sm text-gray-700">Login dengan Google</span>
                             </a>
                         </div>
                     </form>
@@ -195,8 +133,7 @@
                 <div class="w-1/2 flex items-center justify-center p-8">
                     <div class="relative w-full h-full flex items-center justify-center">
                         <!-- Background base with soft gradient -->
-                        <div
-                            class="absolute inset-0 rounded-3xl bg-gradient-to-br from-indigo-100 via-purple-50 to-white">
+                        <div class="absolute inset-0 rounded-3xl bg-gradient-to-br from-indigo-100 via-purple-50 to-white">
                         </div>
 
                         <!-- Decorative blurred circles / blobs -->
@@ -236,120 +173,6 @@
                     </div>
                 </div>
             </div>
-
-            <script>
-                // Toast auto-hide for login error (top-right)
-                document.addEventListener('DOMContentLoaded', function() {
-                    const toast = document.getElementById('toast-error');
-                    const closeBtn = document.getElementById('toastClose');
-                    if (!toast) return;
-
-                    function hideToast() {
-                        toast.classList.add('opacity-0', 'translate-x-2');
-                        setTimeout(() => toast.remove(), 300);
-                    }
-
-                    const timer = setTimeout(hideToast, 5000);
-                    if (closeBtn) {
-                        closeBtn.addEventListener('click', function() {
-                            clearTimeout(timer);
-                            hideToast();
-                        });
-                    }
-                });
-
-                // Toggle Password Visibility
-                document.addEventListener('DOMContentLoaded', function() {
-                    const passwordInput = document.getElementById('password');
-                    const togglePassword = document.getElementById('togglePassword');
-                    const eyeIcon = document.getElementById('eyeIcon');
-                    const eyeClosedIcon = document.getElementById('eyeClosedIcon');
-
-                    togglePassword.addEventListener('click', function() {
-                        const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
-                        passwordInput.setAttribute('type', type);
-
-                        // Toggle icons
-                        eyeIcon.classList.toggle('hidden');
-                        eyeClosedIcon.classList.toggle('hidden');
-                    });
-                });
-
-                // Dynamic Email Icon Color Change
-                document.addEventListener('DOMContentLoaded', function() {
-                    const emailInput = document.getElementById('email');
-                    const iconWrap = document.getElementById('emailIconWrap');
-
-                    if (!emailInput || !iconWrap) return;
-
-                    function updateIcon() {
-                        if (document.activeElement === emailInput || emailInput.value.trim() !== '') {
-                            iconWrap.classList.remove('text-gray-400');
-                            iconWrap.classList.add('text-blue-500');
-                        } else {
-                            iconWrap.classList.remove('text-blue-500');
-                            iconWrap.classList.add('text-gray-400');
-                        }
-                    }
-
-                    ['focus', 'blur', 'input', 'change'].forEach(evt => {
-                        emailInput.addEventListener(evt, updateIcon);
-                    });
-
-                    // initialize state
-                    updateIcon();
-                });
-
-                // Dynamic Password Icon Color Change
-                document.addEventListener('DOMContentLoaded', function() {
-                    const passwordInput = document.getElementById('password');
-                    const passwordIconWrap = document.getElementById('passwordIconWrap');
-                    const eyeIcon = document.getElementById('eyeIcon');
-                    const eyeClosedIcon = document.getElementById('eyeClosedIcon');
-
-                    if (!passwordInput || !passwordIconWrap) return;
-
-                    function updatePasswordIcon() {
-                        const active = (document.activeElement === passwordInput || passwordInput.value.trim() !== '');
-
-                        if (active) {
-                            passwordIconWrap.classList.remove('text-gray-400');
-                            passwordIconWrap.classList.add('text-blue-500');
-
-                            if (eyeIcon) {
-                                eyeIcon.classList.remove('text-gray-400');
-                                eyeIcon.classList.add('text-blue-500');
-                            }
-                            if (eyeClosedIcon) {
-                                eyeClosedIcon.classList.remove('text-gray-400');
-                                eyeClosedIcon.classList.add('text-blue-500');
-                            }
-                        } else {
-                            passwordIconWrap.classList.remove('text-blue-500');
-                            passwordIconWrap.classList.add('text-gray-400');
-
-                            if (eyeIcon) {
-                                eyeIcon.classList.remove('text-blue-500');
-                                eyeIcon.classList.add('text-gray-400');
-                            }
-                            if (eyeClosedIcon) {
-                                eyeClosedIcon.classList.remove('text-blue-500');
-                                eyeClosedIcon.classList.add('text-gray-400');
-                            }
-                        }
-                    }
-
-                    ['focus', 'blur', 'input', 'change'].forEach(evt => {
-                        passwordInput.addEventListener(evt, updatePasswordIcon);
-                    });
-
-                    // initialize state
-                    updatePasswordIcon();
-                });
-            </script>
         </div>
     </div>
-
-</body>
-
-</html>
+@endsection

@@ -7,9 +7,18 @@ use Illuminate\Support\Facades\Route;
 * ADMIN CONTROLLER
 */
 use App\Http\Controllers\Admin\DashboardAdminController;
+use App\Http\Controllers\Admin\SambutanPresmaAdminController;
+use App\Http\Controllers\Admin\VisiMisiAdminController;
+use App\Http\Controllers\Admin\KabinetAdminController;
+use App\Http\Controllers\Admin\StrukturalAdminController;
+use App\Http\Controllers\Admin\ProgramKerjaAdminController;
+use App\Http\Controllers\Admin\PendaftaranAdminController;
+use App\Http\Controllers\Admin\BeritaAdminController;
+use App\Http\Controllers\Admin\PartnershipAdminController;
+use App\Http\Controllers\Admin\KontakAdminController;
 
 /*
-* OLD CONTROLLERS
+* OLD CONTROLLER
 */
 use App\Http\Controllers\AppController;
 use App\Http\Controllers\AuthController;
@@ -24,8 +33,6 @@ use App\Http\Controllers\PhotoController;
 use App\Http\Controllers\ProkerController;
 use App\Http\Controllers\UkmController;
 
-
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -38,20 +45,78 @@ use App\Http\Controllers\UkmController;
 */
 
 /*
+* AUTHENTICATION ROUTES
+*/
+
+require __DIR__ . '/auth.php';
+
+/*
 * ADMIN ROUTES
 */
-Route::middleware(['auth', 'role:admin'])->group(function () {
+Route::middleware(['auth'])->group(function () {
     Route::prefix('admin')->group(function () {
         // DASHBOARD
         Route::get('/dashboard', [DashboardAdminController::class, 'index'])
             ->name('admin.dashboard');
+
+        // SAMBUTAN PRESMA
+        Route::prefix('sambutan-presma')->group(function () {
+            Route::get('/', [SambutanPresmaAdminController::class, 'index'])
+                ->name('admin.sambutan-presma.index');
+        });
+
+        // VISI MISI
+        Route::prefix('visi-misi')->group(function () {
+            Route::get('/', [VisiMisiAdminController::class, 'index'])
+                ->name('admin.visi-misi.index');
+        });
+
+        // KABINET
+        Route::prefix('kabinet')->group(function () {
+            Route::get('/', [KabinetAdminController::class, 'index'])
+                ->name('admin.kabinet.index');
+        });
+
+        // STRUKTURAL
+        Route::prefix('struktural')->group(function () {
+            Route::get('/', [StrukturalAdminController::class, 'index'])
+                ->name('admin.struktural.index');
+        });
+
+        // PROGRAM KERJA
+        Route::prefix('program-kerja')->group(function () {
+            Route::get('/', [ProgramKerjaAdminController::class, 'index'])
+                ->name('admin.program-kerja.index');
+        });
+
+        // PENDAFTARAN
+        Route::prefix('pendaftaran')->group(function () {
+            Route::get('/', [PendaftaranAdminController::class, 'index'])
+                ->name('admin.pendaftaran.index');
+        });
+
+        // BERITA
+        Route::prefix('berita')->group(function () {
+            Route::get('/', [BeritaAdminController::class, 'index'])
+                ->name('admin.berita.index');
+        });
+
+        // PARTNERSHIP
+        Route::prefix('partnership')->group(function () {
+            Route::get('/', [PartnershipAdminController::class, 'index'])
+                ->name('admin.partnership.index');
+        });
+
+        // KONTAK
+        Route::prefix('kontak')->group(function () {
+            Route::get('/', [KontakAdminController::class, 'index'])
+                ->name('admin.kontak.index');
+        });
     });
 });
 
-
-
 /*
-*  OLD ROUTES
+* OLD ROUTES
 */
 Route::get('/', [AppController::class, 'index']);
 
@@ -88,9 +153,9 @@ Route::get('/ukm', [AppController::class, 'ukm']);
 
 Route::get('/detail_ukm/{slug}', [AppController::class, 'detail_ukm']);
 
-Route::get('/login', [AuthController::class, 'index'])->name('login')->middleware('guest');
-Route::post('/login', [AuthController::class, 'authenticate']);
-Route::post('/logout', [AuthController::class, 'logout']);
+// Route::get('/login', [AuthController::class, 'index'])->name('login')->middleware('guest');
+// Route::post('/login', [AuthController::class, 'authenticate']);
+// Route::post('/logout', [AuthController::class, 'logout']);
 
 Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard')->middleware('auth');
 
@@ -147,6 +212,3 @@ Route::post('/unit/store', [UkmController::class, 'store'])->name('unit.store')-
 Route::get('/unit/edit/{id}', [UkmController::class, 'edit'])->name('unit.edit')->middleware('auth');
 Route::post('/unit/update/{id}', [UkmController::class, 'update'])->name('unit.update')->middleware('auth');
 Route::post('unit/destroy/{id}', [UkmController::class, 'destroy'])->name('unit.destroy')->middleware('auth');
-
-
-require __DIR__ . '/auth.php';
