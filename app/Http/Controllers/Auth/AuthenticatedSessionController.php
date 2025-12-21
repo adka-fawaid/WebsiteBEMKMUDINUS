@@ -77,17 +77,20 @@ class AuthenticatedSessionController extends Controller
             return redirect()->route('login')->with('error', 'Google authentication failed.');
         }
 
-        // Use updateOrCreate to handle both new and existing users
-        $user = User::updateOrCreate(
-            ['email' => $googleUser->email],
-            [
-                'nama' => $googleUser->name,
-                'google_id' => $googleUser->id,
-                'google_token' => $googleUser->token,
-                'google_refresh_token' => $googleUser->refreshToken ?? null,
-                'avatar' => $googleUser->avatar ?? null,
-            ]
-        );
+        // Only allow registered users to login
+        $user = User::where('email', $googleUser->email)->first();
+
+        if (! $user) {
+            return redirect()->route('login')->with('error', 'Email tidak terdaftar. Periksa kembali email Anda.');
+        }
+
+        // Update Google credentials for existing user
+        $user->update([
+            'google_id' => $googleUser->id,
+            'google_token' => $googleUser->token,
+            'google_refresh_token' => $googleUser->refreshToken ?? null,
+            'avatar' => $googleUser->avatar ?? null,
+        ]);
 
         Auth::login($user);
 
