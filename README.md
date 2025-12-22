@@ -1,4 +1,4 @@
-# 🌐 Portal Website Resmi BEM KM UDINUS
+# 🌐 Website Resmi BEM KM UDINUS
 
 ![BEM KM UDINUS](public/img/logo/logo-bemkm-udinus.png)
 
