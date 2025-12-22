@@ -11,12 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('ukms', function (Blueprint $table) {
+        Schema::create('referensi_kajians', function (Blueprint $table) {
             $table->id();
-            $table->string('judul')->nullable();
-            $table->string('slug')->nullable();
-            $table->string('image')->nullable();
-            $table->longText('desc')->nullable();
+            $table->foreignId('berita_kajian_id')->constrained('berita_kajians')->onDelete('cascade');
+            $table->string('judul');
+            $table->string('link');
             $table->timestamps();
         });
     }
@@ -26,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('ukms');
+        Schema::dropIfExists('referensi_kajians');
     }
 };

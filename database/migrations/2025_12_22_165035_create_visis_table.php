@@ -11,12 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('blogs', function (Blueprint $table) {
+        Schema::create('visis', function (Blueprint $table) {
             $table->id();
-            $table->string('judul')->nullable();
-            $table->string('slug')->nullable();
-            $table->string('image')->nullable();
-            $table->longText('desc')->nullable();
+            $table->foreignId('kabinet_id')->constrained('kabinets')->onDelete('cascade');
+            $table->longText('visi');
             $table->timestamps();
         });
     }
@@ -26,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('blogs');
+        Schema::dropIfExists('visis');
     }
 };

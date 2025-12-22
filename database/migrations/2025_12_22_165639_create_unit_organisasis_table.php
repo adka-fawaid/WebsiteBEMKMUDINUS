@@ -11,12 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('kabinets', function (Blueprint $table) {
+        Schema::create('unit_organisasis', function (Blueprint $table) {
             $table->id();
             $table->string('nama');
-            $table->string('periode');
-            $table->string('logo');
+            $table->enum('kategori', ['Badan Pengurus Harian', 'Biro', 'Kementerian']);
             $table->longText('deskripsi')->nullable();
+            $table->string('logo')->nullable();
             $table->timestamps();
         });
     }
@@ -26,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('kabinets');
+        Schema::dropIfExists('unit_organisasis');
     }
 };

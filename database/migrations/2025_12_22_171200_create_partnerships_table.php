@@ -11,11 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('kabinets', function (Blueprint $table) {
+        Schema::create('partnerships', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('kategori_partnership_id')->constrained('kategori_partnerships')->onDelete('cascade');
             $table->string('nama');
-            $table->string('periode');
-            $table->string('logo');
             $table->longText('deskripsi')->nullable();
             $table->timestamps();
         });
@@ -26,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('kabinets');
+        Schema::dropIfExists('partnerships');
     }
 };

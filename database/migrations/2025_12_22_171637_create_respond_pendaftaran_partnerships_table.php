@@ -11,12 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('forums', function (Blueprint $table) {
+        Schema::create('respond_pendaftaran_partnerships', function (Blueprint $table) {
             $table->id();
-            $table->string('judul')->nullable();
-            $table->string('slug')->nullable();
-            $table->string('image')->nullable();
-            $table->longText('desc')->nullable();
+            $table->foreignId('partnership_id')->constrained('partnerships')->onDelete('cascade');
+            $table->string('pertanyaan');
+            $table->longText('jawaban');
             $table->timestamps();
         });
     }
@@ -26,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('forums');
+        Schema::dropIfExists('respond_pendaftaran_partnerships');
     }
 };

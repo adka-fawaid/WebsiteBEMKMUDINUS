@@ -47,7 +47,6 @@ use App\Http\Controllers\UkmController;
 /*
 * AUTHENTICATION ROUTES
 */
-
 require __DIR__ . '/auth.php';
 
 /*
