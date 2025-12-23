@@ -17,26 +17,18 @@ class AppController extends Controller
     public function index()
     {
         return view('welcome', [
-            'artikels' => Blog::orderBy('id', 'desc')->limit(3)->get(),
-            'photos' => Photo::orderBy('id', 'desc')->limit(3)->get(),
             'partnerships' => Partnership::orderBy('id', 'desc')->limit(3)->get(),
-            'forums' => Forum::orderBy('id', 'desc')->limit(3)->get()
         ]);
     }
 
     public function berita()
     {
-        return view('berita.berita', [
-            'artikels' => Blog::orderBy('id', 'desc')->get()
-        ]);
+        return view('berita.berita');
     }
 
     public function detail($slug)
     {
-        $artikel = Blog::where('slug', $slug)->first();
-        return view('berita.detail', [
-            'artikel' => $artikel
-        ]);
+        return view('berita.detail');
     }
 
     public function partnership()
@@ -56,24 +48,17 @@ class AppController extends Controller
 
     public function forum()
     {
-        return view('forum.forum', [
-            'forums' => Forum::orderBy('id', 'desc')->get()
-        ]);
+        return view('forum.forum');
     }
 
     public function detail_forum($slug)
     {
-        $forum = Forum::where('slug', $slug)->first();
-        return view('forum.detail_forum', [
-            'forum' => $forum
-        ]);
+        return view('forum.detail_forum');
     }
 
     public function foto()
     {
-        return view('foto.foto', [
-            'photos' => Photo::orderBy('id', 'desc')->get()
-        ]);
+        return view('foto.foto');
     }
 
     public function calendar()
@@ -98,45 +83,30 @@ class AppController extends Controller
 
     public function ormawa()
     {
-        return view('ormawa.ormawa', [
-            'ormawas' => Ormawa::orderBy('id', 'desc')->get()
-        ]);
+        return view('ormawa.ormawa');
     }
 
     public function detail_ormawa($slug)
     {
-        $ormawa = Ormawa::where('slug', $slug)->first();
-        return view('ormawa.detail_ormawa', [
-            'ormawa' => $ormawa
-        ]);
+        return view('ormawa.detail_ormawa');
     }
 
     public function proker()
     {
-        return view('proker.proker', [
-            'prokers' => Proker::orderBy('id', 'desc')->get()
-        ]);
+        return view('proker.proker');
     }
 
     public function detail_proker($slug)
     {
-        $proker = Proker::where('slug', $slug)->first();
-        return view('proker.detail_proker', [
-            'proker' => $proker
-        ]);
+        return view('proker.detail_proker');
     }
     public function ukm()
     {
-        return view('ukm.ukm', [
-            'ukms' => Ukm::orderBy('id', 'desc')->get()
-        ]);
+        return view('ukm.ukm');
     }
 
     public function detail_ukm($slug)
     {
-        $ukm = Ukm::where('slug', $slug)->first();
-        return view('ukm.detail_ukm', [
-            'ukm' => $ukm
-        ]);
+        return view('ukm.detail_ukm');
     }
 }
