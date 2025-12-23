@@ -12,7 +12,6 @@
         </div>
     </section>
 
-
     <!-- Partnership -->
     <section id="partnership" class="py-5">
         <div class="container py-5">

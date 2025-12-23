@@ -47,6 +47,7 @@ use App\Http\Controllers\UkmController;
 /*
 * AUTHENTICATION ROUTES
 */
+
 require __DIR__ . '/auth.php';
 
 /*
@@ -62,6 +63,10 @@ Route::middleware(['auth'])->group(function () {
         Route::prefix('sambutan-presma')->group(function () {
             Route::get('/', [SambutanPresmaAdminController::class, 'index'])
                 ->name('admin.sambutan-presma.index');
+            Route::get('/edit/{id}', [SambutanPresmaAdminController::class, 'edit'])
+                ->name('admin.sambutan-presma.edit');
+            Route::put('/update/{id}', [SambutanPresmaAdminController::class, 'update'])
+                ->name('admin.sambutan-presma.update');
         });
 
         // VISI MISI
@@ -211,5 +216,3 @@ Route::post('/unit/store', [UkmController::class, 'store'])->name('unit.store')-
 Route::get('/unit/edit/{id}', [UkmController::class, 'edit'])->name('unit.edit')->middleware('auth');
 Route::post('/unit/update/{id}', [UkmController::class, 'update'])->name('unit.update')->middleware('auth');
 Route::post('unit/destroy/{id}', [UkmController::class, 'destroy'])->name('unit.destroy')->middleware('auth');
-
-

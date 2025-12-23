@@ -21,7 +21,8 @@
                     <div class="flex items-center justify-between">
                         <div>
                             <h2 class="text-2xl font-bold mb-2">Selamat Datang, Admin! 👋</h2>
-                            <p class="text-blue-100">Kelola event dan data dengan mudah melalui dashboard ini.</p>
+                            <p class="text-blue-100">Akses penuh untuk mengelola seluruh konten, kegiatan, dan fitur
+                                website BEM KM UDINUS.</p>
                         </div>
                         <div class="hidden md:block">
                             <svg class="w-24 h-24 text-white opacity-50" xmlns="http://www.w3.org/2000/svg"
