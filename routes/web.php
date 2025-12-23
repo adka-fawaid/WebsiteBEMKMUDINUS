@@ -212,4 +212,6 @@ Route::get('/unit/edit/{id}', [UkmController::class, 'edit'])->name('unit.edit')
 Route::post('/unit/update/{id}', [UkmController::class, 'update'])->name('unit.update')->middleware('auth');
 Route::post('unit/destroy/{id}', [UkmController::class, 'destroy'])->name('unit.destroy')->middleware('auth');
 
-
+Route::get('/profil-belajar', function () {
+    return view('index2.blade.php');
+});
