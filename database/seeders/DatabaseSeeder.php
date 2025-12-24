@@ -19,6 +19,7 @@ class DatabaseSeeder extends Seeder
                 KabinetSeeder::class,
                 VisiSeeder::class,
                 MisiSeeder::class,
+                UnitOrganisasiSeeder::class,
             ]
         );
     }

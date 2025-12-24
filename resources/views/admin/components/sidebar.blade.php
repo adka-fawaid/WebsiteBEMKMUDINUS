@@ -49,7 +49,8 @@
                     request()->routeIs('admin.sambutan-presma.index') ||
                     request()->routeIs('admin.visi-misi.index') ||
                     request()->routeIs('admin.kabinet.index') ||
-                    request()->routeIs('admin.struktural.index');
+                    request()->routeIs('admin.struktural.index') ||
+                    request()->routeIs('admin.struktural.unit-organisasi.index');
             @endphp
             <li class="relative" x-data="{ open: {{ $isLandingPageActive ? 'true' : 'false' }} }">
                 @if ($isLandingPageActive)
@@ -132,10 +133,10 @@
                     </li>
                     <li class="relative">
                         <a href="{{ route('admin.struktural.index') }}"
-                            class="flex items-center mx-4 p-2 rounded-lg group transition-all duration-300 {{ request()->routeIs('admin.struktural.index') ? 'bg-gradient-to-r from-blue-500 to-indigo-500 text-white shadow-md' : 'hover:bg-gradient-to-r hover:from-blue-50 hover:to-indigo-50 hover:pl-3' }}">
+                            class="flex items-center mx-4 p-2 rounded-lg group transition-all duration-300 {{ request()->routeIs('admin.struktural.index') || request()->routeIs('admin.struktural.unit-organisasi.index') ? 'bg-gradient-to-r from-blue-500 to-indigo-500 text-white shadow-md' : 'hover:bg-gradient-to-r hover:from-blue-50 hover:to-indigo-50 hover:pl-3' }}">
                             <div
-                                class="flex items-center justify-center w-6 h-6 rounded-md {{ request()->routeIs('admin.struktural.index') ? 'bg-white/20' : 'bg-blue-50 group-hover:bg-blue-100' }} transition-all duration-300">
-                                <svg class="shrink-0 w-3.5 h-3.5 {{ request()->routeIs('admin.struktural.index') ? 'text-white' : 'text-blue-600' }}"
+                                class="flex items-center justify-center w-6 h-6 rounded-md {{ request()->routeIs('admin.struktural.index') || request()->routeIs('admin.struktural.unit-organisasi.index') ? 'bg-white/20' : 'bg-blue-50 group-hover:bg-blue-100' }} transition-all duration-300">
+                                <svg class="shrink-0 w-3.5 h-3.5 {{ request()->routeIs('admin.struktural.index') || request()->routeIs('admin.struktural.unit-organisasi.index') ? 'text-white' : 'text-blue-600' }}"
                                     xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                                     stroke="currentColor" stroke-width="2" stroke-linecap="round"
                                     stroke-linejoin="round">

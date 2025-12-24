@@ -1,5 +1,5 @@
 <x-app-layout>
-    <!-- Struktural Content -->
+    <!-- Unit Organisasi Content -->
     <main class="ml-0 md:ml-64 peer-checked:md:ml-0 transition-all duration-300">
         <section class="pt-24 px-8 pb-10 bg-gradient-to-br from-gray-50 via-blue-50 to-indigo-50 min-h-screen">
             <div class="max-w-7xl mx-auto px-3">
@@ -26,14 +26,40 @@
                                     <polyline points="9 18 15 12 9 6" />
                                 </svg>
                             </li>
-                            <li class="text-gray-700 font-semibold">Struktural</li>
+                            <li>
+                                <a href="{{ route('admin.struktural.index') }}"
+                                    class="text-blue-600 hover:text-blue-700 font-medium transition duration-150">
+                                    Struktural
+                                </a>
+                            </li>
+                            <li>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                    stroke-linecap="round" stroke-linejoin="round" class="text-gray-400">
+                                    <polyline points="9 18 15 12 9 6" />
+                                </svg>
+                            </li>
+                            <li class="text-gray-700 font-semibold">Kelola Anggota Unit</li>
                         </ol>
                     </nav>
                     <div>
-                        <p class="text-xs font-semibold text-blue-600 uppercase tracking-wider mb-1">Manajemen Data
+                        <p class="text-xs font-semibold text-blue-600 uppercase tracking-wider mb-1">Manajemen Anggota
                         </p>
-                        <h1 class="text-3xl font-bold text-gray-900">Kelola Struktural</h1>
+                        <h1 class="text-3xl font-bold text-gray-900">Kelola Anggota Unit Organisasi</h1>
                     </div>
+                </div>
+
+                <!-- Back Button -->
+                <div class="mb-6">
+                    <a href="{{ route('admin.struktural.index') }}"
+                        class="inline-flex items-center gap-2 px-4 py-2.5 bg-white hover:bg-gray-50 text-gray-700 font-semibold rounded-lg transition-all duration-200 shadow-md hover:shadow-lg border border-gray-200 group">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
+                            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round" class="group-hover:-translate-x-1 transition-transform">
+                            <polyline points="15 18 9 12 15 6" />
+                        </svg>
+                        Kembali ke Struktural
+                    </a>
                 </div>
 
                 <!-- Main Content -->
@@ -46,16 +72,15 @@
                                     <svg class="w-5 h-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none"
                                         viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"
                                         stroke-linecap="round" stroke-linejoin="round">
-                                        <path d="M16 2v2" />
-                                        <path d="M17.915 22a6 6 0 0 0-12 0" />
-                                        <path d="M8 2v2" />
-                                        <circle cx="12" cy="12" r="4" />
-                                        <rect x="3" y="4" width="18" height="18" rx="2" />
+                                        <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
+                                        <circle cx="9" cy="7" r="4" />
+                                        <path d="M22 21v-2a4 4 0 0 0-3-3.87" />
+                                        <path d="M16 3.13a4 4 0 0 1 0 7.75" />
                                     </svg>
                                 </div>
                                 <div>
-                                    <h2 class="text-xl font-bold text-white">Data Struktural</h2>
-                                    <p class="text-xs text-blue-100">Informasi unit organisasi</p>
+                                    <h2 class="text-xl font-bold text-white">Data Anggota Unit</h2>
+                                    <p class="text-xs text-blue-100">Daftar anggota dalam unit organisasi</p>
                                 </div>
                             </div>
                         </div>
@@ -65,15 +90,15 @@
                     <div class="p-6">
                         <div class="overflow-x-auto">
                             <div class="flex items-center justify-between mb-4">
-                                <h3 class="text-lg font-bold text-gray-900">Data Unit Organisasi</h3>
-                                <button type="button" data-modal-target="add-struktural-modal"
-                                    data-modal-toggle="add-struktural-modal"
+                                <h3 class="text-lg font-bold text-gray-900">Daftar Anggota</h3>
+                                <button type="button" data-modal-target="add-anggota-modal"
+                                    data-modal-toggle="add-anggota-modal"
                                     class="text-white bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700 font-semibold rounded-lg text-sm px-5 py-2.5 transition-all duration-150 flex items-center gap-2 shadow-lg hover:shadow-xl">
                                     <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                             d="M12 4v16m8-8H4" />
                                     </svg>
-                                    Tambah Struktural
+                                    Tambah Anggota
                                 </button>
                             </div>
 
@@ -86,23 +111,23 @@
                                         </th>
                                         <th scope="col" class="px-6 py-4 text-center font-bold w-24">
                                             <span
-                                                class="text-xs font-extrabold text-gray-700 uppercase tracking-wider">Logo</span>
+                                                class="text-xs font-extrabold text-gray-700 uppercase tracking-wider">Foto</span>
                                         </th>
-                                        <th scope="col" class="px-6 py-4 text-center font-bold">
+                                        <th scope="col" class="px-6 py-4 text-left font-bold">
                                             <span
                                                 class="text-xs font-extrabold text-gray-700 uppercase tracking-wider">Nama</span>
                                         </th>
                                         <th scope="col" class="px-6 py-4 text-center font-bold">
                                             <span
-                                                class="text-xs font-extrabold text-gray-700 uppercase tracking-wider">Kategori</span>
+                                                class="text-xs font-extrabold text-gray-700 uppercase tracking-wider">NIM</span>
                                         </th>
                                         <th scope="col" class="px-6 py-4 text-center font-bold">
                                             <span
-                                                class="text-xs font-extrabold text-gray-700 uppercase tracking-wider">Deskripsi</span>
+                                                class="text-xs font-extrabold text-gray-700 uppercase tracking-wider">Jabatan</span>
                                         </th>
-                                        <th scope="col" class="px-6 py-4 text-center font-bold w-32">
+                                        <th scope="col" class="px-6 py-4 text-center font-bold">
                                             <span
-                                                class="text-xs font-extrabold text-gray-700 uppercase tracking-wider">Kelola</span>
+                                                class="text-xs font-extrabold text-gray-700 uppercase tracking-wider">Periode</span>
                                         </th>
                                         <th scope="col" class="px-6 py-4 text-center font-bold w-40">
                                             <span
@@ -111,7 +136,7 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @forelse ($unitOrganisasis as $index => $item)
+                                    @forelse ($anggotaUnits as $index => $anggota)
                                         <tr
                                             class="group border-b border-gray-100 hover:bg-gradient-to-r hover:from-blue-50 hover:to-indigo-50 hover:shadow-lg hover:!border-l-4 hover:!border-l-blue-600 border-l-4 border-l-white transition-all duration-300">
                                             <td class="px-6 py-5 text-center">
@@ -121,72 +146,49 @@
                                                 </span>
                                             </td>
                                             <td class="px-6 py-5 text-center">
-                                                @if ($item->logo)
+                                                @if ($anggota->foto)
                                                     <div class="flex justify-center">
-                                                        <img src="{{ asset('storage/img/unit-organisasi/' . $item->logo) }}"
-                                                            alt="{{ $item->nama }}"
-                                                            class="w-12 h-12 rounded-lg object-cover border-2 border-blue-100 shadow-sm">
+                                                        <img src="{{ asset('storage/img/anggota/' . $anggota->foto) }}"
+                                                            alt="{{ $anggota->nama }}"
+                                                            class="w-12 h-12 rounded-full object-cover border-2 border-blue-100 shadow-sm">
                                                     </div>
                                                 @else
                                                     <div class="flex justify-center">
                                                         <div
-                                                            class="w-12 h-12 rounded-lg bg-gray-100 flex items-center justify-center">
-                                                            <svg class="w-6 h-6 text-gray-400"
+                                                            class="w-12 h-12 rounded-full bg-gradient-to-br from-blue-100 to-indigo-100 flex items-center justify-center">
+                                                            <svg class="w-6 h-6 text-blue-600"
                                                                 xmlns="http://www.w3.org/2000/svg" fill="none"
                                                                 viewBox="0 0 24 24" stroke="currentColor">
                                                                 <path stroke-linecap="round" stroke-linejoin="round"
                                                                     stroke-width="2"
-                                                                    d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                                                                    d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
                                                             </svg>
                                                         </div>
                                                     </div>
                                                 @endif
                                             </td>
                                             <td class="px-6 py-5">
-                                                <p class="text-sm font-semibold text-gray-900">{{ $item->nama }}</p>
+                                                <p class="text-sm font-semibold text-gray-900">{{ $anggota->nama }}</p>
                                             </td>
                                             <td class="px-6 py-5 text-center">
                                                 <span
-                                                    class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium 
-                                                    @if ($item->kategori === 'Badan Pengurus Harian') bg-blue-100 text-blue-700
-                                                    @elseif($item->kategori === 'Biro') bg-indigo-100 text-indigo-700
-                                                    @else bg-purple-100 text-purple-700 @endif">
-                                                    {{ $item->kategori }}
-                                                </span>
-                                            </td>
-                                            <td class="px-6 py-5">
-                                                <p class="text-sm text-gray-700 line-clamp-2">
-                                                    {{ Str::limit($item->deskripsi, 80) }}
-                                                </p>
+                                                    class="text-sm text-gray-700 font-medium">{{ $anggota->nim }}</span>
                                             </td>
                                             <td class="px-6 py-5 text-center">
-                                                <a href="{{ route('admin.struktural.unit-organisasi.index', $item->id) }}"
-                                                    class="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white text-sm font-semibold rounded-lg transition-all duration-200 shadow-md hover:shadow-lg group">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" width="16"
-                                                        height="16" viewBox="0 0 24 24" fill="none"
-                                                        stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                                        stroke-linejoin="round"
-                                                        class="group-hover:translate-x-0.5 transition-transform">
-                                                        <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
-                                                        <circle cx="9" cy="7" r="4" />
-                                                        <path d="M22 21v-2a4 4 0 0 0-3-3.87" />
-                                                        <path d="M16 3.13a4 4 0 0 1 0 7.75" />
-                                                    </svg>
-                                                    Kelola Unit
-                                                    <svg xmlns="http://www.w3.org/2000/svg" width="14"
-                                                        height="14" viewBox="0 0 24 24" fill="none"
-                                                        stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                                        stroke-linejoin="round"
-                                                        class="group-hover:translate-x-1 transition-transform">
-                                                        <polyline points="9 18 15 12 9 6" />
-                                                    </svg>
-                                                </a>
+                                                <span
+                                                    class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-indigo-100 text-indigo-700">
+                                                    {{ $anggota->jabatan }}
+                                                </span>
+                                            </td>
+                                            <td class="px-6 py-5 text-center">
+                                                <span
+                                                    class="text-sm text-gray-700 font-medium">{{ $anggota->periode }}</span>
                                             </td>
                                             <td class="px-6 py-5">
                                                 <div class="flex items-center justify-center gap-2">
                                                     <button type="button"
-                                                        data-modal-target="show-struktural-modal-{{ $item->id }}"
-                                                        data-modal-toggle="show-struktural-modal-{{ $item->id }}"
+                                                        data-modal-target="show-anggota-modal-{{ $anggota->id }}"
+                                                        data-modal-toggle="show-anggota-modal-{{ $anggota->id }}"
                                                         class="group p-2 rounded-lg bg-blue-50 hover:bg-blue-100 transition-all duration-200 hover:shadow-md"
                                                         title="Lihat">
                                                         <svg xmlns="http://www.w3.org/2000/svg" width="18"
@@ -199,8 +201,8 @@
                                                         </svg>
                                                     </button>
                                                     <button type="button"
-                                                        data-modal-target="edit-struktural-modal-{{ $item->id }}"
-                                                        data-modal-toggle="edit-struktural-modal-{{ $item->id }}"
+                                                        data-modal-target="edit-anggota-modal-{{ $anggota->id }}"
+                                                        data-modal-toggle="edit-anggota-modal-{{ $anggota->id }}"
                                                         class="group p-2 rounded-lg bg-amber-50 hover:bg-amber-100 transition-all duration-200 hover:shadow-md"
                                                         title="Edit">
                                                         <svg xmlns="http://www.w3.org/2000/svg" width="18"
@@ -214,8 +216,8 @@
                                                         </svg>
                                                     </button>
                                                     <button type="button"
-                                                        data-modal-target="delete-struktural-modal-{{ $item->id }}"
-                                                        data-modal-toggle="delete-struktural-modal-{{ $item->id }}"
+                                                        data-modal-target="delete-anggota-modal-{{ $anggota->id }}"
+                                                        data-modal-toggle="delete-anggota-modal-{{ $anggota->id }}"
                                                         class="group p-2 rounded-lg bg-red-50 hover:bg-red-100 transition-all duration-200 hover:shadow-md"
                                                         title="Hapus">
                                                         <svg xmlns="http://www.w3.org/2000/svg" width="18"
@@ -236,14 +238,10 @@
                                             </td>
                                         </tr>
 
-                                        <!-- Include Show Modal -->
-                                        @include('admin.struktural.show', ['item' => $item])
-
-                                        <!-- Include Edit Modal -->
-                                        @include('admin.struktural.edit', ['item' => $item])
-
-                                        <!-- Include Delete Modal -->
-                                        @include('admin.struktural.delete', ['item' => $item])
+                                        {{-- Modals will be included here later --}}
+                                        {{-- @include('admin.struktural.unit-organisasi.show', ['anggota' => $anggota]) --}}
+                                        {{-- @include('admin.struktural.unit-organisasi.edit', ['anggota' => $anggota]) --}}
+                                        {{-- @include('admin.struktural.unit-organisasi.delete', ['anggota' => $anggota]) --}}
                                     @empty
                                         <tr>
                                             <td colspan="7" class="px-6 py-16 text-center">
@@ -255,15 +253,17 @@
                                                             stroke="currentColor" stroke-width="1.5"
                                                             stroke-linecap="round" stroke-linejoin="round"
                                                             class="text-gray-400">
-                                                            <circle cx="12" cy="12" r="10" />
-                                                            <path d="M12 8v4" />
-                                                            <path d="M12 16h.01" />
+                                                            <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
+                                                            <circle cx="9" cy="7" r="4" />
+                                                            <path d="M22 21v-2a4 4 0 0 0-3-3.87" />
+                                                            <path d="M16 3.13a4 4 0 0 1 0 7.75" />
                                                         </svg>
                                                     </div>
                                                     <h3 class="text-lg font-bold text-gray-900 mb-1">Tidak Ada Data
+                                                        Anggota
                                                     </h3>
-                                                    <p class="text-sm text-gray-500">Belum ada data struktural. Klik
-                                                        tombol "Tambah Struktural" untuk menambah data.</p>
+                                                    <p class="text-sm text-gray-500">Belum ada anggota dalam unit ini.
+                                                        Klik tombol "Tambah Anggota" untuk menambah data.</p>
                                                 </div>
                                             </td>
                                         </tr>
@@ -277,36 +277,6 @@
         </section>
     </main>
 
-    <!-- Include Create Modal -->
-    @include('admin.struktural.create')
-
-    <script>
-        function switchTab(tabId) {
-            // Hide all tabs
-            document.querySelectorAll('.tab-content').forEach(tab => {
-                tab.classList.add('hidden');
-            });
-
-            // Remove active state from all buttons
-            document.querySelectorAll('.tab-button').forEach(button => {
-                button.classList.remove('border-blue-600', 'text-blue-600');
-                button.classList.add('border-transparent', 'text-gray-500', 'hover:text-gray-700',
-                    'hover:border-gray-300');
-            });
-
-            // Show selected tab
-            document.getElementById(tabId).classList.remove('hidden');
-
-            // Add active state to clicked button
-            const activeButton = document.querySelector(`[data-tab="${tabId}"]`);
-            activeButton.classList.remove('border-transparent', 'text-gray-500', 'hover:text-gray-700',
-                'hover:border-gray-300');
-            activeButton.classList.add('border-blue-600', 'text-blue-600');
-        }
-
-        // Initialize first tab as active
-        document.addEventListener('DOMContentLoaded', function() {
-            switchTab('visi-tab');
-        });
-    </script>
+    {{-- Include Create Modal --}}
+    {{-- @include('admin.struktural.unit-organisasi.create') --}}
 </x-app-layout>

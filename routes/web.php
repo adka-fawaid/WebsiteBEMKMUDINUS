@@ -97,6 +97,18 @@ Route::middleware(['auth'])->group(function () {
         Route::prefix('struktural')->group(function () {
             Route::get('/', [StrukturalAdminController::class, 'index'])
                 ->name('admin.struktural.index');
+            Route::post('/store', [StrukturalAdminController::class, 'store'])
+                ->name('admin.struktural.store');
+            Route::put('/update/{id}', [StrukturalAdminController::class, 'update'])
+                ->name('admin.struktural.update');
+            Route::delete('/destroy/{id}', [StrukturalAdminController::class, 'destroy'])
+                ->name('admin.struktural.destroy');
+
+            // UNIT ORGANISASI
+            Route::prefix('unit-organisasi')->group(function () {
+                Route::get('/{id}', [StrukturalAdminController::class, 'unitOrganisasi'])
+                    ->name('admin.struktural.unit-organisasi.index');
+            });
         });
 
         // PROGRAM KERJA
