@@ -14,10 +14,4 @@ class MaknaSimbol extends Model
         'simbol',
         'makna',
     ];
-
-    // Define relationship to Kabinet
-    public function kabinet()
-    {
-        return $this->belongsTo(Kabinet::class);
-    }
 }

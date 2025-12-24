@@ -15,13 +15,6 @@ class SambutanPresmaAdminController extends Controller
         return view('admin.sambutan-presma.index', compact('sambutanPresma'));
     }
 
-    public function edit($id)
-    {
-        $sambutanPresma = PresidenMahasiswa::findOrFail($id);
-
-        return view('admin.sambutan-presma.edit', compact('sambutanPresma'));
-    }
-
     public function update(Request $request, $id)
     {
         $sambutanPresma = PresidenMahasiswa::findOrFail($id);

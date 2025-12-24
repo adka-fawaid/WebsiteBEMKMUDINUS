@@ -1,8 +1,6 @@
 <x-app-layout>
-    <!-- Include Flash Message Modal -->
-    @include('admin.components.message-modal')
 
-    <!-- Dashboard Content -->
+    <!-- Sambutan Presma Content -->
     <main class="ml-0 md:ml-64 peer-checked:md:ml-0 transition-all duration-300">
         <section class="pt-24 px-8 pb-10 bg-gradient-to-br from-gray-50 via-blue-50 to-indigo-50 min-h-screen">
             <div class="max-w-7xl mx-auto px-3">

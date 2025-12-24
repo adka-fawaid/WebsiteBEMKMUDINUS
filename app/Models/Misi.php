@@ -13,10 +13,4 @@ class Misi extends Model
         'kabinet_id',
         'misi',
     ];
-
-    // Define relationship to Kabinet
-    public function kabinet()
-    {
-        return $this->belongsTo(Kabinet::class);
-    }
 }

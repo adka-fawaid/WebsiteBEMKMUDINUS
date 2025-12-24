@@ -13,7 +13,6 @@ return new class extends Migration
     {
         Schema::create('misis', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('kabinet_id')->constrained('kabinets')->onDelete('cascade');
             $table->longText('misi');
             $table->timestamps();
         });

@@ -16,6 +16,9 @@ class DatabaseSeeder extends Seeder
             [
                 UserSeeder::class,
                 PresidenMahasiswaSeeder::class,
+                KabinetSeeder::class,
+                VisiSeeder::class,
+                MisiSeeder::class,
             ]
         );
     }

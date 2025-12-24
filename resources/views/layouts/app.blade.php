@@ -22,6 +22,9 @@
         <!-- Navbar Admin -->
         @include('admin.components.navbar')
 
+        <!-- Flash Message Modal -->
+        @include('admin.components.message-modal')
+
         <!-- Main Content -->
         {{ $slot }}
 

@@ -13,10 +13,4 @@ class Visi extends Model
         'kabinet_id',
         'visi',
     ];
-
-    // Define relationship to Kabinet
-    public function kabinet()
-    {
-        return $this->belongsTo(Kabinet::class);
-    }
 }

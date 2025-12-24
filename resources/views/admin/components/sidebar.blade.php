@@ -97,22 +97,6 @@
                         </a>
                     </li>
                     <li class="relative">
-                        <a href="{{ route('admin.visi-misi.index') }}"
-                            class="flex items-center mx-4 p-2 rounded-lg group transition-all duration-300 {{ request()->routeIs('admin.visi-misi.index') ? 'bg-gradient-to-r from-blue-500 to-indigo-500 text-white shadow-md' : 'hover:bg-gradient-to-r hover:from-blue-50 hover:to-indigo-50 hover:pl-3' }}">
-                            <div
-                                class="flex items-center justify-center w-6 h-6 rounded-md {{ request()->routeIs('admin.visi-misi.index') ? 'bg-white/20' : 'bg-blue-50 group-hover:bg-blue-100' }} transition-all duration-300">
-                                <svg class="shrink-0 w-3.5 h-3.5 {{ request()->routeIs('admin.visi-misi.index') ? 'text-white' : 'text-blue-600' }}"
-                                    xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                                    stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                    stroke-linejoin="round">
-                                    <path d="M21 10.656V19a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h12.344" />
-                                    <path d="m9 11 3 3L22 4" />
-                                </svg>
-                            </div>
-                            <span class="flex-1 ms-2 text-sm font-medium">Visi & Misi</span>
-                        </a>
-                    </li>
-                    <li class="relative">
                         <a href="{{ route('admin.kabinet.index') }}"
                             class="flex items-center mx-4 p-2 rounded-lg group transition-all duration-300 {{ request()->routeIs('admin.kabinet.index') ? 'bg-gradient-to-r from-blue-500 to-indigo-500 text-white shadow-md' : 'hover:bg-gradient-to-r hover:from-blue-50 hover:to-indigo-50 hover:pl-3' }}">
                             <div
@@ -128,6 +112,22 @@
                                 </svg>
                             </div>
                             <span class="flex-1 ms-2 text-sm font-medium">Kabinet</span>
+                        </a>
+                    </li>
+                    <li class="relative">
+                        <a href="{{ route('admin.visi-misi.index') }}"
+                            class="flex items-center mx-4 p-2 rounded-lg group transition-all duration-300 {{ request()->routeIs('admin.visi-misi.index') ? 'bg-gradient-to-r from-blue-500 to-indigo-500 text-white shadow-md' : 'hover:bg-gradient-to-r hover:from-blue-50 hover:to-indigo-50 hover:pl-3' }}">
+                            <div
+                                class="flex items-center justify-center w-6 h-6 rounded-md {{ request()->routeIs('admin.visi-misi.index') ? 'bg-white/20' : 'bg-blue-50 group-hover:bg-blue-100' }} transition-all duration-300">
+                                <svg class="shrink-0 w-3.5 h-3.5 {{ request()->routeIs('admin.visi-misi.index') ? 'text-white' : 'text-blue-600' }}"
+                                    xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <path d="M21 10.656V19a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h12.344" />
+                                    <path d="m9 11 3 3L22 4" />
+                                </svg>
+                            </div>
+                            <span class="flex-1 ms-2 text-sm font-medium">Visi & Misi</span>
                         </a>
                     </li>
                     <li class="relative">

@@ -1,5 +1,5 @@
-<!-- Modal Edit Sambutan Presma -->
-<div id="edit-modal-{{ $sambutanPresma->id }}" tabindex="-1" aria-hidden="true"
+<!-- Modal Edit Kabinet -->
+<div id="edit-modal-{{ $kabinet->id }}" tabindex="-1" aria-hidden="true"
     class="hidden overflow-y-auto overflow-x-hidden fixed inset-0 z-50 flex justify-center items-center">
     <div class="relative p-4 w-full max-w-3xl h-full flex items-center justify-center">
         <!-- Modal content -->
@@ -27,13 +27,13 @@
                         <div>
                             <p class="text-xs font-semibold text-blue-100 uppercase tracking-wider mb-1">Edit Data</p>
                             <h3 class="text-xl md:text-2xl font-bold text-white leading-tight">
-                                Sambutan Presiden Mahasiswa
+                                Kabinet BEM KM UDINUS
                             </h3>
                         </div>
                     </div>
                     <button type="button"
                         class="flex-shrink-0 text-white/90 bg-white/10 hover:bg-white/20 backdrop-blur-sm rounded-lg text-sm w-10 h-10 inline-flex justify-center items-center transition-all duration-200 hover:scale-110"
-                        data-modal-hide="edit-modal-{{ $sambutanPresma->id }}">
+                        data-modal-hide="edit-modal-{{ $kabinet->id }}">
                         <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
                             viewBox="0 0 14 14">
                             <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
@@ -45,15 +45,15 @@
             </div>
 
             <!-- Modal body -->
-            <form action="{{ route('admin.sambutan-presma.update', $sambutanPresma->id) }}" method="POST"
-                enctype="multipart/form-data" class="flex-1 flex flex-col overflow-hidden">
+            <form id="form-edit-kabinet-{{ $kabinet->id }}" action="{{ route('admin.kabinet.update', $kabinet->id) }}"
+                method="POST" enctype="multipart/form-data" class="flex-1 flex flex-col overflow-hidden">
                 @csrf
                 @method('PUT')
 
                 <div class="flex-1 overflow-y-auto p-4 md:p-6 space-y-6">
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="grid grid-cols-1 gap-6">
                         <!-- Upload Foto -->
-                        <div class="md:col-span-2">
+                        <div>
                             <div
                                 class="bg-white rounded-xl p-6 shadow-sm hover:shadow-md transition-all duration-300 border border-gray-100">
                                 <div class="flex items-center gap-3 mb-4">
@@ -69,27 +69,27 @@
                                         </svg>
                                     </div>
                                     <div>
-                                        <label class="text-sm font-bold text-gray-900">Foto Presiden Mahasiswa</label>
-                                        <p class="text-xs text-gray-500">Upload foto baru (max 5MB)</p>
+                                        <label class="text-sm font-bold text-gray-900">Logo Kabinet</label>
+                                        <p class="text-xs text-gray-500">Upload logo baru (max 5MB)</p>
                                     </div>
                                 </div>
 
                                 <div class="flex flex-col md:flex-row gap-4 items-start">
                                     <!-- Current Photo Preview -->
                                     <div class="flex-shrink-0">
-                                        <img id="current-photo"
-                                            src="{{ asset('storage/img/presiden-mahasiswa/' . $sambutanPresma->foto) }}"
+                                        <img id="current-photo-kabinet"
+                                            src="{{ asset('storage/img/kabinet/' . $kabinet->logo) }}"
                                             alt="Current Photo"
-                                            class="w-32 h-40 object-cover rounded-xl shadow-md border-2 border-gray-200">
+                                            class="w-40 h-40 object-cover rounded-xl shadow-md border-2 border-gray-200">
                                     </div>
 
                                     <!-- Upload Area -->
                                     <div class="flex-1">
                                         <div
                                             class="relative border-2 border-dashed border-gray-300 rounded-xl p-6 hover:border-blue-400 transition-colors duration-300">
-                                            <input type="file" id="foto" name="foto" accept="image/*"
+                                            <input type="file" id="foto-kabinet" name="logo" accept="image/*"
                                                 class="absolute inset-0 w-full h-full opacity-0 cursor-pointer"
-                                                onchange="previewImage(event)">
+                                                onchange="previewImageKabinet(event)">
                                             <div class="text-center">
                                                 <svg class="mx-auto h-12 w-12 text-gray-400" stroke="currentColor"
                                                     fill="none" viewBox="0 0 48 48">
@@ -105,14 +105,14 @@
                                                 <p class="text-xs text-gray-500">PNG, JPG, GIF hingga 5MB</p>
                                             </div>
                                         </div>
-                                        <p class="mt-2 text-xs text-gray-500" id="file-name"></p>
+                                        <p class="mt-2 text-xs text-gray-500" id="file-name-kabinet"></p>
                                     </div>
                                 </div>
                             </div>
                         </div>
 
-                        <!-- Nama -->
-                        <div class="md:col-span-2">
+                        <!-- Nama Kabinet -->
+                        <div>
                             <div
                                 class="bg-white rounded-xl p-5 shadow-sm hover:shadow-md transition-all duration-300 border border-gray-100">
                                 <div class="flex items-start gap-3">
@@ -121,16 +121,16 @@
                                         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
                                             viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
                                             stroke-linecap="round" stroke-linejoin="round" class="text-white">
-                                            <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2" />
-                                            <circle cx="12" cy="7" r="4" />
+                                            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
+                                            <polyline points="9 22 9 12 15 12 15 22" />
                                         </svg>
                                     </div>
                                     <div class="flex-1">
-                                        <label for="nama"
+                                        <label for="nama_kabinet"
                                             class="block text-xs font-medium text-gray-900 uppercase tracking-wide mb-2">Nama
-                                            Lengkap</label>
-                                        <input type="text" id="nama" name="nama"
-                                            value="{{ old('nama', $sambutanPresma->nama) }}"
+                                            Kabinet</label>
+                                        <input type="text" id="nama_kabinet" name="nama"
+                                            value="{{ old('nama', $kabinet->nama) }}"
                                             class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200"
                                             required>
                                     </div>
@@ -138,40 +138,13 @@
                             </div>
                         </div>
 
-                        <!-- NIM -->
+                        <!-- Periode -->
                         <div>
                             <div
                                 class="bg-white rounded-xl p-5 shadow-sm hover:shadow-md transition-all duration-300 border border-gray-100">
                                 <div class="flex items-start gap-3">
                                     <div
-                                        class="flex-shrink-0 w-10 h-10 rounded-lg bg-gradient-to-br from-emerald-500 to-emerald-600 flex items-center justify-center shadow-sm">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
-                                            viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                                            class="text-white">
-                                            <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z" />
-                                            <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z" />
-                                        </svg>
-                                    </div>
-                                    <div class="flex-1">
-                                        <label for="nim"
-                                            class="block text-xs font-medium text-gray-900 uppercase tracking-wide mb-2">NIM</label>
-                                        <input type="text" id="nim" name="nim"
-                                            value="{{ old('nim', $sambutanPresma->nim) }}"
-                                            class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200"
-                                            required>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Angkatan -->
-                        <div>
-                            <div
-                                class="bg-white rounded-xl p-5 shadow-sm hover:shadow-md transition-all duration-300 border border-gray-100">
-                                <div class="flex items-start gap-3">
-                                    <div
-                                        class="flex-shrink-0 w-10 h-10 rounded-lg bg-gradient-to-br from-purple-500 to-purple-600 flex items-center justify-center shadow-sm">
+                                        class="flex-shrink-0 w-10 h-10 rounded-lg bg-gradient-to-br from-indigo-500 to-indigo-600 flex items-center justify-center shadow-sm">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
                                             viewBox="0 0 24 24" fill="none" stroke="currentColor"
                                             stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
@@ -184,47 +157,32 @@
                                         </svg>
                                     </div>
                                     <div class="flex-1">
-                                        <label for="angkatan"
-                                            class="block text-xs font-medium text-gray-900 uppercase tracking-wide mb-2">Angkatan</label>
-                                        <input type="text" id="angkatan" name="angkatan"
-                                            value="{{ old('angkatan', $sambutanPresma->angkatan) }}" maxlength="4"
-                                            class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200"
-                                            required>
+                                        <label for="periode"
+                                            class="block text-xs font-medium text-gray-900 uppercase tracking-wide mb-2">Periode</label>
+                                        <div class="flex items-center gap-2">
+                                            <input type="text" id="periode_awal"
+                                                value="{{ old('periode_awal', explode('/', $kabinet->periode)[0] ?? '') }}"
+                                                placeholder="2025" maxlength="4" pattern="[0-9]{4}"
+                                                class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 text-center"
+                                                required>
+                                            <span class="text-2xl font-bold text-gray-400">/</span>
+                                            <input type="text" id="periode_akhir"
+                                                value="{{ old('periode_akhir', explode('/', $kabinet->periode)[1] ?? '') }}"
+                                                placeholder="2026" maxlength="4" pattern="[0-9]{4}"
+                                                class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 text-center"
+                                                required>
+                                        </div>
+                                        <!-- Hidden input yang akan dikirim ke controller -->
+                                        <input type="hidden" name="periode" id="periode_hidden"
+                                            value="{{ old('periode', $kabinet->periode) }}">
+                                        <p class="mt-1 text-xs text-gray-500">Contoh: 2025 / 2026z</p>
                                     </div>
                                 </div>
                             </div>
                         </div>
 
-                        <!-- Program Studi -->
-                        <div class="md:col-span-2">
-                            <div
-                                class="bg-white rounded-xl p-5 shadow-sm hover:shadow-md transition-all duration-300 border border-gray-100">
-                                <div class="flex items-start gap-3">
-                                    <div
-                                        class="flex-shrink-0 w-10 h-10 rounded-lg bg-gradient-to-br from-amber-500 to-amber-600 flex items-center justify-center shadow-sm">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
-                                            viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                                            class="text-white">
-                                            <path d="M22 10v6M2 10l10-5 10 5-10 5z" />
-                                            <path d="M6 12v5c3 3 9 3 12 0v-5" />
-                                        </svg>
-                                    </div>
-                                    <div class="flex-1">
-                                        <label for="program_studi"
-                                            class="block text-xs font-medium text-gray-900 uppercase tracking-wide mb-2">Program
-                                            Studi</label>
-                                        <input type="text" id="program_studi" name="program_studi"
-                                            value="{{ old('program_studi', $sambutanPresma->program_studi) }}"
-                                            class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200"
-                                            required>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Sambutan -->
-                        <div class="md:col-span-2">
+                        <!-- Deskripsi -->
+                        <div>
                             <div
                                 class="bg-white rounded-xl p-5 shadow-sm hover:shadow-md transition-all duration-300 border border-gray-100">
                                 <div class="flex items-start gap-3">
@@ -238,12 +196,12 @@
                                         </svg>
                                     </div>
                                     <div class="flex-1">
-                                        <label for="sambutan"
-                                            class="block text-xs font-medium text-gray-900 uppercase tracking-wide mb-2">Kata
-                                            Sambutan</label>
-                                        <textarea id="sambutan" name="sambutan" rows="8"
+                                        <label for="deskripsi"
+                                            class="block text-xs font-medium text-gray-900 uppercase tracking-wide mb-2">Deskripsi
+                                            Kabinet</label>
+                                        <textarea id="deskripsi" name="deskripsi" rows="8"
                                             class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 resize-none"
-                                            required>{{ old('sambutan', $sambutanPresma->sambutan) }}</textarea>
+                                            required>{{ old('deskripsi', $kabinet->deskripsi) }}</textarea>
                                     </div>
                                 </div>
                             </div>
@@ -254,7 +212,7 @@
                 <!-- Modal footer -->
                 <div
                     class="flex items-center justify-end gap-3 p-4 md:p-5 border-t border-gray-200 bg-gray-50 flex-shrink-0">
-                    <button type="button" data-modal-hide="edit-modal-{{ $sambutanPresma->id }}"
+                    <button type="button" data-modal-hide="edit-modal-{{ $kabinet->id }}"
                         class="text-gray-700 bg-white hover:bg-gray-100 border border-gray-300 focus:ring-4 focus:outline-none focus:ring-gray-200 font-medium rounded-lg text-sm px-5 py-2.5 text-center transition duration-200">
                         Batal
                     </button>
@@ -269,10 +227,10 @@
 </div>
 
 <script>
-    function previewImage(event) {
+    function previewImageKabinet(event) {
         const input = event.target;
-        const preview = document.getElementById('current-photo');
-        const fileName = document.getElementById('file-name');
+        const preview = document.getElementById('current-photo-kabinet');
+        const fileName = document.getElementById('file-name-kabinet');
 
         if (input.files && input.files[0]) {
             const reader = new FileReader();
@@ -285,4 +243,22 @@
             fileName.textContent = 'File dipilih: ' + input.files[0].name;
         }
     }
+
+    // Combine periode fields before form submit
+    document.addEventListener('DOMContentLoaded', function() {
+        const form = document.getElementById('form-edit-kabinet-{{ $kabinet->id }}');
+
+        if (form) {
+            form.addEventListener('submit', function(e) {
+                const periodeAwal = document.getElementById('periode_awal').value;
+                const periodeAkhir = document.getElementById('periode_akhir').value;
+                const periodeHidden = document.getElementById('periode_hidden');
+
+                // Gabungkan nilai dengan format "2024/2025"
+                periodeHidden.value = periodeAwal + '/' + periodeAkhir;
+
+                console.log('Periode yang dikirim:', periodeHidden.value); // Untuk debugging
+            });
+        }
+    });
 </script>

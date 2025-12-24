@@ -13,7 +13,6 @@ return new class extends Migration
     {
         Schema::create('visis', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('kabinet_id')->constrained('kabinets')->onDelete('cascade');
             $table->longText('visi');
             $table->timestamps();
         });

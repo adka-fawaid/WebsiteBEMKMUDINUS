@@ -63,22 +63,34 @@ Route::middleware(['auth'])->group(function () {
         Route::prefix('sambutan-presma')->group(function () {
             Route::get('/', [SambutanPresmaAdminController::class, 'index'])
                 ->name('admin.sambutan-presma.index');
-            Route::get('/edit/{id}', [SambutanPresmaAdminController::class, 'edit'])
-                ->name('admin.sambutan-presma.edit');
             Route::put('/update/{id}', [SambutanPresmaAdminController::class, 'update'])
                 ->name('admin.sambutan-presma.update');
-        });
-
-        // VISI MISI
-        Route::prefix('visi-misi')->group(function () {
-            Route::get('/', [VisiMisiAdminController::class, 'index'])
-                ->name('admin.visi-misi.index');
         });
 
         // KABINET
         Route::prefix('kabinet')->group(function () {
             Route::get('/', [KabinetAdminController::class, 'index'])
                 ->name('admin.kabinet.index');
+            Route::put('/update/{id}', [KabinetAdminController::class, 'update'])
+                ->name('admin.kabinet.update');
+        });
+
+        // VISI MISI
+        Route::prefix('visi-misi')->group(function () {
+            Route::get('/', [VisiMisiAdminController::class, 'index'])
+                ->name('admin.visi-misi.index');
+            Route::post('/visi/store', [VisiMisiAdminController::class, 'storeVisi'])
+                ->name('admin.visi-misi.visi.store');
+            Route::post('/misi/store', [VisiMisiAdminController::class, 'storeMisi'])
+                ->name('admin.visi-misi.misi.store');
+            Route::put('/visi/update/{id}', [VisiMisiAdminController::class, 'updateVisi'])
+                ->name('admin.visi-misi.visi.update');
+            Route::put('/misi/update/{id}', [VisiMisiAdminController::class, 'updateMisi'])
+                ->name('admin.visi-misi.misi.update');
+            Route::delete('/visi/destroy/{id}', [VisiMisiAdminController::class, 'destroyVisi'])
+                ->name('admin.visi-misi.visi.destroy');
+            Route::delete('/misi/destroy/{id}', [VisiMisiAdminController::class, 'destroyMisi'])
+                ->name('admin.visi-misi.misi.destroy');
         });
 
         // STRUKTURAL
