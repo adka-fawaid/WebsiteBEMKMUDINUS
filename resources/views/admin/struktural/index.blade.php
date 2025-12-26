@@ -161,25 +161,17 @@
                                             </td>
                                             <td class="px-6 py-5 text-center">
                                                 <a href="{{ route('admin.struktural.unit-organisasi.index', $item->id) }}"
-                                                    class="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white text-sm font-semibold rounded-lg transition-all duration-200 shadow-md hover:shadow-lg group">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" width="16"
-                                                        height="16" viewBox="0 0 24 24" fill="none"
+                                                    class="inline-flex items-center gap-1.5 px-3 py-1.5 border-2 border-blue-600 hover:bg-blue-600 text-blue-600 hover:text-white text-sm font-semibold rounded-lg transition-all duration-200 group whitespace-nowrap">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="14"
+                                                        height="14" viewBox="0 0 24 24" fill="none"
                                                         stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                                        stroke-linejoin="round"
-                                                        class="group-hover:translate-x-0.5 transition-transform">
+                                                        stroke-linejoin="round">
                                                         <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
                                                         <circle cx="9" cy="7" r="4" />
                                                         <path d="M22 21v-2a4 4 0 0 0-3-3.87" />
                                                         <path d="M16 3.13a4 4 0 0 1 0 7.75" />
                                                     </svg>
                                                     Kelola Unit
-                                                    <svg xmlns="http://www.w3.org/2000/svg" width="14"
-                                                        height="14" viewBox="0 0 24 24" fill="none"
-                                                        stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                                        stroke-linejoin="round"
-                                                        class="group-hover:translate-x-1 transition-transform">
-                                                        <polyline points="9 18 15 12 9 6" />
-                                                    </svg>
                                                 </a>
                                             </td>
                                             <td class="px-6 py-5">

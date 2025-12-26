@@ -52,13 +52,14 @@
                 <!-- Back Button -->
                 <div class="mb-6">
                     <a href="{{ route('admin.struktural.index') }}"
-                        class="inline-flex items-center gap-2 px-4 py-2.5 bg-white hover:bg-gray-50 text-gray-700 font-semibold rounded-lg transition-all duration-200 shadow-md hover:shadow-lg border border-gray-200 group">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
-                            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                            stroke-linejoin="round" class="group-hover:-translate-x-1 transition-transform">
+                        class="inline-flex items-center gap-2.5 px-5 py-3 border-2 border-blue-600 hover:bg-blue-600 text-blue-600 hover:text-white font-semibold rounded-xl transition-all duration-300 shadow-sm hover:shadow-lg group">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+                            fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
+                            stroke-linejoin="round"
+                            class="group-hover:-translate-x-1 transition-transform duration-300">
                             <polyline points="15 18 9 12 15 6" />
                         </svg>
-                        Kembali ke Struktural
+                        <span class="tracking-wide">Kembali ke Struktural</span>
                     </a>
                 </div>
 
@@ -69,18 +70,25 @@
                             <div class="flex items-center gap-3">
                                 <div
                                     class="w-10 h-10 rounded-lg bg-white/20 backdrop-blur-sm flex items-center justify-center">
-                                    <svg class="w-5 h-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none"
-                                        viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"
-                                        stroke-linecap="round" stroke-linejoin="round">
-                                        <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
-                                        <circle cx="9" cy="7" r="4" />
-                                        <path d="M22 21v-2a4 4 0 0 0-3-3.87" />
-                                        <path d="M16 3.13a4 4 0 0 1 0 7.75" />
-                                    </svg>
+                                    @if ($unitOrganisasi->logo)
+                                        <img src="{{ asset('storage/img/unit-organisasi/' . $unitOrganisasi->logo) }}"
+                                            alt="{{ $unitOrganisasi->nama }}" class="w-5 h-5 object-contain">
+                                    @else
+                                        <svg class="w-5 h-5 text-white" xmlns="http://www.w3.org/2000/svg"
+                                            fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"
+                                            stroke-linecap="round" stroke-linejoin="round">
+                                            <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
+                                            <circle cx="9" cy="7" r="4" />
+                                            <path d="M22 21v-2a4 4 0 0 0-3-3.87" />
+                                            <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+                                        </svg>
+                                    @endif
                                 </div>
                                 <div>
-                                    <h2 class="text-xl font-bold text-white">Data Anggota Unit</h2>
-                                    <p class="text-xs text-blue-100">Daftar anggota dalam unit organisasi</p>
+                                    <h2 class="text-xl font-bold text-white">{{ $unitOrganisasi->nama }}
+                                    </h2>
+                                    <p class="text-xs text-blue-100">Daftar anggota dalam {{ $unitOrganisasi->nama }}
+                                    </p>
                                 </div>
                             </div>
                         </div>
@@ -125,10 +133,6 @@
                                             <span
                                                 class="text-xs font-extrabold text-gray-700 uppercase tracking-wider">Jabatan</span>
                                         </th>
-                                        <th scope="col" class="px-6 py-4 text-center font-bold">
-                                            <span
-                                                class="text-xs font-extrabold text-gray-700 uppercase tracking-wider">Periode</span>
-                                        </th>
                                         <th scope="col" class="px-6 py-4 text-center font-bold w-40">
                                             <span
                                                 class="text-xs font-extrabold text-gray-700 uppercase tracking-wider">Aksi</span>
@@ -148,7 +152,7 @@
                                             <td class="px-6 py-5 text-center">
                                                 @if ($anggota->foto)
                                                     <div class="flex justify-center">
-                                                        <img src="{{ asset('storage/img/anggota/' . $anggota->foto) }}"
+                                                        <img src="{{ asset('storage/img/anggota-unit/' . $anggota->foto) }}"
                                                             alt="{{ $anggota->nama }}"
                                                             class="w-12 h-12 rounded-full object-cover border-2 border-blue-100 shadow-sm">
                                                     </div>
@@ -168,7 +172,8 @@
                                                 @endif
                                             </td>
                                             <td class="px-6 py-5">
-                                                <p class="text-sm font-semibold text-gray-900">{{ $anggota->nama }}</p>
+                                                <p class="text-sm font-semibold text-gray-900">{{ $anggota->nama }}
+                                                </p>
                                             </td>
                                             <td class="px-6 py-5 text-center">
                                                 <span
@@ -179,10 +184,6 @@
                                                     class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-indigo-100 text-indigo-700">
                                                     {{ $anggota->jabatan }}
                                                 </span>
-                                            </td>
-                                            <td class="px-6 py-5 text-center">
-                                                <span
-                                                    class="text-sm text-gray-700 font-medium">{{ $anggota->periode }}</span>
                                             </td>
                                             <td class="px-6 py-5">
                                                 <div class="flex items-center justify-center gap-2">
@@ -238,13 +239,19 @@
                                             </td>
                                         </tr>
 
-                                        {{-- Modals will be included here later --}}
-                                        {{-- @include('admin.struktural.unit-organisasi.show', ['anggota' => $anggota]) --}}
-                                        {{-- @include('admin.struktural.unit-organisasi.edit', ['anggota' => $anggota]) --}}
-                                        {{-- @include('admin.struktural.unit-organisasi.delete', ['anggota' => $anggota]) --}}
+                                        {{-- Include Modals --}}
+                                        @include('admin.struktural.unit-organisasi.show', [
+                                            'anggota' => $anggota,
+                                        ])
+                                        @include('admin.struktural.unit-organisasi.edit', [
+                                            'anggota' => $anggota,
+                                        ])
+                                        @include('admin.struktural.unit-organisasi.delete', [
+                                            'anggota' => $anggota,
+                                        ])
                                     @empty
                                         <tr>
-                                            <td colspan="7" class="px-6 py-16 text-center">
+                                            <td colspan="6" class="px-6 py-16 text-center">
                                                 <div class="flex flex-col items-center justify-center">
                                                     <div
                                                         class="w-20 h-20 rounded-2xl bg-gradient-to-br from-gray-100 to-gray-200 flex items-center justify-center mb-4 shadow-inner">
@@ -278,5 +285,5 @@
     </main>
 
     {{-- Include Create Modal --}}
-    {{-- @include('admin.struktural.unit-organisasi.create') --}}
+    @include('admin.struktural.unit-organisasi.create')
 </x-app-layout>

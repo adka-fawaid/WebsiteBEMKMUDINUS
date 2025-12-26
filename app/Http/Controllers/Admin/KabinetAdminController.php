@@ -19,6 +19,11 @@ class KabinetAdminController extends Controller
     {
         $kabinet = Kabinet::findOrFail($id);
 
+        // Check file size
+        if ($request->hasFile('logo') && $request->file('logo')->getSize() > 5120 * 1024) {
+            return redirect()->back()->with('error', 'Ukuran file lebih dari 5 MB')->withInput();
+        }
+
         $validatedData = $request->validate([
             'logo' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:5120',
             'nama' => 'required|string|max:255',

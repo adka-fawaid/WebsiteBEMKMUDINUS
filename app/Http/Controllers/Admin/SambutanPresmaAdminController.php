@@ -19,6 +19,11 @@ class SambutanPresmaAdminController extends Controller
     {
         $sambutanPresma = PresidenMahasiswa::findOrFail($id);
 
+        // Check file size
+        if ($request->hasFile('foto') && $request->file('foto')->getSize() > 5120 * 1024) {
+            return redirect()->back()->with('error', 'Ukuran file lebih dari 5 MB')->withInput();
+        }
+
         $validatedData = $request->validate([
             'foto' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:5120',
             'nama' => 'required|string|max:255',

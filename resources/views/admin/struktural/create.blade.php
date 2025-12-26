@@ -89,7 +89,7 @@
                                     class="relative border-2 border-dashed border-gray-300 rounded-xl p-6 hover:border-blue-400 transition-colors duration-300">
                                     <input type="file" id="logo" name="logo" accept="image/*"
                                         class="absolute inset-0 w-full h-full opacity-0 cursor-pointer"
-                                        onchange="previewImage(event)">
+                                        onchange="previewImage(event) " required>
                                     <div class="text-center">
                                         <svg class="mx-auto h-12 w-12 text-gray-400" stroke="currentColor"
                                             fill="none" viewBox="0 0 48 48">

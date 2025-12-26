@@ -93,7 +93,7 @@ Route::middleware(['auth'])->group(function () {
                 ->name('admin.visi-misi.misi.destroy');
         });
 
-        // STRUKTURAL
+        // STRUKTURAL UNIT ORGANISASI
         Route::prefix('struktural')->group(function () {
             Route::get('/', [StrukturalAdminController::class, 'index'])
                 ->name('admin.struktural.index');
@@ -104,10 +104,16 @@ Route::middleware(['auth'])->group(function () {
             Route::delete('/destroy/{id}', [StrukturalAdminController::class, 'destroy'])
                 ->name('admin.struktural.destroy');
 
-            // UNIT ORGANISASI
+            // ANGGOTA UNIT
             Route::prefix('unit-organisasi')->group(function () {
-                Route::get('/{id}', [StrukturalAdminController::class, 'unitOrganisasi'])
+                Route::get('/{unitOrganisasiId}/anggota', [StrukturalAdminController::class, 'unitOrganisasi'])
                     ->name('admin.struktural.unit-organisasi.index');
+                Route::post('/{unitOrganisasiId}/anggota', [StrukturalAdminController::class, 'createAnggotaUnit'])
+                    ->name('admin.struktural.unit-organisasi.anggota.store');
+                Route::put('/{unitOrganisasiId}/anggota/{anggotaId}', [StrukturalAdminController::class, 'updateAnggotaUnit'])
+                    ->name('admin.struktural.unit-organisasi.anggota.update');
+                Route::delete('/{unitOrganisasiId}/anggota/{anggotaId}', [StrukturalAdminController::class, 'destroyAnggotaUnit'])
+                    ->name('admin.struktural.unit-organisasi.anggota.destroy');
             });
         });
 
