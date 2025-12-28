@@ -22,18 +22,18 @@
 
         <div class="row d-flex align-items-center">
             <div class="col-lg-6">
-                <img src="{{ asset('assets/icons/Logo BEM Arus Sinergitas.png') }}" class="img-fluid " width="100%"
+                <img src="{{ asset('assets/icons/Logo Aksa Sinergi.png') }}" class="img-fluid " width="100%"
                     height="200px" alt="">
             </div>
             <div class="col-lg-6">
-                <div class="d-flex align-items-center mb-3">
-                    <div class="strip me-2"></div>
-                    <h3><b>Kabinet Arus Sinergitas</b></h3>
+                 <div class="text-center" style="margin-top: 70px;">
+            <h2 class="fw-bold">Kabinet Aksa Sinergi</h2>
                 </div>
+                <br>
 
                 <h1 class="fw-bold mb-3">Visi dan Misi</h1>
                 <br>
- 
+
                 <h5 class="fw-bold mb-3">Visi</h5>
                 <p class="mb-3">Mewujudkan Badan Eksekutif Mahasiswa Keluarga Mahasiswa Universitas Dian Nuswantoro yang
                     unggul dalam pengembangan Sumber Daya Mahasiswa dengan pendekatan Good Governance secara
@@ -67,14 +67,619 @@
                     arah pergerakan yang relevan.</p>
             </div>
         </div>
-        
 
-        <div class="header-kabinet text-center" style="margin-top: 50px;">
-            <h2 class="fw-bold">Kabinet BEM KM UDINUS</h2>
+        <!-- =======================
+             KABINET ARAH JUANG (3 CARD PERSIS)
+        ======================== -->
+        <div class="text-center" style="margin-top: 70px;">
+            <h2 class="fw-bold">Kabinet Aksa Sinergi</h2>
         </div>
 
         <div class="row row-cols-1 row-cols-md-3 g-4 py-4">
 
+            <!-- PRESIDEN -->
+            <div class="col">
+                <div class="card border-0 h-100"
+                    style="border-radius: 10px; overflow: hidden; box-shadow: 0 8px 20px rgba(0,0,0,.08);">
+                    <div style="background: #031f29ff; padding: 18px;">
+                        <img src="{{ asset('assets/img/kabinet/presiden.png') }}" class="img-fluid"
+                            style="width: 100%; border-radius: 8px;" alt="Presiden Mahasiswa">
+                    </div>
+                    <div class="card-body" style="padding: 18px;">
+                        <h6 class="fw-bold text-uppercase mb-2" style="font-size: 13px; letter-spacing: .5px;">
+                            PRESIDEN MAHASISWA
+                        </h6>
+                        <p class="text-secondary mb-2" style="font-size: 13px;">#bemkmudinus</p>
+                        <a href="#" class="text-decoration-none" style="color: #eb8425ff; font-size: 13px;">
+                            Selengkapnya
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- LOGO -->
+            <div class="col">
+                <div class="card border-0 h-100"
+                    style="border-radius: 10px; overflow: hidden; box-shadow: 0 8px 20px rgba(0,0,0,.08);">
+                    <div style="background: #031f29ff; padding: 18px;">
+                        <img src="{{ asset('assets/img/kabinet/logo.png') }}" class="img-fluid"
+                            style="width: 100%; border-radius: 8px;" alt="Logo Kabinet Arah Juang">
+                    </div>
+                    <div class="card-body" style="padding: 18px;">
+                        <h6 class="fw-bold text-uppercase mb-2" style="font-size: 13px; letter-spacing: .5px;">
+                            LOGO KABINET ARAH JUANG
+                        </h6>
+                        <p class="text-secondary mb-2" style="font-size: 13px;">#bemkmudinus</p>
+                        <a href="#" class="text-decoration-none" style="color: #eb8425ff; font-size: 13px;">
+                            Selengkapnya
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- WAKIL PRESIDEN -->
+            <div class="col">
+                <div class="card border-0 h-100"
+                    style="border-radius: 10px; overflow: hidden; box-shadow: 0 8px 20px rgba(0,0,0,.08);">
+                    <div style="background: #031f29ff; padding: 18px;">
+                        <img src="{{ asset('assets/img/kabinet/wakil_presiden.png') }}" class="img-fluid"
+                            style="width: 100%; border-radius: 8px;" alt="Wakil Presiden Mahasiswa">
+                    </div>
+                    <div class="card-body" style="padding: 18px;">
+                        <h6 class="fw-bold text-uppercase mb-2" style="font-size: 13px; letter-spacing: .5px;">
+                            WAKIL PRESIDEN MAHASISWA
+                        </h6>
+                        <p class="text-secondary mb-2" style="font-size: 13px;">#bemkmudinus</p>
+                        <a href="#" class="text-decoration-none" style="color: #eb8425ff; font-size: 13px;">
+                            Selengkapnya
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+                <!-- WAKIL PRESIDEN -->
+            <div class="col">
+                <div class="card border-0 h-100"
+                    style="border-radius: 10px; overflow: hidden; box-shadow: 0 8px 20px rgba(0,0,0,.08);">
+                    <div style="background: #7b2d2d; padding: 18px;">
+                        <img src="{{ asset('assets/img/kabinet/wakil_presiden.png') }}" class="img-fluid"
+                            style="width: 100%; border-radius: 8px;" alt="Wakil Presiden Mahasiswa">
+                    </div>
+                    <div class="card-body" style="padding: 18px;">
+                        <h6 class="fw-bold text-uppercase mb-2" style="font-size: 13px; letter-spacing: .5px;">
+                            WAKIL PRESIDEN MAHASISWA
+                        </h6>
+                        <p class="text-secondary mb-2" style="font-size: 13px;">#bemkmudinus</p>
+                        <a href="#" class="text-decoration-none" style="color: #ff4d4d; font-size: 13px;">
+                            Selengkapnya
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+                <!-- WAKIL PRESIDEN -->
+            <div class="col">
+                <div class="card border-0 h-100"
+                    style="border-radius: 10px; overflow: hidden; box-shadow: 0 8px 20px rgba(0,0,0,.08);">
+                    <div style="background: #7b2d2d; padding: 18px;">
+                        <img src="{{ asset('assets/img/kabinet/wakil_presiden.png') }}" class="img-fluid"
+                            style="width: 100%; border-radius: 8px;" alt="Wakil Presiden Mahasiswa">
+                    </div>
+                    <div class="card-body" style="padding: 18px;">
+                        <h6 class="fw-bold text-uppercase mb-2" style="font-size: 13px; letter-spacing: .5px;">
+                            WAKIL PRESIDEN MAHASISWA
+                        </h6>
+                        <p class="text-secondary mb-2" style="font-size: 13px;">#bemkmudinus</p>
+                        <a href="#" class="text-decoration-none" style="color: #ff4d4d; font-size: 13px;">
+                            Selengkapnya
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+                <!-- WAKIL PRESIDEN -->
+            <div class="col">
+                <div class="card border-0 h-100"
+                    style="border-radius: 10px; overflow: hidden; box-shadow: 0 8px 20px rgba(0,0,0,.08);">
+                    <div style="background: #7b2d2d; padding: 18px;">
+                        <img src="{{ asset('assets/img/kabinet/wakil_presiden.png') }}" class="img-fluid"
+                            style="width: 100%; border-radius: 8px;" alt="Wakil Presiden Mahasiswa">
+                    </div>
+                    <div class="card-body" style="padding: 18px;">
+                        <h6 class="fw-bold text-uppercase mb-2" style="font-size: 13px; letter-spacing: .5px;">
+                            WAKIL PRESIDEN MAHASISWA
+                        </h6>
+                        <p class="text-secondary mb-2" style="font-size: 13px;">#bemkmudinus</p>
+                        <a href="#" class="text-decoration-none" style="color: #ff4d4d; font-size: 13px;">
+                            Selengkapnya
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+                <!-- WAKIL PRESIDEN -->
+            <div class="col">
+                <div class="card border-0 h-100"
+                    style="border-radius: 10px; overflow: hidden; box-shadow: 0 8px 20px rgba(0,0,0,.08);">
+                    <div style="background: #7b2d2d; padding: 18px;">
+                        <img src="{{ asset('assets/img/kabinet/wakil_presiden.png') }}" class="img-fluid"
+                            style="width: 100%; border-radius: 8px;" alt="Wakil Presiden Mahasiswa">
+                    </div>
+                    <div class="card-body" style="padding: 18px;">
+                        <h6 class="fw-bold text-uppercase mb-2" style="font-size: 13px; letter-spacing: .5px;">
+                            WAKIL PRESIDEN MAHASISWA
+                        </h6>
+                        <p class="text-secondary mb-2" style="font-size: 13px;">#bemkmudinus</p>
+                        <a href="#" class="text-decoration-none" style="color: #ff4d4d; font-size: 13px;">
+                            Selengkapnya
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+                <!-- WAKIL PRESIDEN -->
+            <div class="col">
+                <div class="card border-0 h-100"
+                    style="border-radius: 10px; overflow: hidden; box-shadow: 0 8px 20px rgba(0,0,0,.08);">
+                    <div style="background: #7b2d2d; padding: 18px;">
+                        <img src="{{ asset('assets/img/kabinet/wakil_presiden.png') }}" class="img-fluid"
+                            style="width: 100%; border-radius: 8px;" alt="Wakil Presiden Mahasiswa">
+                    </div>
+                    <div class="card-body" style="padding: 18px;">
+                        <h6 class="fw-bold text-uppercase mb-2" style="font-size: 13px; letter-spacing: .5px;">
+                            WAKIL PRESIDEN MAHASISWA
+                        </h6>
+                        <p class="text-secondary mb-2" style="font-size: 13px;">#bemkmudinus</p>
+                        <a href="#" class="text-decoration-none" style="color: #ff4d4d; font-size: 13px;">
+                            Selengkapnya
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+                <!-- WAKIL PRESIDEN -->
+            <div class="col">
+                <div class="card border-0 h-100"
+                    style="border-radius: 10px; overflow: hidden; box-shadow: 0 8px 20px rgba(0,0,0,.08);">
+                    <div style="background: #7b2d2d; padding: 18px;">
+                        <img src="{{ asset('assets/img/kabinet/wakil_presiden.png') }}" class="img-fluid"
+                            style="width: 100%; border-radius: 8px;" alt="Wakil Presiden Mahasiswa">
+                    </div>
+                    <div class="card-body" style="padding: 18px;">
+                        <h6 class="fw-bold text-uppercase mb-2" style="font-size: 13px; letter-spacing: .5px;">
+                            WAKIL PRESIDEN MAHASISWA
+                        </h6>
+                        <p class="text-secondary mb-2" style="font-size: 13px;">#bemkmudinus</p>
+                        <a href="#" class="text-decoration-none" style="color: #ff4d4d; font-size: 13px;">
+                            Selengkapnya
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+                <!-- WAKIL PRESIDEN -->
+            <div class="col">
+                <div class="card border-0 h-100"
+                    style="border-radius: 10px; overflow: hidden; box-shadow: 0 8px 20px rgba(0,0,0,.08);">
+                    <div style="background: #7b2d2d; padding: 18px;">
+                        <img src="{{ asset('assets/img/kabinet/wakil_presiden.png') }}" class="img-fluid"
+                            style="width: 100%; border-radius: 8px;" alt="Wakil Presiden Mahasiswa">
+                    </div>
+                    <div class="card-body" style="padding: 18px;">
+                        <h6 class="fw-bold text-uppercase mb-2" style="font-size: 13px; letter-spacing: .5px;">
+                            WAKIL PRESIDEN MAHASISWA
+                        </h6>
+                        <p class="text-secondary mb-2" style="font-size: 13px;">#bemkmudinus</p>
+                        <a href="#" class="text-decoration-none" style="color: #ff4d4d; font-size: 13px;">
+                            Selengkapnya
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+                <!-- WAKIL PRESIDEN -->
+            <div class="col">
+                <div class="card border-0 h-100"
+                    style="border-radius: 10px; overflow: hidden; box-shadow: 0 8px 20px rgba(0,0,0,.08);">
+                    <div style="background: #7b2d2d; padding: 18px;">
+                        <img src="{{ asset('assets/img/kabinet/wakil_presiden.png') }}" class="img-fluid"
+                            style="width: 100%; border-radius: 8px;" alt="Wakil Presiden Mahasiswa">
+                    </div>
+                    <div class="card-body" style="padding: 18px;">
+                        <h6 class="fw-bold text-uppercase mb-2" style="font-size: 13px; letter-spacing: .5px;">
+                            WAKIL PRESIDEN MAHASISWA
+                        </h6>
+                        <p class="text-secondary mb-2" style="font-size: 13px;">#bemkmudinus</p>
+                        <a href="#" class="text-decoration-none" style="color: #ff4d4d; font-size: 13px;">
+                            Selengkapnya
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+                <!-- WAKIL PRESIDEN -->
+            <div class="col">
+                <div class="card border-0 h-100"
+                    style="border-radius: 10px; overflow: hidden; box-shadow: 0 8px 20px rgba(0,0,0,.08);">
+                    <div style="background: #7b2d2d; padding: 18px;">
+                        <img src="{{ asset('assets/img/kabinet/wakil_presiden.png') }}" class="img-fluid"
+                            style="width: 100%; border-radius: 8px;" alt="Wakil Presiden Mahasiswa">
+                    </div>
+                    <div class="card-body" style="padding: 18px;">
+                        <h6 class="fw-bold text-uppercase mb-2" style="font-size: 13px; letter-spacing: .5px;">
+                            WAKIL PRESIDEN MAHASISWA
+                        </h6>
+                        <p class="text-secondary mb-2" style="font-size: 13px;">#bemkmudinus</p>
+                        <a href="#" class="text-decoration-none" style="color: #ff4d4d; font-size: 13px;">
+                            Selengkapnya
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+                <!-- WAKIL PRESIDEN -->
+            <div class="col">
+                <div class="card border-0 h-100"
+                    style="border-radius: 10px; overflow: hidden; box-shadow: 0 8px 20px rgba(0,0,0,.08);">
+                    <div style="background: #7b2d2d; padding: 18px;">
+                        <img src="{{ asset('assets/img/kabinet/wakil_presiden.png') }}" class="img-fluid"
+                            style="width: 100%; border-radius: 8px;" alt="Wakil Presiden Mahasiswa">
+                    </div>
+                    <div class="card-body" style="padding: 18px;">
+                        <h6 class="fw-bold text-uppercase mb-2" style="font-size: 13px; letter-spacing: .5px;">
+                            WAKIL PRESIDEN MAHASISWA
+                        </h6>
+                        <p class="text-secondary mb-2" style="font-size: 13px;">#bemkmudinus</p>
+                        <a href="#" class="text-decoration-none" style="color: #ff4d4d; font-size: 13px;">
+                            Selengkapnya
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+                <!-- WAKIL PRESIDEN -->
+            <div class="col">
+                <div class="card border-0 h-100"
+                    style="border-radius: 10px; overflow: hidden; box-shadow: 0 8px 20px rgba(0,0,0,.08);">
+                    <div style="background: #7b2d2d; padding: 18px;">
+                        <img src="{{ asset('assets/img/kabinet/wakil_presiden.png') }}" class="img-fluid"
+                            style="width: 100%; border-radius: 8px;" alt="Wakil Presiden Mahasiswa">
+                    </div>
+                    <div class="card-body" style="padding: 18px;">
+                        <h6 class="fw-bold text-uppercase mb-2" style="font-size: 13px; letter-spacing: .5px;">
+                            WAKIL PRESIDEN MAHASISWA
+                        </h6>
+                        <p class="text-secondary mb-2" style="font-size: 13px;">#bemkmudinus</p>
+                        <a href="#" class="text-decoration-none" style="color: #ff4d4d; font-size: 13px;">
+                            Selengkapnya
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+                <!-- WAKIL PRESIDEN -->
+            <div class="col">
+                <div class="card border-0 h-100"
+                    style="border-radius: 10px; overflow: hidden; box-shadow: 0 8px 20px rgba(0,0,0,.08);">
+                    <div style="background: #7b2d2d; padding: 18px;">
+                        <img src="{{ asset('assets/img/kabinet/wakil_presiden.png') }}" class="img-fluid"
+                            style="width: 100%; border-radius: 8px;" alt="Wakil Presiden Mahasiswa">
+                    </div>
+                    <div class="card-body" style="padding: 18px;">
+                        <h6 class="fw-bold text-uppercase mb-2" style="font-size: 13px; letter-spacing: .5px;">
+                            WAKIL PRESIDEN MAHASISWA
+                        </h6>
+                        <p class="text-secondary mb-2" style="font-size: 13px;">#bemkmudinus</p>
+                        <a href="#" class="text-decoration-none" style="color: #ff4d4d; font-size: 13px;">
+                            Selengkapnya
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+                <!-- WAKIL PRESIDEN -->
+            <div class="col">
+                <div class="card border-0 h-100"
+                    style="border-radius: 10px; overflow: hidden; box-shadow: 0 8px 20px rgba(0,0,0,.08);">
+                    <div style="background: #7b2d2d; padding: 18px;">
+                        <img src="{{ asset('assets/img/kabinet/wakil_presiden.png') }}" class="img-fluid"
+                            style="width: 100%; border-radius: 8px;" alt="Wakil Presiden Mahasiswa">
+                    </div>
+                    <div class="card-body" style="padding: 18px;">
+                        <h6 class="fw-bold text-uppercase mb-2" style="font-size: 13px; letter-spacing: .5px;">
+                            WAKIL PRESIDEN MAHASISWA
+                        </h6>
+                        <p class="text-secondary mb-2" style="font-size: 13px;">#bemkmudinus</p>
+                        <a href="#" class="text-decoration-none" style="color: #ff4d4d; font-size: 13px;">
+                            Selengkapnya
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+                <!-- WAKIL PRESIDEN -->
+            <div class="col">
+                <div class="card border-0 h-100"
+                    style="border-radius: 10px; overflow: hidden; box-shadow: 0 8px 20px rgba(0,0,0,.08);">
+                    <div style="background: #7b2d2d; padding: 18px;">
+                        <img src="{{ asset('assets/img/kabinet/wakil_presiden.png') }}" class="img-fluid"
+                            style="width: 100%; border-radius: 8px;" alt="Wakil Presiden Mahasiswa">
+                    </div>
+                    <div class="card-body" style="padding: 18px;">
+                        <h6 class="fw-bold text-uppercase mb-2" style="font-size: 13px; letter-spacing: .5px;">
+                            WAKIL PRESIDEN MAHASISWA
+                        </h6>
+                        <p class="text-secondary mb-2" style="font-size: 13px;">#bemkmudinus</p>
+                        <a href="#" class="text-decoration-none" style="color: #ff4d4d; font-size: 13px;">
+                            Selengkapnya
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+                <!-- WAKIL PRESIDEN -->
+            <div class="col">
+                <div class="card border-0 h-100"
+                    style="border-radius: 10px; overflow: hidden; box-shadow: 0 8px 20px rgba(0,0,0,.08);">
+                    <div style="background: #7b2d2d; padding: 18px;">
+                        <img src="{{ asset('assets/img/kabinet/wakil_presiden.png') }}" class="img-fluid"
+                            style="width: 100%; border-radius: 8px;" alt="Wakil Presiden Mahasiswa">
+                    </div>
+                    <div class="card-body" style="padding: 18px;">
+                        <h6 class="fw-bold text-uppercase mb-2" style="font-size: 13px; letter-spacing: .5px;">
+                            WAKIL PRESIDEN MAHASISWA
+                        </h6>
+                        <p class="text-secondary mb-2" style="font-size: 13px;">#bemkmudinus</p>
+                        <a href="#" class="text-decoration-none" style="color: #ff4d4d; font-size: 13px;">
+                            Selengkapnya
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+                <!-- WAKIL PRESIDEN -->
+            <div class="col">
+                <div class="card border-0 h-100"
+                    style="border-radius: 10px; overflow: hidden; box-shadow: 0 8px 20px rgba(0,0,0,.08);">
+                    <div style="background: #7b2d2d; padding: 18px;">
+                        <img src="{{ asset('assets/img/kabinet/wakil_presiden.png') }}" class="img-fluid"
+                            style="width: 100%; border-radius: 8px;" alt="Wakil Presiden Mahasiswa">
+                    </div>
+                    <div class="card-body" style="padding: 18px;">
+                        <h6 class="fw-bold text-uppercase mb-2" style="font-size: 13px; letter-spacing: .5px;">
+                            WAKIL PRESIDEN MAHASISWA
+                        </h6>
+                        <p class="text-secondary mb-2" style="font-size: 13px;">#bemkmudinus</p>
+                        <a href="#" class="text-decoration-none" style="color: #ff4d4d; font-size: 13px;">
+                            Selengkapnya
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+                <!-- WAKIL PRESIDEN -->
+            <div class="col">
+                <div class="card border-0 h-100"
+                    style="border-radius: 10px; overflow: hidden; box-shadow: 0 8px 20px rgba(0,0,0,.08);">
+                    <div style="background: #7b2d2d; padding: 18px;">
+                        <img src="{{ asset('assets/img/kabinet/wakil_presiden.png') }}" class="img-fluid"
+                            style="width: 100%; border-radius: 8px;" alt="Wakil Presiden Mahasiswa">
+                    </div>
+                    <div class="card-body" style="padding: 18px;">
+                        <h6 class="fw-bold text-uppercase mb-2" style="font-size: 13px; letter-spacing: .5px;">
+                            WAKIL PRESIDEN MAHASISWA
+                        </h6>
+                        <p class="text-secondary mb-2" style="font-size: 13px;">#bemkmudinus</p>
+                        <a href="#" class="text-decoration-none" style="color: #ff4d4d; font-size: 13px;">
+                            Selengkapnya
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+                <!-- WAKIL PRESIDEN -->
+            <div class="col">
+                <div class="card border-0 h-100"
+                    style="border-radius: 10px; overflow: hidden; box-shadow: 0 8px 20px rgba(0,0,0,.08);">
+                    <div style="background: #7b2d2d; padding: 18px;">
+                        <img src="{{ asset('assets/img/kabinet/wakil_presiden.png') }}" class="img-fluid"
+                            style="width: 100%; border-radius: 8px;" alt="Wakil Presiden Mahasiswa">
+                    </div>
+                    <div class="card-body" style="padding: 18px;">
+                        <h6 class="fw-bold text-uppercase mb-2" style="font-size: 13px; letter-spacing: .5px;">
+                            WAKIL PRESIDEN MAHASISWA
+                        </h6>
+                        <p class="text-secondary mb-2" style="font-size: 13px;">#bemkmudinus</p>
+                        <a href="#" class="text-decoration-none" style="color: #ff4d4d; font-size: 13px;">
+                            Selengkapnya
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+                <!-- WAKIL PRESIDEN -->
+            <div class="col">
+                <div class="card border-0 h-100"
+                    style="border-radius: 10px; overflow: hidden; box-shadow: 0 8px 20px rgba(0,0,0,.08);">
+                    <div style="background: #7b2d2d; padding: 18px;">
+                        <img src="{{ asset('assets/img/kabinet/wakil_presiden.png') }}" class="img-fluid"
+                            style="width: 100%; border-radius: 8px;" alt="Wakil Presiden Mahasiswa">
+                    </div>
+                    <div class="card-body" style="padding: 18px;">
+                        <h6 class="fw-bold text-uppercase mb-2" style="font-size: 13px; letter-spacing: .5px;">
+                            WAKIL PRESIDEN MAHASISWA
+                        </h6>
+                        <p class="text-secondary mb-2" style="font-size: 13px;">#bemkmudinus</p>
+                        <a href="#" class="text-decoration-none" style="color: #ff4d4d; font-size: 13px;">
+                            Selengkapnya
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+                <!-- WAKIL PRESIDEN -->
+            <div class="col">
+                <div class="card border-0 h-100"
+                    style="border-radius: 10px; overflow: hidden; box-shadow: 0 8px 20px rgba(0,0,0,.08);">
+                    <div style="background: #7b2d2d; padding: 18px;">
+                        <img src="{{ asset('assets/img/kabinet/wakil_presiden.png') }}" class="img-fluid"
+                            style="width: 100%; border-radius: 8px;" alt="Wakil Presiden Mahasiswa">
+                    </div>
+                    <div class="card-body" style="padding: 18px;">
+                        <h6 class="fw-bold text-uppercase mb-2" style="font-size: 13px; letter-spacing: .5px;">
+                            WAKIL PRESIDEN MAHASISWA
+                        </h6>
+                        <p class="text-secondary mb-2" style="font-size: 13px;">#bemkmudinus</p>
+                        <a href="#" class="text-decoration-none" style="color: #ff4d4d; font-size: 13px;">
+                            Selengkapnya
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+                <!-- WAKIL PRESIDEN -->
+            <div class="col">
+                <div class="card border-0 h-100"
+                    style="border-radius: 10px; overflow: hidden; box-shadow: 0 8px 20px rgba(0,0,0,.08);">
+                    <div style="background: #7b2d2d; padding: 18px;">
+                        <img src="{{ asset('assets/img/kabinet/wakil_presiden.png') }}" class="img-fluid"
+                            style="width: 100%; border-radius: 8px;" alt="Wakil Presiden Mahasiswa">
+                    </div>
+                    <div class="card-body" style="padding: 18px;">
+                        <h6 class="fw-bold text-uppercase mb-2" style="font-size: 13px; letter-spacing: .5px;">
+                            WAKIL PRESIDEN MAHASISWA
+                        </h6>
+                        <p class="text-secondary mb-2" style="font-size: 13px;">#bemkmudinus</p>
+                        <a href="#" class="text-decoration-none" style="color: #ff4d4d; font-size: 13px;">
+                            Selengkapnya
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+                <!-- WAKIL PRESIDEN -->
+            <div class="col">
+                <div class="card border-0 h-100"
+                    style="border-radius: 10px; overflow: hidden; box-shadow: 0 8px 20px rgba(0,0,0,.08);">
+                    <div style="background: #7b2d2d; padding: 18px;">
+                        <img src="{{ asset('assets/img/kabinet/wakil_presiden.png') }}" class="img-fluid"
+                            style="width: 100%; border-radius: 8px;" alt="Wakil Presiden Mahasiswa">
+                    </div>
+                    <div class="card-body" style="padding: 18px;">
+                        <h6 class="fw-bold text-uppercase mb-2" style="font-size: 13px; letter-spacing: .5px;">
+                            WAKIL PRESIDEN MAHASISWA
+                        </h6>
+                        <p class="text-secondary mb-2" style="font-size: 13px;">#bemkmudinus</p>
+                        <a href="#" class="text-decoration-none" style="color: #ff4d4d; font-size: 13px;">
+                            Selengkapnya
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+                <!-- WAKIL PRESIDEN -->
+            <div class="col">
+                <div class="card border-0 h-100"
+                    style="border-radius: 10px; overflow: hidden; box-shadow: 0 8px 20px rgba(0,0,0,.08);">
+                    <div style="background: #7b2d2d; padding: 18px;">
+                        <img src="{{ asset('assets/img/kabinet/wakil_presiden.png') }}" class="img-fluid"
+                            style="width: 100%; border-radius: 8px;" alt="Wakil Presiden Mahasiswa">
+                    </div>
+                    <div class="card-body" style="padding: 18px;">
+                        <h6 class="fw-bold text-uppercase mb-2" style="font-size: 13px; letter-spacing: .5px;">
+                            WAKIL PRESIDEN MAHASISWA
+                        </h6>
+                        <p class="text-secondary mb-2" style="font-size: 13px;">#bemkmudinus</p>
+                        <a href="#" class="text-decoration-none" style="color: #ff4d4d; font-size: 13px;">
+                            Selengkapnya
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+                <!-- WAKIL PRESIDEN -->
+            <div class="col">
+                <div class="card border-0 h-100"
+                    style="border-radius: 10px; overflow: hidden; box-shadow: 0 8px 20px rgba(0,0,0,.08);">
+                    <div style="background: #7b2d2d; padding: 18px;">
+                        <img src="{{ asset('assets/img/kabinet/wakil_presiden.png') }}" class="img-fluid"
+                            style="width: 100%; border-radius: 8px;" alt="Wakil Presiden Mahasiswa">
+                    </div>
+                    <div class="card-body" style="padding: 18px;">
+                        <h6 class="fw-bold text-uppercase mb-2" style="font-size: 13px; letter-spacing: .5px;">
+                            WAKIL PRESIDEN MAHASISWA
+                        </h6>
+                        <p class="text-secondary mb-2" style="font-size: 13px;">#bemkmudinus</p>
+                        <a href="#" class="text-decoration-none" style="color: #ff4d4d; font-size: 13px;">
+                            Selengkapnya
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+                <!-- WAKIL PRESIDEN -->
+            <div class="col">
+                <div class="card border-0 h-100"
+                    style="border-radius: 10px; overflow: hidden; box-shadow: 0 8px 20px rgba(0,0,0,.08);">
+                    <div style="background: #7b2d2d; padding: 18px;">
+                        <img src="{{ asset('assets/img/kabinet/wakil_presiden.png') }}" class="img-fluid"
+                            style="width: 100%; border-radius: 8px;" alt="Wakil Presiden Mahasiswa">
+                    </div>
+                    <div class="card-body" style="padding: 18px;">
+                        <h6 class="fw-bold text-uppercase mb-2" style="font-size: 13px; letter-spacing: .5px;">
+                            WAKIL PRESIDEN MAHASISWA
+                        </h6>
+                        <p class="text-secondary mb-2" style="font-size: 13px;">#bemkmudinus</p>
+                        <a href="#" class="text-decoration-none" style="color: #ff4d4d; font-size: 13px;">
+                            Selengkapnya
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+                <!-- WAKIL PRESIDEN -->
+            <div class="col">
+                <div class="card border-0 h-100"
+                    style="border-radius: 10px; overflow: hidden; box-shadow: 0 8px 20px rgba(0,0,0,.08);">
+                    <div style="background: #7b2d2d; padding: 18px;">
+                        <img src="{{ asset('assets/img/kabinet/wakil_presiden.png') }}" class="img-fluid"
+                            style="width: 100%; border-radius: 8px;" alt="Wakil Presiden Mahasiswa">
+                    </div>
+                    <div class="card-body" style="padding: 18px;">
+                        <h6 class="fw-bold text-uppercase mb-2" style="font-size: 13px; letter-spacing: .5px;">
+                            WAKIL PRESIDEN MAHASISWA
+                        </h6>
+                        <p class="text-secondary mb-2" style="font-size: 13px;">#bemkmudinus</p>
+                        <a href="#" class="text-decoration-none" style="color: #ff4d4d; font-size: 13px;">
+                            Selengkapnya
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+                <!-- WAKIL PRESIDEN -->
+            <div class="col">
+                <div class="card border-0 h-100"
+                    style="border-radius: 10px; overflow: hidden; box-shadow: 0 8px 20px rgba(0,0,0,.08);">
+                    <div style="background: #7b2d2d; padding: 18px;">
+                        <img src="{{ asset('assets/img/kabinet/wakil_presiden.png') }}" class="img-fluid"
+                            style="width: 100%; border-radius: 8px;" alt="Wakil Presiden Mahasiswa">
+                    </div>
+                    <div class="card-body" style="padding: 18px;">
+                        <h6 class="fw-bold text-uppercase mb-2" style="font-size: 13px; letter-spacing: .5px;">
+                            WAKIL PRESIDEN MAHASISWA
+                        </h6>
+                        <p class="text-secondary mb-2" style="font-size: 13px;">#bemkmudinus</p>
+                        <a href="#" class="text-decoration-none" style="color: #ff4d4d; font-size: 13px;">
+                            Selengkapnya
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="row row-cols-1 row-cols-md-3 g-4 py-4">
             @foreach ($kabinets as $item)
             <div class="col-lg-4">
                 <div class="card border-0">
@@ -89,11 +694,9 @@
                 </div>
             </div>
             @endforeach
-
         </div>
 
     </div>
-
 </section>
 <!-- kabinet -->
 @endsection
