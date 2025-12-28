@@ -26,6 +26,7 @@ use App\Http\Controllers\BlogController;
 use App\Http\Controllers\CalendarController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ForumController;
+use App\Http\Controllers\Guest\BerandaGuestController;
 use App\Http\Controllers\KabinetController;
 use App\Http\Controllers\OrmawaController;
 use App\Http\Controllers\PartnershipController;
@@ -121,6 +122,12 @@ Route::middleware(['auth'])->group(function () {
         Route::prefix('program-kerja')->group(function () {
             Route::get('/', [ProgramKerjaAdminController::class, 'index'])
                 ->name('admin.program-kerja.index');
+            Route::post('/store', [ProgramKerjaAdminController::class, 'store'])
+                ->name('admin.program-kerja.store');
+            Route::put('/update/{id}', [ProgramKerjaAdminController::class, 'update'])
+                ->name('admin.program-kerja.update');
+            Route::delete('/destroy/{id}', [ProgramKerjaAdminController::class, 'destroy'])
+                ->name('admin.program-kerja.destroy');
         });
 
         // PENDAFTARAN

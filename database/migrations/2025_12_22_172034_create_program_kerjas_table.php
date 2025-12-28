@@ -14,12 +14,13 @@ return new class extends Migration
         Schema::create('program_kerjas', function (Blueprint $table) {
             $table->id();
             $table->string('nama');
-            $table->enum('kategori', ['rencana kerja tahunan', 'duta kampus']);
+            $table->enum('kategori', ['Rencana Kerja Tahunan', 'Non Rencana Kerja Tahunan', 'Duta Kampus']);
             $table->longText('deskripsi')->nullable();
             $table->date('tanggal_mulai');
             $table->date('tanggal_selesai')->nullable();
             $table->string('foto')->nullable();
             $table->boolean('pendaftaran')->default(false);
+            $table->string('link')->nullable();
             $table->timestamps();
         });
     }

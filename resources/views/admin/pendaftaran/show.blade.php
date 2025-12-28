@@ -1,5 +1,5 @@
 <!-- Show Modal -->
-<div id="show-struktural-modal-{{ $item->id }}" tabindex="-1" aria-hidden="true"
+<div id="show-program-kerja-modal-{{ $item->id }}" tabindex="-1" aria-hidden="true"
     class="hidden overflow-y-auto overflow-x-hidden fixed inset-0 z-50 flex justify-center items-center">
     <div class="relative p-4 w-full max-w-2xl h-full flex items-center justify-center">
         <div class="relative bg-white rounded-2xl shadow-2xl overflow-hidden w-full max-h-[90vh] flex flex-col">
@@ -24,12 +24,13 @@
                         <div>
                             <p class="text-xs font-semibold text-blue-100 uppercase tracking-wider mb-1">Detail Data
                             </p>
-                            <h3 class="text-xl md:text-2xl font-bold text-white leading-tight">Informasi Struktural</h3>
+                            <h3 class="text-xl md:text-2xl font-bold text-white leading-tight">Informasi Program Kerja
+                            </h3>
                         </div>
                     </div>
                     <button type="button"
                         class="flex-shrink-0 text-white/90 bg-white/10 hover:bg-white/20 backdrop-blur-sm rounded-lg text-sm w-10 h-10 inline-flex justify-center items-center transition-all duration-200 hover:scale-110"
-                        data-modal-hide="show-struktural-modal-{{ $item->id }}">
+                        data-modal-hide="show-program-kerja-modal-{{ $item->id }}">
                         <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
                             viewBox="0 0 14 14">
                             <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
@@ -42,14 +43,14 @@
 
             <!-- Modal body -->
             <div class="flex-1 overflow-y-auto p-4 md:p-6 space-y-4">
-                <!-- Logo, Nama, dan Kategori -->
+                <!-- Foto, Nama, dan Kategori -->
                 <div
                     class="bg-white rounded-xl p-5 shadow-sm hover:shadow-md transition-all duration-300 border border-gray-100">
                     <div class="flex flex-col md:flex-row gap-4">
-                        <!-- Logo -->
-                        @if ($item->logo)
+                        <!-- Foto -->
+                        @if ($item->foto)
                             <div class="flex-shrink-0 flex justify-center md:justify-start">
-                                <img src="{{ asset('storage/img/unit-organisasi/' . $item->logo) }}"
+                                <img src="{{ asset('storage/img/program-kerja/' . $item->foto) }}"
                                     alt="{{ $item->nama }}"
                                     class="w-32 h-32 object-cover rounded-xl border-4 border-blue-100 shadow-lg">
                             </div>
@@ -75,17 +76,16 @@
                                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
                                         viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
                                         stroke-linecap="round" stroke-linejoin="round" class="text-white">
-                                        <path d="M16 2v2" />
-                                        <path d="M17.915 22a6 6 0 0 0-12 0" />
-                                        <path d="M8 2v2" />
-                                        <circle cx="12" cy="12" r="4" />
-                                        <rect x="3" y="4" width="18" height="18" rx="2" />
+                                        <rect x="3" y="4" width="18" height="18" rx="2" ry="2" />
+                                        <line x1="16" y1="2" x2="16" y2="6" />
+                                        <line x1="8" y1="2" x2="8" y2="6" />
+                                        <line x1="3" y1="10" x2="21" y2="10" />
                                     </svg>
                                 </div>
                                 <div class="flex-1">
                                     <label
                                         class="block text-xs font-medium text-gray-500 uppercase tracking-wide mb-1">Nama
-                                        Unit</label>
+                                        Program Kerja</label>
                                     <p class="text-base font-semibold text-gray-900">{{ $item->nama }}</p>
                                 </div>
                             </div>
@@ -109,13 +109,65 @@
                                     <label
                                         class="block text-xs font-medium text-gray-500 uppercase tracking-wide mb-1">Kategori</label>
                                     <span
-                                        class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium 
-                                        @if ($item->kategori === 'Badan Pengurus Harian') bg-blue-100 text-blue-700
-                                        @elseif($item->kategori === 'Biro') bg-indigo-100 text-indigo-700
-                                        @else bg-purple-100 text-purple-700 @endif">
+                                        class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-blue-100 text-blue-700">
                                         {{ $item->kategori }}
                                     </span>
                                 </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tanggal -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <!-- Tanggal Mulai -->
+                    <div
+                        class="bg-white rounded-xl p-5 shadow-sm hover:shadow-md transition-all duration-300 border border-gray-100">
+                        <div class="flex items-start gap-3">
+                            <div
+                                class="flex-shrink-0 w-10 h-10 rounded-lg bg-gradient-to-br from-green-500 to-green-600 flex items-center justify-center shadow-sm">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+                                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                    stroke-linecap="round" stroke-linejoin="round" class="text-white">
+                                    <rect x="3" y="4" width="18" height="18" rx="2" ry="2" />
+                                    <line x1="16" y1="2" x2="16" y2="6" />
+                                    <line x1="8" y1="2" x2="8" y2="6" />
+                                    <line x1="3" y1="10" x2="21" y2="10" />
+                                </svg>
+                            </div>
+                            <div class="flex-1">
+                                <label
+                                    class="block text-xs font-medium text-gray-500 uppercase tracking-wide mb-1">Tanggal
+                                    Mulai</label>
+                                <p class="text-base font-semibold text-gray-900">
+                                    {{ \Carbon\Carbon::parse($item->tanggal_mulai)->format('d F Y') }}
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Tanggal Selesai -->
+                    <div
+                        class="bg-white rounded-xl p-5 shadow-sm hover:shadow-md transition-all duration-300 border border-gray-100">
+                        <div class="flex items-start gap-3">
+                            <div
+                                class="flex-shrink-0 w-10 h-10 rounded-lg bg-gradient-to-br from-red-500 to-red-600 flex items-center justify-center shadow-sm">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+                                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                    stroke-linecap="round" stroke-linejoin="round" class="text-white">
+                                    <rect x="3" y="4" width="18" height="18" rx="2" ry="2" />
+                                    <line x1="16" y1="2" x2="16" y2="6" />
+                                    <line x1="8" y1="2" x2="8" y2="6" />
+                                    <line x1="3" y1="10" x2="21" y2="10" />
+                                </svg>
+                            </div>
+                            <div class="flex-1">
+                                <label
+                                    class="block text-xs font-medium text-gray-500 uppercase tracking-wide mb-1">Tanggal
+                                    Selesai</label>
+                                <p class="text-base font-semibold text-gray-900">
+                                    {{ \Carbon\Carbon::parse($item->tanggal_selesai)->format('d F Y') }}
+                                </p>
                             </div>
                         </div>
                     </div>
@@ -127,17 +179,17 @@
                     <div class="flex items-center gap-3 mb-5 pb-4 border-b border-gray-100">
                         <div
                             class="flex-shrink-0 w-12 h-12 rounded-lg bg-gradient-to-br from-indigo-500 to-indigo-600 flex items-center justify-center shadow-sm">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
-                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                stroke-linejoin="round" class="text-white">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+                                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                stroke-linecap="round" stroke-linejoin="round" class="text-white">
                                 <path d="M14 2H6a2 2 0 0 0-2 2v16c0 1.1.9 2 2 2h12a2 2 0 0 0 2-2V8l-6-6z" />
                                 <path d="M14 3v5h5M16 13H8M16 17H8M10 9H8" />
                             </svg>
                         </div>
                         <div>
-                            <p class="text-xs font-medium text-gray-500 uppercase tracking-wide">Deskripsi Struktural
-                            </p>
-                            <p class="text-sm text-gray-600">Informasi tentang Struktural</p>
+                            <p class="text-xs font-medium text-gray-500 uppercase tracking-wide">Deskripsi Program
+                                Kerja</p>
+                            <p class="text-sm text-gray-600">Informasi tentang Program Kerja</p>
                         </div>
                     </div>
                     <div class="relative">
@@ -157,12 +209,55 @@
                         </svg>
                     </div>
                 </div>
+
+                <!-- Pendaftaran -->
+                <div
+                    class="bg-white rounded-xl p-5 shadow-sm hover:shadow-md transition-all duration-300 border border-gray-100">
+                    <div class="flex items-start gap-3">
+                        <div
+                            class="flex-shrink-0 w-10 h-10 rounded-lg bg-gradient-to-br from-orange-500 to-orange-600 flex items-center justify-center shadow-sm">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+                                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                stroke-linecap="round" stroke-linejoin="round" class="text-white">
+                                <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
+                                <circle cx="9" cy="7" r="4" />
+                                <path d="M22 21v-2a4 4 0 0 0-3-3.87" />
+                                <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+                            </svg>
+                        </div>
+                        <div class="flex-1">
+                            <label class="block text-xs font-medium text-gray-500 uppercase tracking-wide mb-1">Status
+                                Pendaftaran</label>
+                            @if ($item->pendaftaran)
+                                <span
+                                    class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-green-100 text-green-700">
+                                    <svg class="w-4 h-4 mr-1" xmlns="http://www.w3.org/2000/svg" fill="none"
+                                        viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M5 13l4 4L19 7" />
+                                    </svg>
+                                    Pendaftaran Terbuka
+                                </span>
+                            @else
+                                <span
+                                    class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-gray-100 text-gray-700">
+                                    <svg class="w-4 h-4 mr-1" xmlns="http://www.w3.org/2000/svg" fill="none"
+                                        viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M6 18L18 6M6 6l12 12" />
+                                    </svg>
+                                    Pendaftaran Tertutup
+                                </span>
+                            @endif
+                        </div>
+                    </div>
+                </div>
             </div>
 
             <!-- Modal footer -->
             <div
                 class="flex items-center justify-end gap-3 p-4 md:p-6 border-t border-gray-200 bg-gray-50 flex-shrink-0">
-                <button type="button" data-modal-hide="show-struktural-modal-{{ $item->id }}"
+                <button type="button" data-modal-hide="show-program-kerja-modal-{{ $item->id }}"
                     class="text-gray-700 bg-white hover:bg-gray-100 border border-gray-300 focus:ring-4 focus:outline-none focus:ring-gray-200 font-medium rounded-lg text-sm px-5 py-2.5 text-center transition duration-200">
                     Tutup
                 </button>

@@ -13,6 +13,7 @@ class Partnership extends Model
         'kategori_partnership_id',
         'nama',
         'deskripsi',
+        'link',
     ];
 
     // Define relationship to KategoriPartnership

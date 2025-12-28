@@ -17,6 +17,7 @@ class ProgramKerja extends Model
         'tanggal_selesai',
         'foto',
         'pendaftaran',
+        'link',
     ];
 
     // Define relationship to BeritaAcara

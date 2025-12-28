@@ -16,6 +16,7 @@ return new class extends Migration
             $table->foreignId('kategori_partnership_id')->constrained('kategori_partnerships')->onDelete('cascade');
             $table->string('nama');
             $table->longText('deskripsi')->nullable();
+            $table->string('link')->nullable();
             $table->timestamps();
         });
     }
