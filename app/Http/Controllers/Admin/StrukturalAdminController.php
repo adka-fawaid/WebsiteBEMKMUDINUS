@@ -142,7 +142,7 @@ class StrukturalAdminController extends Controller
         return redirect()->route('admin.struktural.unit-organisasi.index', $unitOrganisasiId)->with('success', 'Anggota unit berhasil ditambahkan.');
     }
 
-    public function updateAnggotaUnit(Request $request, $unitOrganisasiId, $anggotaId)
+    public function updateAnggotaUnit(Request $request, $anggotaId)
     {
         $anggotaUnit = AnggotaUnit::findOrFail($anggotaId);
 
@@ -182,7 +182,7 @@ class StrukturalAdminController extends Controller
         return redirect()->route('admin.struktural.unit-organisasi.index', $anggotaUnit->unit_organisasi_id)->with('success', 'Anggota unit berhasil diperbarui.');
     }
 
-    public function destroyAnggotaUnit($unitOrganisasiId, $anggotaId)
+    public function destroyAnggotaUnit($anggotaId)
     {
         $anggotaUnit = AnggotaUnit::findOrFail($anggotaId);
         $unitOrganisasiId = $anggotaUnit->unit_organisasi_id;

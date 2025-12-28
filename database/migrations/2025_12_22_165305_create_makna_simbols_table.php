@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('makna_simbols', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('kabinet_id')->constrained('kabinets')->onDelete('cascade');
             $table->string('simbol');
             $table->longText('makna');
             $table->timestamps();

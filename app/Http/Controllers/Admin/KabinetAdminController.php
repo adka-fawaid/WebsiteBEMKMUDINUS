@@ -2,12 +2,17 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Controllers\Controller;
 use App\Models\Kabinet;
+use App\Models\MaknaWarna;
+use App\Models\MaknaSimbol;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
 class KabinetAdminController extends Controller
 {
+    /*
+    * KABINET
+    */
     public function index()
     {
         $kabinet = Kabinet::first();
@@ -51,5 +56,100 @@ class KabinetAdminController extends Controller
         $kabinet->update($validatedData);
 
         return redirect()->route('admin.kabinet.index')->with('success', 'Kabinet berhasil diperbarui.');
+    }
+
+
+    /*
+    * FILOSOFI (MAKNA SIMBOL & MAKNA WARNA)
+    */
+    public function filosofi($kabinetId)
+    {
+        $kabinet = Kabinet::findOrFail($kabinetId);
+
+        $maknaSimbolList = MaknaSimbol::where('kabinet_id', $kabinetId)->get();
+        $maknaWarnaList = MaknaWarna::where('kabinet_id', $kabinetId)->get();
+
+        return view('admin.kabinet.filosofi.index', compact('kabinet', 'maknaSimbolList', 'maknaWarnaList'));
+    }
+
+    /*
+    * MAKNA SIMBOL
+    */
+    public function storeMaknaSimbol(Request $request, $kabinetId)
+    {
+        $validatedData = $request->validate([
+            'kabinet_id' => 'required|exists:kabinets,id',
+            'simbol' => 'required|string|max:255',
+            'makna' => 'required|string',
+        ]);
+
+        $validatedData['kabinet_id'] = $kabinetId;
+
+        MaknaSimbol::create($validatedData);
+
+        return redirect()->route('admin.kabinet.filosofi.index', $kabinetId)->with('success', 'Makna Simbol berhasil dibuat.');
+    }
+
+    public function updateMaknaSimbol(Request $request, $id)
+    {
+        $maknaSimbol = MaknaSimbol::findOrFail($id);
+
+        $validatedData = $request->validate([
+            'simbol' => 'required|string|max:255',
+            'makna' => 'required|string',
+        ]);
+
+        $maknaSimbol->update($validatedData);
+
+        return redirect()->route('admin.kabinet.filosofi.index', $maknaSimbol->kabinet_id)->with('success', 'Makna Simbol berhasil diperbarui.');
+    }
+
+    public function destroyMaknaSimbol($id)
+    {
+        $maknaSimbol = MaknaSimbol::findOrFail($id);
+        $maknaSimbol->delete();
+
+        return redirect()->route('admin.kabinet.filosofi.index', $maknaSimbol->kabinet_id)->with('success', 'Makna Simbol berhasil dihapus.');
+    }
+
+
+    /*
+    * MAKNA WARNA
+    */
+    public function storeMaknaWarna(Request $request, $kabinetId)
+    {
+        $validatedData = $request->validate([
+            'kabinet_id' => 'required|exists:kabinets,id',
+            'warna' => 'required|string|max:255',
+            'makna' => 'required|string',
+        ]);
+
+        $validatedData['kabinet_id'] = $kabinetId;
+
+        MaknaWarna::create($validatedData);
+
+        return redirect()->route('admin.kabinet.filosofi.index', $kabinetId)->with('success', 'Makna Warna berhasil dibuat.');
+    }
+
+    public function updateMaknaWarna(Request $request, $id)
+    {
+        $maknaWarna = MaknaWarna::findOrFail($id);
+
+        $validatedData = $request->validate([
+            'warna' => 'required|string|max:255',
+            'makna' => 'required|string',
+        ]);
+
+        $maknaWarna->update($validatedData);
+
+        return redirect()->route('admin.kabinet.filosofi.index', $maknaWarna->kabinet_id)->with('success', 'Makna Warna berhasil diperbarui.');
+    }
+
+    public function destroyMaknaWarna($id)
+    {
+        $maknaWarna = MaknaWarna::findOrFail($id);
+        $maknaWarna->delete();
+
+        return redirect()->route('admin.kabinet.filosofi.index', $maknaWarna->kabinet_id)->with('success', 'Makna Warna berhasil dihapus.');
     }
 }

@@ -14,4 +14,10 @@ class MaknaWarna extends Model
         'warna',
         'makna',
     ];
+
+    // Relationship with Kabinet
+    public function kabinet()
+    {
+        return $this->belongsTo(Kabinet::class);
+    }
 }

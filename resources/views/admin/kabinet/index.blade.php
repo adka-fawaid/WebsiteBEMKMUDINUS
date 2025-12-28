@@ -82,6 +82,10 @@
                                     </th>
                                     <th scope="col" class="px-6 py-4 text-center font-bold">
                                         <span
+                                            class="text-xs font-extrabold text-gray-700 uppercase tracking-wider">Kelola</span>
+                                    </th>
+                                    <th scope="col" class="px-6 py-4 text-center font-bold">
+                                        <span
                                             class="text-xs font-extrabold text-gray-700 uppercase tracking-wider">Aksi</span>
                                     </th>
                                 </tr>
@@ -116,6 +120,27 @@
                                         <td class="px-6 py-5">
                                             <p class="text-sm text-gray-700 line-clamp-2 leading-relaxed">
                                                 {{ Str::limit($kabinet->deskripsi, 80) }}</p>
+                                        </td>
+                                        <td class="px-6 py-5">
+                                            <div class="flex items-center justify-center">
+                                                <a href="{{ route('admin.kabinet.filosofi.index', $kabinet->id) }}"
+                                                    class="inline-flex items-center px-3 py-1 rounded-lg bg-indigo-50 hover:bg-indigo-100 text-indigo-700 font-semibold text-xs transition-all duration-200 shadow-sm border border-indigo-200 hover:border-indigo-400"
+                                                    title="Kelola Filosofi">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="16"
+                                                        height="16" fill="none" viewBox="0 0 24 24"
+                                                        stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                                        stroke-linejoin="round" class="mr-1">
+                                                        <circle cx="12" cy="12" r="10" />
+                                                        <path d="m14.31 8 5.74 9.94" />
+                                                        <path d="M9.69 8h11.48" />
+                                                        <path d="m7.38 12 5.74-9.94" />
+                                                        <path d="M9.69 16 3.95 6.06" />
+                                                        <path d="M14.31 16H2.83" />
+                                                        <path d="m16.62 12-5.74 9.94" />
+                                                    </svg>
+                                                    Filosofi
+                                                </a>
+                                            </div>
                                         </td>
                                         <td class="px-6 py-5">
                                             <div class="flex items-center justify-center gap-2">

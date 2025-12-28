@@ -15,4 +15,16 @@ class Kabinet extends Model
         'logo',
         'deskripsi',
     ];
+
+    // Relationship with MaknaSimbol
+    public function maknaSimbol()
+    {
+        return $this->hasMany(MaknaSimbol::class);
+    }
+
+    // Relationship with MaknaWarna
+    public function maknaWarna()
+    {
+        return $this->hasMany(MaknaWarna::class);
+    }
 }

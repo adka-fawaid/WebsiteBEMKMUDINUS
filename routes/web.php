@@ -74,6 +74,28 @@ Route::middleware(['auth'])->group(function () {
                 ->name('admin.kabinet.index');
             Route::put('/update/{id}', [KabinetAdminController::class, 'update'])
                 ->name('admin.kabinet.update');
+
+            // FILOSOFI
+            Route::prefix('filosofi')->group(function () {
+                Route::get('/{kabinetId}', [KabinetAdminController::class, 'filosofi'])
+                    ->name('admin.kabinet.filosofi.index');
+
+                // MAKNA SIMBOL
+                Route::post('/{kabinetId}/makna-simbol/store', [KabinetAdminController::class, 'storeMaknaSimbol'])
+                    ->name('admin.kabinet.filosofi.makna-simbol.store');
+                Route::put('/makna-simbol/update/{id}', [KabinetAdminController::class, 'updateMaknaSimbol'])
+                    ->name('admin.kabinet.filosofi.makna-simbol.update');
+                Route::delete('/makna-simbol/destroy/{id}', [KabinetAdminController::class, 'destroyMaknaSimbol'])
+                    ->name('admin.kabinet.filosofi.makna-simbol.destroy');
+
+                // MAKNA WARNA
+                Route::post('/{kabinetId}/makna-warna/store', [KabinetAdminController::class, 'storeMaknaWarna'])
+                    ->name('admin.kabinet.filosofi.makna-warna.store');
+                Route::put('/makna-warna/update/{id}', [KabinetAdminController::class, 'updateMaknaWarna'])
+                    ->name('admin.kabinet.filosofi.makna-warna.update');
+                Route::delete('/makna-warna/destroy/{id}', [KabinetAdminController::class, 'destroyMaknaWarna'])
+                    ->name('admin.kabinet.filosofi.makna-warna.destroy');
+            });
         });
 
         // VISI MISI

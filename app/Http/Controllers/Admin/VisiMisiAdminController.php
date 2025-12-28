@@ -17,6 +17,9 @@ class VisiMisiAdminController extends Controller
         return view('admin.visi-misi.index', compact('visiList', 'misiList'));
     }
 
+    /*
+    * VISI
+    */
     public function storeVisi(Request $request)
     {
         $validatedData = $request->validate([
@@ -28,19 +31,6 @@ class VisiMisiAdminController extends Controller
         ]);
 
         return redirect()->route('admin.visi-misi.index')->with('success', 'Visi berhasil dibuat.');
-    }
-
-    public function storeMisi(Request $request)
-    {
-        $validatedData = $request->validate([
-            'misi' => 'required|string',
-        ]);
-
-        Misi::create([
-            'misi' => $validatedData['misi'],
-        ]);
-
-        return redirect()->route('admin.visi-misi.index')->with('success', 'Misi berhasil dibuat.');
     }
 
     public function updateVisi(Request $request, $id)
@@ -57,6 +47,30 @@ class VisiMisiAdminController extends Controller
         return redirect()->route('admin.visi-misi.index')->with('success', 'Visi berhasil diperbarui.');
     }
 
+    public function destroyVisi($id)
+    {
+        $visi = Visi::findOrFail($id);
+        $visi->delete();
+
+        return redirect()->route('admin.visi-misi.index')->with('success', 'Visi berhasil dihapus.');
+    }
+
+    /*
+    * MISI
+    */
+    public function storeMisi(Request $request)
+    {
+        $validatedData = $request->validate([
+            'misi' => 'required|string',
+        ]);
+
+        Misi::create([
+            'misi' => $validatedData['misi'],
+        ]);
+
+        return redirect()->route('admin.visi-misi.index')->with('success', 'Misi berhasil dibuat.');
+    }
+
     public function updateMisi(Request $request, $id)
     {
         $misi = Misi::findOrFail($id);
@@ -68,14 +82,6 @@ class VisiMisiAdminController extends Controller
         $misi->update($validatedData);
 
         return redirect()->route('admin.visi-misi.index')->with('success', 'Misi berhasil diperbarui.');
-    }
-
-    public function destroyVisi($id)
-    {
-        $visi = Visi::findOrFail($id);
-        $visi->delete();
-
-        return redirect()->route('admin.visi-misi.index')->with('success', 'Visi berhasil dihapus.');
     }
 
     public function destroyMisi($id)
