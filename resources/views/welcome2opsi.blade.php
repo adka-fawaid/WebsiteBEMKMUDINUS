@@ -16,86 +16,71 @@
                     <a href="/kabinet" class="btn btn-warning rounded-pill px-4 fw-semibold">Lihat Profil</a>
                 </div>
             </div>
+
+            <div class="col-lg-6 d-none d-lg-block text-end">
+                {{-- kalau mau taruh foto kanan --}}
+                 <div class="col-md-6 text-center">
+                <img src="{{ asset('assets/images/logo.png') }}"
+                     class="img-fluid"
+                     alt="Hero BEM KM UDINUS">
+            </div>
             </div>
         </div>
     </div>
 </section>
 
 {{-- SAMBUTAN PRESIDEN MAHASISWA --}}
-<section class="section-presma py-5">
+<section class="section-dark py-5">
     <div class="container">
-        <div class="row align-items-center presma-wrapper">
+        <h2 class="text-center fw-bold mb-4 section-title">Sambutan Presiden Mahasiswa</h2>
 
-            {{-- FOTO PRESMA --}}
-            <div class="col-lg-5 text-center mb-4 mb-lg-0">
-                <br>
-                <div class="presma-photo-box">
-                    <img src="{{ asset('assets/images/presma2.JPG') }}"
-                        class="img-fluid presma-img"
-                        alt="Presiden Mahasiswa">
-                </div>
-
-                <div class="presma-name mt-3">
-                    <span class="badge-presma">Lu'luun Aula</span>
-                    <div class="presma-title">Presiden Mahasiswa Periode 2025/2026</div>
+        <div class="row align-items-center g-4">
+            <div class="col-lg-4 text-center">
+                <img src="{{ asset('assets/images/presma.png') }}" class="img-fluid presma-img" alt="Presma">
+                <div class="mt-3">
+                    <span class="badge bg-warning text-dark px-3 py-2 rounded-pill fw-semibold">Aksa</span>
+                    <div class="text-white-50 small mt-1">Presiden Mahasiswa</div>
                 </div>
             </div>
 
-            {{-- TEKS SAMBUTAN --}}
-            <div class="col-lg-7">
-                <h2 class=" text-center presma-heading mb-4">
-                    Sambutan Presiden Mahasiswa
-                </h2> <br>
-
-                <p class="presma-text">
-                    “Dengan penuh semangat, kami dari Badan Eksekutif Mahasiswa
-                    Keluarga Mahasiswa Universitas Dian Nuswantoro mengajak seluruh
-                    mahasiswa untuk terus berperan aktif dalam menciptakan lingkungan
-                    kampus yang kolaboratif, inklusif, dan berorientasi pada perubahan positif.”
-                </p>
-
-                <p class="presma-text">
-                    “Kami percaya bahwa setiap mahasiswa memiliki potensi luar biasa
-                    untuk menjadi agen perubahan — bukan hanya di lingkungan akademik,
-                    tetapi juga dalam masyarakat luas.”
-                </p>
-
-                <p class="presma-text">
-                    “Mari bersama-sama bersinergi dan beraksi, menyalakan semangat
-                    perjuangan mahasiswa yang berpikir kritis, bertindak solutif,
-                    dan bergerak dengan hati.”
-                </p>
+            <div class="col-lg-8">
+                <div class="text-white-50">
+                    <p class="mb-3">
+                        “Lorem ipsum dolor sit amet consectetur. In eget vitae metus blandit et orci. Ridiculus massa posuere
+                        cursus ornare posuere phasellus. Ac quis posuere purus.
+                        Lorem ipsum dolor sit amet consectetur.”
+                    </p>
+                    <p class="mb-0">
+                        “Elementum molestie lorem dignissim vitae ridiculus lacus elit consequat.
+                        Vivamus scelerisque a eu ut neque. Proin sit diam adipiscing interdum.”
+                    </p>
+                </div>
             </div>
-
         </div>
-
-        {{-- GARIS PEMBATAS --}}
-        <div class="section-divider mt-5"></div>
     </div>
 </section>
-
 
 {{-- MAKNA LOGO + FILOSOFI WARNA --}}
 <section class="section-dark py-5">
     <div class="container">
         <div class="row g-4 align-items-stretch">
             <div class="col-lg-6">
-                <h3 class="fw-bold text-center mb-4 section-title">MAKNA LOGO</h3>
+                <h3 class="fw-bold text-center mb-4 section-title">Makna Logo</h3>
 
                 <div class="row g-3">
                     <div class="col-md-6">
                         <div class="info-box">
                             <h6 class="fw-bold text-warning mb-1">Merah Bata</h6>
                             <p class="mb-0 text-white-50 small">
-                                Melambangkan semangat juang mahasiswa UDINUS dalam membawa perubahan. Warna ini mencerminkan keberanian, tekad, dan kekuatan dalam menghadapi tantangan. 
+                                Makna singkat warna merah bata untuk semangat dan keberanian.
                             </p>
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="info-box">
-                            <h6 class="fw-bold text-warning mb-1">Biru Tua</h6>
+                            <h6 class="fw-bold text-warning mb-1">Merah Bata</h6>
                             <p class="mb-0 text-white-50 small">
-                                Melambangkan semangat juang mahasiswa UDINUS dalam membawa perubahan. Warna ini mencerminkan keberanian, tekad, dan kekuatan dalam menghadapi tantangan. 
+                                Isi deskripsi singkat sesuai kebutuhanmu.
                             </p>
                         </div>
                     </div>
@@ -117,7 +102,7 @@
                     </div>
                 </div>
 
-                <h3 class="fw-bold text-center mt-5 mb-4 section-title">FILOSOFI WARNA</h3>
+                <h3 class="fw-bold text-center mt-5 mb-4 section-title">Filosofi warna</h3>
 
                 <div class="row g-3">
                     <div class="col-md-6">
@@ -140,22 +125,16 @@
 
             </div>
 
-            <div class="col-lg-6 d-flex align-items-center justify-content-center">
-    <div class="logo-card text-center">
-        <img src="{{ asset('assets/images/logo aksa sinergi.png') }}"
-             class="logo-big"
-             alt="Logo Aksa Sinergi">
-    </div>
-</div>
-
+            <div class="col-lg-6">
+                <div class="logo-card h-100 d-flex align-items-center justify-content-center">
+                    <div class="text-center">
+                        <div class="text-warning fw-semibold mb-2">Kabinet Aksa -</div>
+                        <img src="{{ asset('assets/images/logo aksa sinergi.png') }}" class="img-fluid logo-big" alt="Logo Aksa Sinergi">
                     </div>
                 </div>
             </div>
 
         </div>
-    </div>
-    {{-- GARIS PEMBATAS --}}
-        <div class="section-divider mt-5"></div>
     </div>
 </section>
 

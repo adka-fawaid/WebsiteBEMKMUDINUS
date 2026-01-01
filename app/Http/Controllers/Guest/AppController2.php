@@ -14,11 +14,12 @@ use Illuminate\Http\Request;
 
 class AppController extends Controller
 {
- public function index()
-{
-    return view('welcome');
-}
-
+    public function index()
+    {
+        return view('welcome', [
+            'partnerships' => Partnership::orderBy('id', 'desc')->limit(3)->get(),
+        ]);
+    }
 
     public function berita()
     {

@@ -52,6 +52,9 @@
                 <li class="nav-item">
                     <a class="nav-link w3-button w3-mobile" href="https://wa.me/895710034499">Kontak</a>
                 </li>
+                <li>
+                    <a type="button" class="w3-mobile btn btn-primary rounded-pill ms-2" href="/form">Pendaftaran</a>
+                </li>
             </ul>
         </div>
     </div>

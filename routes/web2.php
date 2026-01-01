@@ -152,7 +152,7 @@ Route::middleware(['auth'])->group(function () {
 /*
 * OLD ROUTES
 */
-Route::get('/', [AppController::class, 'index']);
+Route::get('/', [AppController::class, 'welcome']);
 
 
 Route::get('/berita', [AppController::class, 'berita']);
