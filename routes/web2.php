@@ -26,7 +26,6 @@ use App\Http\Controllers\BlogController;
 use App\Http\Controllers\CalendarController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ForumController;
-use App\Http\Controllers\Guest\BerandaGuestController;
 use App\Http\Controllers\KabinetController;
 use App\Http\Controllers\OrmawaController;
 use App\Http\Controllers\PartnershipController;
@@ -74,28 +73,6 @@ Route::middleware(['auth'])->group(function () {
                 ->name('admin.kabinet.index');
             Route::put('/update/{id}', [KabinetAdminController::class, 'update'])
                 ->name('admin.kabinet.update');
-
-            // FILOSOFI
-            Route::prefix('filosofi')->group(function () {
-                Route::get('/{kabinetId}', [KabinetAdminController::class, 'filosofi'])
-                    ->name('admin.kabinet.filosofi.index');
-
-                // MAKNA SIMBOL
-                Route::post('/{kabinetId}/makna-simbol/store', [KabinetAdminController::class, 'storeMaknaSimbol'])
-                    ->name('admin.kabinet.filosofi.makna-simbol.store');
-                Route::put('/makna-simbol/update/{id}', [KabinetAdminController::class, 'updateMaknaSimbol'])
-                    ->name('admin.kabinet.filosofi.makna-simbol.update');
-                Route::delete('/makna-simbol/destroy/{id}', [KabinetAdminController::class, 'destroyMaknaSimbol'])
-                    ->name('admin.kabinet.filosofi.makna-simbol.destroy');
-
-                // MAKNA WARNA
-                Route::post('/{kabinetId}/makna-warna/store', [KabinetAdminController::class, 'storeMaknaWarna'])
-                    ->name('admin.kabinet.filosofi.makna-warna.store');
-                Route::put('/makna-warna/update/{id}', [KabinetAdminController::class, 'updateMaknaWarna'])
-                    ->name('admin.kabinet.filosofi.makna-warna.update');
-                Route::delete('/makna-warna/destroy/{id}', [KabinetAdminController::class, 'destroyMaknaWarna'])
-                    ->name('admin.kabinet.filosofi.makna-warna.destroy');
-            });
         });
 
         // VISI MISI
@@ -144,12 +121,6 @@ Route::middleware(['auth'])->group(function () {
         Route::prefix('program-kerja')->group(function () {
             Route::get('/', [ProgramKerjaAdminController::class, 'index'])
                 ->name('admin.program-kerja.index');
-            Route::post('/store', [ProgramKerjaAdminController::class, 'store'])
-                ->name('admin.program-kerja.store');
-            Route::put('/update/{id}', [ProgramKerjaAdminController::class, 'update'])
-                ->name('admin.program-kerja.update');
-            Route::delete('/destroy/{id}', [ProgramKerjaAdminController::class, 'destroy'])
-                ->name('admin.program-kerja.destroy');
         });
 
         // PENDAFTARAN
@@ -204,7 +175,7 @@ Route::get('/kabinet', [AppController::class, 'kabinet']);
 
 Route::get('/detail_kabinet/{slug}', [AppController::class, 'detail_kabinet']);
 
-Route::get('/proker', [AppController::class, 'proker'])->name('proker');
+Route::get('/proker', [AppController::class, 'proker']);
 
 Route::get('/detail_proker/{slug}', [AppController::class, 'detail_proker']);
 
