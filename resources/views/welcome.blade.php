@@ -3,23 +3,21 @@
 @section('content')
 
 {{-- HERO / SECTION SELAMAT DATANG --}}
-<section id="hero-home" class="hero-home d-flex align-items-center">
-    <div class="container">
-        <div class="row align-items-center">
-            <div class="col-lg-6 text-white">
-                <h1 class="fw-bold display-5 mb-2">BEM KM UDINUS</h1>
-                <p class="lead mb-4">Bersinergi dalam Satu Aksi</p>
+<section id="hero-home" class="hero-home">
+    <div class="hero-overlay"></div>
 
-                <div class="d-flex gap-2 flex-wrap">
-                    <a href="/kabinet" class="btn btn-warning rounded-pill px-4 fw-semibold">Lihat Profil</a>
-                    <a href="/kabinet" class="btn btn-warning rounded-pill px-4 fw-semibold">Lihat Profil</a>
-                    <a href="/kabinet" class="btn btn-warning rounded-pill px-4 fw-semibold">Lihat Profil</a>
-                </div>
-            </div>
-            </div>
+    <div class="container hero-content">
+        <br> <br> <br> <br>
+        <h1 class="hero-title">BEM KM UDINUS</h1>
+        <p class="hero-subtitle">" Bersinergi dalam Satu Aksi "</p>
+
+        <br> <br> <br> <br>
+        <div class="hero-buttons">
+            <a href="/kabinet" class="btn btn-warning hero-btn">Lihat Profil</a>
         </div>
     </div>
 </section>
+
 
 {{-- SAMBUTAN PRESIDEN MAHASISWA --}}
 <section class="section-presma py-5">
@@ -74,12 +72,18 @@
     </div>
 </section>
 
-
 {{-- MAKNA LOGO + FILOSOFI WARNA --}}
-<section class="section-dark py-5">
+<section class="section-dark py-5 makna-section">
     <div class="container">
+
+        {{-- JUDUL TENGAH SECTION --}}
+        <div class="text-center mb-4">
+            <h2 class="fw-bold section-title">KABINET AKSA SINERGI</h2>
+        </div>
+
         <div class="row g-4 align-items-stretch">
             <div class="col-lg-6">
+
                 <h3 class="fw-bold text-center mb-4 section-title">MAKNA LOGO</h3>
 
                 <div class="row g-3">
@@ -87,18 +91,20 @@
                         <div class="info-box">
                             <h6 class="fw-bold text-warning mb-1">Merah Bata</h6>
                             <p class="mb-0 text-white-50 small">
-                                Melambangkan semangat juang mahasiswa UDINUS dalam membawa perubahan. Warna ini mencerminkan keberanian, tekad, dan kekuatan dalam menghadapi tantangan. 
+                                Melambangkan semangat juang mahasiswa UDINUS dalam membawa perubahan.
                             </p>
                         </div>
                     </div>
+
                     <div class="col-md-6">
                         <div class="info-box">
                             <h6 class="fw-bold text-warning mb-1">Biru Tua</h6>
                             <p class="mb-0 text-white-50 small">
-                                Melambangkan semangat juang mahasiswa UDINUS dalam membawa perubahan. Warna ini mencerminkan keberanian, tekad, dan kekuatan dalam menghadapi tantangan. 
+                                Melambangkan keteguhan, intelektualitas, dan kebijaksanaan.
                             </p>
                         </div>
                     </div>
+
                     <div class="col-md-6">
                         <div class="info-box">
                             <h6 class="fw-bold text-warning mb-1">Merah Bata</h6>
@@ -107,6 +113,7 @@
                             </p>
                         </div>
                     </div>
+
                     <div class="col-md-6">
                         <div class="info-box">
                             <h6 class="fw-bold text-warning mb-1">Merah Bata</h6>
@@ -122,15 +129,16 @@
                 <div class="row g-3">
                     <div class="col-md-6">
                         <div class="info-box">
-                            <h6 class="fw-bold text-warning mb-1">Merah Bata</h6>
+                            <h6 class="fw-bold text-warning mb-1">Biru Tua</h6>
                             <p class="mb-0 text-white-50 small">
                                 Isi deskripsi filosofi warna.
                             </p>
                         </div>
                     </div>
+
                     <div class="col-md-6">
                         <div class="info-box">
-                            <h6 class="fw-bold text-warning mb-1">Merah Bata</h6>
+                            <h6 class="fw-bold text-warning mb-1">Orange</h6>
                             <p class="mb-0 text-white-50 small">
                                 Isi deskripsi filosofi warna.
                             </p>
@@ -140,24 +148,22 @@
 
             </div>
 
+            {{-- LOGO --}}
             <div class="col-lg-6 d-flex align-items-center justify-content-center">
-    <div class="logo-card text-center">
-        <img src="{{ asset('assets/images/logo aksa sinergi.png') }}"
-             class="logo-big"
-             alt="Logo Aksa Sinergi">
-    </div>
-</div>
-
-                    </div>
+                <div class="logo-card text-center">
+                    <img src="{{ asset('assets/images/logo aksa sinergi.png') }}"
+                         class="logo-big"
+                         alt="Logo Aksa Sinergi">
                 </div>
             </div>
 
         </div>
     </div>
+
     {{-- GARIS PEMBATAS --}}
-        <div class="section-divider mt-5"></div>
-    </div>
+    <div class="section-divider mt-4"></div>
 </section>
+
 
 {{-- BERITA TERBARU --}}
 <section class="section-dark py-5">
@@ -170,7 +176,7 @@
             @for ($i = 1; $i <= 3; $i++)
                 <div class="col">
                     <div class="news-card">
-                        <img src="{{ asset('assets/images/news-placeholder.jpg') }}" class="w-100 news-img" alt="Berita">
+                        <img src="{{ asset('assets/images/foto_bersama.jpeg') }}" class="w-100 news-img" alt="Berita">
                         <div class="news-badge">Webinar<br>International</div>
                         <div class="p-3">
                             <div class="fw-semibold text-white">Webinar International</div>
