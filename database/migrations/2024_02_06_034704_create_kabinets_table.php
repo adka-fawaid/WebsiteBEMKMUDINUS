@@ -13,10 +13,10 @@ return new class extends Migration
     {
         Schema::create('kabinets', function (Blueprint $table) {
             $table->id();
-            $table->string('judul')->nullable();
-            $table->string('slug')->nullable();
-            $table->string('image')->nullable();
-            $table->longText('desc')->nullable();
+            $table->string('nama');
+            $table->string('periode');
+            $table->string('logo');
+            $table->longText('deskripsi')->nullable();
             $table->timestamps();
         });
     }

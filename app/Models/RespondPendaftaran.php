@@ -1,0 +1,23 @@
+<?php
+
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
+
+class RespondPendaftaran extends Model
+{
+    use HasFactory;
+
+    protected $fillable = [
+        'pendaftaran_id',
+        'pertanyaan',
+        'jawaban',
+    ];
+
+    // Define relationship to Pendaftaran
+    public function pendaftaran()
+    {
+        return $this->belongsTo(Pendaftaran::class);
+    }
+}

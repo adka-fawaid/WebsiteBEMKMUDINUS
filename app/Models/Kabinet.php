@@ -9,5 +9,22 @@ class Kabinet extends Model
 {
     use HasFactory;
 
-    protected $guarded = ['id'];
+    protected $fillable = [
+        'nama',
+        'periode',
+        'logo',
+        'deskripsi',
+    ];
+
+    // Relationship with MaknaSimbol
+    public function maknaSimbol()
+    {
+        return $this->hasMany(MaknaSimbol::class);
+    }
+
+    // Relationship with MaknaWarna
+    public function maknaWarna()
+    {
+        return $this->hasMany(MaknaWarna::class);
+    }
 }

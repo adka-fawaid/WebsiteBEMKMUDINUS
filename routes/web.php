@@ -1,18 +1,38 @@
 <?php
 
+use App\Http\Controllers\ProfileController;
+use Illuminate\Support\Facades\Route;
+
+/*
+* ADMIN CONTROLLER
+*/
+use App\Http\Controllers\Admin\DashboardAdminController;
+use App\Http\Controllers\Admin\SambutanPresmaAdminController;
+use App\Http\Controllers\Admin\VisiMisiAdminController;
+use App\Http\Controllers\Admin\KabinetAdminController;
+use App\Http\Controllers\Admin\StrukturalAdminController;
+use App\Http\Controllers\Admin\ProgramKerjaAdminController;
+use App\Http\Controllers\Admin\PendaftaranAdminController;
+use App\Http\Controllers\Admin\BeritaAdminController;
+use App\Http\Controllers\Admin\PartnershipAdminController;
+use App\Http\Controllers\Admin\KontakAdminController;
+
+/*
+* OLD CONTROLLER
+*/
 use App\Http\Controllers\AppController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\CalendarController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ForumController;
+use App\Http\Controllers\Guest\BerandaGuestController;
 use App\Http\Controllers\KabinetController;
 use App\Http\Controllers\OrmawaController;
 use App\Http\Controllers\PartnershipController;
 use App\Http\Controllers\PhotoController;
 use App\Http\Controllers\ProkerController;
 use App\Http\Controllers\UkmController;
-use Illuminate\Support\Facades\Route;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,6 +45,142 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+/*
+* AUTHENTICATION ROUTES
+*/
+
+require __DIR__ . '/auth.php';
+
+/*
+* ADMIN ROUTES
+*/
+Route::middleware(['auth'])->group(function () {
+    Route::prefix('admin')->group(function () {
+        // DASHBOARD
+        Route::get('/dashboard', [DashboardAdminController::class, 'index'])
+            ->name('admin.dashboard');
+
+        // SAMBUTAN PRESMA
+        Route::prefix('sambutan-presma')->group(function () {
+            Route::get('/', [SambutanPresmaAdminController::class, 'index'])
+                ->name('admin.sambutan-presma.index');
+            Route::put('/update/{id}', [SambutanPresmaAdminController::class, 'update'])
+                ->name('admin.sambutan-presma.update');
+        });
+
+        // KABINET
+        Route::prefix('kabinet')->group(function () {
+            Route::get('/', [KabinetAdminController::class, 'index'])
+                ->name('admin.kabinet.index');
+            Route::put('/update/{id}', [KabinetAdminController::class, 'update'])
+                ->name('admin.kabinet.update');
+
+            // FILOSOFI
+            Route::prefix('filosofi')->group(function () {
+                Route::get('/{kabinetId}', [KabinetAdminController::class, 'filosofi'])
+                    ->name('admin.kabinet.filosofi.index');
+
+                // MAKNA SIMBOL
+                Route::post('/{kabinetId}/makna-simbol/store', [KabinetAdminController::class, 'storeMaknaSimbol'])
+                    ->name('admin.kabinet.filosofi.makna-simbol.store');
+                Route::put('/makna-simbol/update/{id}', [KabinetAdminController::class, 'updateMaknaSimbol'])
+                    ->name('admin.kabinet.filosofi.makna-simbol.update');
+                Route::delete('/makna-simbol/destroy/{id}', [KabinetAdminController::class, 'destroyMaknaSimbol'])
+                    ->name('admin.kabinet.filosofi.makna-simbol.destroy');
+
+                // MAKNA WARNA
+                Route::post('/{kabinetId}/makna-warna/store', [KabinetAdminController::class, 'storeMaknaWarna'])
+                    ->name('admin.kabinet.filosofi.makna-warna.store');
+                Route::put('/makna-warna/update/{id}', [KabinetAdminController::class, 'updateMaknaWarna'])
+                    ->name('admin.kabinet.filosofi.makna-warna.update');
+                Route::delete('/makna-warna/destroy/{id}', [KabinetAdminController::class, 'destroyMaknaWarna'])
+                    ->name('admin.kabinet.filosofi.makna-warna.destroy');
+            });
+        });
+
+        // VISI MISI
+        Route::prefix('visi-misi')->group(function () {
+            Route::get('/', [VisiMisiAdminController::class, 'index'])
+                ->name('admin.visi-misi.index');
+            Route::post('/visi/store', [VisiMisiAdminController::class, 'storeVisi'])
+                ->name('admin.visi-misi.visi.store');
+            Route::post('/misi/store', [VisiMisiAdminController::class, 'storeMisi'])
+                ->name('admin.visi-misi.misi.store');
+            Route::put('/visi/update/{id}', [VisiMisiAdminController::class, 'updateVisi'])
+                ->name('admin.visi-misi.visi.update');
+            Route::put('/misi/update/{id}', [VisiMisiAdminController::class, 'updateMisi'])
+                ->name('admin.visi-misi.misi.update');
+            Route::delete('/visi/destroy/{id}', [VisiMisiAdminController::class, 'destroyVisi'])
+                ->name('admin.visi-misi.visi.destroy');
+            Route::delete('/misi/destroy/{id}', [VisiMisiAdminController::class, 'destroyMisi'])
+                ->name('admin.visi-misi.misi.destroy');
+        });
+
+        // STRUKTURAL UNIT ORGANISASI
+        Route::prefix('struktural')->group(function () {
+            Route::get('/', [StrukturalAdminController::class, 'index'])
+                ->name('admin.struktural.index');
+            Route::post('/store', [StrukturalAdminController::class, 'store'])
+                ->name('admin.struktural.store');
+            Route::put('/update/{id}', [StrukturalAdminController::class, 'update'])
+                ->name('admin.struktural.update');
+            Route::delete('/destroy/{id}', [StrukturalAdminController::class, 'destroy'])
+                ->name('admin.struktural.destroy');
+
+            // ANGGOTA UNIT
+            Route::prefix('unit-organisasi')->group(function () {
+                Route::get('/{unitOrganisasiId}/anggota', [StrukturalAdminController::class, 'unitOrganisasi'])
+                    ->name('admin.struktural.unit-organisasi.index');
+                Route::post('/{unitOrganisasiId}/anggota', [StrukturalAdminController::class, 'createAnggotaUnit'])
+                    ->name('admin.struktural.unit-organisasi.anggota.store');
+                Route::put('/{unitOrganisasiId}/anggota/{anggotaId}', [StrukturalAdminController::class, 'updateAnggotaUnit'])
+                    ->name('admin.struktural.unit-organisasi.anggota.update');
+                Route::delete('/{unitOrganisasiId}/anggota/{anggotaId}', [StrukturalAdminController::class, 'destroyAnggotaUnit'])
+                    ->name('admin.struktural.unit-organisasi.anggota.destroy');
+            });
+        });
+
+        // PROGRAM KERJA
+        Route::prefix('program-kerja')->group(function () {
+            Route::get('/', [ProgramKerjaAdminController::class, 'index'])
+                ->name('admin.program-kerja.index');
+            Route::post('/store', [ProgramKerjaAdminController::class, 'store'])
+                ->name('admin.program-kerja.store');
+            Route::put('/update/{id}', [ProgramKerjaAdminController::class, 'update'])
+                ->name('admin.program-kerja.update');
+            Route::delete('/destroy/{id}', [ProgramKerjaAdminController::class, 'destroy'])
+                ->name('admin.program-kerja.destroy');
+        });
+
+        // PENDAFTARAN
+        Route::prefix('pendaftaran')->group(function () {
+            Route::get('/', [PendaftaranAdminController::class, 'index'])
+                ->name('admin.pendaftaran.index');
+        });
+
+        // BERITA
+        Route::prefix('berita')->group(function () {
+            Route::get('/', [BeritaAdminController::class, 'index'])
+                ->name('admin.berita.index');
+        });
+
+        // PARTNERSHIP
+        Route::prefix('partnership')->group(function () {
+            Route::get('/', [PartnershipAdminController::class, 'index'])
+                ->name('admin.partnership.index');
+        });
+
+        // KONTAK
+        Route::prefix('kontak')->group(function () {
+            Route::get('/', [KontakAdminController::class, 'index'])
+                ->name('admin.kontak.index');
+        });
+    });
+});
+
+/*
+* OLD ROUTES
+*/
 Route::get('/', [AppController::class, 'index']);
 
 
@@ -51,7 +207,7 @@ Route::get('/kabinet', [AppController::class, 'kabinet']);
 
 Route::get('/detail_kabinet/{slug}', [AppController::class, 'detail_kabinet']);
 
-Route::get('/proker', [AppController::class, 'proker']);
+Route::get('/proker', [AppController::class, 'proker'])->name('proker');
 
 Route::get('/detail_proker/{slug}', [AppController::class, 'detail_proker']);
 
@@ -63,9 +219,9 @@ Route::get('/ukm', [AppController::class, 'ukm']);
 
 Route::get('/detail_ukm/{slug}', [AppController::class, 'detail_ukm']);
 
-Route::get('/login', [AuthController::class, 'index'])->name('login')->middleware('guest');
-Route::post('/login', [AuthController::class, 'authenticate']);
-Route::post('/logout', [AuthController::class, 'logout']);
+// Route::get('/login', [AuthController::class, 'index'])->name('login')->middleware('guest');
+// Route::post('/login', [AuthController::class, 'authenticate']);
+// Route::post('/logout', [AuthController::class, 'logout']);
 
 Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard')->middleware('auth');
 
