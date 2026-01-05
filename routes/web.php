@@ -30,6 +30,8 @@ Route::get('/', [AppController::class, 'index']);
 
 Route::get('/berita', [AppController::class, 'berita']);
 
+
+
 Route::get('/detail/{slug}', [AppController::class, 'detail']);
 
 Route::get('/foto', [AppController::class, 'foto']);
@@ -39,6 +41,7 @@ Route::get('/calendar', [AppController::class, 'calendar']);
 Route::get('/partnership', [AppController::class, 'partnership']);
 
 Route::get('/detail_partnership/{slug}', [AppController::class, 'detail_partnership']);
+Route::post('/partnership/submit', [AppController::class, 'store_partnership']);
 
 Route::get('/forum', [AppController::class, 'forum']);
 

@@ -170,9 +170,8 @@
                                 <a href="mailto:bemkm@orma.dinus.ac.id"><i class="fas fa-envelope me-3"></i>bemkm@orma.dinus.ac.id</a>
                             </p>
                             <p><i class="fas fa-phone me-3"></i>0895710034499 (Nata)</p>
-                            <p><i class="fas fa-print me-3"></i>Partnership <a
-                                    href="https://docs.google.com/forms/d/e/1FAIpQLSeDNiL7fvSjR2IHC3DDOpwghKzlBshTjA0eZ9YRZGGUSWX3Bg/viewform">(Click
-                                    Here)</a>
+                                <p><i class="fas fa-print me-3"></i>Partnership <a
+                                    href="/partnership">(Click Here)</a>
                             </p>
                         </div>
                         <!-- Grid column -->

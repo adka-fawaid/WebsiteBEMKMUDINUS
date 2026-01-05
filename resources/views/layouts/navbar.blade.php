@@ -38,7 +38,7 @@
                     </ul>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link w3-button w3-mobile" href="https://docs.google.com/forms/d/e/1FAIpQLSeDNiL7fvSjR2IHC3DDOpwghKzlBshTjA0eZ9YRZGGUSWX3Bg/viewform">Partnership</a>
+                    <a class="nav-link w3-button w3-mobile" href="/partnership">Partnership</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link w3-button w3-mobile" href="/berita">Content</a>
