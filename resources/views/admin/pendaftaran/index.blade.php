@@ -26,13 +26,13 @@
                                     <polyline points="9 18 15 12 9 6" />
                                 </svg>
                             </li>
-                            <li class="text-gray-700 font-semibold">Program Kerja</li>
+                            <li class="text-gray-700 font-semibold">Pendaftaran</li>
                         </ol>
                     </nav>
                     <div>
                         <p class="text-xs font-semibold text-blue-600 uppercase tracking-wider mb-1">Manajemen Data
                         </p>
-                        <h1 class="text-3xl font-bold text-gray-900">Kelola Program Kerja</h1>
+                        <h1 class="text-3xl font-bold text-gray-900">Kelola Pendaftaran</h1>
                     </div>
                 </div>
 
@@ -53,8 +53,8 @@
                                     </svg>
                                 </div>
                                 <div>
-                                    <h2 class="text-xl font-bold text-white">Data Program Kerja</h2>
-                                    <p class="text-xs text-blue-100">Informasi program kerja</p>
+                                    <h2 class="text-xl font-bold text-white">Data Pendaftaran</h2>
+                                    <p class="text-xs text-blue-100">Informasi tentang pendaftaran</p>
                                 </div>
                             </div>
                         </div>
@@ -64,15 +64,15 @@
                     <div class="p-6">
                         <div class="overflow-x-auto">
                             <div class="flex items-center justify-between mb-4">
-                                <h3 class="text-lg font-bold text-gray-900">Data Program Kerja</h3>
-                                <button type="button" data-modal-target="add-program-kerja-modal"
-                                    data-modal-toggle="add-program-kerja-modal"
+                                <h3 class="text-lg font-bold text-gray-900">Data Pendaftaran</h3>
+                                <button type="button" data-modal-target="add-pendaftaran-modal"
+                                    data-modal-toggle="add-pendaftaran-modal"
                                     class="text-white bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700 font-semibold rounded-lg text-sm px-5 py-2.5 transition-all duration-150 flex items-center gap-2 shadow-lg hover:shadow-xl">
                                     <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                             d="M12 4v16m8-8H4" />
                                     </svg>
-                                    Tambah Program Kerja
+                                    Tambah Pendaftaran
                                 </button>
                             </div>
 
@@ -92,7 +92,7 @@
                                             <span
                                                 class="text-xs font-extrabold text-gray-700 uppercase tracking-wider">Deskripsi</span>
                                         </th>
-                                        <th scope="col" class="px-6 py-4 text-center font-bold">
+                                        <th scope="col" class="px-10 py-4 text-center font-bold w-48">
                                             <span
                                                 class="text-xs font-extrabold text-gray-700 uppercase tracking-wider">Tanggal</span>
                                         </th>
@@ -126,7 +126,8 @@
                                             <td class="px-6 py-5 text-center">
                                                 <div class="text-xs text-gray-600">
                                                     @if ($item->tanggal_buka === $item->tanggal_tutup)
-                                                        <div class="font-semibold">
+                                                        <div
+                                                            class="font-semibold flex flex-col items-center justify-center">
                                                             {{ \Carbon\Carbon::parse($item->tanggal_buka)->format('d M Y') }}
                                                         </div>
                                                     @else
@@ -141,7 +142,7 @@
                                                 </div>
                                             </td>
                                             <td class="px-6 py-5 text-center">
-                                                <a href="#"
+                                                <a href="{{ route('admin.pendaftaran.formulir.index', $item->id) }}"
                                                     class="inline-flex items-center gap-1.5 px-3 py-1.5 border-2 border-blue-600 hover:bg-blue-600 text-blue-600 hover:text-white text-sm font-semibold rounded-lg transition-all duration-200 group whitespace-nowrap">
                                                     <svg xmlns="http://www.w3.org/2000/svg" width="14"
                                                         height="14" viewBox="0 0 24 24" fill="none"
@@ -159,22 +160,8 @@
                                             <td class="px-6 py-5">
                                                 <div class="flex items-center justify-center gap-2">
                                                     <button type="button"
-                                                        data-modal-target="show-program-kerja-modal-{{ $item->id }}"
-                                                        data-modal-toggle="show-program-kerja-modal-{{ $item->id }}"
-                                                        class="group p-2 rounded-lg bg-blue-50 hover:bg-blue-100 transition-all duration-200 hover:shadow-md"
-                                                        title="Lihat">
-                                                        <svg xmlns="http://www.w3.org/2000/svg" width="18"
-                                                            height="18" viewBox="0 0 24 24" fill="none"
-                                                            stroke="currentColor" stroke-width="2"
-                                                            stroke-linecap="round" stroke-linejoin="round"
-                                                            class="text-blue-600 group-hover:text-blue-700 transition-colors">
-                                                            <path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z" />
-                                                            <circle cx="12" cy="12" r="3" />
-                                                        </svg>
-                                                    </button>
-                                                    <button type="button"
-                                                        data-modal-target="edit-program-kerja-modal-{{ $item->id }}"
-                                                        data-modal-toggle="edit-program-kerja-modal-{{ $item->id }}"
+                                                        data-modal-target="edit-pendaftaran-modal-{{ $item->id }}"
+                                                        data-modal-toggle="edit-pendaftaran-modal-{{ $item->id }}"
                                                         class="group p-2 rounded-lg bg-amber-50 hover:bg-amber-100 transition-all duration-200 hover:shadow-md"
                                                         title="Edit">
                                                         <svg xmlns="http://www.w3.org/2000/svg" width="18"
@@ -188,8 +175,8 @@
                                                         </svg>
                                                     </button>
                                                     <button type="button"
-                                                        data-modal-target="delete-program-kerja-modal-{{ $item->id }}"
-                                                        data-modal-toggle="delete-program-kerja-modal-{{ $item->id }}"
+                                                        data-modal-target="delete-pendaftaran-modal-{{ $item->id }}"
+                                                        data-modal-toggle="delete-pendaftaran-modal-{{ $item->id }}"
                                                         class="group p-2 rounded-lg bg-red-50 hover:bg-red-100 transition-all duration-200 hover:shadow-md"
                                                         title="Hapus">
                                                         <svg xmlns="http://www.w3.org/2000/svg" width="18"
@@ -210,14 +197,11 @@
                                             </td>
                                         </tr>
 
-                                        <!-- Include Show Modal -->
-                                        @include('admin.program-kerja.show', ['item' => $item])
-
                                         <!-- Include Edit Modal -->
-                                        @include('admin.program-kerja.edit', ['item' => $item])
+                                        @include('admin.pendaftaran.edit', ['item' => $item])
 
                                         <!-- Include Delete Modal -->
-                                        @include('admin.program-kerja.delete', ['item' => $item])
+                                        @include('admin.pendaftaran.delete', ['item' => $item])
                                     @empty
                                         <tr>
                                             <td colspan="6" class="px-6 py-16 text-center">
@@ -236,8 +220,8 @@
                                                     </div>
                                                     <h3 class="text-lg font-bold text-gray-900 mb-1">Tidak Ada Data
                                                     </h3>
-                                                    <p class="text-sm text-gray-500">Belum ada data program kerja. Klik
-                                                        tombol "Tambah Program Kerja" untuk menambah data.</p>
+                                                    <p class="text-sm text-gray-500">Belum ada data pendaftaran. Klik
+                                                        tombol "Tambah Pendaftaran" untuk menambah data.</p>
                                                 </div>
                                             </td>
                                         </tr>
@@ -252,5 +236,5 @@
     </main>
 
     <!-- Include Create Modal -->
-    @include('admin.program-kerja.create')
+    @include('admin.pendaftaran.create')
 </x-app-layout>

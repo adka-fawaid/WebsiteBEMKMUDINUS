@@ -156,6 +156,29 @@ Route::middleware(['auth'])->group(function () {
         Route::prefix('pendaftaran')->group(function () {
             Route::get('/', [PendaftaranAdminController::class, 'index'])
                 ->name('admin.pendaftaran.index');
+            Route::post('/store', [PendaftaranAdminController::class, 'store'])
+                ->name('admin.pendaftaran.store');
+            Route::put('/update/{id}', [PendaftaranAdminController::class, 'update'])
+                ->name('admin.pendaftaran.update');
+            Route::delete('/destroy/{id}', [PendaftaranAdminController::class, 'destroy'])
+                ->name('admin.pendaftaran.destroy');
+
+            // FORMULIR PENDAFTARAN
+            Route::prefix('formulir')->group(function () {
+                Route::get('/{pendaftaranId}', [PendaftaranAdminController::class, 'formulirPendaftaran'])
+                    ->name('admin.pendaftaran.formulir.index');
+                Route::post('/{pendaftaranId}/pertanyaan/store', [PendaftaranAdminController::class, 'storePertanyaan'])
+                    ->name('admin.pendaftaran.formulir.pertanyaan.store');
+                Route::put('/{pendaftaranId}/pertanyaan/update/{pertanyaanId}', [PendaftaranAdminController::class, 'updatePertanyaan'])
+                    ->name('admin.pendaftaran.formulir.pertanyaan.update');
+                Route::delete('/pertanyaan/destroy/{id}', [PendaftaranAdminController::class, 'destroyPertanyaan'])
+                    ->name('admin.pendaftaran.formulir.pertanyaan.destroy');
+            });
+        });
+
+        Route::prefix('rekap-pendaftaran')->group(function () {
+            Route::get('/', [App\Http\Controllers\Admin\RekapPendaftaranAdminController::class, 'index'])
+                ->name('admin.rekap-pendaftaran.index');
         });
 
         // BERITA

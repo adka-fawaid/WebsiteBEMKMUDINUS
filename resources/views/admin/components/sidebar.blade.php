@@ -49,6 +49,7 @@
                     request()->routeIs('admin.sambutan-presma.index') ||
                     request()->routeIs('admin.visi-misi.index') ||
                     request()->routeIs('admin.kabinet.index') ||
+                    request()->routeIs('admin.kabinet.filosofi.index') ||
                     request()->routeIs('admin.struktural.index') ||
                     request()->routeIs('admin.struktural.unit-organisasi.index');
             @endphp
@@ -99,10 +100,10 @@
                     </li>
                     <li class="relative">
                         <a href="{{ route('admin.kabinet.index') }}"
-                            class="flex items-center mx-4 p-2 rounded-lg group transition-all duration-300 {{ request()->routeIs('admin.kabinet.index') ? 'bg-gradient-to-r from-blue-500 to-indigo-500 text-white shadow-md' : 'hover:bg-gradient-to-r hover:from-blue-50 hover:to-indigo-50 hover:pl-3' }}">
+                            class="flex items-center mx-4 p-2 rounded-lg group transition-all duration-300 {{ request()->routeIs('admin.kabinet.index') || request()->routeIs('admin.kabinet.filosofi.index') ? 'bg-gradient-to-r from-blue-500 to-indigo-500 text-white shadow-md' : 'hover:bg-gradient-to-r hover:from-blue-50 hover:to-indigo-50 hover:pl-3' }}">
                             <div
-                                class="flex items-center justify-center w-6 h-6 rounded-md {{ request()->routeIs('admin.kabinet.index') ? 'bg-white/20' : 'bg-blue-50 group-hover:bg-blue-100' }} transition-all duration-300">
-                                <svg class="shrink-0 w-3.5 h-3.5 {{ request()->routeIs('admin.kabinet.index') ? 'text-white' : 'text-blue-600' }}"
+                                class="flex items-center justify-center w-6 h-6 rounded-md {{ request()->routeIs('admin.kabinet.index') || request()->routeIs('admin.kabinet.filosofi.index') ? 'bg-white/20' : 'bg-blue-50 group-hover:bg-blue-100' }} transition-all duration-300">
+                                <svg class="shrink-0 w-3.5 h-3.5 {{ request()->routeIs('admin.kabinet.index') || request()->routeIs('admin.kabinet.filosofi.index') ? 'text-white' : 'text-blue-600' }}"
                                     xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                                     stroke="currentColor" stroke-width="2" stroke-linecap="round"
                                     stroke-linejoin="round">
@@ -154,7 +155,10 @@
             </li>
             @php
                 $isKegiatanActive =
-                    request()->routeIs('admin.program-kerja.index') || request()->routeIs('admin.pendaftaran.index');
+                    request()->routeIs('admin.program-kerja.index') ||
+                    request()->routeIs('admin.pendaftaran.index') ||
+                    request()->routeIs('admin.pendaftaran.formulir.index') ||
+                    request()->routeIs('admin.rekap-pendaftaran.index');
             @endphp
             <li class="relative" x-data="{ open: {{ $isKegiatanActive ? 'true' : 'false' }} }">
                 @if ($isKegiatanActive)
@@ -205,10 +209,10 @@
                     </li>
                     <li class="relative">
                         <a href="{{ route('admin.pendaftaran.index') }}"
-                            class="flex items-center mx-4 p-2 rounded-lg group transition-all duration-300 {{ request()->routeIs('admin.pendaftaran.index') ? 'bg-gradient-to-r from-blue-500 to-indigo-500 text-white shadow-md' : 'hover:bg-gradient-to-r hover:from-blue-50 hover:to-indigo-50 hover:pl-3' }}">
+                            class="flex items-center mx-4 p-2 rounded-lg group transition-all duration-300 {{ request()->routeIs('admin.pendaftaran.index') || request()->routeIs('admin.pendaftaran.formulir.index') ? 'bg-gradient-to-r from-blue-500 to-indigo-500 text-white shadow-md' : 'hover:bg-gradient-to-r hover:from-blue-50 hover:to-indigo-50 hover:pl-3' }}">
                             <div
-                                class="flex items-center justify-center w-6 h-6 rounded-md {{ request()->routeIs('admin.pendaftaran.index') ? 'bg-white/20' : 'bg-blue-50 group-hover:bg-blue-100' }} transition-all duration-300">
-                                <svg class="shrink-0 w-3.5 h-3.5 {{ request()->routeIs('admin.pendaftaran.index') ? 'text-white' : 'text-blue-600' }}"
+                                class="flex items-center justify-center w-6 h-6 rounded-md {{ request()->routeIs('admin.pendaftaran.index') || request()->routeIs('admin.pendaftaran.formulir.index') ? 'bg-white/20' : 'bg-blue-50 group-hover:bg-blue-100' }} transition-all duration-300">
+                                <svg class="shrink-0 w-3.5 h-3.5 {{ request()->routeIs('admin.pendaftaran.index') || request()->routeIs('admin.pendaftaran.formulir.index') ? 'text-white' : 'text-blue-600' }}"
                                     xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                                     stroke="currentColor" stroke-width="2" stroke-linecap="round"
                                     stroke-linejoin="round">
@@ -220,6 +224,28 @@
                                 </svg>
                             </div>
                             <span class="flex-1 ms-2 text-sm font-medium">Pendaftaran</span>
+                        </a>
+                    </li>
+                    <li class="relative">
+                        <a href="{{ route('admin.rekap-pendaftaran.index') }}"
+                            class="flex items-center mx-4 p-2 rounded-lg group transition-all duration-300 {{ request()->routeIs('admin.rekap-pendaftaran.index') ? 'bg-gradient-to-r from-blue-500 to-indigo-500 text-white shadow-md' : 'hover:bg-gradient-to-r hover:from-blue-50 hover:to-indigo-50 hover:pl-3' }}">
+                            <div
+                                class="flex items-center justify-center w-6 h-6 rounded-md {{ request()->routeIs('admin.rekap-pendaftaran.index') ? 'bg-white/20' : 'bg-blue-50 group-hover:bg-blue-100' }} transition-all duration-300">
+                                <svg class="shrink-0 w-3.5 h-3.5 {{ request()->routeIs('admin.rekap-pendaftaran.index') ? 'text-white' : 'text-blue-600' }}"
+                                    xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <path d="M2 6h4" />
+                                    <path d="M2 10h4" />
+                                    <path d="M2 14h4" />
+                                    <path d="M2 18h4" />
+                                    <rect width="16" height="20" x="4" y="2" rx="2" />
+                                    <path d="M9.5 8h5" />
+                                    <path d="M9.5 12H16" />
+                                    <path d="M9.5 16H14" />
+                                </svg>
+                            </div>
+                            <span class="flex-1 ms-2 text-sm font-medium">Rekap Pendaftaran</span>
                         </a>
                     </li>
                 </ul>

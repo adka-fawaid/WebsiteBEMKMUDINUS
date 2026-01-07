@@ -1,5 +1,5 @@
-<!-- Edit Modal -->
-<div id="edit-program-kerja-modal-{{ $item->id }}" tabindex="-1" aria-hidden="true"
+<!-- Edit Pendaftaran Modal -->
+<div id="edit-pendaftaran-modal-{{ $item->id }}" tabindex="-1" aria-hidden="true"
     class="hidden overflow-y-auto overflow-x-hidden fixed inset-0 z-50 flex justify-center items-center">
     <div class="relative p-4 w-full max-w-2xl h-full flex items-center justify-center">
         <div class="relative bg-white rounded-2xl shadow-2xl overflow-hidden w-full max-h-[90vh] flex flex-col">
@@ -24,12 +24,12 @@
                         </div>
                         <div>
                             <p class="text-xs font-semibold text-blue-100 uppercase tracking-wider mb-1">Edit Data</p>
-                            <h3 class="text-xl md:text-2xl font-bold text-white leading-tight">Edit Program Kerja</h3>
+                            <h3 class="text-xl md:text-2xl font-bold text-white leading-tight">Edit Pendaftaran</h3>
                         </div>
                     </div>
                     <button type="button"
                         class="flex-shrink-0 text-white/90 bg-white/10 hover:bg-white/20 backdrop-blur-sm rounded-lg text-sm w-10 h-10 inline-flex justify-center items-center transition-all duration-200 hover:scale-110"
-                        data-modal-hide="edit-program-kerja-modal-{{ $item->id }}">
+                        data-modal-hide="edit-pendaftaran-modal-{{ $item->id }}">
                         <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
                             viewBox="0 0 14 14">
                             <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
@@ -41,88 +41,18 @@
             </div>
 
             <!-- Modal body -->
-            <form action="{{ route('admin.program-kerja.update', $item->id) }}" method="POST"
+            <form action="{{ route('admin.pendaftaran.update', $item->id) }}" method="POST"
                 enctype="multipart/form-data" class="flex-1 flex flex-col overflow-hidden">
                 @csrf
                 @method('PUT')
 
                 <div class="flex-1 overflow-y-auto p-4 md:p-6 space-y-4">
-                    <!-- Foto Upload -->
-                    <div
-                        class="bg-white rounded-xl p-6 shadow-sm hover:shadow-md transition-all duration-300 border border-gray-100">
-                        <div class="flex items-center gap-3 mb-4">
-                            <div
-                                class="flex-shrink-0 w-10 h-10 rounded-lg bg-gradient-to-br from-blue-500 to-blue-600 flex items-center justify-center shadow-sm">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
-                                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                                    stroke-linecap="round" stroke-linejoin="round" class="text-white">
-                                    <rect x="3" y="3" width="18" height="18" rx="2" ry="2" />
-                                    <circle cx="9" cy="9" r="2" />
-                                    <path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21" />
-                                </svg>
-                            </div>
-                            <div>
-                                <label class="text-sm font-bold text-gray-900">Foto Program Kerja</label>
-                                <p class="text-xs text-gray-500">Upload foto baru (max 5MB)</p>
-                            </div>
-                        </div>
-
-                        <div class="flex flex-col md:flex-row gap-4 items-start">
-                            <!-- Current Photo Preview -->
-                            <div class="flex-shrink-0">
-                                @if ($item->foto)
-                                    <img id="current-foto-{{ $item->id }}"
-                                        src="{{ asset('storage/img/program-kerja/' . $item->foto) }}"
-                                        alt="{{ $item->nama }}"
-                                        class="w-40 h-40 object-cover rounded-xl shadow-md border-2 border-gray-200">
-                                @else
-                                    <div id="current-foto-{{ $item->id }}"
-                                        class="w-40 h-40 rounded-xl bg-gray-100 flex items-center justify-center border-2 border-gray-200">
-                                        <svg class="w-16 h-16 text-gray-400" xmlns="http://www.w3.org/2000/svg"
-                                            fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                                d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                                        </svg>
-                                    </div>
-                                @endif
-                                <div id="edit-image-preview-{{ $item->id }}" class="hidden">
-                                    <img id="edit-preview-img-{{ $item->id }}" src="" alt="Preview"
-                                        class="w-40 h-40 object-cover rounded-xl shadow-md border-2 border-gray-200">
-                                </div>
-                            </div>
-
-                            <!-- Upload Area -->
-                            <div class="flex-1">
-                                <div
-                                    class="relative border-2 border-dashed border-gray-300 rounded-xl p-6 hover:border-blue-400 transition-colors duration-300">
-                                    <input type="file" id="foto-{{ $item->id }}" name="foto" accept="image/*"
-                                        class="absolute inset-0 w-full h-full opacity-0 cursor-pointer"
-                                        onchange="previewEditImage{{ $item->id }}(event)">
-                                    <div class="text-center">
-                                        <svg class="mx-auto h-12 w-12 text-gray-400" stroke="currentColor"
-                                            fill="none" viewBox="0 0 48 48">
-                                            <path
-                                                d="M28 8H12a4 4 0 00-4 4v20m32-12v8m0 0v8a4 4 0 01-4 4H12a4 4 0 01-4-4v-4m32-4l-3.172-3.172a4 4 0 00-5.656 0L28 28M8 32l9.172-9.172a4 4 0 015.656 0L28 28m0 0l4 4m4-24h8m-4-4v8m-12 4h.02"
-                                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                                        </svg>
-                                        <p class="mt-2 text-sm text-gray-600">
-                                            <span class="font-semibold text-blue-600">Klik untuk upload</span>
-                                            atau drag and drop
-                                        </p>
-                                        <p class="text-xs text-gray-500">PNG, JPG, GIF, SVG hingga 5MB</p>
-                                    </div>
-                                </div>
-                                <p class="mt-2 text-xs text-gray-500" id="file-name-{{ $item->id }}"></p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Nama -->
+                    <!-- Program Kerja Id -->
                     <div
                         class="bg-white rounded-xl p-5 shadow-sm hover:shadow-md transition-all duration-300 border border-gray-100">
                         <div class="flex items-start gap-3">
                             <div
-                                class="flex-shrink-0 w-10 h-10 rounded-lg bg-gradient-to-br from-indigo-500 to-indigo-600 flex items-center justify-center shadow-sm">
+                                class="flex-shrink-0 w-10 h-10 rounded-lg bg-gradient-to-br from-purple-500 to-purple-600 flex items-center justify-center shadow-sm">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
                                     viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
                                     stroke-linecap="round" stroke-linejoin="round" class="text-white">
@@ -132,57 +62,65 @@
                                 </svg>
                             </div>
                             <div class="flex-1">
-                                <label for="nama-{{ $item->id }}"
-                                    class="block text-xs font-medium text-gray-900 uppercase tracking-wide mb-2">Nama
-                                    Program Kerja</label>
-                                <input type="text" id="nama-{{ $item->id }}" name="nama"
-                                    value="{{ $item->nama }}"
+                                <label for="program_kerja_id"
+                                    class="block text-xs font-medium text-gray-900 uppercase tracking-wide mb-2">Program
+                                    Kerja</label>
+                                <select id="program_kerja_id" name="program_kerja_id    "
                                     class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200"
-                                    placeholder="Masukkan nama program kerja..." required>
+                                    required disabled readonly>
+                                    <option value="">Pilih Program Kerja</option>
+                                    @php
+                                        $selectedId = old('program_kerja_id', $item->program_kerja_id);
+                                        $found = $programKerjas->contains('id', $selectedId);
+                                    @endphp
+                                    @if ($selectedId && !$found)
+                                        <option value="{{ $selectedId }}" selected>
+                                            {{ $item->programKerja->nama ?? 'Program Kerja Lama' }}
+                                        </option>
+                                    @endif
+                                    @forelse ($programKerjas as $programKerja)
+                                        <option value="{{ $programKerja->id }}"
+                                            @if ($selectedId == $programKerja->id) selected @endif>
+                                            {{ $programKerja->nama }}
+                                        </option>
+                                    @empty
+                                        <option value="" disabled>Belum ada Program Kerja tersedia</option>
+                                    @endforelse
+                                </select>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Kategori -->
+                    <!-- Judul -->
                     <div
                         class="bg-white rounded-xl p-5 shadow-sm hover:shadow-md transition-all duration-300 border border-gray-100">
                         <div class="flex items-start gap-3">
                             <div
-                                class="flex-shrink-0 w-10 h-10 rounded-lg bg-gradient-to-br from-purple-500 to-purple-600 flex items-center justify-center shadow-sm">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
-                                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                                    stroke-linecap="round" stroke-linejoin="round" class="text-white">
-                                    <path d="M3 5h.01" />
-                                    <path d="M3 12h.01" />
-                                    <path d="M3 19h.01" />
-                                    <path d="M8 5h13" />
-                                    <path d="M8 12h13" />
-                                    <path d="M8 19h13" />
+                                class="flex-shrink-0 w-10 h-10 rounded-lg bg-gradient-to-br from-indigo-500 to-indigo-600 flex items-center justify-center shadow-sm">
+                                <!-- Lucide Type Icon -->
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none"
+                                    viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" class="lucide lucide-type text-white">
+                                    <polyline points="4 7 4 4 20 4 20 7" />
+                                    <line x1="9" x2="15" y1="20" y2="20" />
+                                    <line x1="12" x2="12" y1="4" y2="20" />
                                 </svg>
                             </div>
                             <div class="flex-1">
-                                <label for="kategori-{{ $item->id }}"
-                                    class="block text-xs font-medium text-gray-900 uppercase tracking-wide mb-2">Kategori</label>
-                                <select id="kategori-{{ $item->id }}" name="kategori"
+                                <label for="judul"
+                                    class="block text-xs font-medium text-gray-900 uppercase tracking-wide mb-2">Judul
+                                    Pendaftaran</label>
+                                <input type="text" id="judul" name="judul"
                                     class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200"
+                                    placeholder="Masukkan judul pendaftaran..." value="{{ old('judul', $item->judul) }}"
                                     required>
-                                    <option value="">Pilih Kategori</option>
-                                    <option value="Rencana Kerja Tahunan"
-                                        {{ $item->kategori == 'Rencana Kerja Tahunan' ? 'selected' : '' }}>Rencana
-                                        Kerja Tahunan</option>
-                                    <option value="Non Rencana Kerja Tahunan"
-                                        {{ $item->kategori == 'Non Rencana Kerja Tahunan' ? 'selected' : '' }}>Non
-                                        Rencana Kerja Tahunan</option>
-                                    <option value="Duta Kampus"
-                                        {{ $item->kategori == 'Duta Kampus' ? 'selected' : '' }}>Duta Kampus</option>
-                                </select>
                             </div>
                         </div>
                     </div>
 
                     <!-- Tanggal -->
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                        <!-- Tanggal Mulai -->
+                        <!-- Tanggal Buka -->
                         <div
                             class="bg-white rounded-xl p-5 shadow-sm hover:shadow-md transition-all duration-300 border border-gray-100">
                             <div class="flex items-start gap-3">
@@ -199,18 +137,17 @@
                                     </svg>
                                 </div>
                                 <div class="flex-1">
-                                    <label for="tanggal_mulai-{{ $item->id }}"
+                                    <label for="tanggal_buka"
                                         class="block text-xs font-medium text-gray-900 uppercase tracking-wide mb-2">Tanggal
-                                        Mulai</label>
-                                    <input type="date" id="tanggal_mulai-{{ $item->id }}"
-                                        name="tanggal_mulai" value="{{ $item->tanggal_mulai }}"
+                                        Buka</label>
+                                    <input type="date" id="tanggal_buka" name="tanggal_buka"
                                         class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200"
-                                        required>
+                                        value="{{ old('tanggal_buka', $item->tanggal_buka) }}" required>
                                 </div>
                             </div>
                         </div>
 
-                        <!-- Tanggal Selesai -->
+                        <!-- Tanggal Tutup -->
                         <div
                             class="bg-white rounded-xl p-5 shadow-sm hover:shadow-md transition-all duration-300 border border-gray-100">
                             <div class="flex items-start gap-3">
@@ -227,13 +164,12 @@
                                     </svg>
                                 </div>
                                 <div class="flex-1">
-                                    <label for="tanggal_selesai-{{ $item->id }}"
+                                    <label for="tanggal_tutup"
                                         class="block text-xs font-medium text-gray-900 uppercase tracking-wide mb-2">Tanggal
-                                        Selesai</label>
-                                    <input type="date" id="tanggal_selesai-{{ $item->id }}"
-                                        name="tanggal_selesai" value="{{ $item->tanggal_selesai }}"
+                                        Tutup</label>
+                                    <input type="date" id="tanggal_tutup" name="tanggal_tutup"
                                         class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200"
-                                        required>
+                                        value="{{ old('tanggal_tutup', $item->tanggal_tutup) }}" required>
                                 </div>
                             </div>
                         </div>
@@ -253,49 +189,11 @@
                                 </svg>
                             </div>
                             <div class="flex-1">
-                                <label for="deskripsi-{{ $item->id }}"
+                                <label for="deskripsi"
                                     class="block text-xs font-medium text-gray-900 uppercase tracking-wide mb-2">Deskripsi</label>
-                                <textarea id="deskripsi-{{ $item->id }}" name="deskripsi" rows="6"
+                                <textarea id="deskripsi" name="deskripsi" rows="6"
                                     class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 resize-none"
-                                    placeholder="Masukkan deskripsi program kerja..." required>{{ $item->deskripsi }}</textarea>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Pendaftaran -->
-                    <div
-                        class="bg-white rounded-xl p-5 shadow-sm hover:shadow-md transition-all duration-300 border border-gray-100">
-                        <div class="flex items-center gap-3">
-                            <div
-                                class="flex-shrink-0 w-10 h-10 rounded-lg bg-gradient-to-br from-orange-500 to-orange-600 flex items-center justify-center shadow-sm">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
-                                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                                    stroke-linecap="round" stroke-linejoin="round" class="text-white">
-                                    <path
-                                        d="M2 9a3 3 0 0 1 0 6v2a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-2a3 3 0 0 1 0-6V7a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2Z" />
-                                    <path d="M13 5v2" />
-                                    <path d="M13 17v2" />
-                                    <path d="M13 11v2" />
-                                </svg>
-                            </div>
-                            <div class="flex-1">
-                                <label for="pendaftaran-{{ $item->id }}"
-                                    class="block text-xs font-medium text-gray-900 uppercase tracking-wide mb-2">Buka
-                                    Pendaftaran</label>
-                                <div class="flex items-center gap-4">
-                                    <label class="flex items-center cursor-pointer">
-                                        <input type="radio" name="pendaftaran" value="1"
-                                            {{ $item->pendaftaran == 1 ? 'checked' : '' }}
-                                            class="w-4 h-4 text-blue-600 focus:ring-2 focus:ring-blue-500">
-                                        <span class="ml-2 text-sm text-gray-700">Ya</span>
-                                    </label>
-                                    <label class="flex items-center cursor-pointer">
-                                        <input type="radio" name="pendaftaran" value="0"
-                                            {{ $item->pendaftaran == 0 ? 'checked' : '' }}
-                                            class="w-4 h-4 text-blue-600 focus:ring-2 focus:ring-blue-500">
-                                        <span class="ml-2 text-sm text-gray-700">Tidak</span>
-                                    </label>
-                                </div>
+                                    placeholder="Masukkan deskripsi pendaftaran..." required>{{ old('deskripsi', $item->deskripsi) }}</textarea>
                             </div>
                         </div>
                     </div>
@@ -304,7 +202,7 @@
                 <!-- Modal footer -->
                 <div
                     class="flex items-center justify-end gap-3 p-4 md:p-6 border-t border-gray-200 bg-gray-50 flex-shrink-0">
-                    <button type="button" data-modal-hide="edit-program-kerja-modal-{{ $item->id }}"
+                    <button type="button" data-modal-hide="edit-pendaftaran-modal-{{ $item->id }}"
                         class="text-gray-700 bg-white hover:bg-gray-100 border border-gray-300 font-semibold rounded-lg text-sm px-5 py-2.5 transition-all duration-200 hover:shadow-md">
                         Batal
                     </button>

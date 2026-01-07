@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('pendaftaran_id')->constrained('pendaftarans')->onDelete('cascade');
             $table->string('pertanyaan');
-            $table->enum('tipe_jawaban', ['jawaban_panjang', 'jawaban_singkat', 'opsi', 'file']);
+            $table->enum('tipe_jawaban', ['Jawaban Panjang', 'Jawaban Singkat', 'Opsi', 'File']);
             $table->timestamps();
         });
     }

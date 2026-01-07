@@ -1,5 +1,5 @@
 <x-app-layout>
-    <!-- Unit Organisasi Content -->
+    <!-- Formulir Pendaftaran Content -->
     <main class="ml-0 md:ml-64 peer-checked:md:ml-0 transition-all duration-300">
         <section class="pt-24 px-8 pb-10 bg-gradient-to-br from-gray-50 via-blue-50 to-indigo-50 min-h-screen">
             <div class="max-w-7xl mx-auto px-3">
@@ -27,9 +27,9 @@
                                 </svg>
                             </li>
                             <li>
-                                <a href="{{ route('admin.struktural.index') }}"
+                                <a href="{{ route('admin.pendaftaran.index') }}"
                                     class="text-blue-600 hover:text-blue-700 font-medium transition duration-150">
-                                    Struktural
+                                    Pendaftaran
                                 </a>
                             </li>
                             <li>
@@ -39,19 +39,19 @@
                                     <polyline points="9 18 15 12 9 6" />
                                 </svg>
                             </li>
-                            <li class="text-gray-700 font-semibold">Kelola Anggota Unit</li>
+                            <li class="text-gray-700 font-semibold">Kelola Formulir Pendaftaran</li>
                         </ol>
                     </nav>
                     <div>
                         <p class="text-xs font-semibold text-blue-600 uppercase tracking-wider mb-1">Manajemen Data
                         </p>
-                        <h1 class="text-3xl font-bold text-gray-900">Kelola Anggota Unit Organisasi</h1>
+                        <h1 class="text-3xl font-bold text-gray-900">Kelola Formulir Pendaftaran</h1>
                     </div>
                 </div>
 
                 <!-- Back Button -->
                 <div class="mb-6">
-                    <a href="{{ route('admin.struktural.index') }}"
+                    <a href="{{ route('admin.pendaftaran.index') }}"
                         class="inline-flex items-center text-gray-700 hover:bg-blue-100 border border-blue-300 focus:ring-4 focus:outline-none focus:ring-blue-200 font-medium rounded-lg text-sm px-5 py-2.5 text-center transition duration-200">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
                             fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
@@ -59,7 +59,7 @@
                             class="group-hover:-translate-x-1 transition-transform duration-300">
                             <polyline points="15 18 9 12 15 6" />
                         </svg>
-                        <span class="tracking-wide">Kembali ke Struktural</span>
+                        <span class="tracking-wide">Kembali ke Pendaftaran</span>
                     </a>
                 </div>
 
@@ -70,24 +70,19 @@
                             <div class="flex items-center gap-3">
                                 <div
                                     class="w-10 h-10 rounded-lg bg-white/20 backdrop-blur-sm flex items-center justify-center">
-                                    @if ($unitOrganisasi->logo)
-                                        <img src="{{ asset('storage/img/unit-organisasi/' . $unitOrganisasi->logo) }}"
-                                            alt="{{ $unitOrganisasi->nama }}" class="w-5 h-5 object-contain">
-                                    @else
-                                        <svg class="w-5 h-5 text-white" xmlns="http://www.w3.org/2000/svg"
-                                            fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"
-                                            stroke-linecap="round" stroke-linejoin="round">
-                                            <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
-                                            <circle cx="9" cy="7" r="4" />
-                                            <path d="M22 21v-2a4 4 0 0 0-3-3.87" />
-                                            <path d="M16 3.13a4 4 0 0 1 0 7.75" />
-                                        </svg>
-                                    @endif
+                                    <svg class="w-5 h-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none"
+                                        viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"
+                                        stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
+                                        <circle cx="9" cy="7" r="4" />
+                                        <path d="M22 21v-2a4 4 0 0 0-3-3.87" />
+                                        <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+                                    </svg>
                                 </div>
                                 <div>
-                                    <h2 class="text-xl font-bold text-white">{{ $unitOrganisasi->nama }}
+                                    <h2 class="text-xl font-bold text-white">{{ $pendaftaran->judul }}
                                     </h2>
-                                    <p class="text-xs text-blue-100">Daftar anggota dalam {{ $unitOrganisasi->nama }}
+                                    <p class="text-xs text-blue-100">Kelola formulir pendaftaran
                                     </p>
                                 </div>
                             </div>
@@ -98,15 +93,15 @@
                     <div class="p-6">
                         <div class="overflow-x-auto">
                             <div class="flex items-center justify-between mb-4">
-                                <h3 class="text-lg font-bold text-gray-900">Daftar Anggota</h3>
-                                <button type="button" data-modal-target="add-anggota-modal"
-                                    data-modal-toggle="add-anggota-modal"
+                                <h3 class="text-lg font-bold text-gray-900">Data Formulir Pendaftaran</h3>
+                                <button type="button" data-modal-target="add-pertanyaan-modal"
+                                    data-modal-toggle="add-pertanyaan-modal"
                                     class="text-white bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700 font-semibold rounded-lg text-sm px-5 py-2.5 transition-all duration-150 flex items-center gap-2 shadow-lg hover:shadow-xl">
                                     <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                             d="M12 4v16m8-8H4" />
                                     </svg>
-                                    Tambah Anggota
+                                    Tambah Pertanyaan
                                 </button>
                             </div>
 
@@ -119,28 +114,26 @@
                                         </th>
                                         <th scope="col" class="px-6 py-4 text-center font-bold w-24">
                                             <span
-                                                class="text-xs font-extrabold text-gray-700 uppercase tracking-wider">Foto</span>
+                                                class="text-xs font-extrabold text-gray-700 uppercase tracking-wider">Pertanyaan</span>
                                         </th>
                                         <th scope="col" class="px-6 py-4 text-left font-bold">
                                             <span
-                                                class="text-xs font-extrabold text-gray-700 uppercase tracking-wider">Nama</span>
-                                        </th>
-                                        <th scope="col" class="px-6 py-4 text-center font-bold">
-                                            <span
-                                                class="text-xs font-extrabold text-gray-700 uppercase tracking-wider">NIM</span>
-                                        </th>
-                                        <th scope="col" class="px-6 py-4 text-center font-bold">
-                                            <span
-                                                class="text-xs font-extrabold text-gray-700 uppercase tracking-wider">Jabatan</span>
+                                                class="text-xs font-extrabold text-gray-700 uppercase tracking-wider">Tipe
+                                                Jawaban</span>
                                         </th>
                                         <th scope="col" class="px-6 py-4 text-center font-bold w-40">
                                             <span
                                                 class="text-xs font-extrabold text-gray-700 uppercase tracking-wider">Aksi</span>
                                         </th>
+                                        <th scope="col" class="px-6 py-4 text-center font-bold">
+                                            <span
+                                                class="text-xs font-extrabold text-gray-700 uppercase tracking-wider">Opsi
+                                                Jawaban</span>
+                                        </th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @forelse ($anggotaUnits as $index => $anggota)
+                                    @forelse ($pertanyaanPendaftarans as $index => $pertanyaanPendaftaran)
                                         <tr
                                             class="group border-b border-gray-100 hover:bg-gradient-to-r hover:from-blue-50 hover:to-indigo-50 hover:shadow-lg hover:!border-l-4 hover:!border-l-blue-600 border-l-4 border-l-white transition-all duration-300">
                                             <td class="px-6 py-5 text-center">
@@ -149,61 +142,21 @@
                                                     {{ $index + 1 }}
                                                 </span>
                                             </td>
-                                            <td class="px-6 py-5 text-center">
-                                                @if ($anggota->foto)
-                                                    <div class="flex justify-center">
-                                                        <img src="{{ asset('storage/img/anggota-unit/' . $anggota->foto) }}"
-                                                            alt="{{ $anggota->nama }}"
-                                                            class="w-12 h-12 rounded-full object-cover border-2 border-blue-100 shadow-sm">
-                                                    </div>
-                                                @else
-                                                    <div class="flex justify-center">
-                                                        <div
-                                                            class="w-12 h-12 rounded-full bg-gradient-to-br from-blue-100 to-indigo-100 flex items-center justify-center">
-                                                            <svg class="w-6 h-6 text-blue-600"
-                                                                xmlns="http://www.w3.org/2000/svg" fill="none"
-                                                                viewBox="0 0 24 24" stroke="currentColor">
-                                                                <path stroke-linecap="round" stroke-linejoin="round"
-                                                                    stroke-width="2"
-                                                                    d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
-                                                            </svg>
-                                                        </div>
-                                                    </div>
-                                                @endif
-                                            </td>
                                             <td class="px-6 py-5">
-                                                <p class="text-sm font-semibold text-gray-900">{{ $anggota->nama }}
+                                                <p class="text-sm font-semibold text-gray-900">
+                                                    {{ $pertanyaanPendaftaran->pertanyaan }}
                                                 </p>
                                             </td>
-                                            <td class="px-6 py-5 text-center">
-                                                <span
-                                                    class="text-sm text-gray-700 font-medium">{{ $anggota->nim }}</span>
-                                            </td>
-                                            <td class="px-6 py-5 text-center">
-                                                <span
-                                                    class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-indigo-100 text-indigo-700">
-                                                    {{ $anggota->jabatan }}
-                                                </span>
+                                            <td class="px-6 py-5">
+                                                <p class="text-sm font-semibold text-gray-900">
+                                                    {{ $pertanyaanPendaftaran->tipe_jawaban }}
+                                                </p>
                                             </td>
                                             <td class="px-6 py-5">
                                                 <div class="flex items-center justify-center gap-2">
                                                     <button type="button"
-                                                        data-modal-target="show-anggota-modal-{{ $anggota->id }}"
-                                                        data-modal-toggle="show-anggota-modal-{{ $anggota->id }}"
-                                                        class="group p-2 rounded-lg bg-blue-50 hover:bg-blue-100 transition-all duration-200 hover:shadow-md"
-                                                        title="Lihat">
-                                                        <svg xmlns="http://www.w3.org/2000/svg" width="18"
-                                                            height="18" viewBox="0 0 24 24" fill="none"
-                                                            stroke="currentColor" stroke-width="2"
-                                                            stroke-linecap="round" stroke-linejoin="round"
-                                                            class="text-blue-600 group-hover:text-blue-700 transition-colors">
-                                                            <path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z" />
-                                                            <circle cx="12" cy="12" r="3" />
-                                                        </svg>
-                                                    </button>
-                                                    <button type="button"
-                                                        data-modal-target="edit-anggota-modal-{{ $anggota->id }}"
-                                                        data-modal-toggle="edit-anggota-modal-{{ $anggota->id }}"
+                                                        data-modal-target="edit-pertanyaan-modal-{{ $pertanyaanPendaftaran->id }}"
+                                                        data-modal-toggle="edit-pertanyaan-modal-{{ $pertanyaanPendaftaran->id }}"
                                                         class="group p-2 rounded-lg bg-amber-50 hover:bg-amber-100 transition-all duration-200 hover:shadow-md"
                                                         title="Edit">
                                                         <svg xmlns="http://www.w3.org/2000/svg" width="18"
@@ -217,8 +170,8 @@
                                                         </svg>
                                                     </button>
                                                     <button type="button"
-                                                        data-modal-target="delete-anggota-modal-{{ $anggota->id }}"
-                                                        data-modal-toggle="delete-anggota-modal-{{ $anggota->id }}"
+                                                        data-modal-target="delete-pertanyaan-modal-{{ $pertanyaanPendaftaran->id }}"
+                                                        data-modal-toggle="delete-pertanyaan-modal-{{ $pertanyaanPendaftaran->id }}"
                                                         class="group p-2 rounded-lg bg-red-50 hover:bg-red-100 transition-all duration-200 hover:shadow-md"
                                                         title="Hapus">
                                                         <svg xmlns="http://www.w3.org/2000/svg" width="18"
@@ -237,21 +190,74 @@
                                                     </button>
                                                 </div>
                                             </td>
+                                            <td class="px-6 py-5 text-center">
+                                                @if ($pertanyaanPendaftaran->tipe_jawaban === 'Opsi')
+                                                    <button type="button"
+                                                        class="inline-flex items-center gap-1.5 px-3 py-1.5 border-2 border-blue-600 hover:bg-blue-600 text-blue-600 hover:text-white text-sm font-semibold rounded-lg transition-all duration-200 group whitespace-nowrap"
+                                                        onclick="toggleOpsiJawabanRow({{ $pertanyaanPendaftaran->id }})"
+                                                        id="btn-opsi-jawaban-{{ $pertanyaanPendaftaran->id }}">
+                                                        Opsi Jawaban
+                                                        <svg xmlns="http://www.w3.org/2000/svg" width="20"
+                                                            height="20" viewBox="0 0 24 24" fill="none"
+                                                            stroke="currentColor" stroke-width="2"
+                                                            stroke-linecap="round" stroke-linejoin="round"
+                                                            class="lucide lucide-chevron-up-icon lucide-chevron-up transition-transform duration-200"
+                                                            id="icon-chevron-{{ $pertanyaanPendaftaran->id }}"
+                                                            style="transform: rotate(180deg);">
+                                                            <path d="m18 15-6-6-6 6" />
+                                                        </svg>
+                                                    </button>
+                                                @else
+                                                    <span class="text-gray-400 text-lg">&mdash;</span>
+                                                @endif
+                                            </td>
+                                        </tr>
+                                        <tr id="opsi-jawaban-row-{{ $pertanyaanPendaftaran->id }}"
+                                            style="display: none;">
+                                            <td colspan="5" class="bg-blue-50 px-6 py-4">
+                                                <div class="flex flex-col gap-2">
+                                                    <div class="font-semibold text-blue-700 text-xs mb-1">Daftar Opsi
+                                                        Jawaban:</div>
+                                                    @php
+                                                        $opsiList = $pertanyaanPendaftaran->opsiJawaban ?? collect();
+                                                    @endphp
+                                                    @if ($opsiList->count())
+                                                        <ul class="list-disc pl-5 text-sm text-blue-900">
+                                                            @foreach ($opsiList as $opsi)
+                                                                <li>{{ $opsi->opsi }}</li>
+                                                            @endforeach
+                                                        </ul>
+                                                    @else
+                                                        <div class="text-gray-500 text-xs italic">Belum ada opsi
+                                                            jawaban.</div>
+                                                    @endif
+                                                </div>
+                                            </td>
+                                            <script>
+                                                function toggleOpsiJawabanRow(id) {
+                                                    var row = document.getElementById('opsi-jawaban-row-' + id);
+                                                    var icon = document.getElementById('icon-chevron-' + id);
+                                                    if (row.style.display === 'none' || row.style.display === '') {
+                                                        row.style.display = '';
+                                                        icon.style.transform = 'rotate(0deg)';
+                                                    } else {
+                                                        row.style.display = 'none';
+                                                        icon.style.transform = 'rotate(180deg)';
+                                                    }
+                                                }
+                                            </script>
                                         </tr>
 
                                         {{-- Include Modals --}}
-                                        @include('admin.struktural.unit-organisasi.show', [
-                                            'anggota' => $anggota,
+                                        @include('admin.pendaftaran.formulir.edit', [
+                                            'pertanyaanPendaftaran' => $pertanyaanPendaftaran,
                                         ])
-                                        @include('admin.struktural.unit-organisasi.edit', [
-                                            'anggota' => $anggota,
-                                        ])
-                                        @include('admin.struktural.unit-organisasi.delete', [
-                                            'anggota' => $anggota,
+                                        @include('admin.pendaftaran.formulir.delete', [
+                                            'pertanyaanPendaftaran' => $pertanyaanPendaftaran,
                                         ])
                                     @empty
                                         <tr>
-                                            <td colspan="6" class="px-6 py-16 text-center">
+                                            <td colspan="5" class="px-6 py-16 text-center">
                                                 <div class="flex flex-col items-center justify-center">
                                                     <div
                                                         class="w-20 h-20 rounded-2xl bg-gradient-to-br from-gray-100 to-gray-200 flex items-center justify-center mb-4 shadow-inner">
@@ -260,17 +266,17 @@
                                                             stroke="currentColor" stroke-width="1.5"
                                                             stroke-linecap="round" stroke-linejoin="round"
                                                             class="text-gray-400">
-                                                            <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
-                                                            <circle cx="9" cy="7" r="4" />
-                                                            <path d="M22 21v-2a4 4 0 0 0-3-3.87" />
-                                                            <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+                                                            <circle cx="12" cy="12" r="10" />
+                                                            <path d="M12 8v4" />
+                                                            <path d="M12 16h.01" />
                                                         </svg>
                                                     </div>
                                                     <h3 class="text-lg font-bold text-gray-900 mb-1">Tidak Ada Data
-                                                        Anggota
+                                                        Pertanyaan
                                                     </h3>
-                                                    <p class="text-sm text-gray-500">Belum ada anggota dalam unit ini.
-                                                        Klik tombol "Tambah Anggota" untuk menambah data.</p>
+                                                    <p class="text-sm text-gray-500">Belum ada pertanyaan dalam
+                                                        formulir ini.
+                                                        Klik tombol "Tambah Pertanyaan" untuk menambah data.</p>
                                                 </div>
                                             </td>
                                         </tr>
@@ -285,5 +291,5 @@
     </main>
 
     {{-- Include Create Modal --}}
-    @include('admin.struktural.unit-organisasi.create')
+    @include('admin.pendaftaran.formulir.create')
 </x-app-layout>

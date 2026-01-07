@@ -1,5 +1,5 @@
-<!-- Delete Pendaftaran Modal -->
-<div id="delete-pendaftaran-modal-{{ $item->id }}" tabindex="-1" aria-hidden="true"
+<!-- Delete Pertanyaan Modal -->
+<div id="delete-pertanyaan-modal-{{ $pertanyaanPendaftaran->id }}" tabindex="-1" aria-hidden="true"
     class="hidden overflow-y-auto overflow-x-hidden fixed inset-0 z-50 flex justify-center items-center">
     <div class="relative p-4 w-full max-w-2xl h-full flex items-center justify-center">
         <div class="relative bg-white rounded-2xl shadow-2xl overflow-hidden w-full">
@@ -25,12 +25,12 @@
                         </div>
                         <div>
                             <p class="text-xs font-semibold text-red-100 uppercase tracking-wider mb-1">Konfirmasi</p>
-                            <h3 class="text-xl font-bold text-white leading-tight">Hapus Pendaftaran</h3>
+                            <h3 class="text-xl font-bold text-white leading-tight">Hapus Pertanyaan</h3>
                         </div>
                     </div>
                     <button type="button"
                         class="flex-shrink-0 text-white/90 bg-white/10 hover:bg-white/20 backdrop-blur-sm rounded-lg text-sm w-10 h-10 inline-flex justify-center items-center transition-all duration-200 hover:scale-110"
-                        data-modal-hide="delete-pendaftaran-modal-{{ $item->id }}">
+                        data-modal-hide="delete-pertanyaan-modal-{{ $pertanyaanPendaftaran->id }}">
                         <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
                             viewBox="0 0 14 14">
                             <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
@@ -56,7 +56,7 @@
                     <div class="flex-1">
                         <h4 class="text-lg font-bold text-gray-900 mb-2">Apakah Anda yakin?</h4>
                         <p class="text-sm text-gray-600 leading-relaxed mb-3">
-                            Anda akan menghapus pendaftaran <strong>{{ $item->judul }}</strong>.
+                            Anda akan menghapus pertanyaan <strong>{{ $pertanyaanPendaftaran->pertanyaan }}</strong>.
                         </p>
                         <p class="text-sm text-red-600 font-medium">
                             Data yang dihapus tidak dapat dikembalikan!
@@ -66,10 +66,13 @@
 
                 <!-- Footer Modal -->
                 <div class="flex items-center justify-end gap-3">
-                    <form action="{{ route('admin.pendaftaran.destroy', $item->id) }}" method="POST">
+                    <form
+                        action="{{ route('admin.pendaftaran.formulir.pertanyaan.destroy', $pertanyaanPendaftaran->id) }}"
+                        method="POST">
                         @csrf
                         @method('DELETE')
-                        <button type="button" data-modal-hide="delete-pendaftaran-modal-{{ $item->id }}"
+                        <button type="button"
+                            data-modal-hide="delete-pertanyaan-modal-{{ $pertanyaanPendaftaran->id }}"
                             class="px-5 py-2.5 text-sm font-semibold text-gray-700 bg-white border-2 border-gray-300 rounded-lg hover:bg-gray-50 hover:border-gray-400 transition-all duration-200">
                             Batal
                         </button>
