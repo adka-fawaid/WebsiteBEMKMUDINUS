@@ -7,19 +7,18 @@ use App\Models\Kabinet;
 use App\Models\Ormawa;
 use App\Models\Partnership;
 use App\Models\Photo;
-use App\Models\Forum;
+use App\Models\BeritaKajian;
 use App\Models\Proker;
 use App\Models\Ukm;
 use Illuminate\Http\Request;
 
 class AppController extends Controller
 {
-    public function index()
-    {
-        return view('welcome', [
-            'partnerships' => Partnership::orderBy('id', 'desc')->limit(3)->get(),
-        ]);
-    }
+ public function index()
+{
+    return view('welcome');
+}
+
 
     public function berita()
     {
@@ -33,9 +32,35 @@ class AppController extends Controller
 
     public function partnership()
     {
-        return view('partnership.partnership', [
-            'partnerships' => Partnership::orderBy('id', 'desc')->get()
+        // Show the manual Partnership page (guest). PDF text should be placed
+        // into resources/views/guest/partnership/manual.blade.php
+        return view('guest.partnership.manual');
+    }
+
+    public function store_partnership(\Illuminate\Http\Request $request)
+    {
+        $request->validate([
+            'judul' => 'required|string|max:255',
+            'desc' => 'required|string',
+            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,webp|max:5120'
         ]);
+
+        $fileName = null;
+        if ($request->hasFile('image')) {
+            $file = $request->file('image');
+            $fileName = time() . '_' . preg_replace('/[^A-Za-z0-9\-_\.]/', '', $file->getClientOriginalName());
+            $file->storeAs('public/partnership', $fileName);
+        }
+
+        \App\Models\Partnership::create([
+            'judul' => $request->input('judul'),
+            'desc' => $request->input('desc'),
+            'image' => $fileName,
+            'contact' => $request->input('contact') ?? null,
+            'slug' => \Str::slug($request->input('judul')) . '-' . time()
+        ]);
+
+        return redirect('/partnership')->with('success', 'Pengajuan partnership berhasil dikirim.');
     }
 
     public function detail_partnership($slug)
@@ -46,15 +71,20 @@ class AppController extends Controller
         ]);
     }
 
-    public function forum()
-    {
-        return view('forum.forum');
-    }
+public function forum()
+{
+    $forums = BeritaKajian::latest()->get();
 
-    public function detail_forum($slug)
-    {
-        return view('forum.detail_forum');
-    }
+    return view('forum.forum', compact('forums'));
+}
+
+public function detail_forum($slug)
+{
+    $forum = BeritaKajian::where('slug', $slug)->firstOrFail();
+
+    return view('forum.detail_forum', compact('forum'));
+}
+
 
     public function foto()
     {

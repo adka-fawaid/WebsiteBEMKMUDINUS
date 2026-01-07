@@ -21,7 +21,7 @@
         </nav>
 
         <div class="header-forum text-center" style="margin-top: 50px;">
-            <h2 class="fw-bold">Forum dan Kajian BEM KM UDINUS</h2>
+            <h2 class="fw-bold">Forum dan Kajian KM UDINUS</h2>
         </div>
 
         <div class="row row-cols-1 row-cols-md-3 g-4 py-4">

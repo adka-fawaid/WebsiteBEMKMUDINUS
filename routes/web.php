@@ -209,6 +209,8 @@ Route::get('/', [AppController::class, 'index']);
 
 Route::get('/berita', [AppController::class, 'berita']);
 
+
+
 Route::get('/detail/{slug}', [AppController::class, 'detail']);
 
 Route::get('/foto', [AppController::class, 'foto']);
@@ -218,6 +220,7 @@ Route::get('/calendar', [AppController::class, 'calendar']);
 Route::get('/partnership', [AppController::class, 'partnership']);
 
 Route::get('/detail_partnership/{slug}', [AppController::class, 'detail_partnership']);
+Route::post('/partnership/submit', [AppController::class, 'store_partnership']);
 
 Route::get('/forum', [AppController::class, 'forum']);
 
@@ -227,7 +230,7 @@ Route::get('/kabinet', [AppController::class, 'kabinet']);
 
 Route::get('/detail_kabinet/{slug}', [AppController::class, 'detail_kabinet']);
 
-Route::get('/proker', [AppController::class, 'proker']);
+Route::get('/proker', [AppController::class, 'proker'])->name('proker');
 
 Route::get('/detail_proker/{slug}', [AppController::class, 'detail_proker']);
 
@@ -299,6 +302,4 @@ Route::get('/unit/edit/{id}', [UkmController::class, 'edit'])->name('unit.edit')
 Route::post('/unit/update/{id}', [UkmController::class, 'update'])->name('unit.update')->middleware('auth');
 Route::post('unit/destroy/{id}', [UkmController::class, 'destroy'])->name('unit.destroy')->middleware('auth');
 
-Route::get('/profil-belajar', function () {
-    return view('index2.blade.php');
-});
+
