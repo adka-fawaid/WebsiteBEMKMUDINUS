@@ -12,6 +12,7 @@ class BeritaAcara extends Model
     protected $fillable = [
         'program_kerja_id',
         'judul',
+        'slug',
         'tanggal_dibuat',
         'tema',
         'tanggal_mulai',
