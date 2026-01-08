@@ -11,6 +11,7 @@ class RespondPendaftaran extends Model
 
     protected $fillable = [
         'pendaftaran_id',
+        'nomor_pendaftaran',
         'pertanyaan',
         'jawaban',
     ];
