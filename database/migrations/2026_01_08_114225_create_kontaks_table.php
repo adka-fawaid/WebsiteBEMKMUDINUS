@@ -14,9 +14,9 @@ return new class extends Migration
         Schema::create('kontaks', function (Blueprint $table) {
             $table->id();
             $table->string('tipe'); // e.g., 'email', 'phone', 'address'
-            $table->string('nilai'); // e.g., the actual email address, phone number, or physical address
-            $table->string('username')->nullable(); // Optional: for social media contacts
-            $table->string('platform')->nullable(); // Optional: to specify the social media platform
+            $table->string('kontak'); // e.g., the actual email address, phone number, or physical address
+            $table->string('nama')->nullable(); // Optional: display name/label
+            $table->string('url')->nullable(); // Optional: URL link for the contact
             $table->timestamps();
         });
     }

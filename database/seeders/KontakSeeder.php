@@ -15,40 +15,40 @@ class KontakSeeder extends Seeder
     {
         $kontaks = [
             [
-                'tipe' => 'Nomor Telepon',
-                'nilai' => '+62 812-3456-7890',
-                'username' => 'BEMKM Udinus',
-                'platform' => 'https://wa.me/6281234567890',
+                'tipe' => 'Telepon',
+                'kontak' => '+62 812-3456-7890',
+                'nama' => 'BEMKM Udinus',
+                'url' => 'https://wa.me/6281234567890',
             ],
             [
                 'tipe' => 'Email',
-                'nilai' => 'bemkm@dinus.ac.id',
-                'username' => 'bemkm',
-                'platform' => 'https:://mail',
+                'kontak' => 'bemkm@dinus.ac.id',
+                'nama' => 'bemkm',
+                'url' => 'https://mail.google.com',
             ],
             [
                 'tipe' => 'Instagram',
-                'nilai' => '@bemkm.udinus',
-                'username' => 'Instagram BEMKM Udinus',
-                'platform' => 'https://instagram.com/bemkm.udinus',
+                'kontak' => '@bemkm.udinus',
+                'nama' => 'Instagram BEMKM Udinus',
+                'url' => 'https://instagram.com/bemkm.udinus',
             ],
             [
                 'tipe' => 'TikTok',
-                'nilai' => '@bemkm.udinus',
-                'username' => 'TikTok BEMKM Udinus',
-                'platform' => 'https://tiktok.com/@bemkm.udinus',
+                'kontak' => '@bemkm.udinus',
+                'nama' => 'TikTok BEMKM Udinus',
+                'url' => 'https://tiktok.com/@bemkm.udinus',
             ],
             [
                 'tipe' => 'YouTube',
-                'nilai' => '@BEMKMUdinus',
-                'username' => 'YouTube BEMKM Udinus',
-                'platform' => 'https://youtube.com/@BEMKMUdinus',
+                'kontak' => '@BEMKMUdinus',
+                'nama' => 'YouTube BEMKM Udinus',
+                'url' => 'https://youtube.com/@BEMKMUdinus',
             ],
             [
                 'tipe' => 'LinkedIn',
-                'nilai' => '@bemkm.udinus',
-                'username' => 'LinkedIn BEMKM Udinus',
-                'platform' => 'https://linkedin.com/company/bemkm-udinus',
+                'kontak' => '@bemkm.udinus',
+                'nama' => 'LinkedIn BEMKM Udinus',
+                'url' => 'https://linkedin.com/company/bemkm-udinus',
             ],
         ];
 
@@ -56,7 +56,7 @@ class KontakSeeder extends Seeder
             Kontak::updateOrCreate(
                 [
                     'tipe' => $kontak['tipe'],
-                    'nilai' => $kontak['nilai'],
+                    'kontak' => $kontak['kontak'],
                 ],
                 $kontak
             );

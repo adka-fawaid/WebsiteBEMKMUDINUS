@@ -204,6 +204,12 @@ Route::middleware(['auth'])->group(function () {
         Route::prefix('kontak')->group(function () {
             Route::get('/', [KontakAdminController::class, 'index'])
                 ->name('admin.kontak.index');
+            Route::post('/store', [KontakAdminController::class, 'store'])
+                ->name('admin.kontak.store');
+            Route::put('/update/{id}', [KontakAdminController::class, 'update'])
+                ->name('admin.kontak.update');
+            Route::delete('/destroy/{id}', [KontakAdminController::class, 'destroy'])
+                ->name('admin.kontak.destroy');
         });
     });
 });

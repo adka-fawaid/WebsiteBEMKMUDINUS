@@ -4,7 +4,6 @@
     <!-- berita -->
     <section id="berita" style="margin-top: 100px;">
         <div class="container py-5">
-
             <nav class="navbar navbar-expand-lg navbar-light bg-body-tertiary">
                 <div class="container-fluid">
                     <nav aria-label="breadcrumb">

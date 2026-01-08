@@ -43,14 +43,12 @@
                             <div class="flex items-center gap-3">
                                 <div
                                     class="w-10 h-10 rounded-lg bg-white/20 backdrop-blur-sm flex items-center justify-center">
-                                    <svg class="w-5 h-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none"
-                                        viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"
-                                        stroke-linecap="round" stroke-linejoin="round">
-                                        <path d="M15 12h-5" />
-                                        <path d="M15 8h-5" />
-                                        <path d="M19 17V5a2 2 0 0 0-2-2H4" />
-                                        <path
-                                            d="M8 21h12a2 2 0 0 0 2-2v-1a1 1 0 0 0-1-1H11a1 1 0 0 0-1 1v1a2 2 0 1 1-4 0V5a2 2 0 1 0-4 0v2a1 1 0 0 0 1 1h3" />
+                                    <svg class="w-4 h-4 text-white"
+                                        xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                        stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round">
+                                        <path d="m22 7-8.991 5.727a2 2 0 0 1-2.009 0L2 7" />
+                                        <rect x="2" y="4" width="20" height="16" rx="2" />
                                     </svg>
                                 </div>
                                 <div>
@@ -91,15 +89,15 @@
                                             </th>
                                             <th scope="col" class="px-6 py-4 text-center font-bold">
                                                 <span
-                                                    class="text-xs font-extrabold text-gray-700 uppercase tracking-wider">Nilai</span>
+                                                    class="text-xs font-extrabold text-gray-700 uppercase tracking-wider">Kontak</span>
                                             </th>
                                             <th scope="col" class="px-6 py-4 text-center font-bold">
                                                 <span
-                                                    class="text-xs font-extrabold text-gray-700 uppercase tracking-wider">Username</span>
+                                                    class="text-xs font-extrabold text-gray-700 uppercase tracking-wider">Nama</span>
                                             </th>
                                             <th scope="col" class="px-6 py-4 text-center font-bold">
                                                 <span
-                                                    class="text-xs font-extrabold text-gray-700 uppercase tracking-wider">Platform</span>
+                                                    class="text-xs font-extrabold text-gray-700 uppercase tracking-wider">URL</span>
                                             </th>
                                             <th scope="col" class="px-6 py-4 text-center font-bold">
                                                 <span
@@ -111,9 +109,11 @@
                                         @forelse ($kontaks as $index => $kontak)
                                             <tr
                                                 class="group hover:bg-gradient-to-r hover:from-blue-50 hover:to-indigo-50 hover:shadow-lg hover:border-l-4 hover:border-l-blue-600 border-l-4 border-l-transparent transition-all duration-300">
-                                                <td class="px-6 py-5">
+                                                <td class="px-6 py-5 text-center">
                                                     <span
-                                                        class="text-sm text-gray-700 font-medium">{{ $index + 1 }}</span>
+                                                        class="inline-flex items-center justify-center w-8 h-8 rounded-full bg-blue-100 text-blue-700 font-bold text-sm group-hover:bg-blue-600 group-hover:text-white transition-all duration-300">
+                                                        {{ $index + 1 }}
+                                                    </span>
                                                 </td>
                                                 <td class="px-6 py-5">
                                                     <p
@@ -122,21 +122,21 @@
                                                 </td>
                                                 <td class="px-6 py-5">
                                                     <span
-                                                        class="text-sm text-gray-700 font-medium">{{ $kontak->nilai }}</span>
+                                                        class="text-sm text-gray-700 font-medium">{{ $kontak->kontak }}</span>
                                                 </td>
                                                 <td class="px-6 py-5">
                                                     <span
-                                                        class="text-sm text-gray-700 font-medium">{{ $kontak->username }}</span>
+                                                        class="text-sm text-gray-700 font-medium">{{ $kontak->nama }}</span>
                                                 </td>
                                                 <td class="px-6 py-5">
                                                     <span
-                                                        class="text-sm text-gray-700 font-medium">{{ $kontak->platform }}</span>
+                                                        class="text-sm text-gray-700 font-medium">{{ $kontak->url }}</span>
                                                 </td>
                                                 <td class="px-6 py-5">
                                                     <div class="flex items-center justify-center gap-2">
                                                         <button type="button"
-                                                            data-modal-target="edit-modal-{{ $kontak->id }}"
-                                                            data-modal-toggle="edit-modal-{{ $kontak->id }}"
+                                                            data-modal-target="edit-kontak-modal-{{ $kontak->id }}"
+                                                            data-modal-toggle="edit-kontak-modal-{{ $kontak->id }}"
                                                             class="group p-2 rounded-lg bg-amber-50 hover:bg-amber-100 transition-all duration-200 hover:shadow-md"
                                                             title="Edit">
                                                             <svg xmlns="http://www.w3.org/2000/svg" width="18"
@@ -149,9 +149,36 @@
                                                                 <path d="m15 5 4 4" />
                                                             </svg>
                                                         </button>
+                                                        <button type="button"
+                                                            data-modal-target="delete-kontak-modal-{{ $kontak->id }}"
+                                                            data-modal-toggle="delete-kontak-modal-{{ $kontak->id }}"
+                                                            class="group p-2 rounded-lg bg-red-50 hover:bg-red-100 transition-all duration-200 hover:shadow-md"
+                                                            title="Hapus">
+                                                            <svg xmlns="http://www.w3.org/2000/svg" width="18"
+                                                                height="18" viewBox="0 0 24 24" fill="none"
+                                                                stroke="currentColor" stroke-width="2"
+                                                                stroke-linecap="round" stroke-linejoin="round"
+                                                                class="text-red-600 group-hover:text-red-700 transition-colors">
+                                                                <path d="M3 6h18" />
+                                                                <path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6" />
+                                                                <path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2" />
+                                                                <line x1="10" x2="10" y1="11"
+                                                                    y2="17" />
+                                                                <line x1="14" x2="14" y1="11"
+                                                                    y2="17" />
+                                                            </svg>
+                                                        </button>
                                                     </div>
                                                 </td>
                                             </tr>
+                                            <!-- Include Modal Edit Kontak -->
+                                            @include('admin.kontak.edit', [
+                                                'kontak' => $kontak,
+                                            ])
+                                            <!-- Include Modal Delete Kontak -->
+                                            @include('admin.kontak.delete', [
+                                                'kontak' => $kontak,
+                                            ])
                                         @empty
                                             <tr>
                                                 <td colspan="7" class="px-6 py-16 text-center">
@@ -175,14 +202,6 @@
                                                 </td>
                                             </tr>
                                         @endforelse
-                                        <!-- Include Modal Edit Kontak -->
-                                        @include('admin.kontak.edit', [
-                                            'kontak' => $kontak,
-                                        ])
-                                        <!-- Include Modal Delete Kontak -->
-                                        @include('admin.kontak.delete', [
-                                            'kontak' => $kontak,
-                                        ])
                                     </tbody>
                                 </table>
                             </div>
@@ -192,4 +211,6 @@
         </section>
     </main>
 
+    <!-- Include Modal Create Kontak -->
+    @include('admin.kontak.create')
 </x-app-layout>

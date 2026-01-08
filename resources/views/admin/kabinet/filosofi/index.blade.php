@@ -43,9 +43,7 @@
                         </ol>
                     </nav>
                     <div>
-                        <p class="text-xs font-semibold text-blue-600 uppercase tracking-wider mb-1">Manajemen Filosofi
-                            Kabinet
-                        </p>
+                        <p class="text-xs font-semibold text-blue-600 uppercase tracking-wider mb-1">Manajemen Data</p>
                         <h1 class="text-3xl font-bold text-gray-900">Kelola Filosofi Kabinet</h1>
                     </div>
                 </div>

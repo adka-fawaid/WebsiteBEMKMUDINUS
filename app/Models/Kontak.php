@@ -13,8 +13,8 @@ class Kontak extends Model
 
     protected $fillable = [
         'tipe',
-        'nilai',
-        'username',
-        'platform',
+        'kontak',
+        'nama',
+        'url',
     ];
 }

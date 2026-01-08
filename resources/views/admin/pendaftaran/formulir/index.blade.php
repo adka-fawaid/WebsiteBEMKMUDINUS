@@ -70,13 +70,16 @@
                             <div class="flex items-center gap-3">
                                 <div
                                     class="w-10 h-10 rounded-lg bg-white/20 backdrop-blur-sm flex items-center justify-center">
-                                    <svg class="w-5 h-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none"
-                                        viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"
-                                        stroke-linecap="round" stroke-linejoin="round">
-                                        <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
-                                        <circle cx="9" cy="7" r="4" />
-                                        <path d="M22 21v-2a4 4 0 0 0-3-3.87" />
-                                        <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+                                    <svg class="w-5 h-5 text-white" xmlns="http://www.w3.org/2000/svg" width="14"
+                                        height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M13.4 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-7.4" />
+                                        <path d="M2 6h4" />
+                                        <path d="M2 10h4" />
+                                        <path d="M2 14h4" />
+                                        <path d="M2 18h4" />
+                                        <path
+                                            d="M21.378 5.626a1 1 0 1 0-3.004-3.004l-5.01 5.012a2 2 0 0 0-.506.854l-.837 2.87a.5.5 0 0 0 .62.62l2.87-.837a2 2 0 0 0 .854-.506z" />
                                     </svg>
                                 </div>
                                 <div>
@@ -116,7 +119,7 @@
                                             <span
                                                 class="text-xs font-extrabold text-gray-700 uppercase tracking-wider">Pertanyaan</span>
                                         </th>
-                                        <th scope="col" class="px-6 py-4 text-left font-bold">
+                                        <th scope="col" class="px-6 py-4 text-center font-bold">
                                             <span
                                                 class="text-xs font-extrabold text-gray-700 uppercase tracking-wider">Tipe
                                                 Jawaban</span>
@@ -148,10 +151,66 @@
                                                 {{ $pertanyaanPendaftaran->pertanyaan }}
                                             </p>
                                         </td>
-                                        <td class="px-6 py-5">
-                                            <p class="text-sm font-semibold text-gray-900">
-                                                {{ $pertanyaanPendaftaran->tipe_jawaban }}
-                                            </p>
+                                        <td class="px-6 py-5 text-center">
+                                            @if ($pertanyaanPendaftaran->tipe_jawaban === 'Jawaban Panjang')
+                                                <span
+                                                    class="inline-flex items-center px-3 py-1.5 rounded-full text-xs font-bold bg-purple-100 text-purple-700 border border-purple-200">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="14"
+                                                        height="14" viewBox="0 0 24 24" fill="none"
+                                                        stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                                        stroke-linejoin="round" class="mr-1.5">
+                                                        <path
+                                                            d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
+                                                    </svg>
+                                                    Jawaban Panjang
+                                                </span>
+                                            @elseif ($pertanyaanPendaftaran->tipe_jawaban === 'Jawaban Singkat')
+                                                <span
+                                                    class="inline-flex items-center px-3 py-1.5 rounded-full text-xs font-bold bg-blue-100 text-blue-700 border border-blue-200">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="14"
+                                                        height="14" viewBox="0 0 24 24" fill="none"
+                                                        stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                                        stroke-linejoin="round" class="mr-1.5">
+                                                        <line x1="21" x2="3" y1="6"
+                                                            y2="6" />
+                                                        <line x1="15" x2="3" y1="12"
+                                                            y2="12" />
+                                                        <line x1="17" x2="3" y1="18"
+                                                            y2="18" />
+                                                    </svg>
+                                                    Jawaban Singkat
+                                                </span>
+                                            @elseif ($pertanyaanPendaftaran->tipe_jawaban === 'Opsi')
+                                                <span
+                                                    class="inline-flex items-center px-3 py-1.5 rounded-full text-xs font-bold bg-green-100 text-green-700 border border-green-200">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="14"
+                                                        height="14" viewBox="0 0 24 24" fill="none"
+                                                        stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                                        stroke-linejoin="round" class="mr-1.5">
+                                                        <circle cx="12" cy="12" r="10" />
+                                                        <circle cx="12" cy="12" r="3" />
+                                                    </svg>
+                                                    Opsi
+                                                </span>
+                                            @elseif ($pertanyaanPendaftaran->tipe_jawaban === 'File')
+                                                <span
+                                                    class="inline-flex items-center px-3 py-1.5 rounded-full text-xs font-bold bg-orange-100 text-orange-700 border border-orange-200">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="14"
+                                                        height="14" viewBox="0 0 24 24" fill="none"
+                                                        stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                                        stroke-linejoin="round" class="mr-1.5">
+                                                        <path
+                                                            d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+                                                        <polyline points="14 2 14 8 20 8" />
+                                                    </svg>
+                                                    File
+                                                </span>
+                                            @else
+                                                <span
+                                                    class="inline-flex items-center px-3 py-1.5 rounded-full text-xs font-bold bg-gray-100 text-gray-700 border border-gray-200">
+                                                    {{ $pertanyaanPendaftaran->tipe_jawaban }}
+                                                </span>
+                                            @endif
                                         </td>
                                         <td class="px-6 py-5">
                                             <div class="flex items-center justify-center gap-2">

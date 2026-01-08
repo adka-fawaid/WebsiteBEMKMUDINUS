@@ -20,6 +20,7 @@ class DatabaseSeeder extends Seeder
                 VisiSeeder::class,
                 MisiSeeder::class,
                 UnitOrganisasiSeeder::class,
+                KontakSeeder::class,
                 // PressReleaseSeeder::class,
                 // SavePressImagesSeeder::class,
                 // SpotCozyBeritaSeeder::class,
