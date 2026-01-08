@@ -14,6 +14,13 @@ class Partnership extends Model
         'nama',
         'deskripsi',
         'link',
+        'pdf_file',
+        'judul',
+        'desc',
+        'image',
+        'contact',
+        'slug',
+        'status',
     ];
 
     // Define relationship to KategoriPartnership

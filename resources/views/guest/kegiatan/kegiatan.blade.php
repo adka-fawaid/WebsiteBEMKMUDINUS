@@ -10,10 +10,10 @@
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item">
-                            <a href="\">Home</a>
+                            <a href="/">Home</a>
                         </li>
-                        <li class="breadcrumb-item">
-                            <a href="\kegiatan">Kegiatan</a>
+                        <li class="breadcrumb-item active" aria-current="page">
+                            <a href="/kegiatan">Kegiatan</a>
                         </li>
                     </ol>
                 </nav>
@@ -26,10 +26,10 @@
 
         <div class="row row-cols-1 row-cols-md-3 g-4 py-4">
 
-            @foreach ($kegiatans as $item)
+            @forelse ($kegiatans as $item)
             <div class="col-lg-4" >
                 <div class="card border-0">
-                    <img src="{{ asset('storage/artikel/' . $item->image) }}" onerror="this.src='{{ asset('assets/images/logo.png') }}'" class="card-img-top" alt="">
+                    <img src="{{ asset('storage/artikel/' . $item->foto) }}" onerror="this.src='{{ asset('assets/images/logo.png') }}'" class="card-img-top" alt="{{ $item->judul }}">
                     <div class="card-body">
                         <p class="mb-3 text-secondary">{{ $item->created_at->format('d M Y') }}</p>
                         <h4 class="fw-bold mb-3">{{ $item->judul }}</h4>
@@ -38,7 +38,11 @@
                     </div>
                 </div>
             </div>
-            @endforeach
+            @empty
+            <div class="col-12">
+                <p class="text-center text-muted">Tidak ada kegiatan tersedia</p>
+            </div>
+            @endforelse
 
         </div>
 

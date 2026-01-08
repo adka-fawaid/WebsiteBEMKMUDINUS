@@ -20,10 +20,6 @@
             </div>
         </nav>
 
-        <div class="header-partnership text-center" style="margin-top: 50px;">
-            <h2 class="fw-bold">Partnership BEM KM UDINUS</h2>
-        </div>
-
         <div class="header-partnership text-center" style="margin-top: 50px; margin-bottom: 50px;">
             <h2 class="fw-bold">Partnership BEM KM UDINUS</h2>
             <p class="text-muted mt-2">Kerjasama dengan berbagai pihak untuk program dan kegiatan BEM</p>
@@ -50,7 +46,7 @@
             @forelse ($partnerships as $item)
             <div class="col-lg-6">
                 <div class="card border-0 shadow-sm h-100">
-                    <div class="card-body">
+                    <div class="card-body d-flex flex-column">
                         <!-- Title & Status -->
                         <div class="d-flex justify-content-between align-items-start mb-3">
                             <div>
