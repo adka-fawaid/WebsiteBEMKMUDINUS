@@ -20,6 +20,10 @@ class DatabaseSeeder extends Seeder
                 VisiSeeder::class,
                 MisiSeeder::class,
                 UnitOrganisasiSeeder::class,
+                // PressReleaseSeeder::class,
+                // SavePressImagesSeeder::class,
+                // SpotCozyBeritaSeeder::class,
+                // ThreeBeritaSeeder::class,
             ]
         );
     }

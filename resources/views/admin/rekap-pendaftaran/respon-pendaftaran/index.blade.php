@@ -1,5 +1,5 @@
 <x-app-layout>
-    <!-- Rekap Pendaftaran Content -->
+    <!-- Respon Pendaftaran Content -->
     <main class="ml-0 md:ml-64 peer-checked:md:ml-0 transition-all duration-300">
         <section class="pt-24 px-8 pb-10 bg-gradient-to-br from-gray-50 via-blue-50 to-indigo-50 min-h-screen">
             <div class="max-w-7xl mx-auto px-3">
@@ -26,14 +26,41 @@
                                     <polyline points="9 18 15 12 9 6" />
                                 </svg>
                             </li>
-                            <li class="text-gray-700 font-semibold">Rekap Pendaftaran</li>
+                            <li>
+                                <a href="{{ route('admin.rekap-pendaftaran.index') }}"
+                                    class="text-blue-600 hover:text-blue-700 font-medium transition duration-150">
+                                    Rekap Pendaftaran
+                                </a>
+                            </li>
+                            <li>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                    stroke-linecap="round" stroke-linejoin="round" class="text-gray-400">
+                                    <polyline points="9 18 15 12 9 6" />
+                                </svg>
+                            </li>
+                            <li class="text-gray-700 font-semibold">Kelola Respon Pendaftaran</li>
                         </ol>
                     </nav>
                     <div>
                         <p class="text-xs font-semibold text-blue-600 uppercase tracking-wider mb-1">Manajemen Data
                         </p>
-                        <h1 class="text-3xl font-bold text-gray-900">Kelola Rekap Pendaftaran</h1>
+                        <h1 class="text-3xl font-bold text-gray-900">Kelola Respon Pendaftaran</h1>
                     </div>
+                </div>
+
+                <!-- Back Button -->
+                <div class="mb-6">
+                    <a href="{{ route('admin.rekap-pendaftaran.index') }}"
+                        class="inline-flex items-center text-gray-700 hover:bg-blue-100 border border-blue-300 focus:ring-4 focus:outline-none focus:ring-blue-200 font-medium rounded-lg text-sm px-5 py-2.5 text-center transition duration-200">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+                            fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
+                            stroke-linejoin="round"
+                            class="group-hover:-translate-x-1 transition-transform duration-300">
+                            <polyline points="15 18 9 12 15 6" />
+                        </svg>
+                        <span class="tracking-wide">Kembali ke Rekap Pendaftaran</span>
+                    </a>
                 </div>
 
                 <!-- Main Content -->
@@ -46,15 +73,17 @@
                                     <svg class="w-5 h-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none"
                                         viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"
                                         stroke-linecap="round" stroke-linejoin="round">
-                                        <rect x="3" y="4" width="18" height="18" rx="2" ry="2" />
-                                        <line x1="16" y1="2" x2="16" y2="6" />
-                                        <line x1="8" y1="2" x2="8" y2="6" />
-                                        <line x1="3" y1="10" x2="21" y2="10" />
+                                        <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
+                                        <circle cx="9" cy="7" r="4" />
+                                        <path d="M22 21v-2a4 4 0 0 0-3-3.87" />
+                                        <path d="M16 3.13a4 4 0 0 1 0 7.75" />
                                     </svg>
                                 </div>
                                 <div>
-                                    <h2 class="text-xl font-bold text-white">Data Rekap Pendaftaran</h2>
-                                    <p class="text-xs text-blue-100">Informasi tentang rekap pendaftaran</p>
+                                    <h2 class="text-xl font-bold text-white">{{ $pendaftaran->judul }}
+                                    </h2>
+                                    <p class="text-xs text-blue-100">Kelola respon pendaftaran
+                                    </p>
                                 </div>
                             </div>
                         </div>
@@ -64,90 +93,58 @@
                     <div class="p-6">
                         <div class="overflow-x-auto">
                             <div class="flex items-center justify-between mb-4">
-                                <h3 class="text-lg font-bold text-gray-900">Data Rekap Pendaftaran</h3>
+                                <h3 class="text-lg font-bold text-gray-900">Data Respon Pendaftaran</h3>
                             </div>
 
                             <table class="w-full">
                                 <thead>
                                     <tr class="bg-gradient-to-r from-gray-50 to-blue-50 border-b border-gray-200">
-                                        <th scope="col" class="px-6 py-4 text-center font-bold">
+                                        <th scope="col" class="px-6 py-4 text-center font-bold w-16">
                                             <span
                                                 class="text-xs font-extrabold text-gray-700 uppercase tracking-wider">No</span>
                                         </th>
-                                        <th scope="col" class="px-6 py-4 text-center font-bold">
+                                        <th scope="col" class="px-6 py-4 text-center font-bold w-48">
                                             <span
-                                                class="text-xs font-extrabold text-gray-700 uppercase tracking-wider">Judul
-                                                Pendaftaran</span>
+                                                class="text-xs font-extrabold text-gray-700 uppercase tracking-wider">Waktu
+                                                Submit</span>
                                         </th>
-                                        <th scope="col" class="px-6 py-4 text-center font-bold">
-                                            <span
-                                                class="text-xs font-extrabold text-gray-700 uppercase tracking-wider">Deskripsi</span>
-                                        </th>
-                                        <th scope="col" class="px-10 py-4 text-center font-bold w-48">
-                                            <span
-                                                class="text-xs font-extrabold text-gray-700 uppercase tracking-wider">Tanggal</span>
-                                        </th>
-                                        <th scope="col" class="px-6 py-4 text-center font-bold w-32">
-                                            <span
-                                                class="text-xs font-extrabold text-gray-700 uppercase tracking-wider">Rekap</span>
-                                        </th>
+                                        @foreach ($pertanyaans as $pertanyaan)
+                                            <th scope="col" class="px-6 py-4 text-left font-bold">
+                                                <span
+                                                    class="text-xs font-extrabold text-gray-700 uppercase tracking-wider">{{ $pertanyaan }}</span>
+                                            </th>
+                                        @endforeach
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @forelse ($pendaftarans as $index => $item)
+                                    @forelse ($groupedResponses as $timestamp => $responses)
                                         <tr
                                             class="group border-b border-gray-100 hover:bg-gradient-to-r hover:from-blue-50 hover:to-indigo-50 hover:shadow-lg hover:!border-l-4 hover:!border-l-blue-600 border-l-4 border-l-white transition-all duration-300">
                                             <td class="px-6 py-5 text-center">
-                                                <p class="text-sm font-semibold text-gray-900 text-center">
-                                                    {{ $index + 1 }}</p>
-                                            </td>
-                                            <td class="px-6 py-5">
-                                                <p class="text-sm font-semibold text-gray-900">{{ $item->judul }}</p>
-                                            </td>
-                                            <td class="px-6 py-5 text-center">
                                                 <span
-                                                    class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-blue-100 text-blue-700">
-                                                    {{ $item->deskripsi }}
+                                                    class="inline-flex items-center justify-center w-8 h-8 rounded-full bg-blue-100 text-blue-700 font-bold text-sm group-hover:bg-blue-600 group-hover:text-white transition-all duration-300">
+                                                    {{ $loop->iteration }}
                                                 </span>
                                             </td>
-                                            <td class="px-6 py-5 text-center">
-                                                <div class="text-xs text-gray-600">
-                                                    @if ($item->tanggal_buka === $item->tanggal_tutup)
-                                                        <div
-                                                            class="font-semibold flex flex-col items-center justify-center">
-                                                            {{ \Carbon\Carbon::parse($item->tanggal_buka)->format('d M Y') }}
-                                                        </div>
-                                                    @else
-                                                        <div class="font-semibold">
-                                                            {{ \Carbon\Carbon::parse($item->tanggal_buka)->format('d M Y') }}
-                                                        </div>
-                                                        <div class="text-gray-500">s/d</div>
-                                                        <div class="font-semibold">
-                                                            {{ \Carbon\Carbon::parse($item->tanggal_tutup)->format('d M Y') }}
-                                                        </div>
-                                                    @endif
-                                                </div>
+                                            <td class="px-6 py-5">
+                                                <p class="text-sm font-semibold text-gray-900">
+                                                    {{ \Carbon\Carbon::parse($timestamp)->format('d M Y, H:i') }}
+                                                </p>
                                             </td>
-                                            <td class="px-6 py-5 text-center">
-                                                <a href="{{ route('admin.rekap-pendaftaran.respon-pendaftaran.index', $item->id) }}"
-                                                    class="inline-flex items-center gap-1.5 px-3 py-1.5 border-2 border-blue-600 hover:bg-blue-600 text-blue-600 hover:text-white text-sm font-semibold rounded-lg transition-all duration-200 group whitespace-nowrap">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" width="14"
-                                                        height="14" viewBox="0 0 24 24" fill="none"
-                                                        stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                                        stroke-linejoin="round">
-                                                        <path
-                                                            d="M2 9a3 3 0 0 1 0 6v2a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-2a3 3 0 0 1 0-6V7a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2Z" />
-                                                        <path d="M13 5v2" />
-                                                        <path d="M13 17v2" />
-                                                        <path d="M13 11v2" />
-                                                    </svg>
-                                                    Respon Pendaftaran
-                                                </a>
-                                            </td>
+                                            @foreach ($pertanyaans as $pertanyaan)
+                                                @php
+                                                    $jawaban = $responses->firstWhere('pertanyaan', $pertanyaan);
+                                                @endphp
+                                                <td class="px-6 py-5">
+                                                    <p class="text-sm text-gray-900">
+                                                        {{ $jawaban ? $jawaban->jawaban : '-' }}
+                                                    </p>
+                                                </td>
+                                            @endforeach
                                         </tr>
                                     @empty
                                         <tr>
-                                            <td colspan="5" class="px-6 py-16 text-center">
+                                            <td colspan="{{ count($pertanyaans) + 2 }}" class="px-6 py-16 text-center">
                                                 <div class="flex flex-col items-center justify-center">
                                                     <div
                                                         class="w-20 h-20 rounded-2xl bg-gradient-to-br from-gray-100 to-gray-200 flex items-center justify-center mb-4 shadow-inner">
@@ -162,9 +159,9 @@
                                                         </svg>
                                                     </div>
                                                     <h3 class="text-lg font-bold text-gray-900 mb-1">Tidak Ada Data
-                                                    </h3>
-                                                    <p class="text-sm text-gray-500">Belum ada data rekap pendaftaranS.
-                                                    </p>
+                                                        Responden</h3>
+                                                    <p class="text-sm text-gray-500">Belum ada yang mengisi formulir
+                                                        pendaftaran ini.</p>
                                                 </div>
                                             </td>
                                         </tr>
@@ -177,4 +174,7 @@
             </div>
         </section>
     </main>
+
+    {{-- Include Create Modal --}}
+    @include('admin.pendaftaran.formulir.create')
 </x-app-layout>

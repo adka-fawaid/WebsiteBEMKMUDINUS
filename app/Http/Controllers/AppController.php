@@ -14,10 +14,10 @@ use Illuminate\Http\Request;
 
 class AppController extends Controller
 {
- public function index()
-{
-    return view('welcome');
-}
+    public function index()
+    {
+        return view('welcome');
+    }
 
 
     public function berita()
@@ -71,19 +71,19 @@ class AppController extends Controller
         ]);
     }
 
-public function forum()
-{
-    $forums = BeritaKajian::latest()->get();
+    public function forum()
+    {
+        $forums = BeritaKajian::latest()->get();
 
-    return view('forum.forum', compact('forums'));
-}
+        return view('forum.forum', compact('forums'));
+    }
 
-public function detail_forum($slug)
-{
-    $forum = BeritaKajian::where('slug', $slug)->firstOrFail();
+    public function detail_forum($slug)
+    {
+        $forum = BeritaKajian::where('slug', $slug)->firstOrFail();
 
-    return view('forum.detail_forum', compact('forum'));
-}
+        return view('forum.detail_forum', compact('forum'));
+    }
 
 
     public function foto()

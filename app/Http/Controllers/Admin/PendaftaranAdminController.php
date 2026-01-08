@@ -111,49 +111,52 @@ class PendaftaranAdminController extends Controller
         return redirect()->route('admin.pendaftaran.formulir.index', $pendaftaranId)->with('success', 'Pertanyaan berhasil ditambahkan.');
     }
 
-    public function updatePertanyaan(Request $request, $pendaftaranId, $pertanyaanId)
+    public function updatePertanyaan(Request $request, $pertanyaanId)
     {
         $pertanyaan = PertanyaanPendaftaran::findOrFail($pertanyaanId);
 
-        $rules = [
+        $validated = $request->validate([
             'pertanyaan' => 'required|string|max:255',
-            'tipe_jawaban' => 'required|string|in:Jawaban Panjang,Jawaban Singkat,Opsi,File',
-        ];
-        // Validasi opsi_jawaban hanya jika tipe Opsi
-        if ($request->input('tipe_jawaban') === 'Opsi') {
-            $rules['opsi_jawaban'] = 'array';
-            $rules['opsi_jawaban.*'] = 'nullable|string|max:255';
-        }
-        $validatedData = $request->validate($rules);
-
-        // Cek tipe_jawaban sebelumnya
-        $prevTipeJawaban = $pertanyaan->tipe_jawaban;
-
-        $pertanyaan->update([
-            'pertanyaan' => $validatedData['pertanyaan'],
-            'tipe_jawaban' => $validatedData['tipe_jawaban'],
+            'tipe_jawaban' => 'required|in:Jawaban Panjang,Jawaban Singkat,Opsi,File',
+            'opsi_jawaban' => 'nullable|array',
+            'opsi_jawaban.*' => 'nullable|string|max:255',
         ]);
 
-        // Jika sebelumnya Opsi dan sekarang bukan Opsi, hapus semua OpsiJawaban
-        if ($prevTipeJawaban === 'Opsi' && $validatedData['tipe_jawaban'] !== 'Opsi') {
-            OpsiJawaban::where('pertanyaan_pendaftaran_id', $pertanyaan->id)->delete();
-        }
+        // Update pertanyaan utama
+        $pertanyaan->update([
+            'pertanyaan'   => $validated['pertanyaan'],
+            'tipe_jawaban' => $validated['tipe_jawaban'],
+        ]);
 
-        // Jika tipe jawaban Opsi, update opsi_jawaban
-        if ($validatedData['tipe_jawaban'] === 'Opsi' && $request->has('opsi_jawaban')) {
-            // Hapus opsi lama
-            OpsiJawaban::where('pertanyaan_pendaftaran_id', $pertanyaan->id)->delete();
-            // Tambah opsi baru
-            $opsiArray = array_filter($request->input('opsi_jawaban'), fn($v) => $v !== null && $v !== '');
-            foreach ($opsiArray as $opsi) {
-                OpsiJawaban::create([
-                    'pertanyaan_pendaftaran_id' => $pertanyaan->id,
-                    'opsi' => $opsi,
-                ]);
+        /**
+         * ===============================
+         * HANDLE OPSI JAWABAN
+         * ===============================
+         */
+        if ($validated['tipe_jawaban'] === 'Opsi') {
+
+            // Bersihkan opsi lama (PALING AMAN)
+            $pertanyaan->opsiJawaban()->delete();
+
+            // Simpan ulang opsi baru
+            if ($request->filled('opsi_jawaban')) {
+                foreach ($request->opsi_jawaban as $opsi) {
+                    if (!empty(trim($opsi))) {
+                        OpsiJawaban::create([
+                            'pertanyaan_pendaftaran_id' => $pertanyaan->id,
+                            'opsi' => $opsi,
+                        ]);
+                    }
+                }
             }
+        } else {
+            // Jika tipe bukan Opsi, hapus semua opsi
+            $pertanyaan->opsiJawaban()->delete();
         }
 
-        return redirect()->route('admin.pendaftaran.formulir.index', $pertanyaan->pendaftaran_id)->with('success', 'Pertanyaan berhasil diperbarui.');
+        return redirect()
+            ->route('admin.pendaftaran.formulir.index', $pertanyaan->pendaftaran_id)
+            ->with('success', 'Pertanyaan berhasil diperbarui.');
     }
 
     public function destroyPertanyaan($pertanyaanId)

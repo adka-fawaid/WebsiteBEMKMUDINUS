@@ -1,38 +1,39 @@
 <?php
 
-use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AppController;
 
 /*
 * ADMIN CONTROLLER
 */
-use App\Http\Controllers\Admin\DashboardAdminController;
-use App\Http\Controllers\Admin\SambutanPresmaAdminController;
-use App\Http\Controllers\Admin\VisiMisiAdminController;
-use App\Http\Controllers\Admin\KabinetAdminController;
-use App\Http\Controllers\Admin\StrukturalAdminController;
-use App\Http\Controllers\Admin\ProgramKerjaAdminController;
-use App\Http\Controllers\Admin\PendaftaranAdminController;
-use App\Http\Controllers\Admin\BeritaAdminController;
-use App\Http\Controllers\Admin\PartnershipAdminController;
-use App\Http\Controllers\Admin\KontakAdminController;
+use App\Http\Controllers\UkmController;
+use App\Http\Controllers\AuthController;
+use App\Http\Controllers\BlogController;
+use App\Http\Controllers\ForumController;
+use App\Http\Controllers\PhotoController;
+use App\Http\Controllers\OrmawaController;
+use App\Http\Controllers\ProkerController;
+use App\Http\Controllers\KabinetController;
+use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\CalendarController;
 
 /*
 * OLD CONTROLLER
 */
-use App\Http\Controllers\AppController;
-use App\Http\Controllers\AuthController;
-use App\Http\Controllers\BlogController;
-use App\Http\Controllers\CalendarController;
 use App\Http\Controllers\DashboardController;
-use App\Http\Controllers\ForumController;
-use App\Http\Controllers\Guest\BerandaGuestController;
-use App\Http\Controllers\KabinetController;
-use App\Http\Controllers\OrmawaController;
 use App\Http\Controllers\PartnershipController;
-use App\Http\Controllers\PhotoController;
-use App\Http\Controllers\ProkerController;
-use App\Http\Controllers\UkmController;
+use App\Http\Controllers\Admin\BeritaAdminController;
+use App\Http\Controllers\Admin\KontakAdminController;
+use App\Http\Controllers\Admin\KabinetAdminController;
+use App\Http\Controllers\Guest\BerandaGuestController;
+use App\Http\Controllers\Admin\VisiMisiAdminController;
+use App\Http\Controllers\Admin\DashboardAdminController;
+use App\Http\Controllers\Admin\StrukturalAdminController;
+use App\Http\Controllers\Admin\PartnershipAdminController;
+use App\Http\Controllers\Admin\PendaftaranAdminController;
+use App\Http\Controllers\Admin\ProgramKerjaAdminController;
+use App\Http\Controllers\Admin\SambutanPresmaAdminController;
+use App\Http\Controllers\Admin\RekapPendaftaranAdminController;
 
 /*
 |--------------------------------------------------------------------------
@@ -177,8 +178,14 @@ Route::middleware(['auth'])->group(function () {
         });
 
         Route::prefix('rekap-pendaftaran')->group(function () {
-            Route::get('/', [App\Http\Controllers\Admin\RekapPendaftaranAdminController::class, 'index'])
+            Route::get('/', [RekapPendaftaranAdminController::class, 'index'])
                 ->name('admin.rekap-pendaftaran.index');
+
+            // RESPON PENDAFTARAN
+            Route::prefix('respon')->group(function () {
+                Route::get('/{id}', [RekapPendaftaranAdminController::class, 'responPendaftaran'])
+                    ->name('admin.rekap-pendaftaran.respon-pendaftaran.index');
+            });
         });
 
         // BERITA
@@ -301,5 +308,3 @@ Route::post('/unit/store', [UkmController::class, 'store'])->name('unit.store')-
 Route::get('/unit/edit/{id}', [UkmController::class, 'edit'])->name('unit.edit')->middleware('auth');
 Route::post('/unit/update/{id}', [UkmController::class, 'update'])->name('unit.update')->middleware('auth');
 Route::post('unit/destroy/{id}', [UkmController::class, 'destroy'])->name('unit.destroy')->middleware('auth');
-
-

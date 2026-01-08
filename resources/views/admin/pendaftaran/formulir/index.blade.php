@@ -134,153 +134,140 @@
                                 </thead>
                                 <tbody>
                                     @forelse ($pertanyaanPendaftarans as $index => $pertanyaanPendaftaran)
-                                        <tr
-                                            class="group border-b border-gray-100 hover:bg-gradient-to-r hover:from-blue-50 hover:to-indigo-50 hover:shadow-lg hover:!border-l-4 hover:!border-l-blue-600 border-l-4 border-l-white transition-all duration-300">
-                                            <td class="px-6 py-5 text-center">
-                                                <span
-                                                    class="inline-flex items-center justify-center w-8 h-8 rounded-full bg-blue-100 text-blue-700 font-bold text-sm group-hover:bg-blue-600 group-hover:text-white transition-all duration-300">
-                                                    {{ $index + 1 }}
-                                                </span>
-                                            </td>
-                                            <td class="px-6 py-5">
-                                                <p class="text-sm font-semibold text-gray-900">
-                                                    {{ $pertanyaanPendaftaran->pertanyaan }}
-                                                </p>
-                                            </td>
-                                            <td class="px-6 py-5">
-                                                <p class="text-sm font-semibold text-gray-900">
-                                                    {{ $pertanyaanPendaftaran->tipe_jawaban }}
-                                                </p>
-                                            </td>
-                                            <td class="px-6 py-5">
-                                                <div class="flex items-center justify-center gap-2">
-                                                    <button type="button"
-                                                        data-modal-target="edit-pertanyaan-modal-{{ $pertanyaanPendaftaran->id }}"
-                                                        data-modal-toggle="edit-pertanyaan-modal-{{ $pertanyaanPendaftaran->id }}"
-                                                        class="group p-2 rounded-lg bg-amber-50 hover:bg-amber-100 transition-all duration-200 hover:shadow-md"
-                                                        title="Edit">
-                                                        <svg xmlns="http://www.w3.org/2000/svg" width="18"
-                                                            height="18" viewBox="0 0 24 24" fill="none"
-                                                            stroke="currentColor" stroke-width="2"
-                                                            stroke-linecap="round" stroke-linejoin="round"
-                                                            class="text-amber-600 group-hover:text-amber-700 transition-colors">
-                                                            <path
-                                                                d="M21.174 6.812a1 1 0 0 0-3.986-3.987L3.842 16.174a2 2 0 0 0-.5.83l-1.321 4.352a.5.5 0 0 0 .623.622l4.353-1.32a2 2 0 0 0 .83-.497z" />
-                                                            <path d="m15 5 4 4" />
-                                                        </svg>
-                                                    </button>
-                                                    <button type="button"
-                                                        data-modal-target="delete-pertanyaan-modal-{{ $pertanyaanPendaftaran->id }}"
-                                                        data-modal-toggle="delete-pertanyaan-modal-{{ $pertanyaanPendaftaran->id }}"
-                                                        class="group p-2 rounded-lg bg-red-50 hover:bg-red-100 transition-all duration-200 hover:shadow-md"
-                                                        title="Hapus">
-                                                        <svg xmlns="http://www.w3.org/2000/svg" width="18"
-                                                            height="18" viewBox="0 0 24 24" fill="none"
-                                                            stroke="currentColor" stroke-width="2"
-                                                            stroke-linecap="round" stroke-linejoin="round"
-                                                            class="text-red-600 group-hover:text-red-700 transition-colors">
-                                                            <path d="M3 6h18" />
-                                                            <path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6" />
-                                                            <path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2" />
-                                                            <line x1="10" x2="10" y1="11"
-                                                                y2="17" />
-                                                            <line x1="14" x2="14" y1="11"
-                                                                y2="17" />
-                                                        </svg>
-                                                    </button>
-                                                </div>
-                                            </td>
-                                            <td class="px-6 py-5 text-center">
-                                                @if ($pertanyaanPendaftaran->tipe_jawaban === 'Opsi')
-                                                    <button type="button"
-                                                        class="inline-flex items-center gap-1.5 px-3 py-1.5 border-2 border-blue-600 hover:bg-blue-600 text-blue-600 hover:text-white text-sm font-semibold rounded-lg transition-all duration-200 group whitespace-nowrap"
-                                                        onclick="toggleOpsiJawabanRow({{ $pertanyaanPendaftaran->id }})"
-                                                        id="btn-opsi-jawaban-{{ $pertanyaanPendaftaran->id }}">
-                                                        Opsi Jawaban
-                                                        <svg xmlns="http://www.w3.org/2000/svg" width="20"
-                                                            height="20" viewBox="0 0 24 24" fill="none"
-                                                            stroke="currentColor" stroke-width="2"
-                                                            stroke-linecap="round" stroke-linejoin="round"
-                                                            class="lucide lucide-chevron-up-icon lucide-chevron-up transition-transform duration-200"
-                                                            id="icon-chevron-{{ $pertanyaanPendaftaran->id }}"
-                                                            style="transform: rotate(180deg);">
-                                                            <path d="m18 15-6-6-6 6" />
-                                                        </svg>
-                                                    </button>
+                                <tbody x-data="{ open: false }">
+                                    <tr
+                                        class="group border-b border-gray-100 hover:bg-gradient-to-r hover:from-blue-50 hover:to-indigo-50 hover:shadow-lg hover:!border-l-4 hover:!border-l-blue-600 border-l-4 border-l-white transition-all duration-300">
+                                        <td class="px-6 py-5 text-center">
+                                            <span
+                                                class="inline-flex items-center justify-center w-8 h-8 rounded-full bg-blue-100 text-blue-700 font-bold text-sm group-hover:bg-blue-600 group-hover:text-white transition-all duration-300">
+                                                {{ $index + 1 }}
+                                            </span>
+                                        </td>
+                                        <td class="px-6 py-5">
+                                            <p class="text-sm font-semibold text-gray-900">
+                                                {{ $pertanyaanPendaftaran->pertanyaan }}
+                                            </p>
+                                        </td>
+                                        <td class="px-6 py-5">
+                                            <p class="text-sm font-semibold text-gray-900">
+                                                {{ $pertanyaanPendaftaran->tipe_jawaban }}
+                                            </p>
+                                        </td>
+                                        <td class="px-6 py-5">
+                                            <div class="flex items-center justify-center gap-2">
+                                                <button type="button"
+                                                    data-modal-target="edit-pertanyaan-modal-{{ $pertanyaanPendaftaran->id }}"
+                                                    data-modal-toggle="edit-pertanyaan-modal-{{ $pertanyaanPendaftaran->id }}"
+                                                    class="group p-2 rounded-lg bg-amber-50 hover:bg-amber-100 transition-all duration-200 hover:shadow-md"
+                                                    title="Edit">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="18"
+                                                        height="18" viewBox="0 0 24 24" fill="none"
+                                                        stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                                        stroke-linejoin="round"
+                                                        class="text-amber-600 group-hover:text-amber-700 transition-colors">
+                                                        <path
+                                                            d="M21.174 6.812a1 1 0 0 0-3.986-3.987L3.842 16.174a2 2 0 0 0-.5.83l-1.321 4.352a.5.5 0 0 0 .623.622l4.353-1.32a2 2 0 0 0 .83-.497z" />
+                                                        <path d="m15 5 4 4" />
+                                                    </svg>
+                                                </button>
+                                                <button type="button"
+                                                    data-modal-target="delete-pertanyaan-modal-{{ $pertanyaanPendaftaran->id }}"
+                                                    data-modal-toggle="delete-pertanyaan-modal-{{ $pertanyaanPendaftaran->id }}"
+                                                    class="group p-2 rounded-lg bg-red-50 hover:bg-red-100 transition-all duration-200 hover:shadow-md"
+                                                    title="Hapus">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="18"
+                                                        height="18" viewBox="0 0 24 24" fill="none"
+                                                        stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                                        stroke-linejoin="round"
+                                                        class="text-red-600 group-hover:text-red-700 transition-colors">
+                                                        <path d="M3 6h18" />
+                                                        <path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6" />
+                                                        <path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2" />
+                                                        <line x1="10" x2="10" y1="11"
+                                                            y2="17" />
+                                                        <line x1="14" x2="14" y1="11"
+                                                            y2="17" />
+                                                    </svg>
+                                                </button>
+                                            </div>
+                                        </td>
+                                        <td class="px-6 py-5 text-center">
+                                            @if ($pertanyaanPendaftaran->tipe_jawaban === 'Opsi')
+                                                <button type="button" @click="open = !open"
+                                                    class="inline-flex items-center gap-1.5 px-3 py-1.5 border-2 border-blue-600 hover:bg-blue-600 text-blue-600 hover:text-white text-sm font-semibold rounded-lg transition-all duration-200 group whitespace-nowrap">
+                                                    Opsi Jawaban
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="20"
+                                                        height="20" viewBox="0 0 24 24" fill="none"
+                                                        stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                                        stroke-linejoin="round"
+                                                        class="transition-transform duration-300"
+                                                        :class="{ 'rotate-180': open }">
+                                                        <path d="m18 15-6-6-6 6" />
+                                                    </svg>
+                                                </button>
+                                            @else
+                                                <span class="text-gray-400 text-lg">&mdash;</span>
+                                            @endif
+                                        </td>
+                                    </tr>
+                                    <tr x-show="open" x-transition x-cloak>
+                                        <td colspan="5" class="bg-blue-50 px-6 py-4">
+                                            <div class="flex flex-col gap-2">
+                                                <div class="font-semibold text-blue-700 text-xs mb-1">Daftar Opsi
+                                                    Jawaban:</div>
+                                                @php
+                                                    $opsiList = $pertanyaanPendaftaran->opsiJawaban ?? collect();
+                                                @endphp
+                                                @if ($opsiList->count())
+                                                    <ul class="list-disc pl-5 text-sm text-blue-900">
+                                                        @foreach ($opsiList as $opsi)
+                                                            <li>{{ $opsi->opsi }}</li>
+                                                        @endforeach
+                                                    </ul>
                                                 @else
-                                                    <span class="text-gray-400 text-lg">&mdash;</span>
+                                                    <div class="text-gray-500 text-xs italic">Belum ada opsi
+                                                        jawaban.</div>
                                                 @endif
-                                            </td>
-                                        </tr>
-                                        <tr id="opsi-jawaban-row-{{ $pertanyaanPendaftaran->id }}"
-                                            style="display: none;">
-                                            <td colspan="5" class="bg-blue-50 px-6 py-4">
-                                                <div class="flex flex-col gap-2">
-                                                    <div class="font-semibold text-blue-700 text-xs mb-1">Daftar Opsi
-                                                        Jawaban:</div>
-                                                    @php
-                                                        $opsiList = $pertanyaanPendaftaran->opsiJawaban ?? collect();
-                                                    @endphp
-                                                    @if ($opsiList->count())
-                                                        <ul class="list-disc pl-5 text-sm text-blue-900">
-                                                            @foreach ($opsiList as $opsi)
-                                                                <li>{{ $opsi->opsi }}</li>
-                                                            @endforeach
-                                                        </ul>
-                                                    @else
-                                                        <div class="text-gray-500 text-xs italic">Belum ada opsi
-                                                            jawaban.</div>
-                                                    @endif
-                                                </div>
-                                            </td>
-                                            <script>
-                                                function toggleOpsiJawabanRow(id) {
-                                                    var row = document.getElementById('opsi-jawaban-row-' + id);
-                                                    var icon = document.getElementById('icon-chevron-' + id);
-                                                    if (row.style.display === 'none' || row.style.display === '') {
-                                                        row.style.display = '';
-                                                        icon.style.transform = 'rotate(0deg)';
-                                                    } else {
-                                                        row.style.display = 'none';
-                                                        icon.style.transform = 'rotate(180deg)';
-                                                    }
-                                                }
-                                            </script>
-                                        </tr>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
 
-                                        {{-- Include Modals --}}
-                                        @include('admin.pendaftaran.formulir.edit', [
-                                            'pertanyaanPendaftaran' => $pertanyaanPendaftaran,
-                                        ])
-                                        @include('admin.pendaftaran.formulir.delete', [
-                                            'pertanyaanPendaftaran' => $pertanyaanPendaftaran,
-                                        ])
-                                    @empty
-                                        <tr>
-                                            <td colspan="5" class="px-6 py-16 text-center">
-                                                <div class="flex flex-col items-center justify-center">
-                                                    <div
-                                                        class="w-20 h-20 rounded-2xl bg-gradient-to-br from-gray-100 to-gray-200 flex items-center justify-center mb-4 shadow-inner">
-                                                        <svg xmlns="http://www.w3.org/2000/svg" width="40"
-                                                            height="40" viewBox="0 0 24 24" fill="none"
-                                                            stroke="currentColor" stroke-width="1.5"
-                                                            stroke-linecap="round" stroke-linejoin="round"
-                                                            class="text-gray-400">
-                                                            <circle cx="12" cy="12" r="10" />
-                                                            <path d="M12 8v4" />
-                                                            <path d="M12 16h.01" />
-                                                        </svg>
-                                                    </div>
-                                                    <h3 class="text-lg font-bold text-gray-900 mb-1">Tidak Ada Data
-                                                        Pertanyaan
-                                                    </h3>
-                                                    <p class="text-sm text-gray-500">Belum ada pertanyaan dalam
-                                                        formulir ini.
-                                                        Klik tombol "Tambah Pertanyaan" untuk menambah data.</p>
+                                {{-- Include Modals --}}
+                                @include('admin.pendaftaran.formulir.edit', [
+                                    'pertanyaanPendaftaran' => $pertanyaanPendaftaran,
+                                ])
+                                @include('admin.pendaftaran.formulir.delete', [
+                                    'pertanyaanPendaftaran' => $pertanyaanPendaftaran,
+                                ])
+                            @empty
+                                <tbody>
+                                    <tr>
+                                        <td colspan="5" class="px-6 py-16 text-center">
+                                            <div class="flex flex-col items-center justify-center">
+                                                <div
+                                                    class="w-20 h-20 rounded-2xl bg-gradient-to-br from-gray-100 to-gray-200 flex items-center justify-center mb-4 shadow-inner">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="40"
+                                                        height="40" viewBox="0 0 24 24" fill="none"
+                                                        stroke="currentColor" stroke-width="1.5"
+                                                        stroke-linecap="round" stroke-linejoin="round"
+                                                        class="text-gray-400">
+                                                        <circle cx="12" cy="12" r="10" />
+                                                        <path d="M12 8v4" />
+                                                        <path d="M12 16h.01" />
+                                                    </svg>
                                                 </div>
-                                            </td>
-                                        </tr>
-                                    @endforelse
+                                                <h3 class="text-lg font-bold text-gray-900 mb-1">Tidak Ada Data
+                                                    Pertanyaan
+                                                </h3>
+                                                <p class="text-sm text-gray-500">Belum ada pertanyaan dalam
+                                                    formulir ini.
+                                                    Klik tombol "Tambah Pertanyaan" untuk menambah data.</p>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                                @endforelse
                                 </tbody>
                             </table>
                         </div>
