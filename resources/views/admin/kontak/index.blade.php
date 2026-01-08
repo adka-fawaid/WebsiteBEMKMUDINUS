@@ -43,10 +43,9 @@
                             <div class="flex items-center gap-3">
                                 <div
                                     class="w-10 h-10 rounded-lg bg-white/20 backdrop-blur-sm flex items-center justify-center">
-                                    <svg class="w-4 h-4 text-white"
-                                        xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                                        stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                        stroke-linejoin="round">
+                                    <svg class="w-4 h-4 text-white" xmlns="http://www.w3.org/2000/svg" fill="none"
+                                        viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"
+                                        stroke-linecap="round" stroke-linejoin="round">
                                         <path d="m22 7-8.991 5.727a2 2 0 0 1-2.009 0L2 7" />
                                         <rect x="2" y="4" width="20" height="16" rx="2" />
                                     </svg>
@@ -129,8 +128,25 @@
                                                         class="text-sm text-gray-700 font-medium">{{ $kontak->nama }}</span>
                                                 </td>
                                                 <td class="px-6 py-5">
-                                                    <span
-                                                        class="text-sm text-gray-700 font-medium">{{ $kontak->url }}</span>
+                                                    @if ($kontak->url)
+                                                        <a href="{{ $kontak->url }}" target="_blank"
+                                                            rel="noopener noreferrer"
+                                                            class="inline-flex items-center gap-1.5 text-sm text-blue-600 hover:text-blue-700 font-medium hover:underline transition-all duration-200">
+                                                            <span>{{ Str::limit($kontak->url, 30) }}</span>
+                                                            <svg xmlns="http://www.w3.org/2000/svg" width="14"
+                                                                height="14" viewBox="0 0 24 24" fill="none"
+                                                                stroke="currentColor" stroke-width="2"
+                                                                stroke-linecap="round" stroke-linejoin="round">
+                                                                <path
+                                                                    d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+                                                                <polyline points="15 3 21 3 21 9" />
+                                                                <line x1="10" y1="14" x2="21"
+                                                                    y2="3" />
+                                                            </svg>
+                                                        </a>
+                                                    @else
+                                                        <span class="text-sm text-gray-400 italic">-</span>
+                                                    @endif
                                                 </td>
                                                 <td class="px-6 py-5">
                                                     <div class="flex items-center justify-center gap-2">

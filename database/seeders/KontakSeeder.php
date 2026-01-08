@@ -23,7 +23,7 @@ class KontakSeeder extends Seeder
             [
                 'tipe' => 'Email',
                 'kontak' => 'bemkm@dinus.ac.id',
-                'nama' => 'bemkm',
+                'nama' => 'Email BEMKM Udinus',
                 'url' => 'https://mail.google.com',
             ],
             [

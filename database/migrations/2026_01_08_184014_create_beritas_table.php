@@ -18,7 +18,7 @@ return new class extends Migration
             $table->enum('kategori', ['Berita Acara', 'Berita Kegiatan', 'Press Release', 'Informasi', 'Lain-lain']);
             $table->string('gambar')->nullable();
             $table->text('deskripsi');
-            $table->string('file')->nullable();
+            $table->string('dokumen')->nullable();
             $table->string('url')->nullable();
             $table->timestamps();
         });

@@ -192,6 +192,12 @@ Route::middleware(['auth'])->group(function () {
         Route::prefix('berita')->group(function () {
             Route::get('/', [BeritaAdminController::class, 'index'])
                 ->name('admin.berita.index');
+            Route::post('/store', [BeritaAdminController::class, 'store'])
+                ->name('admin.berita.store');
+            Route::put('/update/{id}', [BeritaAdminController::class, 'update'])
+                ->name('admin.berita.update');
+            Route::delete('/destroy/{id}', [BeritaAdminController::class, 'destroy'])
+                ->name('admin.berita.destroy');
         });
 
         // PARTNERSHIP
@@ -314,5 +320,3 @@ Route::post('/unit/store', [UkmController::class, 'store'])->name('unit.store')-
 Route::get('/unit/edit/{id}', [UkmController::class, 'edit'])->name('unit.edit')->middleware('auth');
 Route::post('/unit/update/{id}', [UkmController::class, 'update'])->name('unit.update')->middleware('auth');
 Route::post('unit/destroy/{id}', [UkmController::class, 'destroy'])->name('unit.destroy')->middleware('auth');
-
-
