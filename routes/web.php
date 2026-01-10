@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AppController;
 
 /*
-* ADMIN CONTROLLER
+* OLD CONTROLLER
 */
 use App\Http\Controllers\UkmController;
 use App\Http\Controllers\AuthController;
@@ -18,22 +18,27 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\CalendarController;
 
 /*
-* OLD CONTROLLER
+* ADMIN CONTROLLER
 */
-use App\Http\Controllers\DashboardController;
-use App\Http\Controllers\PartnershipController;
 use App\Http\Controllers\Admin\BeritaAdminController;
 use App\Http\Controllers\Admin\KontakAdminController;
 use App\Http\Controllers\Admin\KabinetAdminController;
-use App\Http\Controllers\Guest\BerandaGuestController;
 use App\Http\Controllers\Admin\VisiMisiAdminController;
 use App\Http\Controllers\Admin\DashboardAdminController;
 use App\Http\Controllers\Admin\StrukturalAdminController;
-use App\Http\Controllers\Admin\PartnershipAdminController;
 use App\Http\Controllers\Admin\PendaftaranAdminController;
 use App\Http\Controllers\Admin\ProgramKerjaAdminController;
 use App\Http\Controllers\Admin\SambutanPresmaAdminController;
 use App\Http\Controllers\Admin\RekapPendaftaranAdminController;
+use App\Http\Controllers\Admin\KelolaPartnershipAdminController;
+use App\Http\Controllers\Admin\ProsedurPartnershipAdminController;
+use App\Http\Controllers\Admin\RekapPendaftaranPartnershipAdminController;
+
+/**
+ * GUEST CONTROLLER
+ */
+use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\PartnershipController;
 
 /*
 |--------------------------------------------------------------------------
@@ -177,6 +182,7 @@ Route::middleware(['auth'])->group(function () {
             });
         });
 
+        // REKAP PENDAFTARAN
         Route::prefix('rekap-pendaftaran')->group(function () {
             Route::get('/', [RekapPendaftaranAdminController::class, 'index'])
                 ->name('admin.rekap-pendaftaran.index');
@@ -200,10 +206,22 @@ Route::middleware(['auth'])->group(function () {
                 ->name('admin.berita.destroy');
         });
 
-        // PARTNERSHIP
-        Route::prefix('partnership')->group(function () {
-            Route::get('/', [PartnershipAdminController::class, 'index'])
-                ->name('admin.partnership.index');
+        // KELOLA PARTNERSHIP
+        Route::prefix('kelola-partnership')->group(function () {
+            Route::get('/', [KelolaPartnershipAdminController::class, 'index'])
+                ->name('admin.kelola-partnership.index');
+        });
+
+        // PROSEDUR PARTNERSHIP
+        Route::prefix('prosedur-partnership')->group(function () {
+            Route::get('/', [ProsedurPartnershipAdminController::class, 'index'])
+                ->name('admin.prosedur-partnership.index');
+        });
+
+        // REKAP PENDAFTARAN PARTNERSHIP
+        Route::prefix('rekap-pendaftaran-partnership')->group(function () {
+            Route::get('/', [RekapPendaftaranPartnershipAdminController::class, 'index'])
+                ->name('admin.rekap-pendaftaran-partnership.index');
         });
 
         // KONTAK

@@ -75,7 +75,7 @@
                 </div>
 
                 <ul class="py-2 bg-white">
-                    <li>
+                    {{-- <li>
                         <a href="#"
                             class="flex items-center gap-2 px-4 py-2 text-sm text-gray-700 hover:bg-gradient-to-r hover:from-blue-50 hover:to-indigo-50 transition-all duration-200">
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
@@ -86,7 +86,7 @@
                             </svg>
                             Profil
                         </a>
-                    </li>
+                    </li> --}}
                     <li>
                         <form method="POST" action="{{ route('logout') }}">
                             @csrf

@@ -24,7 +24,7 @@
     </div>
 
     <!-- Menu -->
-    <nav class="flex-1 mt-4">
+    <nav class="flex-1 mt-4 overflow-y-auto">
         <ul class="space-y-1.5">
             <li class="relative">
                 @if (request()->routeIs('admin.dashboard'))
@@ -273,16 +273,22 @@
                     <span class="flex-1 ms-2.5 font-medium">Berita</span>
                 </a>
             </li>
-            <li class="relative">
-                @if (request()->routeIs('admin.partnership.index'))
+            @php
+                $isPartnershipActive =
+                    request()->routeIs('admin.kelola-partnership.index') ||
+                    request()->routeIs('admin.prosedur-partnership.index') ||
+                    request()->routeIs('admin.rekap-pendaftaran-partnership.index');
+            @endphp
+            <li class="relative" x-data="{ open: {{ $isPartnershipActive ? 'true' : 'false' }} }">
+                @if ($isPartnershipActive)
                     <span
                         class="absolute left-0 top-0 bottom-0 w-1 bg-gradient-to-b from-blue-600 to-indigo-600 rounded-r-lg shadow-lg"></span>
                 @endif
-                <a href="{{ route('admin.partnership.index') }}"
-                    class="flex items-center mx-4 p-2 rounded-xl group transition-all duration-300 {{ request()->routeIs('admin.partnership.index') ? 'bg-gradient-to-r from-blue-600 to-indigo-600 text-white shadow-lg' : 'hover:bg-gradient-to-r hover:from-blue-50 hover:to-indigo-50' }}">
+                <button @click="open = !open" type="button"
+                    class="flex items-center w-[224px] ml-4 mr-4 p-2 rounded-xl group transition-all duration-300 {{ $isPartnershipActive ? 'bg-gradient-to-r from-blue-600 to-indigo-600 text-white shadow-lg' : 'hover:bg-gradient-to-r hover:from-blue-50 hover:to-indigo-50' }}">
                     <div
-                        class="flex items-center justify-center w-8 h-8 rounded-lg {{ request()->routeIs('admin.partnership.index') ? 'bg-white/20 backdrop-blur-sm' : 'bg-blue-100 group-hover:bg-blue-200' }} transition-all duration-300">
-                        <svg class="flex-shrink-0 w-4 h-4 {{ request()->routeIs('admin.partnership.index') ? 'text-white' : 'text-blue-600' }}"
+                        class="flex items-center justify-center w-8 h-8 rounded-lg {{ $isPartnershipActive ? 'bg-white/20 backdrop-blur-sm' : 'bg-blue-100 group-hover:bg-blue-200' }} transition-all duration-300">
+                        <svg class="flex-shrink-0 w-4 h-4 {{ $isPartnershipActive ? 'text-white' : 'text-blue-600' }}"
                             xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                             stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                             <path d="m11 17 2 2a1 1 0 1 0 3-3" />
@@ -293,8 +299,65 @@
                             <path d="M3 4h8" />
                         </svg>
                     </div>
-                    <span class="flex-1 ms-2.5 font-medium">Partnership</span>
-                </a>
+                    <span class="flex-1 ms-2.5 text-left font-medium">Partnership</span>
+                    <svg class="w-4 h-4 transition-transform duration-300" :class="{ 'rotate-180': open }"
+                        fill="currentColor" viewBox="0 0 20 20">
+                        <path fill-rule="evenodd"
+                            d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                            clip-rule="evenodd" />
+                    </svg>
+                </button>
+                <ul x-show="open" x-transition class="mt-1.5 space-y-1 pl-4">
+                    <li class="relative">
+                        <a href="{{ route('admin.kelola-partnership.index') }}"
+                            class="flex items-center mx-4 p-2 rounded-lg group transition-all duration-300 {{ request()->routeIs('admin.kelola-partnership.index') ? 'bg-gradient-to-r from-blue-500 to-indigo-500 text-white shadow-md' : 'hover:bg-gradient-to-r hover:from-blue-50 hover:to-indigo-50 hover:pl-3' }}">
+                            <div
+                                class="flex items-center justify-center w-6 h-6 rounded-md {{ request()->routeIs('admin.kelola-partnership.index') ? 'bg-white/20' : 'bg-blue-50 group-hover:bg-blue-100' }} transition-all duration-300">
+                                <svg class="shrink-0 w-3.5 h-3.5 {{ request()->routeIs('admin.kelola-partnership.index') ? 'text-white' : 'text-blue-600' }}"
+                                    xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <path d="M3 3v18h18" />
+                                    <path d="m19 9-5 5-4-4-3 3" />
+                                </svg>
+                            </div>
+                            <span class="flex-1 ms-2 text-sm font-medium">Kelola Partnership</span>
+                        </a>
+                    </li>
+                    <li class="relative">
+                        <a href="{{ route('admin.prosedur-partnership.index') }}"
+                            class="flex items-center mx-4 p-2 rounded-lg group transition-all duration-300 {{ request()->routeIs('admin.prosedur-partnership.index') ? 'bg-gradient-to-r from-blue-500 to-indigo-500 text-white shadow-md' : 'hover:bg-gradient-to-r hover:from-blue-50 hover:to-indigo-50 hover:pl-3' }}">
+                            <div
+                                class="flex items-center justify-center w-6 h-6 rounded-md {{ request()->routeIs('admin.prosedur-partnership.index') ? 'bg-white/20' : 'bg-blue-50 group-hover:bg-blue-100' }} transition-all duration-300">
+                                <svg class="shrink-0 w-3.5 h-3.5 {{ request()->routeIs('admin.prosedur-partnership.index') ? 'text-white' : 'text-blue-600' }}"
+                                    xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <path
+                                        d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6zM14 2v6h6M16 13H8M16 17H8M10 9H8" />
+                                </svg>
+                            </div>
+                            <span class="flex-1 ms-2 text-sm font-medium">Prosedur Partnership</span>
+                        </a>
+                    </li>
+                    <li class="relative">
+                        <a href="{{ route('admin.rekap-pendaftaran-partnership.index') }}"
+                            class="flex items-center mx-4 p-2 rounded-lg group transition-all duration-300 {{ request()->routeIs('admin.rekap-pendaftaran-partnership.index') ? 'bg-gradient-to-r from-blue-500 to-indigo-500 text-white shadow-md' : 'hover:bg-gradient-to-r hover:from-blue-50 hover:to-indigo-50 hover:pl-3' }}">
+                            <div
+                                class="flex items-center justify-center w-6 h-6 rounded-md {{ request()->routeIs('admin.rekap-pendaftaran-partnership.index') ? 'bg-white/20' : 'bg-blue-50 group-hover:bg-blue-100' }} transition-all duration-300">
+                                <svg class="shrink-0 w-3.5 h-3.5 {{ request()->routeIs('admin.rekap-pendaftaran-partnership.index') ? 'text-white' : 'text-blue-600' }}"
+                                    xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <path d="M2 6h4M2 10h4M2 14h4M2 18h4" />
+                                    <rect width="16" height="20" x="4" y="2" rx="2" />
+                                    <path d="M9.5 8h5M9.5 12H16M9.5 16H14" />
+                                </svg>
+                            </div>
+                            <span class="flex-1 ms-2 text-sm font-medium">Rekap Pendaftaran</span>
+                        </a>
+                    </li>
+                </ul>
             </li>
             <li class="relative">
                 @if (request()->routeIs('admin.kontak.index'))
@@ -317,4 +380,26 @@
             </li>
         </ul>
     </nav>
+
+    <!-- Logout Button (Fixed at Bottom) -->
+    <div class="flex-shrink-0 p-4 bg-gradient-to-t from-gray-50 to-transparent border-t border-gray-200">
+        <form method="POST" action="{{ route('logout') }}" class="w-full">
+            @csrf
+            <button type="submit"
+                class="flex items-center w-full p-2.5 rounded-xl group transition-all duration-300 hover:bg-gradient-to-r hover:from-red-50 hover:to-pink-50 border-2 border-transparent hover:border-red-200 hover:shadow-md bg-white">
+                <div
+                    class="flex items-center justify-center w-8 h-8 rounded-lg bg-red-100 group-hover:bg-red-200 transition-all duration-300">
+                    <svg class="w-4 h-4 text-red-600" xmlns="http://www.w3.org/2000/svg" fill="none"
+                        viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4" />
+                        <polyline points="16 17 21 12 16 7" />
+                        <line x1="21" y1="12" x2="9" y2="12" />
+                    </svg>
+                </div>
+                <span
+                    class="flex-1 ms-2.5 font-semibold text-gray-700 group-hover:text-red-600 transition-colors">Keluar</span>
+            </button>
+        </form>
+    </div>
 </aside>
