@@ -10,7 +10,6 @@ class Partnership extends Model
     use HasFactory;
 
     protected $fillable = [
-        'nama',
         'kategori',
         'deskripsi',
         'link_pendaftaran',

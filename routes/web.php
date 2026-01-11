@@ -210,6 +210,10 @@ Route::middleware(['auth'])->group(function () {
         Route::prefix('kelola-partnership')->group(function () {
             Route::get('/', [KelolaPartnershipAdminController::class, 'index'])
                 ->name('admin.kelola-partnership.index');
+            Route::put('/update/{id}', [KelolaPartnershipAdminController::class, 'update'])
+                ->name('admin.kelola-partnership.update');
+            Route::put('/update-link-status/{id}', [KelolaPartnershipAdminController::class, 'updateLinkStatus'])
+                ->name('admin.kelola-partnership.update-link-status');
         });
 
         // PROSEDUR PARTNERSHIP

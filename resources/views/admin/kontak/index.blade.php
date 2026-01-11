@@ -107,8 +107,9 @@
                                     <tbody class="divide-y divide-gray-100">
                                         @forelse ($kontaks as $index => $kontak)
                                             <tr
-                                                class="group hover:bg-gradient-to-r hover:from-blue-50 hover:to-indigo-50 hover:shadow-lg hover:border-l-4 hover:border-l-blue-600 border-l-4 border-l-transparent transition-all duration-300">
-                                                <td class="px-6 py-5 text-center">
+                                                class="group hover:bg-gradient-to-r hover:from-blue-50 hover:to-indigo-50 hover:shadow-lg transition-all duration-300">
+                                                <td
+                                                    class="px-6 py-5 text-center border-l-4 border-l-transparent group-hover:border-l-4 group-hover:border-l-blue-600">
                                                     <span
                                                         class="inline-flex items-center justify-center w-8 h-8 rounded-full bg-blue-100 text-blue-700 font-bold text-sm group-hover:bg-blue-600 group-hover:text-white transition-all duration-300">
                                                         {{ $index + 1 }}

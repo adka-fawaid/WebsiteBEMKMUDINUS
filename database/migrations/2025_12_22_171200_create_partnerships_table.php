@@ -14,7 +14,6 @@ return new class extends Migration
         if (!Schema::hasTable('partnerships')) {
             Schema::create('partnerships', function (Blueprint $table) {
                 $table->id();
-                $table->string('nama');
                 $table->enum('kategori', ['Media Partner', 'Sponsorship', 'Kolaborasi', 'Kampus Visit', 'Delegasi']);
                 $table->longText('deskripsi')->nullable();
                 $table->string('link_pendaftaran')->nullable();

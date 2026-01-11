@@ -317,8 +317,11 @@
                                     xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                                     stroke="currentColor" stroke-width="2" stroke-linecap="round"
                                     stroke-linejoin="round">
-                                    <path d="M3 3v18h18" />
-                                    <path d="m19 9-5 5-4-4-3 3" />
+                                    <path d="M21 12a9 9 0 0 0-9-9 9.75 9.75 0 0 0-6.74 2.74L3 8" />
+                                    <path d="M3 3v5h5" />
+                                    <path d="M3 12a9 9 0 0 0 9 9 9.75 9.75 0 0 0 6.74-2.74L21 16" />
+                                    <path d="M16 16h5v5" />
+                                    <circle cx="12" cy="12" r="1" />
                                 </svg>
                             </div>
                             <span class="flex-1 ms-2 text-sm font-medium">Kelola Partnership</span>
@@ -386,7 +389,7 @@
         <form method="POST" action="{{ route('logout') }}" class="w-full">
             @csrf
             <button type="submit"
-                class="flex items-center w-full p-2.5 rounded-xl group transition-all duration-300 hover:bg-gradient-to-r hover:from-red-50 hover:to-pink-50 border-2 border-transparent hover:border-red-200 hover:shadow-md bg-white">
+                class="flex items-center w-full p-2.5 rounded-xl group transition-all duration-300 hover:bg-gradient-to-r hover:from-red-50 hover:to-pink-50 border border-red-300 hover:border-red-500 hover:shadow-md bg-white">
                 <div
                     class="flex items-center justify-center w-8 h-8 rounded-lg bg-red-100 group-hover:bg-red-200 transition-all duration-300">
                     <svg class="w-4 h-4 text-red-600" xmlns="http://www.w3.org/2000/svg" fill="none"

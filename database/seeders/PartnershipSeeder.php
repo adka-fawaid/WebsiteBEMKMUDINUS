@@ -14,75 +14,47 @@ class PartnershipSeeder extends Seeder
      */
     public function run(): void
     {
-        // Create kategori partnerships
-        $kategori1 = KategoriPartnership::create([
-            'nama' => 'Media Partner',
-            'deskripsi' => 'Kerjasama dengan media massa untuk publikasi berita dan event BEM KM UDINUS',
-        ]);
-
-        $kategori2 = KategoriPartnership::create([
-            'nama' => 'Sponsor',
-            'deskripsi' => 'Kerjasama dengan sponsor untuk program dan kegiatan BEM KM UDINUS',
-        ]);
-
-        $kategori3 = KategoriPartnership::create([
-            'nama' => 'Organisasi Eksternal',
-            'deskripsi' => 'Kerjasama dengan organisasi eksternal untuk kolaborasi program',
-        ]);
-
-        // Create partnerships
-        Partnership::create([
-            'kategori_partnership_id' => $kategori1->id,
-            'nama' => 'Media Udinus',
-            'deskripsi' => 'Portal media resmi Universitas Diponegoro untuk publikasi berita mahasiswa',
-            'link' => 'https://media.udinus.ac.id',
-                        'slug' => 'media-udinus-' . time(),
-            'status' => 'approved',
-        ]);
-
-        Partnership::create([
-            'kategori_partnership_id' => $kategori1->id,
-            'nama' => 'Instagram Udinus',
-            'deskripsi' => 'Akun Instagram resmi Universitas Diponegoro untuk publikasi foto dan video kegiatan',
-            'link' => 'https://instagram.com/undipofficial',
-                        'slug' => 'instagram-udinus-' . time(),
-            'status' => 'approved',
-        ]);
-
-        Partnership::create([
-            'kategori_partnership_id' => $kategori2->id,
-            'nama' => 'PT. Telekomunikasi Indonesia',
-            'deskripsi' => 'Sponsor utama untuk program dan kegiatan BEM KM UDINUS tahun 2025',
-            'link' => 'https://www.telkomsel.com',
-                        'slug' => 'pt-telekomunikasi-indonesia-' . time(),
-            'status' => 'approved',
-        ]);
-
-        Partnership::create([
-            'kategori_partnership_id' => $kategori2->id,
-            'nama' => 'Bank BCA',
-            'deskripsi' => 'Partnership untuk workshop finansial dan edukasi perbankan',
-            'link' => 'https://www.bca.co.id',
-                        'slug' => 'bank-bca-' . time(),
-            'status' => 'approved',
-        ]);
-
-        Partnership::create([
-            'kategori_partnership_id' => $kategori3->id,
-            'nama' => 'HIMAPRO UDINUS',
-            'deskripsi' => 'Kerjasama dengan Himpunan Mahasiswa Program Studi Teknik Informatika',
-            'link' => null,
-                        'slug' => 'himapro-udinus-' . time(),
-            'status' => 'pending',
-        ]);
-
-        Partnership::create([
-            'kategori_partnership_id' => $kategori3->id,
-            'nama' => 'ORMAWA UDINUS',
-            'deskripsi' => 'Kolaborasi dengan organisasi mahasiswa lainnya di kampus',
-                        'slug' => 'ormawa-udinus-' . time(),
-            'link' => null,
-            'status' => 'approved',
+        Partnership::insert([
+            [
+                'kategori' => 'Media Partner',
+                'deskripsi' => 'Kerja Sama Media merupakan kegiatan kerja sama dalam bidang promosi media berupa postingan story instagram.',
+                'link_pendaftaran' => null,
+                'use_link' => false,
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
+                'kategori' => 'Sponsorship',
+                'deskripsi' => 'Kerja Sama Konkret merupakan kegiatan menjalin kerja sama kolaborasi, sponsorship secara profesional dengan mitra yang relevan dengan BEM-KM UDINUS.',
+                'link_pendaftaran' => null,
+                'use_link' => false,
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
+                'kategori' => 'Kolaborasi',
+                'deskripsi' => 'Kolaborasi merupakan kegiatan menjalin kerja sama kolaborasi, sponsorship secara profesional dengan mitra yang relevan dengan BEM-KM UDINUS.',
+                'link_pendaftaran' => null,
+                'use_link' => false,
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
+                'kategori' => 'Kampus Visit',
+                'deskripsi' => 'Kampus Visit merupakan kegiatan study banding dengan BEM-KM UDINUS yang dilakukan di UDINUS untuk mengenal budaya, bertukar ide dan pendapat, sehingga mendapatkan output yang bermanfaat baik untuk mitra dan BEM-KM UDINUS.',
+                'link_pendaftaran' => null,
+                'use_link' => false,
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
+                'kategori' => 'Delegasi',
+                'deskripsi' => 'Delegasi merupakan kegiatan menghadiri event tertentu yang dilakukan oleh BEM-KM UDINUS untuk membantu mensukseskan event tersebut.',
+                'link_pendaftaran' => null,
+                'use_link' => false,
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
         ]);
     }
 }
