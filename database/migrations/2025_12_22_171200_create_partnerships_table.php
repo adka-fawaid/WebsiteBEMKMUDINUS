@@ -14,11 +14,11 @@ return new class extends Migration
         if (!Schema::hasTable('partnerships')) {
             Schema::create('partnerships', function (Blueprint $table) {
                 $table->id();
-                $table->foreignId('kategori_partnership_id')->constrained('kategori_partnerships')->onDelete('cascade');
                 $table->string('nama');
+                $table->enum('kategori', ['Media Partner', 'Sponsorship', 'Kolaborasi', 'Kampus Visit', 'Delegasi']);
                 $table->longText('deskripsi')->nullable();
-                $table->string('link')->nullable();
-                $table->enum('status', ['pending', 'approved', 'rejected'])->default('pending')->nullable();
+                $table->string('link_pendaftaran')->nullable();
+                $table->boolean('use_link')->default(false);
                 $table->timestamps();
             });
         }

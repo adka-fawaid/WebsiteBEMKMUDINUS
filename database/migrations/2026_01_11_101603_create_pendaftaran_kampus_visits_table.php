@@ -11,11 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('respond_pendaftaran_partnerships', function (Blueprint $table) {
+        Schema::create('pendaftaran_kampus_visits', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('partnership_id')->constrained('partnerships')->onDelete('cascade');
-            $table->string('pertanyaan');
-            $table->longText('jawaban');
+            $table->string('email')->unique();
+            $table->string('nama_lengkap');
+            $table->string('nama_instansi');
+            $table->string('nomor_telepon');
+            $table->string('proposal_acara');
             $table->timestamps();
         });
     }
@@ -25,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('respond_pendaftaran_partnerships');
+        Schema::dropIfExists('pendaftaran_kampus_visits');
     }
 };

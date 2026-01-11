@@ -10,40 +10,16 @@ class Partnership extends Model
     use HasFactory;
 
     protected $fillable = [
-        'kategori_partnership_id',
         'nama',
+        'kategori',
         'deskripsi',
-        'link',
-        'pdf_file',
-        'judul',
-        'desc',
-        'image',
-        'contact',
-        'slug',
-        'status',
+        'link_pendaftaran',
+        'use_link',
     ];
 
-    // Define relationship to KategoriPartnership
-    public function kategoriPartnership()
-    {
-        return $this->belongsTo(KategoriPartnership::class);
-    }
-
-    // Define relationship to PendaftaranPartnership
-    public function pendaftaranPartnership()
-    {
-        return $this->hasMany(PendaftaranPartnership::class);
-    }
-
-    // Define relationship to ProsedurPartnership
-    public function prosedurPartnership()
+    // Relasi dengan ProsedurPartnership
+    public function prosedurPartnerships()
     {
         return $this->hasMany(ProsedurPartnership::class);
-    }
-
-    // Define relationship to RespondPendaftaranPartnership
-    public function respondPendaftaranPartnership()
-    {
-        return $this->hasMany(RespondPendaftaranPartnership::class);
     }
 }
