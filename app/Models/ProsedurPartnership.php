@@ -11,6 +11,7 @@ class ProsedurPartnership extends Model
 
     protected $fillable = [
         'partnership_id',
+        'kategori',
         'prosedur',
     ];
 

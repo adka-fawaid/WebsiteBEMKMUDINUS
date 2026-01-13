@@ -37,6 +37,7 @@ use App\Http\Controllers\Admin\RekapPendaftaranPartnershipAdminController;
 /**
  * GUEST CONTROLLER
  */
+
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\PartnershipController;
 
@@ -220,6 +221,36 @@ Route::middleware(['auth'])->group(function () {
         Route::prefix('prosedur-partnership')->group(function () {
             Route::get('/', [ProsedurPartnershipAdminController::class, 'index'])
                 ->name('admin.prosedur-partnership.index');
+
+            // KELOLA PROSEDUR
+            Route::prefix('prosedur')->group(function () {
+                Route::get('/{partnershipId}', [ProsedurPartnershipAdminController::class, 'prosedur'])
+                    ->name('admin.prosedur-partnership.prosedur');
+
+                // MEDIA PARTNER GRATIS
+                Route::post('/{partnershipId}/medpart-gratis/store', [ProsedurPartnershipAdminController::class, 'storeMedpartGratis'])
+                    ->name('admin.prosedur-partnership.medpart-gratis.store');
+                Route::put('/{partnershipId}/medpart-gratis/update/{id}', [ProsedurPartnershipAdminController::class, 'updateMedpartGratis'])
+                    ->name('admin.prosedur-partnership.media-partner.gratis.update');
+                Route::delete('/{partnershipId}/medpart-gratis/destroy/{id}', [ProsedurPartnershipAdminController::class, 'destroyMedpartGratis'])
+                    ->name('admin.prosedur-partnership.media-partner.gratis.destroy');
+
+                // MEDIA PARTNER BERBAYAR
+                Route::post('/{partnershipId}/medpart-berbayar/store', [ProsedurPartnershipAdminController::class, 'storeMedpartBerbayar'])
+                    ->name('admin.prosedur-partnership.media-partner.berbayar.store');
+                Route::put('/{partnershipId}/medpart-berbayar/update/{id}', [ProsedurPartnershipAdminController::class, 'updateMedpartBerbayar'])
+                    ->name('admin.prosedur-partnership.media-partner.berbayar.update');
+                Route::delete('/{partnershipId}/medpart-berbayar/destroy/{id}', [ProsedurPartnershipAdminController::class, 'destroyMedpartBerbayar'])
+                    ->name('admin.prosedur-partnership.media-partner.berbayar.destroy');
+
+                // SPONSORSHIP, KOLABORASI, KAMPUS VISIT, DELEGASI
+                Route::post('/{partnershipId}/lainnya/store', [ProsedurPartnershipAdminController::class, 'storeProsedur'])
+                    ->name('admin.prosedur-partnership.lainnya.store');
+                Route::put('/{partnershipId}/lainnya/update/{id}', [ProsedurPartnershipAdminController::class, 'updateProsedur'])
+                    ->name('admin.prosedur-partnership.lainnya.update');
+                Route::delete('/{partnershipId}/lainnya/destroy/{id}', [ProsedurPartnershipAdminController::class, 'destroyProsedur'])
+                    ->name('admin.prosedur-partnership.lainnya.destroy');
+            });
         });
 
         // REKAP PENDAFTARAN PARTNERSHIP

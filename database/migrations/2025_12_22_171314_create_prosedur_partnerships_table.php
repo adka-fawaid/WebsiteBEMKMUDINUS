@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('prosedur_partnerships', function (Blueprint $table) {
             $table->id();
             $table->foreignId('partnership_id')->constrained('partnerships')->onDelete('cascade');
+            $table->enum('kategori', ['Medpart Gratis', 'Medpart Berbayar', 'Sponsorship', 'Kolaborasi', 'Kampus Visit', 'Delegasi'])->default('Medpart Gratis');
             $table->longText('prosedur');
             $table->timestamps();
         });

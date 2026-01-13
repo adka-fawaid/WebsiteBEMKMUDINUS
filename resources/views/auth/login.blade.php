@@ -106,7 +106,7 @@
                         </div>
 
                         <!-- Forgot Password Link -->
-                        @if (Route::has('password.request'))
+                        {{-- @if (Route::has('password.request'))
                             <div class="text-right mb-6">
                                 <a href="{{ route('password.request') }}"
                                     class="text-sm text-blue-600 hover:text-blue-700 font-medium inline-flex items-center gap-1 transition-colors duration-200">
@@ -118,7 +118,7 @@
                                     </svg>
                                 </a>
                             </div>
-                        @endif
+                        @endif --}}
 
                         <!-- Login Button -->
                         <div class="mt-6">
@@ -198,7 +198,7 @@
                                     </div>
                                     <div class="mt-8 px-8">
                                         <h3 class="text-2xl font-bold text-white mb-3 drop-shadow-lg">
-                                            Portal Admin Sekretaris
+                                            Portal Admin
                                         </h3>
                                         <p class="text-blue-100 text-sm leading-relaxed drop-shadow-md">
                                             Akses penuh untuk mengelola seluruh konten, kegiatan, dan fitur website BEM KM
