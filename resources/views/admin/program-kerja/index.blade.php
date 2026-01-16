@@ -63,17 +63,101 @@
                     <!-- Table Section -->
                     <div class="p-6">
                         <div class="overflow-x-auto">
-                            <div class="flex items-center justify-between mb-4">
-                                <h3 class="text-lg font-bold text-gray-900">Data Program Kerja</h3>
-                                <button type="button" data-modal-target="add-program-kerja-modal"
-                                    data-modal-toggle="add-program-kerja-modal"
-                                    class="text-white bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700 font-semibold rounded-lg text-sm px-5 py-2.5 transition-all duration-150 flex items-center gap-2 shadow-lg hover:shadow-xl">
-                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                            d="M12 4v16m8-8H4" />
-                                    </svg>
-                                    Tambah Program Kerja
-                                </button>
+                            <div class="flex flex-col gap-2 mb-6">
+                                <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-2">
+                                    <h3 class="text-lg font-bold text-gray-900">Data Program Kerja</h3>
+                                    <button type="button" data-modal-target="add-program-kerja-modal"
+                                        data-modal-toggle="add-program-kerja-modal"
+                                        class="text-white bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700 font-semibold rounded-lg text-sm px-5 py-2.5 transition-all duration-150 flex items-center gap-2 shadow-lg hover:shadow-xl mt-2 md:mt-0">
+                                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                d="M12 4v16m8-8H4" />
+                                        </svg>
+                                        Tambah Program Kerja
+                                    </button>
+                                </div>
+                                <form method="GET" action="" class="w-full mt-2">
+                                    <div class="flex flex-col gap-2 w-full">
+                                        <div class="flex flex-col md:flex-row gap-2 w-full">
+                                            <div class="relative flex-1 min-w-0">
+                                                <input type="text" name="search" id="search-input"
+                                                    value="{{ request('search') }}" placeholder="Cari program kerja..."
+                                                    class="rounded-lg border border-gray-200 px-3 py-2 text-sm focus:ring-2 focus:ring-blue-200 focus:border-blue-400 transition w-full bg-gray-50 pr-10"
+                                                    autocomplete="off" />
+                                                <button type="button" id="clear-search-btn"
+                                                    class="absolute right-2 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600 focus:outline-none"
+                                                    tabindex="-1"
+                                                    style="display: {{ request('search') ? 'block' : 'none' }};">
+                                                    <svg class="w-4 h-4" fill="none" stroke="currentColor"
+                                                        viewBox="0 0 24 24">
+                                                        <line x1="18" y1="6" x2="6"
+                                                            y2="18" />
+                                                        <line x1="6" y1="6" x2="18"
+                                                            y2="18" />
+                                                    </svg>
+                                                </button>
+                                            </div>
+                                            <div class="w-full md:w-64">
+                                                <select name="kategori" id="kategori-select"
+                                                    class="rounded-lg border border-gray-200 px-3 py-2 text-sm focus:ring-2 focus:ring-blue-200 focus:border-blue-400 transition bg-gray-50 w-full">
+                                                    <option value="">Semua Kategori</option>
+                                                    <option value="Rencana Kerja Tahunan"
+                                                        {{ request('kategori') == 'Rencana Kerja Tahunan' ? 'selected' : '' }}>
+                                                        Rencana Kerja Tahunan</option>
+                                                    <option value="Non Rencana Kerja Tahunan"
+                                                        {{ request('kategori') == 'Non Rencana Kerja Tahunan' ? 'selected' : '' }}>
+                                                        Non Rencana Kerja Tahunan</option>
+                                                    <option value="Duta Kampus"
+                                                        {{ request('kategori') == 'Duta Kampus' ? 'selected' : '' }}>
+                                                        Duta Kampus</option>
+                                                </select>
+                                            </div>
+                                            <div class="flex items-center">
+                                                <button type="submit"
+                                                    class="inline-flex items-center gap-1 px-4 py-2 bg-gradient-to-r from-blue-600 to-indigo-600 text-white font-semibold rounded-lg text-sm shadow hover:from-blue-700 hover:to-indigo-700 transition">
+                                                    <svg class="w-4 h-4" fill="none" stroke="currentColor"
+                                                        viewBox="0 0 24 24">
+                                                        <circle cx="11" cy="11" r="8" />
+                                                        <line x1="21" y1="21" x2="16.65"
+                                                            y2="16.65" />
+                                                    </svg>
+                                                    Cari
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <script>
+                                        // Autosubmit kategori
+                                        document.addEventListener('DOMContentLoaded', function() {
+                                            var kategoriSelect = document.getElementById('kategori-select');
+                                            if (kategoriSelect) {
+                                                kategoriSelect.addEventListener('change', function() {
+                                                    this.form.submit();
+                                                });
+                                            }
+                                            // Clear search
+                                            var clearBtn = document.getElementById('clear-search-btn');
+                                            var searchInput = document.getElementById('search-input');
+
+                                            function toggleClearBtn() {
+                                                if (searchInput.value.length > 0) {
+                                                    clearBtn.style.display = 'block';
+                                                } else {
+                                                    clearBtn.style.display = 'none';
+                                                }
+                                            }
+                                            if (clearBtn && searchInput) {
+                                                clearBtn.addEventListener('click', function(e) {
+                                                    searchInput.value = '';
+                                                    toggleClearBtn();
+                                                    searchInput.form.submit();
+                                                });
+                                                searchInput.addEventListener('input', toggleClearBtn);
+                                                toggleClearBtn();
+                                            }
+                                        });
+                                    </script>
+                                </form>
                             </div>
 
                             <table class="w-full">
@@ -276,6 +360,63 @@
                                     @endforelse
                                 </tbody>
                             </table>
+
+                            <!-- Pagination -->
+                            @if ($programKerjas->total() > 0)
+                                <div
+                                    class="flex flex-col sm:flex-row items-center justify-between gap-4 mt-6 pt-4 border-t border-gray-200">
+                                    <div class="flex items-center gap-2">
+                                        <label for="per-page"
+                                            class="text-sm text-gray-600 font-medium">Tampilkan:</label>
+                                        <select id="per-page"
+                                            onchange="window.location.href='{{ route('admin.program-kerja.index') }}?per_page=' + this.value + '&search={{ request('search') }}&kategori={{ request('kategori') }}'"
+                                            class="rounded-lg border border-gray-200 px-3 py-1.5 text-sm focus:ring-2 focus:ring-blue-200 focus:border-blue-400 transition bg-gray-50 w-20">
+                                            <option value="5" {{ request('per_page') == 5 ? 'selected' : '' }}>5
+                                            </option>
+                                            <option value="10"
+                                                {{ request('per_page', 10) == 10 ? 'selected' : '' }}>10</option>
+                                            <option value="25" {{ request('per_page') == 25 ? 'selected' : '' }}>
+                                                25</option>
+                                            <option value="50" {{ request('per_page') == 50 ? 'selected' : '' }}>
+                                                50</option>
+                                            <option value="100" {{ request('per_page') == 100 ? 'selected' : '' }}>
+                                                100</option>
+                                        </select>
+                                        <span class="text-sm text-gray-600">dari {{ $programKerjas->total() }}
+                                            data</span>
+                                    </div>
+
+                                    <div class="flex items-center gap-2">
+                                        @if ($programKerjas->onFirstPage())
+                                            <span
+                                                class="px-3 py-1.5 text-sm text-gray-400 bg-gray-100 rounded-lg cursor-not-allowed">Sebelumnya</span>
+                                        @else
+                                            <a href="{{ $programKerjas->previousPageUrl() }}"
+                                                class="px-3 py-1.5 text-sm text-gray-700 bg-white border border-gray-200 rounded-lg hover:bg-gray-50 transition">Sebelumnya</a>
+                                        @endif
+
+                                        <div class="flex gap-1">
+                                            @foreach ($programKerjas->getUrlRange(1, $programKerjas->lastPage()) as $page => $url)
+                                                @if ($page == $programKerjas->currentPage())
+                                                    <span
+                                                        class="px-3 py-1.5 text-sm text-white bg-gradient-to-r from-blue-600 to-indigo-600 rounded-lg font-semibold">{{ $page }}</span>
+                                                @else
+                                                    <a href="{{ $url }}"
+                                                        class="px-3 py-1.5 text-sm text-gray-700 bg-white border border-gray-200 rounded-lg hover:bg-gray-50 transition">{{ $page }}</a>
+                                                @endif
+                                            @endforeach
+                                        </div>
+
+                                        @if ($programKerjas->hasMorePages())
+                                            <a href="{{ $programKerjas->nextPageUrl() }}"
+                                                class="px-3 py-1.5 text-sm text-gray-700 bg-white border border-gray-200 rounded-lg hover:bg-gray-50 transition">Selanjutnya</a>
+                                        @else
+                                            <span
+                                                class="px-3 py-1.5 text-sm text-gray-400 bg-gray-100 rounded-lg cursor-not-allowed">Selanjutnya</span>
+                                        @endif
+                                    </div>
+                                </div>
+                            @endif
                         </div>
                     </div>
                 </div>

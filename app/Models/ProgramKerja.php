@@ -23,7 +23,7 @@ class ProgramKerja extends Model
     // Define relationship to BeritaAcara
     public function beritaAcara()
     {
-        return $this->hasMany(BeritaAcara::class);
+        return $this->hasMany(Berita::class);
     }
 
     // Define relationship to Pendaftaran

@@ -70,13 +70,14 @@
                             <div class="flex items-center gap-3">
                                 <div
                                     class="w-10 h-10 rounded-lg bg-white/20 backdrop-blur-sm flex items-center justify-center">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="14"
-                                        height="14" viewBox="0 0 24 24" fill="none"
-                                        stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                        stroke-linejoin="round" class="w-5 h-5 text-white lucide lucide-book-text-icon lucide-book-text">
-                                        <path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H19a1 1 0 0 1 1 1v18a1 1 0 0 1-1 1H6.5a1 1 0 0 1 0-5H20"/>
-                                        <path d="M8 11h8"/>
-                                        <path d="M8 7h6"/>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14"
+                                        viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                        stroke-linecap="round" stroke-linejoin="round"
+                                        class="w-5 h-5 text-white lucide lucide-book-text-icon lucide-book-text">
+                                        <path
+                                            d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H19a1 1 0 0 1 1 1v18a1 1 0 0 1-1 1H6.5a1 1 0 0 1 0-5H20" />
+                                        <path d="M8 11h8" />
+                                        <path d="M8 7h6" />
                                     </svg>
                                 </div>
                                 <div>
@@ -105,8 +106,8 @@
                                         </th>
                                         <th scope="col" class="px-6 py-4 text-center font-bold w-48">
                                             <span
-                                                class="text-xs font-extrabold text-gray-700 uppercase tracking-wider">Waktu
-                                                Submit</span>
+                                                class="text-xs font-extrabold text-gray-700 uppercase tracking-wider">Nomor
+                                                Pendaftaran</span>
                                         </th>
                                         @foreach ($pertanyaans as $pertanyaan)
                                             <th scope="col" class="px-6 py-4 text-left font-bold">
@@ -117,18 +118,18 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @forelse ($groupedResponses as $timestamp => $responses)
+                                    @forelse ($paginatedGroups as $nomorPendaftaran => $responses)
                                         <tr
                                             class="group border-b border-gray-100 hover:bg-gradient-to-r hover:from-blue-50 hover:to-indigo-50 hover:shadow-lg hover:!border-l-4 hover:!border-l-blue-600 border-l-4 border-l-white transition-all duration-300">
                                             <td class="px-6 py-5 text-center">
                                                 <span
                                                     class="inline-flex items-center justify-center w-8 h-8 rounded-full bg-blue-100 text-blue-700 font-bold text-sm group-hover:bg-blue-600 group-hover:text-white transition-all duration-300">
-                                                    {{ $loop->iteration }}
+                                                    {{ ($paginatedGroups->currentPage() - 1) * $paginatedGroups->perPage() + $loop->iteration }}
                                                 </span>
                                             </td>
                                             <td class="px-6 py-5">
                                                 <p class="text-sm font-semibold text-gray-900">
-                                                    {{ \Carbon\Carbon::parse($timestamp)->format('d M Y, H:i') }}
+                                                    {{ $nomorPendaftaran }}
                                                 </p>
                                             </td>
                                             @foreach ($pertanyaans as $pertanyaan)
@@ -168,6 +169,63 @@
                                     @endforelse
                                 </tbody>
                             </table>
+
+                            <!-- Pagination -->
+                            @if ($paginatedGroups->total() > 0)
+                                <div
+                                    class="flex flex-col sm:flex-row items-center justify-between gap-4 mt-6 pt-4 border-t border-gray-200">
+                                    <div class="flex items-center gap-2">
+                                        <label for="per-page"
+                                            class="text-sm text-gray-600 font-medium">Tampilkan:</label>
+                                        <select id="per-page"
+                                            onchange="window.location.href='{{ route('admin.rekap-pendaftaran.respon-pendaftaran.index', $pendaftaran->id) }}?per_page=' + this.value"
+                                            class="rounded-lg border border-gray-200 px-3 py-1.5 text-sm focus:ring-2 focus:ring-blue-200 focus:border-blue-400 transition bg-gray-50 w-20">
+                                            <option value="5" {{ request('per_page') == 5 ? 'selected' : '' }}>5
+                                            </option>
+                                            <option value="10"
+                                                {{ request('per_page', 10) == 10 ? 'selected' : '' }}>10</option>
+                                            <option value="25" {{ request('per_page') == 25 ? 'selected' : '' }}>
+                                                25</option>
+                                            <option value="50" {{ request('per_page') == 50 ? 'selected' : '' }}>
+                                                50</option>
+                                            <option value="100" {{ request('per_page') == 100 ? 'selected' : '' }}>
+                                                100</option>
+                                        </select>
+                                        <span class="text-sm text-gray-600">dari {{ $paginatedGroups->total() }}
+                                            data</span>
+                                    </div>
+
+                                    <div class="flex items-center gap-2">
+                                        @if ($paginatedGroups->onFirstPage())
+                                            <span
+                                                class="px-3 py-1.5 text-sm text-gray-400 bg-gray-100 rounded-lg cursor-not-allowed">Sebelumnya</span>
+                                        @else
+                                            <a href="{{ $paginatedGroups->previousPageUrl() }}"
+                                                class="px-3 py-1.5 text-sm text-gray-700 bg-white border border-gray-200 rounded-lg hover:bg-gray-50 transition">Sebelumnya</a>
+                                        @endif
+
+                                        <div class="flex gap-1">
+                                            @foreach ($paginatedGroups->getUrlRange(1, $paginatedGroups->lastPage()) as $page => $url)
+                                                @if ($page == $paginatedGroups->currentPage())
+                                                    <span
+                                                        class="px-3 py-1.5 text-sm text-white bg-gradient-to-r from-blue-600 to-indigo-600 rounded-lg font-semibold">{{ $page }}</span>
+                                                @else
+                                                    <a href="{{ $url }}"
+                                                        class="px-3 py-1.5 text-sm text-gray-700 bg-white border border-gray-200 rounded-lg hover:bg-gray-50 transition">{{ $page }}</a>
+                                                @endif
+                                            @endforeach
+                                        </div>
+
+                                        @if ($paginatedGroups->hasMorePages())
+                                            <a href="{{ $paginatedGroups->nextPageUrl() }}"
+                                                class="px-3 py-1.5 text-sm text-gray-700 bg-white border border-gray-200 rounded-lg hover:bg-gray-50 transition">Selanjutnya</a>
+                                        @else
+                                            <span
+                                                class="px-3 py-1.5 text-sm text-gray-400 bg-gray-100 rounded-lg cursor-not-allowed">Selanjutnya</span>
+                                        @endif
+                                    </div>
+                                </div>
+                            @endif
                         </div>
                     </div>
                 </div>

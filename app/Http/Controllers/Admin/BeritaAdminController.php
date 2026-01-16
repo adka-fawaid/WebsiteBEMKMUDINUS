@@ -10,9 +10,29 @@ class BeritaAdminController extends Controller
 {
     public function index()
     {
-        $beritas = Berita::all();
+        $query = Berita::query();
 
-        return view('admin.berita.index', compact('beritas'));
+        // Search by judul or deskripsi
+        if (request()->filled('search')) {
+            $search = request('search');
+            $query->where(function ($q) use ($search) {
+                $q->where('judul', 'like', "%$search%")
+                    ->orWhere('deskripsi', 'like', "%$search%");
+            });
+        }
+
+        // Filter by kategori
+        $kategori = request('kategori');
+        $allowedKategori = ['Berita Acara', 'Berita Kegiatan', 'Press Release', 'Informasi', 'Lain-lain'];
+        if ($kategori && in_array($kategori, $allowedKategori)) {
+            $query->where('kategori', $kategori);
+        }
+
+        // Pagination with max 100
+        $perPage = min((int) request('per_page', 10), 100);
+        $beritas = $query->paginate($perPage)->appends(request()->except('page'));
+
+        return view('admin.berita.index', compact('beritas', 'kategori'));
     }
 
     public function store(Request $request)

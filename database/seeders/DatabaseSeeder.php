@@ -20,6 +20,7 @@ class DatabaseSeeder extends Seeder
                 VisiSeeder::class,
                 MisiSeeder::class,
                 UnitOrganisasiSeeder::class,
+                ProgramKerjaSeeder::class,
                 KontakSeeder::class,
                 PartnershipSeeder::class,
                 PendaftaranPartnershipSeeder::class,

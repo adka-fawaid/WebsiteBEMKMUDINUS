@@ -64,17 +64,80 @@
                     <!-- Table Section -->
                     <div class="p-6">
                         <div class="overflow-x-auto">
-                            <div class="flex items-center justify-between mb-4">
-                                <h3 class="text-lg font-bold text-gray-900">Data Pendaftaran</h3>
-                                <button type="button" data-modal-target="add-pendaftaran-modal"
-                                    data-modal-toggle="add-pendaftaran-modal"
-                                    class="text-white bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700 font-semibold rounded-lg text-sm px-5 py-2.5 transition-all duration-150 flex items-center gap-2 shadow-lg hover:shadow-xl">
-                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                            d="M12 4v16m8-8H4" />
-                                    </svg>
-                                    Tambah Pendaftaran
-                                </button>
+                            <div class="flex flex-col gap-2 mb-6">
+                                <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-2">
+                                    <h3 class="text-lg font-bold text-gray-900">Data Pendaftaran</h3>
+                                    <button type="button" data-modal-target="add-pendaftaran-modal"
+                                        data-modal-toggle="add-pendaftaran-modal"
+                                        class="text-white bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700 font-semibold rounded-lg text-sm px-5 py-2.5 transition-all duration-150 flex items-center gap-2 shadow-lg hover:shadow-xl mt-2 md:mt-0">
+                                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                d="M12 4v16m8-8H4" />
+                                        </svg>
+                                        Tambah Pendaftaran
+                                    </button>
+                                </div>
+                                <form method="GET" action="{{ route('admin.pendaftaran.index') }}"
+                                    class="w-full mt-2">
+                                    <div class="flex flex-col gap-2 w-full">
+                                        <div class="flex flex-col md:flex-row gap-2 w-full">
+                                            <div class="relative flex-1 min-w-0">
+                                                <input type="text" name="search" id="search-input"
+                                                    value="{{ request('search') }}" placeholder="Cari pendaftaran..."
+                                                    class="rounded-lg border border-gray-200 px-3 py-2 text-sm focus:ring-2 focus:ring-blue-200 focus:border-blue-400 transition w-full bg-gray-50 pr-10"
+                                                    autocomplete="off" />
+                                                <button type="button" id="clear-search-btn"
+                                                    class="absolute right-2 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600 focus:outline-none"
+                                                    tabindex="-1"
+                                                    style="display: {{ request('search') ? 'block' : 'none' }};">
+                                                    <svg class="w-4 h-4" fill="none" stroke="currentColor"
+                                                        viewBox="0 0 24 24">
+                                                        <line x1="18" y1="6" x2="6"
+                                                            y2="18" />
+                                                        <line x1="6" y1="6" x2="18"
+                                                            y2="18" />
+                                                    </svg>
+                                                </button>
+                                            </div>
+                                            <div class="flex items-center">
+                                                <button type="submit"
+                                                    class="inline-flex items-center gap-1 px-4 py-2 bg-gradient-to-r from-blue-600 to-indigo-600 text-white font-semibold rounded-lg text-sm shadow hover:from-blue-700 hover:to-indigo-700 transition">
+                                                    <svg class="w-4 h-4" fill="none" stroke="currentColor"
+                                                        viewBox="0 0 24 24">
+                                                        <circle cx="11" cy="11" r="8" />
+                                                        <line x1="21" y1="21" x2="16.65"
+                                                            y2="16.65" />
+                                                    </svg>
+                                                    Cari
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <script>
+                                        // Clear search
+                                        document.addEventListener('DOMContentLoaded', function() {
+                                            var clearBtn = document.getElementById('clear-search-btn');
+                                            var searchInput = document.getElementById('search-input');
+
+                                            function toggleClearBtn() {
+                                                if (searchInput.value.length > 0) {
+                                                    clearBtn.style.display = 'block';
+                                                } else {
+                                                    clearBtn.style.display = 'none';
+                                                }
+                                            }
+                                            if (clearBtn && searchInput) {
+                                                clearBtn.addEventListener('click', function(e) {
+                                                    searchInput.value = '';
+                                                    toggleClearBtn();
+                                                    searchInput.form.submit();
+                                                });
+                                                searchInput.addEventListener('input', toggleClearBtn);
+                                                toggleClearBtn();
+                                            }
+                                        });
+                                    </script>
+                                </form>
                             </div>
 
                             <table class="w-full">
@@ -144,13 +207,19 @@
                                             <td class="px-6 py-5 text-center">
                                                 <a href="{{ route('admin.pendaftaran.formulir.index', $item->id) }}"
                                                     class="inline-flex items-center gap-1.5 px-3 py-1.5 border-2 border-blue-600 hover:bg-blue-600 text-blue-600 hover:text-white text-sm font-semibold rounded-lg transition-all duration-200 group whitespace-nowrap">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-notebook-pen-icon lucide-notebook-pen">
-                                                        <path d="M13.4 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-7.4"/>
-                                                        <path d="M2 6h4"/>
-                                                        <path d="M2 10h4"/>
-                                                        <path d="M2 14h4"/>
-                                                        <path d="M2 18h4"/>
-                                                        <path d="M21.378 5.626a1 1 0 1 0-3.004-3.004l-5.01 5.012a2 2 0 0 0-.506.854l-.837 2.87a.5.5 0 0 0 .62.62l2.87-.837a2 2 0 0 0 .854-.506z"/>
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="14"
+                                                        height="14" viewBox="0 0 24 24" fill="none"
+                                                        stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                                        stroke-linejoin="round"
+                                                        class="lucide lucide-notebook-pen-icon lucide-notebook-pen">
+                                                        <path
+                                                            d="M13.4 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-7.4" />
+                                                        <path d="M2 6h4" />
+                                                        <path d="M2 10h4" />
+                                                        <path d="M2 14h4" />
+                                                        <path d="M2 18h4" />
+                                                        <path
+                                                            d="M21.378 5.626a1 1 0 1 0-3.004-3.004l-5.01 5.012a2 2 0 0 0-.506.854l-.837 2.87a.5.5 0 0 0 .62.62l2.87-.837a2 2 0 0 0 .854-.506z" />
                                                     </svg>
                                                     Formulir
                                                 </a>
@@ -226,6 +295,63 @@
                                     @endforelse
                                 </tbody>
                             </table>
+
+                            <!-- Pagination -->
+                            @if ($pendaftarans->total() > 0)
+                                <div
+                                    class="flex flex-col sm:flex-row items-center justify-between gap-4 mt-6 pt-4 border-t border-gray-200">
+                                    <div class="flex items-center gap-2">
+                                        <label for="per-page"
+                                            class="text-sm text-gray-600 font-medium">Tampilkan:</label>
+                                        <select id="per-page"
+                                            onchange="window.location.href='{{ route('admin.pendaftaran.index') }}?per_page=' + this.value + '&search={{ request('search') }}'"
+                                            class="rounded-lg border border-gray-200 px-3 py-1.5 text-sm focus:ring-2 focus:ring-blue-200 focus:border-blue-400 transition bg-gray-50 w-20">
+                                            <option value="5" {{ request('per_page') == 5 ? 'selected' : '' }}>5
+                                            </option>
+                                            <option value="10"
+                                                {{ request('per_page', 10) == 10 ? 'selected' : '' }}>10</option>
+                                            <option value="25" {{ request('per_page') == 25 ? 'selected' : '' }}>
+                                                25</option>
+                                            <option value="50" {{ request('per_page') == 50 ? 'selected' : '' }}>
+                                                50</option>
+                                            <option value="100" {{ request('per_page') == 100 ? 'selected' : '' }}>
+                                                100</option>
+                                        </select>
+                                        <span class="text-sm text-gray-600">dari {{ $pendaftarans->total() }}
+                                            data</span>
+                                    </div>
+
+                                    <div class="flex items-center gap-2">
+                                        @if ($pendaftarans->onFirstPage())
+                                            <span
+                                                class="px-3 py-1.5 text-sm text-gray-400 bg-gray-100 rounded-lg cursor-not-allowed">Sebelumnya</span>
+                                        @else
+                                            <a href="{{ $pendaftarans->previousPageUrl() }}"
+                                                class="px-3 py-1.5 text-sm text-gray-700 bg-white border border-gray-200 rounded-lg hover:bg-gray-50 transition">Sebelumnya</a>
+                                        @endif
+
+                                        <div class="flex gap-1">
+                                            @foreach ($pendaftarans->getUrlRange(1, $pendaftarans->lastPage()) as $page => $url)
+                                                @if ($page == $pendaftarans->currentPage())
+                                                    <span
+                                                        class="px-3 py-1.5 text-sm text-white bg-gradient-to-r from-blue-600 to-indigo-600 rounded-lg font-semibold">{{ $page }}</span>
+                                                @else
+                                                    <a href="{{ $url }}"
+                                                        class="px-3 py-1.5 text-sm text-gray-700 bg-white border border-gray-200 rounded-lg hover:bg-gray-50 transition">{{ $page }}</a>
+                                                @endif
+                                            @endforeach
+                                        </div>
+
+                                        @if ($pendaftarans->hasMorePages())
+                                            <a href="{{ $pendaftarans->nextPageUrl() }}"
+                                                class="px-3 py-1.5 text-sm text-gray-700 bg-white border border-gray-200 rounded-lg hover:bg-gray-50 transition">Selanjutnya</a>
+                                        @else
+                                            <span
+                                                class="px-3 py-1.5 text-sm text-gray-400 bg-gray-100 rounded-lg cursor-not-allowed">Selanjutnya</span>
+                                        @endif
+                                    </div>
+                                </div>
+                            @endif
                         </div>
                     </div>
                 </div>

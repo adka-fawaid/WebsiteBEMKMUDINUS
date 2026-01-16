@@ -80,7 +80,7 @@
                         <div class="flex items-center justify-between">
                             <div>
                                 <p class="text-gray-500 text-sm font-medium mb-1">Total Berita</p>
-                                <h3 class="text-3xl font-bold text-gray-800">{{ \App\Models\Berita::count() }}</h3>
+                                <h3 class="text-3xl font-bold text-gray-800">{{ $beritaCount }}</h3>
                                 <a href="{{ route('admin.berita.index') }}"
                                     class="text-blue-600 text-xs mt-2 inline-flex items-center gap-1 hover:gap-2 transition-all">
                                     Lihat Detail
@@ -108,7 +108,7 @@
                         <div class="flex items-center justify-between">
                             <div>
                                 <p class="text-gray-500 text-sm font-medium mb-1">Program Kerja</p>
-                                <h3 class="text-3xl font-bold text-gray-800">{{ \App\Models\ProgramKerja::count() }}
+                                <h3 class="text-3xl font-bold text-gray-800">{{ $prokerCount }}</h3>
                                 </h3>
                                 <a href="{{ route('admin.program-kerja.index') }}"
                                     class="text-green-600 text-xs mt-2 inline-flex items-center gap-1 hover:gap-2 transition-all">
@@ -123,9 +123,12 @@
                             <div
                                 class="w-14 h-14 bg-green-100 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform">
                                 <svg class="w-7 h-7 text-green-600" xmlns="http://www.w3.org/2000/svg" fill="none"
-                                    viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                                    <path stroke-linecap="round" stroke-linejoin="round"
-                                        d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4" />
+                                    viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"
+                                    stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M8 2v4" />
+                                    <path d="M16 2v4" />
+                                    <rect width="18" height="18" x="3" y="4" rx="2" />
+                                    <path d="M3 10h18" />
                                 </svg>
                             </div>
                         </div>
@@ -137,8 +140,7 @@
                         <div class="flex items-center justify-between">
                             <div>
                                 <p class="text-gray-500 text-sm font-medium mb-1">Anggota Struktural</p>
-                                <h3 class="text-3xl font-bold text-gray-800">{{ \App\Models\AnggotaUnit::count() }}
-                                </h3>
+                                <h3 class="text-3xl font-bold text-gray-800">{{ $anggotaCount }}</h3>
                                 <a href="{{ route('admin.struktural.index') }}"
                                     class="text-purple-600 text-xs mt-2 inline-flex items-center gap-1 hover:gap-2 transition-all">
                                     Lihat Detail
@@ -165,9 +167,8 @@
                         class="bg-white rounded-2xl shadow-lg p-6 border-l-4 border-orange-500 hover:shadow-xl transition-all duration-300 group">
                         <div class="flex items-center justify-between">
                             <div>
-                                <p class="text-gray-500 text-sm font-medium mb-1">Partnership</p>
-                                <h3 class="text-3xl font-bold text-gray-800">{{ \App\Models\Partnership::count() }}
-                                </h3>
+                                <p class="text-gray-500 text-sm font-medium mb-1">Kategori Partnership</p>
+                                <h3 class="text-3xl font-bold text-gray-800">{{ $partnershipCount }}</h3>
                                 <a href="{{ route('admin.kelola-partnership.index') }}"
                                     class="text-orange-600 text-xs mt-2 inline-flex items-center gap-1 hover:gap-2 transition-all">
                                     Lihat Detail
@@ -181,9 +182,14 @@
                             <div
                                 class="w-14 h-14 bg-orange-100 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform">
                                 <svg class="w-7 h-7 text-orange-600" xmlns="http://www.w3.org/2000/svg"
-                                    fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                                    <path stroke-linecap="round" stroke-linejoin="round"
-                                        d="m11 17 2 2a1 1 0 1 0 3-3M14 14l2.5 2.5a1 1 0 1 0 3-3l-3.88-3.88a3 3 0 0 0-4.24 0l-.88.88a1 1 0 1 1-3-3l2.81-2.81a5.79 5.79 0 0 1 7.06-.87l.47.28a2 2 0 0 0 1.42.25L21 4M3 3 2 14l6.5 6.5a1 1 0 1 0 3-3M3 4h8" />
+                                    fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"
+                                    stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="m11 17 2 2a1 1 0 1 0 3-3" />
+                                    <path
+                                        d="m14 14 2.5 2.5a1 1 0 1 0 3-3l-3.88-3.88a3 3 0 0 0-4.24 0l-.88.88a1 1 0 1 1-3-3l2.81-2.81a5.79 5.79 0 0 1 7.06-.87l.47.28a2 2 0 0 0 1.42.25L21 4" />
+                                    <path d="m21 3 1 11h-2" />
+                                    <path d="M3 3 2 14l6.5 6.5a1 1 0 1 0 3-3" />
+                                    <path d="M3 4h8" />
                                 </svg>
                             </div>
                         </div>
@@ -197,13 +203,20 @@
                         <div class="flex items-center gap-3 mb-4">
                             <div class="w-12 h-12 bg-indigo-100 rounded-xl flex items-center justify-center">
                                 <svg class="w-6 h-6 text-indigo-600" xmlns="http://www.w3.org/2000/svg"
-                                    fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                                    <path stroke-linecap="round" stroke-linejoin="round"
-                                        d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                                    fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"
+                                    stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M2 6h4" />
+                                    <path d="M2 10h4" />
+                                    <path d="M2 14h4" />
+                                    <path d="M2 18h4" />
+                                    <rect width="16" height="20" x="4" y="2" rx="2" />
+                                    <path d="M9.5 8h5" />
+                                    <path d="M9.5 12H16" />
+                                    <path d="M9.5 16H14" />
                                 </svg>
                             </div>
                             <div>
-                                <h3 class="text-lg font-bold text-gray-800">Pendaftaran & Rekap</h3>
+                                <h3 class="text-lg font-bold text-gray-800">Pendaftaran & Rekap Proker</h3>
                                 <p class="text-sm text-gray-500">Status pendaftaran terbaru</p>
                             </div>
                         </div>
@@ -211,12 +224,12 @@
                             <div class="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
                                 <span class="text-sm font-medium text-gray-700">Total Form Pendaftaran</span>
                                 <span
-                                    class="px-3 py-1 bg-indigo-100 text-indigo-700 rounded-full text-sm font-bold">{{ \App\Models\Pendaftaran::count() }}</span>
+                                    class="px-3 py-1 bg-indigo-100 text-indigo-700 rounded-full text-sm font-bold">{{ $pendaftaranCount }}</span>
                             </div>
                             <div class="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
                                 <span class="text-sm font-medium text-gray-700">Total Responden</span>
                                 <span
-                                    class="px-3 py-1 bg-green-100 text-green-700 rounded-full text-sm font-bold">{{ \App\Models\RespondPendaftaran::count() }}</span>
+                                    class="px-3 py-1 bg-green-100 text-green-700 rounded-full text-sm font-bold">{{ $respondCount }}</span>
                             </div>
                         </div>
                         <div class="mt-4 flex gap-2">
@@ -300,9 +313,11 @@
                             <div
                                 class="w-12 h-12 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-xl flex items-center justify-center">
                                 <svg class="w-6 h-6 text-white" xmlns="http://www.w3.org/2000/svg" fill="none"
-                                    viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                                    <path stroke-linecap="round" stroke-linejoin="round"
-                                        d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                    stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"
+                                    stroke-linecap="round" stroke-linejoin="round">
+                                    <circle cx="12" cy="12" r="10" />
+                                    <path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20" />
+                                    <path d="M2 12h20" />
                                 </svg>
                             </div>
                             <div>

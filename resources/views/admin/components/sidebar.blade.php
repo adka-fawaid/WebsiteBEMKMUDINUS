@@ -16,8 +16,10 @@
                         class="w-8 h-8 object-contain" />
                 </div>
                 <div class="leading-tight">
-                    <span class="text-white drop-shadow-lg">BEMKM</span><span class="text-white/90 drop-shadow-md">
-                        UDINUS</span>
+                    <div class="flex items-center leading-tight">
+                        <span class="text-white drop-shadow-lg">BEMKM</span>
+                        <span class="text-white/90 drop-shadow-md ms-1">UDINUS</span>
+                    </div>
                 </div>
             </div>
         </a>
@@ -261,13 +263,14 @@
                     <div
                         class="flex items-center justify-center w-8 h-8 rounded-lg {{ request()->routeIs('admin.berita.index') ? 'bg-white/20 backdrop-blur-sm' : 'bg-blue-100 group-hover:bg-blue-200' }} transition-all duration-300">
                         <svg class="shrink-0 w-4 h-4 {{ request()->routeIs('admin.berita.index') ? 'text-white' : 'text-blue-600' }}"
-                            xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round">
+                            <path d="M15 18h-5" />
+                            <path d="M18 14h-8" />
                             <path
-                                d="M22 17a2 2 0 0 1-2 2H6.828a2 2 0 0 0-1.414.586l-2.202 2.202A.71.71 0 0 1 2 21.286V5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2z" />
-                            <path d="M7 11h10" />
-                            <path d="M7 15h6" />
-                            <path d="M7 7h8" />
+                                d="M4 22h16a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v16a2 2 0 0 1-4 0v-9a2 2 0 0 1 2-2h2" />
+                            <rect width="8" height="4" x="10" y="6" rx="1" />
                         </svg>
                     </div>
                     <span class="flex-1 ms-2.5 font-medium">Berita</span>

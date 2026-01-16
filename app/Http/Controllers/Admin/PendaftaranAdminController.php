@@ -20,7 +20,20 @@ class PendaftaranAdminController extends Controller
         $usedProgramKerjaIds = Pendaftaran::pluck('program_kerja_id')->toArray();
         $programKerjas = ProgramKerja::whereNotIn('id', $usedProgramKerjaIds)->where('pendaftaran', true)->get();
 
-        $pendaftarans = Pendaftaran::all();
+        $query = Pendaftaran::query();
+
+        // Search by judul or deskripsi
+        if (request()->filled('search')) {
+            $search = request('search');
+            $query->where(function ($q) use ($search) {
+                $q->where('judul', 'like', "%$search%")
+                    ->orWhere('deskripsi', 'like', "%$search%");
+            });
+        }
+
+        // Pagination
+        $perPage = min((int) request('per_page', 10), 100);
+        $pendaftarans = $query->paginate($perPage)->appends(request()->except('page'));
 
         return view('admin.pendaftaran.index', compact('pendaftarans', 'programKerjas'));
     }

@@ -17,7 +17,27 @@ class StrukturalAdminController extends Controller
     */
     public function index()
     {
-        $unitOrganisasis = UnitOrganisasi::all();
+        $query = UnitOrganisasi::query();
+
+        // Search by nama or deskripsi
+        if (request()->filled('search')) {
+            $search = request('search');
+            $query->where(function ($q) use ($search) {
+                $q->where('nama', 'like', "%$search%")
+                    ->orWhere('deskripsi', 'like', "%$search%");
+            });
+        }
+
+        // Filter by kategori
+        $kategori = request('kategori');
+        $allowedKategori = ['Badan Pengurus Harian', 'Biro', 'Kementerian'];
+        if ($kategori && in_array($kategori, $allowedKategori)) {
+            $query->where('kategori', $kategori);
+        }
+
+        // Pagination with max 25 per page
+        $perPage = min((int) request('per_page', 10), 25);
+        $unitOrganisasis = $query->paginate($perPage)->appends(request()->except('page'));
 
         return view('admin.struktural.index', compact('unitOrganisasis'));
     }

@@ -11,9 +11,29 @@ class ProgramKerjaAdminController extends Controller
 {
     public function index()
     {
-        $programKerjas = ProgramKerja::all();
+        $query = ProgramKerja::query();
 
-        return view('admin.program-kerja.index', compact('programKerjas'));
+        // Search by nama or deskripsi
+        if (request()->filled('search')) {
+            $search = request('search');
+            $query->where(function ($q) use ($search) {
+                $q->where('nama', 'like', "%$search%")
+                    ->orWhere('deskripsi', 'like', "%$search%");
+            });
+        }
+
+        // Filter by kategori
+        $kategori = request('kategori');
+        $allowedKategori = ['Rencana Kerja Tahunan', 'Non Rencana Kerja Tahunan', 'Duta Kampus'];
+        if ($kategori && in_array($kategori, $allowedKategori)) {
+            $query->where('kategori', $kategori);
+        }
+
+        // Pagination
+        $perPage = request('per_page', 10);
+        $programKerjas = $query->paginate($perPage)->appends(request()->except('page'));
+
+        return view('admin.program-kerja.index', compact('programKerjas', 'kategori'));
     }
 
     public function store(Request $request)
