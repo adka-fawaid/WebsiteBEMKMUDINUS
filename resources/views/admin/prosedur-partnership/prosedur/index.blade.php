@@ -29,7 +29,7 @@
                             <li>
                                 <a href="{{ route('admin.prosedur-partnership.index') }}"
                                     class="text-blue-600 hover:text-blue-700 font-medium transition duration-150">
-                                    Prosedur Partnership
+                                    Prosedur {{ $partnership->kategori }}
                                 </a>
                             </li>
                             <li>
@@ -70,14 +70,47 @@
                             <div class="flex items-center gap-3">
                                 <div
                                     class="w-10 h-10 rounded-lg bg-white/20 backdrop-blur-sm flex items-center justify-center">
-                                    <svg class="w-5 h-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none"
-                                        viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"
-                                        stroke-linecap="round" stroke-linejoin="round">
-                                        <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
-                                        <circle cx="9" cy="7" r="4" />
-                                        <path d="M22 21v-2a4 4 0 0 0-3-3.87" />
-                                        <path d="M16 3.13a4 4 0 0 1 0 7.75" />
-                                    </svg>
+                                    @if ($partnership->kategori === 'Sponsorship')
+                                        <svg class="w-5 h-5 text-white" xmlns="http://www.w3.org/2000/svg"
+                                            fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"
+                                            stroke-linecap="round" stroke-linejoin="round">
+                                            <path
+                                                d="M3.85 8.62a4 4 0 0 1 4.78-4.77 4 4 0 0 1 6.74 0 4 4 0 0 1 4.78 4.78 4 4 0 0 1 0 6.74 4 4 0 0 1-4.77 4.78 4 4 0 0 1-6.75 0 4 4 0 0 1-4.78-4.77 4 4 0 0 1 0-6.76Z" />
+                                            <path d="M16 8h-6a2 2 0 1 0 0 4h4a2 2 0 1 1 0 4H8" />
+                                            <path d="M12 18V6" />
+                                        </svg>
+                                    @elseif($partnership->kategori === 'Kolaborasi')
+                                        <svg class="w-5 h-5 text-white" xmlns="http://www.w3.org/2000/svg"
+                                            fill="currentColor" viewBox="0 0 24 24" stroke="currentColor"
+                                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                            <path
+                                                d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.5 1.1 2.97 2.65 2.97 4.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z" />
+                                        </svg>
+                                    @elseif($partnership->kategori === 'Kampus Visit')
+                                        <svg class="w-5 h-5 text-white" xmlns="http://www.w3.org/2000/svg"
+                                            fill="currentColor" viewBox="0 0 24 24" stroke="currentColor"
+                                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                            <path
+                                                d="M5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82zM12 3L1 9l11 6.18L23 9 12 3z" />
+                                        </svg>
+                                    @elseif($partnership->kategori === 'Delegasi')
+                                        <svg class="w-5 h-5 text-white" xmlns="http://www.w3.org/2000/svg"
+                                            fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"
+                                            stroke-linecap="round" stroke-linejoin="round">
+                                            <path d="M2 21a8 8 0 0 1 13.292-6" />
+                                            <circle cx="10" cy="8" r="5" />
+                                            <path d="M19 16v6" />
+                                            <path d="M22 19h-6" />
+                                        </svg>
+                                    @else
+                                        <svg class="w-5 h-5 text-white" xmlns="http://www.w3.org/2000/svg"
+                                            width="14" height="14" viewBox="0 0 24 24" fill="none"
+                                            stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                            stroke-linejoin="round">
+                                            <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7" />
+                                            <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z" />
+                                        </svg>
+                                    @endif
                                 </div>
                                 <div>
                                     <h2 class="text-xl font-bold text-white">{{ $partnership->kategori }}

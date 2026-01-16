@@ -10,6 +10,7 @@ class PendaftaranDelegasi extends Model
     use HasFactory;
 
     protected $fillable = [
+        'nomor_pendaftaran',
         'email',
         'nama_lengkap',
         'nama_instansi',

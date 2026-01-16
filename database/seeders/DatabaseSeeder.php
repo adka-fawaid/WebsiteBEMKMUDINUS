@@ -22,6 +22,7 @@ class DatabaseSeeder extends Seeder
                 UnitOrganisasiSeeder::class,
                 KontakSeeder::class,
                 PartnershipSeeder::class,
+                PendaftaranPartnershipSeeder::class,
                 // PressReleaseSeeder::class,
                 // SavePressImagesSeeder::class,
                 // SpotCozyBeritaSeeder::class,

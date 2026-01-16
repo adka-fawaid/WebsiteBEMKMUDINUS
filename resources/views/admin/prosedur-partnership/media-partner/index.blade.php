@@ -39,7 +39,7 @@
                                     <polyline points="9 18 15 12 9 6" />
                                 </svg>
                             </li>
-                            <li class="text-gray-700 font-semibold">Kelola Prosedur Partnership</li>
+                            <li class="text-gray-700 font-semibold">Kelola Prosedur {{ $partnership->kategori }}</li>
                         </ol>
                     </nav>
                     <div>
@@ -70,11 +70,9 @@
                             <div class="flex items-center gap-3">
                                 <div
                                     class="w-10 h-10 rounded-lg bg-white/20 backdrop-blur-sm flex items-center justify-center">
-                                    <svg class="w-5 h-5 text-white" xmlns="http://www.w3.org/2000/svg" width="14"
-                                        height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                        <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7" />
-                                        <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z" />
+                                    <svg class="w-5 h-5 text-white" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-tv-icon lucide-tv">
+                                        <path d="m17 2-5 5-5-5" />
+                                        <rect width="20" height="15" x="2" y="7" rx="2" />
                                     </svg>
                                 </div>
                                 <div>
