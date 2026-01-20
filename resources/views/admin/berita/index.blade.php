@@ -44,9 +44,9 @@
                                 <div
                                     class="w-10 h-10 rounded-lg bg-white/20 backdrop-blur-sm flex items-center justify-center">
                                     <svg class="shrink-0 w-4 h-4 {{ request()->routeIs('admin.berita.index') ? 'text-white' : 'text-blue-600' }}"
-                                        xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                        stroke-linejoin="round">
+                                        xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                        viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                        stroke-linecap="round" stroke-linejoin="round">
                                         <path d="M15 18h-5" />
                                         <path d="M18 14h-8" />
                                         <path
