@@ -59,14 +59,63 @@
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
+    <!-- Custom CSS Reset -->
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            height: 100%;
+        }
+
+        body {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Navbar stays fixed at top */
+        nav {
+            flex-shrink: 0;
+        }
+
+        /* Main content grows to push footer down */
+        main {
+            flex: 1 0 auto;
+        }
+
+        /* Footer stays at bottom, scrollable */
+        footer {
+            flex-shrink: 0;
+            margin-top: auto;
+        }
+
+        /* Remove any default spacing that causes whitespace */
+        body,
+        html {
+            margin: 0 !important;
+            padding: 0 !important;
+            overflow-x: hidden;
+        }
+
+        footer * {
+            margin-bottom: 0 !important;
+        }
+    </style>
+
 </head>
 
 <body>
     <!-- Guest Navbar -->
-    @include('guest.components.navbar')->
+    @include('guest.components.navbar')
 
     <!-- Content -->
-    @yield('content')
+    <main>
+        @yield('content')
+    </main>
 
     <!-- Footer -->
     @include('guest.components.footer')
