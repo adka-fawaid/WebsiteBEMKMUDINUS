@@ -13,7 +13,6 @@ use App\Http\Controllers\ForumController;
 use App\Http\Controllers\PhotoController;
 use App\Http\Controllers\OrmawaController;
 use App\Http\Controllers\ProkerController;
-use App\Http\Controllers\KabinetController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\CalendarController;
 
@@ -22,8 +21,10 @@ use App\Http\Controllers\CalendarController;
  */
 
 use App\Http\Controllers\DashboardController;
-use App\Http\Controllers\Guest\BerandaController;
 use App\Http\Controllers\PartnershipController;
+use App\Http\Controllers\Guest\BerandaController;
+use App\Http\Controllers\Guest\KabinetController;
+use App\Http\Controllers\Guest\StrukturalController;
 
 /*
 |--------------------------------------------------------------------------
@@ -52,8 +53,17 @@ require __DIR__ . '/admin.php';
 /*
 * GUEST ROUTES
 */
+// BERANDA
 Route::get('/', [BerandaController::class, 'index']);
 
+// PROFIL
+Route::prefix('profil')->group(function () {
+    // KABINET
+    Route::get('/kabinet', [KabinetController::class, 'index'])->name('guest.profil.kabinet');
+
+    // STRUKTURAL
+    Route::get('/struktural', [StrukturalController::class, 'index'])->name('guest.profil.struktural');
+});
 
 Route::get('/berita', [AppController::class, 'berita']);
 
@@ -71,8 +81,6 @@ Route::post('/partnership/submit', [AppController::class, 'store_partnership']);
 Route::get('/forum', [AppController::class, 'forum']);
 
 Route::get('/detail_forum/{slug}', [AppController::class, 'detail_forum']);
-
-Route::get('/kabinet', [AppController::class, 'kabinet']);
 
 Route::get('/detail_kabinet/{slug}', [AppController::class, 'detail_kabinet']);
 
@@ -430,7 +438,6 @@ mendapatkan modal merealisasikan ide-ide yang telah diolah tersebut.',
     $kabinet = (object) $data[$slug];
 
     return view('kabinet.detail_kabinet', compact('kabinet'));
-
 });
 
 Route::get('/berita/{slug}', function ($slug) {
@@ -455,7 +462,3 @@ Route::get('/berita/{slug}', function ($slug) {
 
     return view('berita.detail', compact('berita'));
 });
-
-
-
-
