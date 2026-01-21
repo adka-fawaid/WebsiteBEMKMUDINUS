@@ -1,6 +1,52 @@
 @extends('layouts.layouts')
 
 @section('content')
+@section('content')
+
+<style>
+    /* CARD KABINET / KEMENKOAN */
+    .kabinet-card {
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0 8px 20px rgba(0,0,0,.08);
+        background: #ffffff;
+    }
+
+    .kabinet-banner {
+        width: 100%;
+        height: 180px; /* tinggi banner */
+        background-color: #0b3d62;
+        overflow: hidden;
+    }
+
+    .kabinet-banner img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover; /* bikin gambar pas & rapi */
+        display: block;
+    }
+
+    .kabinet-card .card-body {
+        padding: 18px;
+    }
+
+    .kabinet-card h6 {
+        font-size: 13px;
+        letter-spacing: .5px;
+    }
+
+    .kabinet-link {
+        color: #f09a1c;
+        font-size: 13px;
+        text-decoration: none;
+    }
+
+    .kabinet-link:hover {
+        text-decoration: underline;
+    }
+</style>
+
+
     {{-- HERO / SECTION SELAMAT DATANG --}}
     <section id="hero-home"
         class="relative min-h-screen flex items-center justify-center text-center bg-cover bg-center bg-no-repeat"
@@ -182,18 +228,37 @@
                 {{-- contoh 3 card statis, nanti bisa kamu ganti dinamis --}}
                 @for ($i = 1; $i <= 3; $i++)
                     <div class="col">
-                        <div class="bg-black/[0.18] rounded-2xl overflow-hidden border border-white/[0.08] relative">
-                            <img src="{{ asset('assets/images/foto_bersama.jpeg') }}" class="w-100 h-[220px] object-cover"
-                                alt="Berita">
-                            <div
-                                class="absolute left-3 top-3 bg-[#f6b43b] text-[#111] font-bold px-3 py-2.5 rounded-xl leading-tight text-xs">
-                                Webinar<br>International</div>
-                            <div class="p-3">
-                                <div class="font-semibold text-white">Webinar International</div>
-                                <div class="text-white/50 small">BEM KM UDINUS</div>
-                            </div>
-                        </div>
-                    </div>
+    <div class="bg-black/[0.18] rounded-2xl border border-white/[0.08] relative">
+
+        {{-- IMAGE --}}
+        <img src="{{ asset('assets/images/foto_bersama.jpeg') }}"
+             class="w-100 h-[220px] object-cover"
+             alt="Berita">
+
+        {{-- LABEL --}}
+        <div class="absolute left-3 top-3 bg-[#f6b43b] text-[#111] font-bold px-3 py-2 rounded-xl text-xs z-10">
+            Webinar<br>International
+        </div>
+
+        {{-- CONTENT --}}
+        <div class="p-4">
+            <div class="font-semibold text-white mb-1">
+                Webinar International
+            </div>
+
+            <div class="text-white/50 text-sm mb-3">
+                BEM KM UDINUS
+            </div>
+
+            <a href="/berita/webinar-international"
+               class="inline-block text-[#f6b43b] text-sm font-semibold underline">
+                Selengkapnya →
+            </a>
+        </div>
+
+    </div>
+</div>
+
                 @endfor
             </div>
         </div>
