@@ -22,9 +22,17 @@
             </div>
         </nav>
 
-        <img src="{{ asset('storage/kabinet/' . $kabinet->image) }}" class="image-fluid py-3" style="display:block; margin:auto;" width="500px" height="100%" alt="">
+
         <div class="konten-kabinet">
             <p class="mb-3 text-secondary">{{ $kabinet->create_at }}</p>
+            <div class="text-center mb-4">
+    <div class="d-flex justify-content-center mb-4">
+    <div style="background:#0b3d62; padding:16px; border-radius:12px;">
+        <img src="{{ asset('assets/images/' . $kabinet->image) }}"
+             style="width:260px; height:260px; object-fit:cover; border-radius:8px;"
+             alt="{{ $kabinet->judul }}">
+    </div>
+</div>
             <h4 class="fw-bold mb-3">{{ $kabinet->judul }}</h4>
             <p class="text-secondary">{!! $kabinet->desc !!}</p>
 

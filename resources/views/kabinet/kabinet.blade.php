@@ -57,25 +57,38 @@
 
         <div class="row row-cols-1 row-cols-md-3 g-4 py-4">
 
-            <!-- PRESIDEN -->
-            <div class="col">
-                <div class="card border-0 h-100"
-                    style="border-radius: 10px; overflow: hidden; box-shadow: 0 8px 20px rgba(0,0,0,.08);">
-                    <div style="background: #0b3d62; padding: 18px;">
-                        <img src="{{ asset('assets/img/kabinet/presiden.png') }}" class="img-fluid"
-                            style="width: 100%; border-radius: 8px;" alt="Presiden Mahasiswa">
-                    </div>
-                    <div class="card-body" style="padding: 18px;">
-                        <h6 class="fw-bold text-uppercase mb-2" style="font-size: 13px; letter-spacing: .5px;">
-                            PRESIDEN MAHASISWA
-                        </h6>
-                        <p class="text-secondary mb-2" style="font-size: 13px;">#bemkmudinus</p>
-                        <a href="#" class="text-decoration-none" style="color: #f09a1c; font-size: 13px;">
-                            Selengkapnya
-                        </a>
-                    </div>
-                </div>
-            </div>
+            <!-- PRESIDEN MAHASISWA -->
+<div class="col">
+    <div class="card border-0 h-100"
+        style="border-radius: 10px; overflow: hidden; box-shadow: 0 8px 20px rgba(0,0,0,.08);">
+
+        <!-- FOTO -->
+        <div class="d-flex align-items-center justify-content-center"
+             style="background:#0b3d62; padding:18px; height:260px;">
+            <img src="{{ asset('assets/images/presma2.JPG') }}"
+                 class="d-block"
+                 style="max-width:220px; max-height:220px; object-fit:cover; border-radius:8px;"
+                 alt="Presiden Mahasiswa">
+        </div>
+
+        <!-- BODY -->
+        <div class="card-body" style="padding:18px;">
+            <h6 class="fw-bold text-uppercase mb-2"
+                style="font-size:13px; letter-spacing:.5px;">
+                PRESIDEN MAHASISWA
+            </h6>
+            <p class="text-secondary mb-2" style="font-size:13px;">
+                #bemkmudinus
+            </p>
+            <a href="/kabinet/presiden-mahasiswa"
+               class="text-decoration-none"
+               style="color:#f09a1c; font-size:13px;">
+                Selengkapnya
+            </a>
+        </div>
+    </div>
+</div>
+
 
             <!-- LOGO KABINET -->
             <div class="col">
@@ -91,89 +104,111 @@
                             LOGO KABINET AKSA SINERGI
                         </h6>
                         <p class="text-secondary mb-2" style="font-size: 13px;">#bemkmudinus</p>
-                        <a href="#" class="text-decoration-none" style="color: #f09a1c; font-size: 13px;">
-                            Selengkapnya
-                        </a>
+                       
                     </div>
                 </div>
             </div>
 
             <!-- WAKIL PRESIDEN -->
-            <div class="col">
-                <div class="card border-0 h-100"
-                    style="border-radius: 10px; overflow: hidden; box-shadow: 0 8px 20px rgba(0,0,0,.08);">
-                    <div style="background: #0b3d62; padding: 18px;">
-                        <img src="{{ asset('assets/img/kabinet/wakil_presiden.png') }}" class="img-fluid"
-                            style="width: 100%; border-radius: 8px;" alt="Wakil Presiden Mahasiswa">
-                    </div>
-                    <div class="card-body" style="padding: 18px;">
-                        <h6 class="fw-bold text-uppercase mb-2" style="font-size: 13px; letter-spacing: .5px;">
-                            WAKIL PRESIDEN MAHASISWA
-                        </h6>
-                        <p class="text-secondary mb-2" style="font-size: 13px;">#bemkmudinus</p>
-                        <a href="#" class="text-decoration-none" style="color: #f09a1c; font-size: 13px;">
-                            Selengkapnya
-                        </a>
-                    </div>
-                </div>
-            </div>
+<div class="col">
+    <div class="card border-0 h-100"
+        style="border-radius: 10px; overflow: hidden; box-shadow: 0 8px 20px rgba(0,0,0,.08);">
+        
+        <div class="text-center" style="background: #0b3d62; padding: 18px;">
+            <img src="{{ asset('assets/images/presma2.JPG') }}"
+                 class="d-block mx-auto"
+                 style="max-width:220px; max-height:220px; object-fit:cover; border-radius:8px;"
+                 alt="Wakil Presiden Mahasiswa">
+        </div>
+
+        <div class="card-body" style="padding: 18px;">
+            <h6 class="fw-bold text-uppercase mb-2" style="font-size: 13px; letter-spacing: .5px;">
+                WAKIL PRESIDEN MAHASISWA
+            </h6>
+            <p class="text-secondary mb-2" style="font-size: 13px;">#bemkmudinus</p>
+            <a href="/kabinet/wakil-presiden-mahasiswa"
+               class="text-decoration-none"
+               style="color:#f09a1c; font-size:13px;">
+               Selengkapnya
+            </a>
+        </div>
+    </div>
+</div>
 
                 <!-- VISI -->
             <div class="col">
                 <div class="card border-0 h-100"
                     style="border-radius: 10px; overflow: hidden; box-shadow: 0 8px 20px rgba(0,0,0,.08);">
                     <div style="background: #0b3d62; padding: 18px;">
-                        <img src="{{ asset('assets/img/kabinet/wakil_presiden.png') }}" class="img-fluid"
-                            style="width: 100%; border-radius: 8px;" alt="Visi Kabinet Aksa Sinergi">
+                         <img src="{{ asset('assets/icons/Logo Aksa Sinergi.png') }}"
+                            class="img-fluid" style="max-width: 220px; height: auto; display:block; margin: 0 auto;"alt="Logo Aksa Sinergi">
                     </div>
                     <div class="card-body" style="padding: 18px;">
                         <h6 class="fw-bold text-uppercase mb-2" style="font-size: 13px; letter-spacing: .5px;">
                             VISI
                         </h6>
                         <p class="text-secondary mb-2" style="font-size: 13px;">#bemkmudinus</p>
-                        <a href="#" class="text-decoration-none" style="color: #f09a1c; font-size: 13px;">
-                            Selengkapnya
-                        </a>
+                       <a href="/kabinet/visi"
+   class="text-decoration-none"
+   style="color:#f09a1c; font-size:13px;">
+   Selengkapnya
+</a>
+
                     </div>
                 </div>
             </div>
 
                 <!-- SEKRETARIS JENDERAL -->
-            <div class="col">
-                <div class="card border-0 h-100"
-                    style="border-radius: 10px; overflow: hidden; box-shadow: 0 8px 20px rgba(0,0,0,.08);">
-                    <div style="background: #0b3d62; padding: 18px;">
-                        <img src="{{ asset('assets/img/kabinet/wakil_presiden.png') }}" class="img-fluid"
-                            style="width: 100%; border-radius: 8px;" alt="Sekreataris Jenderal">
-                    </div>
-                    <div class="card-body" style="padding: 18px;">
-                        <h6 class="fw-bold text-uppercase mb-2" style="font-size: 13px; letter-spacing: .5px;">
-                            SEKRETARIS JENDERAL
-                        </h6>
-                        <p class="text-secondary mb-2" style="font-size: 13px;">#bemkmudinus</p>
-                        <a href="#" class="text-decoration-none" style="color: #f09a1c; font-size: 13px;">
-                            Selengkapnya
-                        </a>
-                    </div>
-                </div>
-            </div>
+<div class="col">
+    <div class="card border-0 h-100"
+        style="border-radius:10px; overflow:hidden; box-shadow:0 8px 20px rgba(0,0,0,.08);">
+
+        <!-- FOTO -->
+        <div class="d-flex align-items-center justify-content-center"
+             style="background:#0b3d62; padding:18px; height:260px;">
+            <img src="{{ asset('assets/images/presma2.JPG') }}"
+                 class="d-block"
+                 style="max-width:220px; max-height:220px; object-fit:cover; border-radius:8px;"
+                 alt="Sekretaris Jenderal">
+        </div>
+
+        <!-- BODY -->
+        <div class="card-body" style="padding:18px;">
+            <h6 class="fw-bold text-uppercase mb-2"
+                style="font-size:13px; letter-spacing:.5px;">
+                SEKRETARIS JENDERAL
+            </h6>
+            <p class="text-secondary mb-2" style="font-size:13px;">
+                #bemkmudinus
+            </p>
+            <a href="/kabinet/sekretaris-jenderal"
+               class="text-decoration-none"
+               style="color:#f09a1c; font-size:13px;">
+                Selengkapnya
+            </a>
+        </div>
+    </div>
+</div>
 
                 <!-- MISI -->
             <div class="col">
                 <div class="card border-0 h-100"
                     style="border-radius: 10px; overflow: hidden; box-shadow: 0 8px 20px rgba(0,0,0,.08);">
                     <div style="background: #0b3d62; padding: 18px;">
-                        <img src="{{ asset('assets/img/kabinet/wakil_presiden.png') }}" class="img-fluid"
-                            style="width: 100%; border-radius: 8px;" alt="Misi Kabinet Aksa Sinergi">
+                         <img src="{{ asset('assets/icons/Logo Aksa Sinergi.png') }}"
+                            class="img-fluid" style="max-width: 220px; height: auto; display:block; margin: 0 auto;"alt="Logo Aksa Sinergi">
                     </div>
                     <div class="card-body" style="padding: 18px;">
                         <h6 class="fw-bold text-uppercase mb-2" style="font-size: 13px; letter-spacing: .5px;">
                             MISI
                         </h6>
                         <p class="text-secondary mb-2" style="font-size: 13px;">#bemkmudinus</p>
-                        <a href="#" class="text-decoration-none" style="color: #f09a1c; font-size: 13px;">
-                            Selengkapnya
-                        </a>
+                        <a href="/kabinet/misi"
+   class="text-decoration-none"
+   style="color:#f09a1c; font-size:13px;">
+   Selengkapnya
+</a>
+
                     </div>
                 </div>
             </div>
@@ -191,9 +226,7 @@
                             BIRO ADMINISTRASI
                         </h6>
                         <p class="text-secondary mb-2" style="font-size: 13px;">#bemkmudinus</p>
-                        <a href="#" class="text-decoration-none" style="color: #f09a1c; font-size: 13px;">
-                            Selengkapnya
-                        </a>
+                        <a href="/kabinet/biro-administrasi" class="text-decoration-none" style="color:#f09a1c; font-size:13px;">Selengkapnya</a>
                     </div>
                 </div>
             </div>
@@ -211,9 +244,7 @@
                             MASKOT
                         </h6>
                         <p class="text-secondary mb-2" style="font-size: 13px;">#bemkmudinus</p>
-                        <a href="#" class="text-decoration-none" style="color: #f09a1c; font-size: 13px;">
-                            Selengkapnya
-                        </a>
+                        <a href="/kabinet/maskot" class="text-decoration-none" style="color:#f09a1c; font-size:13px;">Selengkapnya</a>
                     </div>
                 </div>
             </div>
@@ -231,9 +262,7 @@
                             BIRO KEUANGAN
                         </h6>
                         <p class="text-secondary mb-2" style="font-size: 13px;">#bemkmudinus</p>
-                        <a href="#" class="text-decoration-none" style="color: #f09a1c; font-size: 13px;">
-                            Selengkapnya
-                        </a>
+                        <a href="/kabinet/biro-keuangan" class="text-decoration-none" style="color:#f09a1c; font-size:13px;">Selengkapnya</a>
                     </div>
                 </div>
             </div>
@@ -257,9 +286,7 @@
                             BIRO PSDM
                         </h6>
                         <p class="text-secondary mb-2" style="font-size: 13px;">#bemkmudinus</p>
-                        <a href="#" class="text-decoration-none" style="color: #f09a1c; font-size: 13px;">
-                            Selengkapnya
-                        </a>
+                        <a href="/kabinet/biro-psdm" class="text-decoration-none" style="color:#f09a1c; font-size:13px;">Selengkapnya</a>
                     </div>
                 </div>
             </div>
@@ -277,9 +304,7 @@
                             BIRO MEDKOMINFO
                         </h6>
                         <p class="text-secondary mb-2" style="font-size: 13px;">#bemkmudinus</p>
-                        <a href="#" class="text-decoration-none" style="color: #f09a1c; font-size: 13px;">
-                            Selengkapnya
-                        </a>
+                        <a href="/kabinet/biro-medkominfo" class="text-decoration-none" style="color:#f09a1c; font-size:13px;">Selengkapnya</a>
                     </div>
                 </div>
             </div>
@@ -300,9 +325,7 @@
                     KEMENKOAN PERGERAKAN
                 </h6>
                 <p class="text-secondary mb-2" style="font-size: 13px;">#bemkmudinus</p>
-                <a href="#" class="text-decoration-none" style="color: #f09a1c; font-size: 13px;">
-                    Selengkapnya
-                </a>
+                <a href="/kabinet/kemenkoan-pergerakan" class="text-decoration-none" style="color:#f09a1c; font-size:13px;">Selengkapnya</a>
             </div>
         </div>
     </div>
@@ -325,9 +348,7 @@
                             KEMENTERIAN SOSIAL POLITIK
                         </h6>
                         <p class="text-secondary mb-2" style="font-size: 13px;">#bemkmudinus</p>
-                        <a href="#" class="text-decoration-none" style="color: #f09a1c; font-size: 13px;">
-                            Selengkapnya
-                        </a>
+                        <a href="/kabinet/kementerian-sosial-politik" class="text-decoration-none" style="color:#f09a1c; font-size:13px;">Selengkapnya</a>
                     </div>
                 </div>
             </div>
@@ -345,9 +366,7 @@
                             KEMENTERIAN PP&I
                         </h6>
                         <p class="text-secondary mb-2" style="font-size: 13px;">#bemkmudinus</p>
-                        <a href="#" class="text-decoration-none" style="color: #f09a1c; font-size: 13px;">
-                            Selengkapnya
-                        </a>
+                        <a href="/kabinet/kementerian-ppi" class="text-decoration-none" style="color:#f09a1c; font-size:13px;">Selengkapnya</a>
                     </div>
                 </div>
             </div>
@@ -365,9 +384,7 @@
                             KEMENTERIAN SOSIAL MASYARAKAT
                         </h6>
                         <p class="text-secondary mb-2" style="font-size: 13px;">#bemkmudinus</p>
-                        <a href="#" class="text-decoration-none" style="color: #f09a1c; font-size: 13px;">
-                            Selengkapnya
-                        </a>
+                        <a href="/kabinet/kementerian-sosial-masyarakat" class="text-decoration-none" style="color:#f09a1c; font-size:13px;">Selengkapnya</a>
                     </div>
                 </div>
             </div>
@@ -387,9 +404,7 @@
                     KEMENKOAN PENAUNGAN & KESEJAHTERAAN
                 </h6>
                 <p class="text-secondary mb-2" style="font-size: 13px;">#bemkmudinus</p>
-                <a href="#" class="text-decoration-none" style="color: #f09a1c; font-size: 13px;">
-                    Selengkapnya
-                </a>
+                <a href="/kabinet/kemenkoan-penaungan-kesejahteraan" class="text-decoration-none" style="color:#f09a1c; font-size:13px;">Selengkapnya</a>
             </div>
         </div>
     </div>
@@ -412,9 +427,7 @@
                             KEMENTERIAN DALAM NEGERI
                         </h6>
                         <p class="text-secondary mb-2" style="font-size: 13px;">#bemkmudinus</p>
-                        <a href="#" class="text-decoration-none" style="color: #f09a1c; font-size: 13px;">
-                            Selengkapnya
-                        </a>
+                       <a href="/kabinet/kementerian-dalam-negeri" class="text-decoration-none" style="color:#f09a1c; font-size:13px;">Selengkapnya</a>
                     </div>
                 </div>
             </div>
@@ -432,9 +445,7 @@
                             KEMENTERIAN Kespora
                         </h6>
                         <p class="text-secondary mb-2" style="font-size: 13px;">#bemkmudinus</p>
-                        <a href="#" class="text-decoration-none" style="color: #f09a1c; font-size: 13px;">
-                            Selengkapnya
-                        </a>
+                        <a href="/kabinet/kementerian-kespora" class="text-decoration-none" style="color:#f09a1c; font-size:13px;">Selengkapnya</a>
                     </div>
                 </div>
             </div>
@@ -452,9 +463,7 @@
                             KEMENTERIAN ADVOKESMA
                         </h6>
                         <p class="text-secondary mb-2" style="font-size: 13px;">#bemkmudinus</p>
-                        <a href="#" class="text-decoration-none" style="color: #f09a1c; font-size: 13px;">
-                            Selengkapnya
-                        </a>
+                        <a href="/kabinet/kementerian-advokesma" class="text-decoration-none" style="color:#f09a1c; font-size:13px;">Selengkapnya</a>
                     </div>
                 </div>
             </div>
@@ -474,9 +483,7 @@
                     KEMENKOAN RELASI & INOVASI
                 </h6>
                 <p class="text-secondary mb-2" style="font-size: 13px;">#bemkmudinus</p>
-                <a href="#" class="text-decoration-none" style="color: #f09a1c; font-size: 13px;">
-                    Selengkapnya
-                </a>
+                <a href="/kabinet/kemenkoan-relasi-inovasi" class="text-decoration-none" style="color:#f09a1c; font-size:13px;">Selengkapnya</a>
             </div>
         </div>
     </div>
@@ -499,9 +506,8 @@
                             KEMENTERIAN LUAR NEGERI
                         </h6>
                         <p class="text-secondary mb-2" style="font-size: 13px;">#bemkmudinus</p>
-                        <a href="#" class="text-decoration-none" style="color: #f09a1c; font-size: 13px;">
-                            Selengkapnya
-                        </a>
+                        <a href="/kabinet/kementerian-luar-negeri" class="text-decoration-none" style="color:#f09a1c; font-size:13px;">Selengkapnya</a>
+
                     </div>
                 </div>
             </div>
@@ -519,9 +525,7 @@
                             KEMENTERIAN KREASI
                         </h6>
                         <p class="text-secondary mb-2" style="font-size: 13px;">#bemkmudinus</p>
-                        <a href="#" class="text-decoration-none" style="color: #f09a1c; font-size: 13px;">
-                            Selengkapnya
-                        </a>
+                       <a href="/kabinet/kementerian-kreasi" class="text-decoration-none" style="color:#f09a1c; font-size:13px;">Selengkapnya</a>
                     </div>
                 </div>
             </div>
@@ -539,9 +543,7 @@
                             KEMENTERIAN BUMKM
                         </h6>
                         <p class="text-secondary mb-2" style="font-size: 13px;">#bemkmudinus</p>
-                        <a href="#" class="text-decoration-none" style="color: #f09a1c; font-size: 13px;">
-                            Selengkapnya
-                        </a>
+                        <a href="/kabinet/kementerian-bumkm" class="text-decoration-none" style="color:#f09a1c; font-size:13px;">Selengkapnya</a>
                     </div>
                 </div>
             </div>
