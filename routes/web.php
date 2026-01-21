@@ -21,10 +21,10 @@ use App\Http\Controllers\CalendarController;
  */
 
 use App\Http\Controllers\DashboardController;
-use App\Http\Controllers\PartnershipController;
 use App\Http\Controllers\Guest\BerandaController;
 use App\Http\Controllers\Guest\KabinetController;
 use App\Http\Controllers\Guest\StrukturalController;
+use App\Http\Controllers\Guest\PartnershipController;
 
 /*
 |--------------------------------------------------------------------------
@@ -65,6 +65,9 @@ Route::prefix('profil')->group(function () {
     Route::get('/struktural', [StrukturalController::class, 'index'])->name('guest.profil.struktural');
 });
 
+// PARTNERSHIP
+Route::get('/partnership', [PartnershipController::class, 'index'])->name('guest.partnership.index');
+
 Route::get('/berita', [AppController::class, 'berita']);
 
 Route::get('/detail/{slug}', [AppController::class, 'detail']);
@@ -72,8 +75,6 @@ Route::get('/detail/{slug}', [AppController::class, 'detail']);
 Route::get('/foto', [AppController::class, 'foto']);
 
 Route::get('/calendar', [AppController::class, 'calendar']);
-
-Route::get('/partnership', [AppController::class, 'partnership']);
 
 Route::get('/detail_partnership/{slug}', [AppController::class, 'detail_partnership']);
 Route::post('/partnership/submit', [AppController::class, 'store_partnership']);
