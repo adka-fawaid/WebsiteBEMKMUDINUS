@@ -22,7 +22,7 @@ class AppController extends Controller
 
     public function berita()
     {
-        return view('berita.berita');
+        return view('guest.berita.berita');
     }
 
     public function detail($slug)
