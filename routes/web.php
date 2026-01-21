@@ -433,5 +433,29 @@ mendapatkan modal merealisasikan ide-ide yang telah diolah tersebut.',
 
 });
 
+Route::get('/berita/{slug}', function ($slug) {
+
+    $data = [
+        'webinar-international' => [
+            'judul' => 'Webinar International',
+            'desc' => '
+                <p>Webinar International BEM KM UDINUS merupakan kegiatan berskala global.</p>
+                <p>Kegiatan ini diikuti oleh ratusan peserta.</p>
+            ',
+            'image' => 'foto_bersama.jpeg',
+            'tanggal' => '20 Januari 2026',
+        ],
+    ];
+
+    if (!isset($data[$slug])) {
+        abort(404);
+    }
+
+    $berita = (object) $data[$slug];
+
+    return view('berita.detail', compact('berita'));
+});
+
+
 
 

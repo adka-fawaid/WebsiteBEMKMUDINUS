@@ -1,6 +1,51 @@
 @extends('layouts.layouts')
 
 @section('content')
+
+<style>
+    /* CARD KABINET / KEMENKOAN */
+    .kabinet-card {
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0 8px 20px rgba(0,0,0,.08);
+        background: #ffffff;
+    }
+
+    .kabinet-banner {
+        width: 100%;
+        height: 180px; /* tinggi banner */
+        background-color: #0b3d62;
+        overflow: hidden;
+    }
+
+    .kabinet-banner img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover; /* bikin gambar pas & rapi */
+        display: block;
+    }
+
+    .kabinet-card .card-body {
+        padding: 18px;
+    }
+
+    .kabinet-card h6 {
+        font-size: 13px;
+        letter-spacing: .5px;
+    }
+
+    .kabinet-link {
+        color: #f09a1c;
+        font-size: 13px;
+        text-decoration: none;
+    }
+
+    .kabinet-link:hover {
+        text-decoration: underline;
+    }
+</style>
+
+
 <!-- kabinet -->
 <section id="kabinet" style="margin-top: 100px;">
     <div class="container py-5">
@@ -28,11 +73,12 @@
             </div>
             <div class="col-lg-6">
                  <div class="text-center" style="margin-top: 70px;">
-            <h1 class="fw-bold">KABINET AKSA SINERGI</h1>
+            <h1 class="fw-bold display-5">KABINET AKSA SINERGI</h1>
                 </div>
                 <br>
+                <br>
 
-                <h2 class="fw-bold mb-3" style="color: #f09a1c">Filosofi Nama & Logo Kabinet</h2>
+                <h2 class="fw-bold" style="color: #f09a1c">Filosofi Nama & Logo Kabinet</h2>
                 <br>
 
                 <p class="mb-3">Nama "Aksa Sinergi" mencerminkan pandangan luas (Aksa) terhadap
@@ -52,7 +98,7 @@
 
         <!-- KABINET AKSA SINERGI -->
         <div class="text-center" style="margin-top: 70px;">
-            <h2 class="fw-bold" style="color: #f09a1c;">Struktural Kabinet</h2>
+            <h2 class="fw-bold display-7" style="color: #f09a1c;">Struktural Kabinet</h2>
         </div>
 
         <div class="row row-cols-1 row-cols-md-3 g-4 py-4">
@@ -218,7 +264,7 @@
                 <div class="card border-0 h-100"
                     style="border-radius: 10px; overflow: hidden; box-shadow: 0 8px 20px rgba(0,0,0,.08);">
                     <div style="background: #0b3d62; padding: 18px;">
-                        <img src="{{ asset('assets/img/kabinet/wakil_presiden.png') }}" class="img-fluid"
+                        <img src="{{ asset('assets/images/foto_grup.png') }}" class="img-fluid"
                             style="width: 100%; border-radius: 8px;" alt="Biro Administrasi">
                     </div>
                     <div class="card-body" style="padding: 18px;">
@@ -254,7 +300,7 @@
                 <div class="card border-0 h-100"
                     style="border-radius: 10px; overflow: hidden; box-shadow: 0 8px 20px rgba(0,0,0,.08);">
                     <div style="background: #0b3d62; padding: 18px;">
-                        <img src="{{ asset('assets/img/kabinet/biro_keuangan.png') }}" class="img-fluid"
+                        <img src="{{ asset('assets/images/foto_grup.png') }}" class="img-fluid"
                             style="width: 100%; border-radius: 8px;" alt="Biro Keuangan">
                     </div>
                     <div class="card-body" style="padding: 18px;">
@@ -278,7 +324,7 @@
                 <div class="card border-0 h-100"
                     style="border-radius: 10px; overflow: hidden; box-shadow: 0 8px 20px rgba(0,0,0,.08);">
                     <div style="background: #0b3d62; padding: 18px;">
-                        <img src="{{ asset('assets/img/kabinet/biro_psdm.png') }}" class="img-fluid"
+                        <img src="{{ asset('assets/images/psdm.png') }}" class="img-fluid"
                             style="width: 100%; border-radius: 8px;" alt="Biro PSDM">
                     </div>
                     <div class="card-body" style="padding: 18px;">
@@ -296,7 +342,7 @@
                 <div class="card border-0 h-100"
                     style="border-radius: 10px; overflow: hidden; box-shadow: 0 8px 20px rgba(0,0,0,.08);">
                     <div style="background: #0b3d62; padding: 18px;">
-                        <img src="{{ asset('assets/img/kabinet/biro_medkominfo.png') }}" class="img-fluid"
+                        <img src="{{ asset('assets/images/medkom.png') }}" class="img-fluid"
                             style="width: 100%; border-radius: 8px;" alt="Biro Medkominfo">
                     </div>
                     <div class="card-body" style="padding: 18px;">
@@ -313,23 +359,31 @@
 
 <div class="row g-4 py-4">
     <div class="col-12">
-        <!-- KEMENKOAN PERGERAKAN card -->
-        <div class="card border-0 h-100"
-            style="border-radius: 10px; overflow: hidden; box-shadow: 0 8px 20px rgba(0,0,0,.08);">
-            <div style="background: #0b3d62; padding: 18px;">
-                <img src="{{ asset('assets/img/kabinet/wakil_presiden.png') }}" class="img-fluid"
-                    style="width: 100%; border-radius: 8px;" alt="Kemenkoan Pergerakan">
+        <!-- KEMENKOAN PERGERAKAN -->
+        <div class="card kabinet-card border-0 h-100">
+            
+            <!-- Banner Image -->
+            <div class="kabinet-banner">
+                <img 
+                    src="{{ asset('assets/images/kemenkoan_pergerakan.png') }}"
+                    alt="Kemenkoan Pergerakan">
             </div>
-            <div class="card-body" style="padding: 18px;">
-                <h6 class="fw-bold text-uppercase mb-2" style="font-size: 13px; letter-spacing: .5px;">
+
+            <!-- Content -->
+            <div class="card-body">
+                <h6 class="fw-bold text-uppercase mb-2">
                     KEMENKOAN PERGERAKAN
                 </h6>
-                <p class="text-secondary mb-2" style="font-size: 13px;">#bemkmudinus</p>
-                <a href="/kabinet/kemenkoan-pergerakan" class="text-decoration-none" style="color:#f09a1c; font-size:13px;">Selengkapnya</a>
+                <p class="text-secondary mb-2">#bemkmudinus</p>
+                <a href="/kabinet/kemenkoan-pergerakan" class="kabinet-link">
+                    Selengkapnya
+                </a>
             </div>
+
         </div>
     </div>
 </div>
+
 
 <!-- lanjutkan row 3 kolom seperti biasa -->
 <div class="row row-cols-1 row-cols-md-3 g-4 py-4">
@@ -340,7 +394,7 @@
                 <div class="card border-0 h-100"
                     style="border-radius: 10px; overflow: hidden; box-shadow: 0 8px 20px rgba(0,0,0,.08);">
                     <div style="background: #0b3d62; padding: 18px;">
-                        <img src="{{ asset('assets/img/kabinet/wakil_presiden.png') }}" class="img-fluid"
+                        <img src="{{ asset('assets/images/foto_grup.png') }}" class="img-fluid"
                             style="width: 100%; border-radius: 8px;" alt="Kementerian Sosial Politik">
                     </div>
                     <div class="card-body" style="padding: 18px;">
@@ -358,7 +412,7 @@
                 <div class="card border-0 h-100"
                     style="border-radius: 10px; overflow: hidden; box-shadow: 0 8px 20px rgba(0,0,0,.08);">
                     <div style="background: #0b3d62; padding: 18px;">
-                        <img src="{{ asset('assets/img/kabinet/wakil_presiden.png') }}" class="img-fluid"
+                        <img src="{{ asset('assets/images/foto_grup.png') }}" class="img-fluid"
                             style="width: 100%; border-radius: 8px;" alt="Kementerian PP&I">
                     </div>
                     <div class="card-body" style="padding: 18px;">
@@ -376,7 +430,7 @@
                 <div class="card border-0 h-100"
                     style="border-radius: 10px; overflow: hidden; box-shadow: 0 8px 20px rgba(0,0,0,.08);">
                     <div style="background: #0b3d62; padding: 18px;">
-                        <img src="{{ asset('assets/img/kabinet/wakil_presiden.png') }}" class="img-fluid"
+                        <img src="{{ asset('assets/images/foto_grup.png') }}" class="img-fluid"
                             style="width: 100%; border-radius: 8px;" alt="Kementerian Sosial Masyarakat">
                     </div>
                     <div class="card-body" style="padding: 18px;">
@@ -419,7 +473,7 @@
                 <div class="card border-0 h-100"
                     style="border-radius: 10px; overflow: hidden; box-shadow: 0 8px 20px rgba(0,0,0,.08);">
                     <div style="background: #0b3d62; padding: 18px;">
-                        <img src="{{ asset('assets/img/kabinet/wakil_presiden.png') }}" class="img-fluid"
+                        <img src="{{ asset('assets/images/foto_grup.png') }}" class="img-fluid"
                             style="width: 100%; border-radius: 8px;" alt="Kementerian Dalam Negeri">
                     </div>
                     <div class="card-body" style="padding: 18px;">
@@ -437,7 +491,7 @@
                 <div class="card border-0 h-100"
                     style="border-radius: 10px; overflow: hidden; box-shadow: 0 8px 20px rgba(0,0,0,.08);">
                     <div style="background: #0b3d62; padding: 18px;">
-                        <img src="{{ asset('assets/img/kabinet/wakil_presiden.png') }}" class="img-fluid"
+                        <img src="{{ asset('assets/images/foto_grup.png') }}" class="img-fluid"
                             style="width: 100%; border-radius: 8px;" alt="Kementerian Kespora">
                     </div>
                     <div class="card-body" style="padding: 18px;">
@@ -455,7 +509,7 @@
                 <div class="card border-0 h-100"
                     style="border-radius: 10px; overflow: hidden; box-shadow: 0 8px 20px rgba(0,0,0,.08);">
                     <div style="background: #0b3d62; padding: 18px;">
-                        <img src="{{ asset('assets/img/kabinet/wakil_presiden.png') }}" class="img-fluid"
+                        <img src="{{ asset('assets/images/foto_grup.png') }}" class="img-fluid"
                             style="width: 100%; border-radius: 8px;" alt="Kementerian Advokesma">
                     </div>
                     <div class="card-body" style="padding: 18px;">
@@ -498,7 +552,7 @@
                 <div class="card border-0 h-100"
                     style="border-radius: 10px; overflow: hidden; box-shadow: 0 8px 20px rgba(0,0,0,.08);">
                     <div style="background: #0b3d62; padding: 18px;">
-                        <img src="{{ asset('assets/img/kabinet/wakil_presiden.png') }}" class="img-fluid"
+                        <img src="{{ asset('assets/images/foto_grup.png') }}" class="img-fluid"
                             style="width: 100%; border-radius: 8px;" alt="Kementerian Luar Negeri">
                     </div>
                     <div class="card-body" style="padding: 18px;">
@@ -517,7 +571,7 @@
                 <div class="card border-0 h-100"
                     style="border-radius: 10px; overflow: hidden; box-shadow: 0 8px 20px rgba(0,0,0,.08);">
                     <div style="background: #0b3d62; padding: 18px;">
-                        <img src="{{ asset('assets/img/kabinet/wakil_presiden.png') }}" class="img-fluid"
+                        <img src="{{ asset('assets/images/foto_grup.png') }}" class="img-fluid"
                             style="width: 100%; border-radius: 8px;" alt="Kementerian Kreasi">
                     </div>
                     <div class="card-body" style="padding: 18px;">
@@ -535,7 +589,7 @@
                 <div class="card border-0 h-100"
                     style="border-radius: 10px; overflow: hidden; box-shadow: 0 8px 20px rgba(0,0,0,.08);">
                     <div style="background: #0b3d62; padding: 18px;">
-                        <img src="{{ asset('assets/img/kabinet/wakil_presiden.png') }}" class="img-fluid"
+                        <img src="{{ asset('assets/images/foto_grup.png') }}" class="img-fluid"
                             style="width: 100%; border-radius: 8px;" alt="Kementerian Bumkm">
                     </div>
                     <div class="card-body" style="padding: 18px;">
