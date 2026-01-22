@@ -45,7 +45,7 @@
                             <p class="text-secondary mb-2 text-xs">
                                 #bemkmudinus
                             </p>
-                            <a href="/kabinet/presiden-mahasiswa"
+                            <a href="{{ route('guest.profil.struktural.detail') }}"
                                 class="text-decoration-none text-[#f09a1c] text-xs hover:underline">
                                 Selengkapnya
                             </a>
@@ -87,7 +87,7 @@
                                 WAKIL PRESIDEN MAHASISWA
                             </h6>
                             <p class="text-secondary mb-2 text-xs">#bemkmudinus</p>
-                            <a href="/kabinet/wakil-presiden-mahasiswa"
+                            <a href="{{ route('guest.profil.struktural.detail') }}"
                                 class="text-decoration-none text-[#f09a1c] text-xs hover:underline">
                                 Selengkapnya
                             </a>
@@ -107,7 +107,8 @@
                                 VISI
                             </h6>
                             <p class="text-secondary mb-2 text-xs">#bemkmudinus</p>
-                            <a href="/kabinet/visi" class="text-decoration-none text-[#f09a1c] text-xs hover:underline">
+                            <a href="{{ route('guest.profil.struktural.detail') }}"
+                                class="text-decoration-none text-[#f09a1c] text-xs hover:underline">
                                 Selengkapnya
                             </a>
 
@@ -133,7 +134,7 @@
                             <p class="text-secondary mb-2 text-xs">
                                 #bemkmudinus
                             </p>
-                            <a href="/kabinet/sekretaris-jenderal"
+                            <a href="{{ route('guest.profil.struktural.detail') }}"
                                 class="text-decoration-none text-[#f09a1c] text-xs hover:underline">
                                 Selengkapnya
                             </a>
@@ -153,7 +154,8 @@
                                 MISI
                             </h6>
                             <p class="text-secondary mb-2 text-xs">#bemkmudinus</p>
-                            <a href="/kabinet/misi" class="text-decoration-none text-[#f09a1c] text-xs hover:underline">
+                            <a href="{{ route('guest.profil.struktural.detail') }}"
+                                class="text-decoration-none text-[#f09a1c] text-xs hover:underline">
                                 Selengkapnya
                             </a>
 
@@ -173,7 +175,7 @@
                                 BIRO ADMINISTRASI
                             </h6>
                             <p class="text-secondary mb-2 text-xs">#bemkmudinus</p>
-                            <a href="/kabinet/biro-administrasi"
+                            <a href="{{ route('guest.profil.struktural.detail') }}"
                                 class="text-decoration-none text-[#f09a1c] text-xs hover:underline">Selengkapnya</a>
                         </div>
                     </div>
@@ -191,7 +193,7 @@
                                 MASKOT
                             </h6>
                             <p class="text-secondary mb-2 text-xs">#bemkmudinus</p>
-                            <a href="/kabinet/maskot"
+                            <a href="{{ route('guest.profil.struktural.detail') }}"
                                 class="text-decoration-none text-[#f09a1c] text-xs hover:underline">Selengkapnya</a>
                         </div>
                     </div>
@@ -209,7 +211,7 @@
                                 BIRO KEUANGAN
                             </h6>
                             <p class="text-secondary mb-2 text-xs">#bemkmudinus</p>
-                            <a href="/kabinet/biro-keuangan"
+                            <a href="{{ route('guest.profil.struktural.detail') }}"
                                 class="text-decoration-none text-[#f09a1c] text-xs hover:underline">Selengkapnya</a>
                         </div>
                     </div>
@@ -233,7 +235,7 @@
                                 BIRO PSDM
                             </h6>
                             <p class="text-secondary mb-2 text-xs">#bemkmudinus</p>
-                            <a href="/kabinet/biro-psdm"
+                            <a href="{{ route('guest.profil.struktural.detail') }}"
                                 class="text-decoration-none text-[#f09a1c] text-xs hover:underline">Selengkapnya</a>
                         </div>
                     </div>
@@ -251,7 +253,7 @@
                                 BIRO MEDKOMINFO
                             </h6>
                             <p class="text-secondary mb-2 text-xs">#bemkmudinus</p>
-                            <a href="/kabinet/biro-medkominfo"
+                            <a href="{{ route('guest.profil.struktural.detail') }}"
                                 class="text-decoration-none text-[#f09a1c] text-xs hover:underline">Selengkapnya</a>
                         </div>
                     </div>
@@ -276,7 +278,7 @@
                                 KEMENKOAN PERGERAKAN
                             </h6>
                             <p class="text-secondary mb-2 text-xs">#bemkmudinus</p>
-                            <a href="/kabinet/kemenkoan-pergerakan"
+                            <a href="{{ route('guest.profil.struktural.detail') }}"
                                 class="text-[#f09a1c] text-xs no-underline hover:underline">
                                 Selengkapnya
                             </a>
@@ -303,7 +305,7 @@
                                 KEMENTERIAN SOSIAL POLITIK
                             </h6>
                             <p class="text-secondary mb-2 text-xs">#bemkmudinus</p>
-                            <a href="/kabinet/kementerian-sosial-politik"
+                            <a href="{{ route('guest.profil.struktural.detail') }}"
                                 class="text-decoration-none text-[#f09a1c] text-xs hover:underline">Selengkapnya</a>
                         </div>
                     </div>
@@ -321,7 +323,7 @@
                                 KEMENTERIAN PP&I
                             </h6>
                             <p class="text-secondary mb-2 text-xs">#bemkmudinus</p>
-                            <a href="/kabinet/kementerian-ppi"
+                            <a href="{{ route('guest.profil.struktural.detail') }}"
                                 class="text-decoration-none text-[#f09a1c] text-xs hover:underline">Selengkapnya</a>
                         </div>
                     </div>
@@ -339,7 +341,7 @@
                                 KEMENTERIAN SOSIAL MASYARAKAT
                             </h6>
                             <p class="text-secondary mb-2 text-xs">#bemkmudinus</p>
-                            <a href="/kabinet/kementerian-sosial-masyarakat"
+                            <a href="{{ route('guest.profil.struktural.detail') }}"
                                 class="text-decoration-none text-[#f09a1c] text-xs hover:underline">Selengkapnya</a>
                         </div>
                     </div>
@@ -359,7 +361,7 @@
                                 KEMENKOAN PENAUNGAN & KESEJAHTERAAN
                             </h6>
                             <p class="text-secondary mb-2 text-xs">#bemkmudinus</p>
-                            <a href="/kabinet/kemenkoan-penaungan-kesejahteraan"
+                            <a href="{{ route('guest.profil.struktural.detail') }}"
                                 class="text-decoration-none text-[#f09a1c] text-xs hover:underline">Selengkapnya</a>
                         </div>
                     </div>
@@ -382,7 +384,7 @@
                                 KEMENTERIAN DALAM NEGERI
                             </h6>
                             <p class="text-secondary mb-2 text-xs">#bemkmudinus</p>
-                            <a href="/kabinet/kementerian-dalam-negeri"
+                            <a href="{{ route('guest.profil.struktural.detail') }}"
                                 class="text-decoration-none text-[#f09a1c] text-xs hover:underline">Selengkapnya</a>
                         </div>
                     </div>
@@ -400,7 +402,7 @@
                                 KEMENTERIAN Kespora
                             </h6>
                             <p class="text-secondary mb-2 text-xs">#bemkmudinus</p>
-                            <a href="/kabinet/kementerian-kespora"
+                            <a href="{{ route('guest.profil.struktural.detail') }}"
                                 class="text-decoration-none text-[#f09a1c] text-xs hover:underline">Selengkapnya</a>
                         </div>
                     </div>
@@ -418,7 +420,7 @@
                                 KEMENTERIAN ADVOKESMA
                             </h6>
                             <p class="text-secondary mb-2 text-xs">#bemkmudinus</p>
-                            <a href="/kabinet/kementerian-advokesma"
+                            <a href="{{ route('guest.profil.struktural.detail') }}"
                                 class="text-decoration-none text-[#f09a1c] text-xs hover:underline">Selengkapnya</a>
                         </div>
                     </div>
@@ -438,7 +440,7 @@
                                 KEMENKOAN RELASI & INOVASI
                             </h6>
                             <p class="text-secondary mb-2 text-xs">#bemkmudinus</p>
-                            <a href="/kabinet/kemenkoan-relasi-inovasi"
+                            <a href="{{ route('guest.profil.struktural.detail') }}"
                                 class="text-decoration-none text-[#f09a1c] text-xs hover:underline">Selengkapnya</a>
                         </div>
                     </div>
@@ -461,7 +463,7 @@
                                 KEMENTERIAN LUAR NEGERI
                             </h6>
                             <p class="text-secondary mb-2 text-xs">#bemkmudinus</p>
-                            <a href="/kabinet/kementerian-luar-negeri"
+                            <a href="{{ route('guest.profil.struktural.detail') }}"
                                 class="text-decoration-none text-[#f09a1c] text-xs hover:underline">Selengkapnya</a>
 
                         </div>
@@ -480,7 +482,7 @@
                                 KEMENTERIAN KREASI
                             </h6>
                             <p class="text-secondary mb-2 text-xs">#bemkmudinus</p>
-                            <a href="/kabinet/kementerian-kreasi"
+                            <a href="{{ route('guest.profil.struktural.detail') }}"
                                 class="text-decoration-none text-[#f09a1c] text-xs hover:underline">Selengkapnya</a>
                         </div>
                     </div>
@@ -498,7 +500,7 @@
                                 KEMENTERIAN BUMKM
                             </h6>
                             <p class="text-secondary mb-2 text-xs">#bemkmudinus</p>
-                            <a href="/kabinet/kementerian-bumkm"
+                            <a href="{{ route('guest.profil.struktural.detail') }}"
                                 class="text-decoration-none text-[#f09a1c] text-xs hover:underline">Selengkapnya</a>
                         </div>
                     </div>

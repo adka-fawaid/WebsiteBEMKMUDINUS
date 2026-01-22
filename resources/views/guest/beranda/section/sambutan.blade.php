@@ -1,47 +1,89 @@
-<section class="min-h-screen bg-[#0b3a5c] text-white flex items-center py-16 md:py-20 lg:py-24">
-    <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+<section
+    class="min-h-screen bg-gradient-to-br from-gray-50 via-white to-blue-50 flex items-center py-16 md:py-20 lg:py-24 relative overflow-hidden">
+    <!-- Decorative Elements -->
+    <div class="absolute top-0 right-0 w-96 h-96 bg-blue-400/5 rounded-full blur-3xl"></div>
+    <div class="absolute bottom-0 left-0 w-96 h-96 bg-orange-400/5 rounded-full blur-3xl"></div>
+
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl relative z-10">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-center">
 
             {{-- FOTO PRESMA --}}
             <div class="lg:col-span-5 text-center">
-                <div class="inline-block bg-[#eaf2f8] rounded-[18px] p-5 shadow-xl">
-                    <img src="{{ asset('assets/images/presma2.JPG') }}"
-                        class="rounded-xl max-h-[360px] w-auto object-cover mx-auto" alt="Presiden Mahasiswa">
+                <div class="relative inline-block group">
+                    <!-- Card Container -->
+                    <div
+                        class="bg-white rounded-3xl p-6 shadow-2xl shadow-blue-500/10 border border-gray-100 transform transition-all duration-500 group-hover:scale-105">
+                        <div class="relative overflow-hidden rounded-2xl">
+                            <img src="{{ asset('assets/images/presma2.JPG') }}"
+                                class="max-h-[400px] w-auto object-cover mx-auto transform transition-transform duration-500 group-hover:scale-110"
+                                alt="Presiden Mahasiswa">
+                            <div
+                                class="absolute inset-0 bg-gradient-to-t from-blue-900/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Decorative Accent -->
+                    <div
+                        class="absolute -top-4 -right-4 w-24 h-24 bg-gradient-to-br from-orange-400 to-orange-500 rounded-full opacity-20 blur-xl">
+                    </div>
+                    <div
+                        class="absolute -bottom-4 -left-4 w-24 h-24 bg-gradient-to-br from-blue-400 to-blue-500 rounded-full opacity-20 blur-xl">
+                    </div>
                 </div>
 
-                <div class="text-center mt-5">
+                <div class="text-center mt-6 space-y-2">
                     <span
-                        class="inline-block bg-[#f5b335] text-[#1a1a1a] px-6 py-2.5 rounded-[25px] font-semibold text-base md:text-lg shadow-lg">Lu'luun
-                        Aula</span>
-                    <div class="text-sm md:text-base text-[#d0dce6] mt-2">Presiden Mahasiswa Periode 2025/2026</div>
+                        class="inline-block bg-gradient-to-r from-orange-500 to-orange-600 text-white px-8 py-3 rounded-full font-bold text-base md:text-lg shadow-lg shadow-orange-500/30">
+                        Lu'luun Aula
+                    </span>
+                    <div class="text-sm md:text-base text-gray-600 font-medium">Presiden Mahasiswa Periode 2025/2026
+                    </div>
                 </div>
             </div>
 
             {{-- TEKS SAMBUTAN --}}
             <div class="lg:col-span-7">
-                <h2 class="text-center lg:text-left font-bold text-[#f5b335] mb-6 text-2xl md:text-3xl lg:text-4xl">
-                    Sambutan Presiden Mahasiswa
-                </h2>
+                <div class="mb-8">
+                    <span class="inline-block text-orange-500 font-semibold text-sm uppercase tracking-wider mb-2">Kata
+                        Sambutan</span>
+                    <h2
+                        class="text-center lg:text-left font-bold bg-gradient-to-r from-blue-700 to-blue-900 bg-clip-text text-transparent mb-4 text-3xl md:text-4xl lg:text-5xl leading-tight">
+                        Sambutan Presiden Mahasiswa
+                    </h2>
+                    <div class="w-20 h-1 bg-gradient-to-r from-orange-500 to-blue-600 rounded-full"></div>
+                </div>
 
-                <div class="space-y-4">
-                    <p class="text-[#dce6ef] leading-relaxed text-sm md:text-base lg:text-lg">
-                        "Dengan penuh semangat, kami dari Badan Eksekutif Mahasiswa
-                        Keluarga Mahasiswa Universitas Dian Nuswantoro mengajak seluruh
-                        mahasiswa untuk terus berperan aktif dalam menciptakan lingkungan
-                        kampus yang kolaboratif, inklusif, dan berorientasi pada perubahan positif."
-                    </p>
+                <div class="space-y-6">
+                    <div
+                        class="bg-white/80 backdrop-blur-sm rounded-2xl p-6 border-l-4 border-blue-500 shadow-lg shadow-blue-500/5 hover:shadow-xl hover:shadow-blue-500/10 transition-all duration-300">
+                        <p class="text-gray-700 leading-relaxed text-sm md:text-base lg:text-lg">
+                            <span class="text-3xl text-orange-500 font-serif leading-none float-left mr-2 mt-1">"</span>
+                            Dengan penuh semangat, kami dari Badan Eksekutif Mahasiswa
+                            Keluarga Mahasiswa Universitas Dian Nuswantoro mengajak seluruh
+                            mahasiswa untuk terus berperan aktif dalam menciptakan lingkungan
+                            kampus yang kolaboratif, inklusif, dan berorientasi pada perubahan positif.
+                        </p>
+                    </div>
 
-                    <p class="text-[#dce6ef] leading-relaxed text-sm md:text-base lg:text-lg">
-                        "Kami percaya bahwa setiap mahasiswa memiliki potensi luar biasa
-                        untuk menjadi agen perubahan — bukan hanya di lingkungan akademik,
-                        tetapi juga dalam masyarakat luas.”
-                    </p>
+                    <div
+                        class="bg-white/80 backdrop-blur-sm rounded-2xl p-6 border-l-4 border-orange-500 shadow-lg shadow-orange-500/5 hover:shadow-xl hover:shadow-orange-500/10 transition-all duration-300">
+                        <p class="text-gray-700 leading-relaxed text-sm md:text-base lg:text-lg">
+                            Kami percaya bahwa setiap mahasiswa memiliki potensi luar biasa
+                            untuk menjadi agen perubahan — bukan hanya di lingkungan akademik,
+                            tetapi juga dalam masyarakat luas.
+                        </p>
+                    </div>
 
-                    <p class="text-[#dce6ef] leading-relaxed text-sm md:text-base lg:text-lg">
-                        "Mari bersama-sama bersinergi dan beraksi, menyalakan semangat
-                        perjuangan mahasiswa yang berpikir kritis, bertindak solutif,
-                        dan bergerak dengan hati."
-                    </p>
+                    <div
+                        class="bg-white/80 backdrop-blur-sm rounded-2xl p-6 border-l-4 border-blue-500 shadow-lg shadow-blue-500/5 hover:shadow-xl hover:shadow-blue-500/10 transition-all duration-300">
+                        <p class="text-gray-700 leading-relaxed text-sm md:text-base lg:text-lg">
+                            Mari bersama-sama bersinergi dan beraksi, menyalakan semangat
+                            perjuangan mahasiswa yang berpikir kritis, bertindak solutif,
+                            dan bergerak dengan hati.
+                            <span class="text-3xl text-orange-500 font-serif leading-none ml-1">"</span>
+                        </p>
+                    </div>
                 </div>
             </div>
 

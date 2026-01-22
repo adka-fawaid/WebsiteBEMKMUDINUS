@@ -11,4 +11,9 @@ class StrukturalController extends Controller
     {
         return view('guest.profil.struktural.index');
     }
+
+    public function detail()
+    {
+        return view('guest.profil.struktural.detail');
+    }
 }
