@@ -1,292 +1,172 @@
 @extends('guest.components.layout')
 
 @section('content')
-    <div class="bg-gradient-to-br from-blue-50 via-white to-indigo-50 py-16 min-h-screen">
-        <div class="container mx-auto px-4 md:px-8">
-            <!-- Header -->
-            <div class="text-center mb-6 mt-12">
-                <div class="flex items-center justify-center gap-4 mb-4">
-                    <div class="p-3 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-2xl shadow-lg flex-shrink-0">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none"
-                            stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="m17 2-5 5-5-5" />
-                            <rect width="20" height="15" x="2" y="7" rx="2" />
-                        </svg>
-                    </div>
-                    <h1 class="text-4xl md:text-5xl font-bold text-gray-900">
-                        Media <span class="text-blue-600">Partner</span>
-                    </h1>
-                </div>
+    <div class="bg-gradient-to-br from-slate-50 via-blue-50/30 to-indigo-50/50 py-20 min-h-screen">
+        <div class="container mx-auto px-4 md:px-8 max-w-7xl">
+            
+            <!-- Header Section -->
+            <div class="text-center mb-16">
+                <h1 class="text-5xl md:text-6xl font-black text-gray-900 mb-4 tracking-tight mt-8">
+                    Media <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600">Partner</span>
+                </h1>
                 <p class="text-lg text-gray-600 max-w-2xl mx-auto">
-                    Berikut adalah beberapa pilihan paket media partner yang disediakan oleh BEM KM UDINUS
+                    Pilih paket yang sesuai dengan kebutuhan publikasi acara Anda
                 </p>
             </div>
 
-            <!-- Package Cards Grid -->
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-6xl mx-auto">
-                <!-- Media Partner Gratis -->
-                <div
-                    class="relative bg-white rounded-3xl border-2 border-blue-200 p-8 transition-all duration-500 hover:shadow-2xl hover:shadow-blue-200/50 hover:-translate-y-2 group">
-                    <!-- Popular Badge -->
-                    <div class="absolute -top-4 left-1/2 -translate-x-1/2">
-                        <span
-                            class="inline-flex items-center gap-2 bg-gradient-to-r from-green-500 to-emerald-600 text-white px-6 py-2 rounded-full text-sm font-bold shadow-lg">
-                            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
-                                <path
-                                    d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+            <!-- Cards Container -->
+            <div class="grid lg:grid-cols-2 gap-8 max-w-6xl mx-auto mb-16">
+                
+                <!-- FREE PACKAGE CARD -->
+                <div class="group relative">
+                    <!-- Glow Effect Background -->
+                    <div class="absolute -inset-1 bg-gradient-to-r from-blue-400 to-cyan-400 rounded-[2rem] opacity-0 group-hover:opacity-20 blur-xl transition-all duration-700"></div>
+                    
+                    <!-- Main Card -->
+                    <div class="relative bg-white rounded-[2rem] p-10 shadow-xl shadow-blue-100/50 border border-gray-100 hover:border-blue-200 transition-all duration-500 hover:-translate-y-2">
+                        
+                        <!-- Decorative Corner Element -->
+                        <div class="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-blue-400/10 to-transparent rounded-bl-[5rem] rounded-tr-[2rem]"></div>
+                        
+                        <!-- Header -->
+                        <div class="relative mb-8">
+                            <div class="flex items-start justify-between mb-6">
+                                <div class="flex items-center gap-4">
+                                    <div class="w-14 h-14 bg-gradient-to-br from-blue-500 to-blue-600 rounded-2xl flex items-center justify-center shadow-lg shadow-blue-200/50 group-hover:scale-110 transition-transform duration-300">
+                                        <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v13m0-13V6a2 2 0 112 2h-2zm0 0V5.5A2.5 2.5 0 109.5 8H12zm-7 4h14M5 12a2 2 0 110-4h14a2 2 0 110 4M5 12v7a2 2 0 002 2h10a2 2 0 002-2v-7"/>
+                                        </svg>
+                                    </div>
+                                </div>
+                                <span class="bg-emerald-50 text-emerald-600 text-xs font-bold px-4 py-2 rounded-full border border-emerald-200">
+                                    FREE
+                                </span>
+                            </div>
+                            
+                            <h3 class="text-3xl font-black text-gray-900 mb-3">
+                                Media Partner Gratis
+                            </h3>
+                            <p class="text-gray-500 text-base leading-relaxed">
+                                Publikasi dasar untuk meningkatkan awareness acara Anda di kalangan mahasiswa Udinus
+                            </p>
+                        </div>
+
+                        <!-- CTA Button -->
+                        <a href="{{ route('guest.partnership.media-partner.prosedur.index') }}" 
+                           class="group/btn flex items-center justify-center gap-2 w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-4 px-6 rounded-xl transition-all duration-300 shadow-lg hover:shadow-blue-500/50">
+                            <span>Lihat Prosedur Lengkap</span>
+                            <svg class="w-5 h-5 group-hover/btn:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
                             </svg>
-                            Paling Populer
-                        </span>
+                        </a>
                     </div>
-
-                    <!-- Header -->
-                    <div class="text-center mb-6 mt-4">
-                        <div class="inline-flex items-center gap-2 bg-blue-100 text-blue-700 px-4 py-2 rounded-full mb-4">
-                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M12 8v13m0-13V6a2 2 0 112 2h-2zm0 0V5.5A2.5 2.5 0 109.5 8H12zm-7 4h14M5 12a2 2 0 110-4h14a2 2 0 110 4M5 12v7a2 2 0 002 2h10a2 2 0 002-2v-7" />
-                            </svg>
-                            <span class="font-bold">GRATIS</span>
-                        </div>
-                        <h3 class="text-2xl font-bold text-gray-900 mb-2">Media Partner Gratis</h3>
-                        <p class="text-gray-600">Ideal untuk media kampus dan komunitas</p>
-                    </div>
-
-                    <!-- Price -->
-                    <div class="text-center mb-6 py-4 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-2xl">
-                        <div class="text-5xl font-bold text-blue-600">Rp 0</div>
-                        <div class="text-sm text-gray-600 mt-1">Per kegiatan</div>
-                    </div>
-
-                    <!-- Benefits -->
-                    <div class="space-y-4 mb-8">
-                        <div class="flex items-start gap-3">
-                            <div class="shrink-0 w-6 h-6 bg-blue-100 rounded-full flex items-center justify-center mt-0.5">
-                                <svg class="w-4 h-4 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
-                                        d="M5 13l4 4L19 7" />
-                                </svg>
-                            </div>
-                            <div>
-                                <p class="font-semibold text-gray-800">Logo di Media Promosi</p>
-                            </div>
-                        </div>
-                        <div class="flex items-start gap-3">
-                            <div class="shrink-0 w-6 h-6 bg-blue-100 rounded-full flex items-center justify-center mt-0.5">
-                                <svg class="w-4 h-4 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
-                                        d="M5 13l4 4L19 7" />
-                                </svg>
-                            </div>
-                            <div>
-                                <p class="font-semibold text-gray-800">Publikasi Konten Kegiatan</p>
-                            </div>
-                        </div>
-                        <div class="flex items-start gap-3">
-                            <div class="shrink-0 w-6 h-6 bg-blue-100 rounded-full flex items-center justify-center mt-0.5">
-                                <svg class="w-4 h-4 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
-                                        d="M5 13l4 4L19 7" />
-                                </svg>
-                            </div>
-                            <div>
-                                <p class="font-semibold text-gray-800">Sertifikat Digital</p>
-                            </div>
-                        </div>
-                        <div class="flex items-start gap-3">
-                            <div class="shrink-0 w-6 h-6 bg-blue-100 rounded-full flex items-center justify-center mt-0.5">
-                                <svg class="w-4 h-4 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
-                                        d="M5 13l4 4L19 7" />
-                                </svg>
-                            </div>
-                            <div>
-                                <p class="font-semibold text-gray-800">Networking</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- CTA Button -->
-                    <a href="{{ route('guest.partnership.media-partner.prosedur.index') }}"
-                        class="block w-full bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white text-center font-bold py-4 px-6 rounded-xl transition-all duration-300 shadow-lg hover:shadow-xl group-hover:scale-105">
-                        Informasi Lebih Lanjut >
-                    </a>
                 </div>
 
-                <!-- Media Partner Berbayar -->
-                <div
-                    class="relative bg-gradient-to-br from-indigo-50 to-purple-50 rounded-3xl border-2 border-purple-300 p-8 transition-all duration-500 hover:shadow-2xl hover:shadow-purple-300/50 hover:-translate-y-2 group">
-                    <!-- Premium Badge -->
-                    <div class="absolute -top-4 left-1/2 -translate-x-1/2">
-                        <span
-                            class="inline-flex items-center gap-2 bg-gradient-to-r from-purple-600 to-indigo-600 text-white px-6 py-2 rounded-full text-sm font-bold shadow-lg">
-                            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
-                                <path fill-rule="evenodd"
-                                    d="M5 2a1 1 0 011 1v1h1a1 1 0 010 2H6v1a1 1 0 01-2 0V6H3a1 1 0 010-2h1V3a1 1 0 011-1zm0 10a1 1 0 011 1v1h1a1 1 0 110 2H6v1a1 1 0 11-2 0v-1H3a1 1 0 110-2h1v-1a1 1 0 011-1zM12 2a1 1 0 01.967.744L14.146 7.2 17.5 9.134a1 1 0 010 1.732l-3.354 1.935-1.18 4.455a1 1 0 01-1.933 0L9.854 12.8 6.5 10.866a1 1 0 010-1.732l3.354-1.935 1.18-4.455A1 1 0 0112 2z"
-                                    clip-rule="evenodd" />
+                <!-- PREMIUM PACKAGE CARD -->
+                <div class="group relative">
+                    <!-- Premium Glow Effect -->
+                    <div class="absolute -inset-1 bg-gradient-to-r from-purple-500 via-pink-500 to-indigo-500 rounded-[2rem] opacity-30 group-hover:opacity-50 blur-2xl transition-all duration-700"></div>
+                    
+                    <!-- Main Card -->
+                    <div class="relative bg-gradient-to-br from-white via-purple-50/30 to-indigo-50/30 rounded-[2rem] p-10 shadow-2xl shadow-purple-200/60 border-2 border-purple-200/50 hover:border-purple-300 transition-all duration-500 hover:-translate-y-3 overflow-hidden">
+                        
+                        <!-- Premium Badge Corner -->
+                        <div class="absolute top-0 right-0">
+                            <div class="relative">
+                                <div class="w-32 h-32 bg-gradient-to-br from-purple-500 to-pink-500 rounded-bl-[5rem] rounded-tr-[2rem]"></div>
+                                <div class="absolute top-4 right-4 transform rotate-12">
+                                    <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 20 20">
+                                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Header -->
+                        <div class="relative mb-8">
+                            <div class="flex items-start justify-between mb-6">
+                                <div class="flex items-center gap-4">
+                                    <div class="w-14 h-14 bg-gradient-to-br from-purple-600 to-pink-600 rounded-2xl flex items-center justify-center shadow-xl shadow-purple-300/50 group-hover:scale-110 group-hover:rotate-6 transition-all duration-300">
+                                        <svg class="w-7 h-7 text-white" fill="currentColor" viewBox="0 0 20 20">
+                                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                                        </svg>
+                                    </div>
+                                </div>
+                                <div class="flex flex-col items-end gap-2">
+                                    <span class="bg-gradient-to-r from-amber-400 to-orange-500 text-white text-xs font-black px-4 py-2 rounded-full shadow-lg">
+                                        PREMIUM
+                                    </span>
+                                </div>
+                            </div>
+                            
+                            <h3 class="text-3xl font-black text-gray-900 mb-3">
+                                Media Partner <span class="text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-pink-600">Berbayar</span>
+                            </h3>
+                            <p class="text-gray-600 text-base leading-relaxed font-medium">
+                                Paket eksklusif dengan publikasi posting feed untuk jangkauan maksimal
+                            </p>
+                        </div>
+
+                        <!-- Premium CTA Button -->
+                        <a href="{{ route('guest.partnership.media-partner.prosedur.index') }}" 
+                           class="relative group/btn flex items-center justify-center gap-2 w-full bg-gradient-to-r from-purple-600 via-pink-600 to-purple-600 bg-[length:200%_auto] hover:bg-right text-white font-bold py-4 px-6 rounded-xl transition-all duration-500 shadow-xl shadow-purple-400/40 hover:shadow-2xl hover:shadow-purple-400/60 hover:scale-[1.02]">
+                            <span class="relative z-10">Lihat Prosedur Lengkap</span>
+                            <svg class="w-5 h-5 relative z-10 group-hover/btn:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
                             </svg>
-                            Premium Package
-                        </span>
+                            <!-- Shimmer Effect -->
+                            <div class="absolute inset-0 rounded-xl bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover/btn:animate-shimmer"></div>
+                        </a>
                     </div>
-
-                    <!-- Header -->
-                    <div class="text-center mb-6 mt-4">
-                        <div
-                            class="inline-flex items-center gap-2 bg-purple-100 text-purple-700 px-4 py-2 rounded-full mb-4">
-                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-                                <path fill-rule="evenodd"
-                                    d="M5 2a1 1 0 011 1v1h1a1 1 0 010 2H6v1a1 1 0 01-2 0V6H3a1 1 0 010-2h1V3a1 1 0 011-1zm0 10a1 1 0 011 1v1h1a1 1 0 110 2H6v1a1 1 0 11-2 0v-1H3a1 1 0 110-2h1v-1a1 1 0 011-1zM12 2a1 1 0 01.967.744L14.146 7.2 17.5 9.134a1 1 0 010 1.732l-3.354 1.935-1.18 4.455a1 1 0 01-1.933 0L9.854 12.8 6.5 10.866a1 1 0 010-1.732l3.354-1.935 1.18-4.455A1 1 0 0112 2z"
-                                    clip-rule="evenodd" />
-                            </svg>
-                            <span class="font-bold">PREMIUM</span>
-                        </div>
-                        <h3 class="text-2xl font-bold text-gray-900 mb-2">Media Partner Berbayar</h3>
-                        <p class="text-gray-600">Untuk media profesional dengan benefit maksimal</p>
-                    </div>
-
-                    <!-- Price -->
-                    <div class="text-center mb-6 py-4 bg-white rounded-2xl shadow-sm">
-                        <div class="text-sm text-gray-600 mb-1">Mulai dari</div>
-                        <div
-                            class="text-5xl font-bold bg-gradient-to-r from-purple-600 to-indigo-600 bg-clip-text text-transparent">
-                            Rp 500K</div>
-                        <div class="text-sm text-gray-600 mt-1">Dapat disesuaikan</div>
-                    </div>
-
-                    <!-- Benefits -->
-                    <div class="space-y-4 mb-8">
-                        <div class="flex items-start gap-3">
-                            <div
-                                class="shrink-0 w-6 h-6 bg-purple-100 rounded-full flex items-center justify-center mt-0.5">
-                                <svg class="w-4 h-4 text-purple-600" fill="none" stroke="currentColor"
-                                    viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
-                                        d="M5 13l4 4L19 7" />
-                                </svg>
-                            </div>
-                            <div>
-                                <p class="font-semibold text-gray-800">Semua Benefit Gratis</p>
-                            </div>
-                        </div>
-                        <div class="flex items-start gap-3">
-                            <div
-                                class="shrink-0 w-6 h-6 bg-purple-100 rounded-full flex items-center justify-center mt-0.5">
-                                <svg class="w-4 h-4 text-purple-600" fill="none" stroke="currentColor"
-                                    viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
-                                        d="M5 13l4 4L19 7" />
-                                </svg>
-                            </div>
-                            <div>
-                                <p class="font-semibold text-gray-800">Logo Premium Placement</p>
-                            </div>
-                        </div>
-                        <div class="flex items-start gap-3">
-                            <div
-                                class="shrink-0 w-6 h-6 bg-purple-100 rounded-full flex items-center justify-center mt-0.5">
-                                <svg class="w-4 h-4 text-purple-600" fill="none" stroke="currentColor"
-                                    viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
-                                        d="M5 13l4 4L19 7" />
-                                </svg>
-                            </div>
-                            <div>
-                                <p class="font-semibold text-gray-800">Dedicated Social Media Post</p>
-                            </div>
-                        </div>
-                        <div class="flex items-start gap-3">
-                            <div
-                                class="shrink-0 w-6 h-6 bg-purple-100 rounded-full flex items-center justify-center mt-0.5">
-                                <svg class="w-4 h-4 text-purple-600" fill="none" stroke="currentColor"
-                                    viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
-                                        d="M5 13l4 4L19 7" />
-                                </svg>
-                            </div>
-                            <div>
-                                <p class="font-semibold text-gray-800">Press Release Prioritas</p>
-                            </div>
-                        </div>
-                        <div class="flex items-start gap-3">
-                            <div
-                                class="shrink-0 w-6 h-6 bg-purple-100 rounded-full flex items-center justify-center mt-0.5">
-                                <svg class="w-4 h-4 text-purple-600" fill="none" stroke="currentColor"
-                                    viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
-                                        d="M5 13l4 4L19 7" />
-                                </svg>
-                            </div>
-                            <div>
-                                <p class="font-semibold text-gray-800">Plakat & Sertifikat Fisik</p>
-                            </div>
-                        </div>
-                        <div class="flex items-start gap-3">
-                            <div
-                                class="shrink-0 w-6 h-6 bg-purple-100 rounded-full flex items-center justify-center mt-0.5">
-                                <svg class="w-4 h-4 text-purple-600" fill="none" stroke="currentColor"
-                                    viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
-                                        d="M5 13l4 4L19 7" />
-                                </svg>
-                            </div>
-                            <div>
-                                <p class="font-semibold text-gray-800">Dokumentasi Eksklusif</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- CTA Button -->
-                    <a href="{{ route('guest.partnership.media-partner.prosedur.index') }}"
-                        class="block w-full bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-700 hover:to-indigo-700 text-white text-center font-bold py-4 px-6 rounded-xl transition-all duration-300 shadow-lg hover:shadow-xl group-hover:scale-105">
-                        Informasi Lebih Lanjut >
-                    </a>
                 </div>
+
             </div>
 
-            <!-- Additional Info -->
-            <div class="mt-16 max-w-4xl mx-auto">
-                <div
-                    class="bg-gradient-to-r from-blue-50 via-indigo-50 to-purple-50 rounded-2xl p-8 border border-blue-100">
-                    <div class="flex items-start gap-4">
-                        <div class="shrink-0">
-                            <div
-                                class="w-12 h-12 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-xl flex items-center justify-center">
-                                <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor"
-                                    viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                                </svg>
-                            </div>
+            <!-- Info Section -->
+            <div class="max-w-4xl mx-auto">
+                <div class="bg-white rounded-2xl p-8 shadow-lg border border-gray-100">
+                    <div class="flex items-start gap-5">
+                        <div class="w-12 h-12 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-xl flex items-center justify-center flex-shrink-0 shadow-lg">
+                            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                            </svg>
                         </div>
-                        <div>
-                            <h3 class="text-xl font-bold text-gray-900 mb-2">Informasi Tambahan</h3>
-                            <p class="text-gray-600 mb-4">
-                                Untuk media partner berbayar, harga dapat disesuaikan berdasarkan skala kegiatan dan cakupan
-                                publikasi yang diinginkan. Tim kami akan dengan senang hati mendiskusikan paket kemitraan
-                                yang sesuai dengan kebutuhan Anda.
+                        <div class="flex-1">
+                            <h3 class="text-xl font-bold text-gray-900 mb-3">Butuh Informasi Lebih Lanjut?</h3>
+                            <p class="text-gray-600 mb-6 leading-relaxed">
+                                Silakan hubungi kami untuk informasi lebih detail mengenai paket media partner dan persyaratan yang dibutuhkan.
                             </p>
                             <div class="flex flex-wrap gap-3">
-                                <a href="{{ route('guest.kontak.index') }}"
-                                    class="inline-flex items-center gap-2 bg-white hover:bg-blue-50 text-blue-600 font-semibold px-6 py-3 rounded-xl transition-all duration-300 shadow-sm hover:shadow-md">
+                                <a href="{{ route('guest.kontak.index') }}" 
+                                   class="inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white font-semibold px-6 py-3 rounded-xl transition-all duration-300 shadow-md hover:shadow-lg">
                                     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                            d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/>
                                     </svg>
-                                    Konsultasi Gratis
+                                    Hubungi Kami
                                 </a>
-                                <a href="{{ route('guest.partnership.index') }}"
-                                    class="inline-flex items-center gap-2 bg-white hover:bg-gray-50 text-gray-700 font-semibold px-6 py-3 rounded-xl transition-all duration-300 shadow-sm hover:shadow-md">
+                                <a href="{{ route('guest.partnership.index') }}" 
+                                   class="inline-flex items-center gap-2 bg-gray-100 hover:bg-gray-200 text-gray-700 font-semibold px-6 py-3 rounded-xl transition-all duration-300">
                                     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                            d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"/>
                                     </svg>
-                                    Kembali ke Partnership
+                                    Kembali
                                 </a>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+
         </div>
     </div>
+
+    <style>
+        @keyframes shimmer {
+            100% { transform: translateX(100%); }
+        }
+        
+        .animate-shimmer {
+            animation: shimmer 2s infinite;
+        }
+    </style>
 @endsection
