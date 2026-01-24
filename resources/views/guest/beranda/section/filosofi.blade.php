@@ -1,18 +1,18 @@
 <section
-    class="min-h-screen bg-gradient-to-br from-white via-blue-50/30 to-orange-50/30 flex items-center py-16 md:py-20 lg:py-24 relative overflow-hidden">
+    class="min-h-screen bg-gradient-to-br from-orange-50/50 via-white to-blue-50/30 flex items-center py-16 md:py-20 lg:py-24 relative overflow-hidden">
     <!-- Decorative Background -->
     <div
-        class="absolute top-20 left-0 w-96 h-96 bg-gradient-to-br from-blue-400/10 to-blue-600/10 rounded-full blur-3xl">
+        class="absolute top-20 left-0 w-96 h-96 bg-gradient-to-br from-orange-400/10 to-orange-600/10 rounded-full blur-3xl">
     </div>
     <div
-        class="absolute bottom-20 right-0 w-96 h-96 bg-gradient-to-br from-orange-400/10 to-orange-600/10 rounded-full blur-3xl">
+        class="absolute bottom-20 right-0 w-96 h-96 bg-gradient-to-br from-blue-400/10 to-blue-600/10 rounded-full blur-3xl">
     </div>
 
     <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl relative z-10">
 
         {{-- JUDUL TENGAH SECTION --}}
-        <div class="text-center mb-12 md:mb-16">
-            <span class="inline-block text-orange-500 font-semibold text-sm uppercase tracking-wider mb-3">Filosofi
+        <div class="text-center mb-5 md:mb-7">
+            <span class="inline-block text-orange-500 font-semibold text-lg uppercase tracking-wider mb-2">Filosofi
                 Kabinet</span>
             <h2
                 class="font-bold bg-gradient-to-r from-blue-700 via-blue-800 to-orange-500 bg-clip-text text-transparent text-3xl md:text-4xl lg:text-5xl mb-4">
@@ -24,21 +24,22 @@
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
 
             {{-- KOLOM KIRI: MAKNA LOGO & FILOSOFI WARNA --}}
-            <div class="space-y-10">
+            <div class="space-y-7">
                 {{-- MAKNA LOGO --}}
                 <div>
                     <h3
-                        class="font-bold text-center lg:text-left mb-6 text-gray-800 text-xl md:text-2xl flex items-center gap-3">
+                        class="font-bold text-center lg:text-left mb-4 text-gray-800 text-xl md:text-2xl flex items-center gap-3">
                         <span class="w-1 h-8 bg-gradient-to-b from-blue-500 to-blue-700 rounded-full"></span>
                         MAKNA LOGO
                     </h3>
-                    <div class="space-y-4">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <!-- Card 1: Merah Bata -->
                         <div
-                            class="group bg-white rounded-2xl p-5 md:p-6 border border-gray-200 hover:border-red-300 hover:shadow-xl hover:shadow-red-500/10 transition-all duration-300 hover:transform hover:scale-105 relative overflow-hidden">
+                            class="group bg-white rounded-xl p-3 md:p-4 border border-gray-200 hover:border-red-300 hover:shadow-xl hover:shadow-red-500/10 transition-all duration-300 hover:transform hover:scale-105 relative overflow-hidden">
                             <div
                                 class="absolute top-0 left-0 w-1 h-full bg-gradient-to-b from-red-500 to-red-700 transform scale-y-0 group-hover:scale-y-100 transition-transform duration-300 origin-top">
                             </div>
-                            <div class="flex items-start gap-3">
+                            <div class="flex items-center gap-3">
                                 <div
                                     class="w-10 h-10 rounded-lg bg-gradient-to-br from-red-500 to-red-700 flex items-center justify-center flex-shrink-0 shadow-lg shadow-red-500/30">
                                     <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 20 20">
@@ -55,12 +56,13 @@
                             </div>
                         </div>
 
+                        <!-- Card 2: Biru Tua -->
                         <div
-                            class="group bg-white rounded-2xl p-5 md:p-6 border border-gray-200 hover:border-blue-300 hover:shadow-xl hover:shadow-blue-500/10 transition-all duration-300 hover:transform hover:scale-105 relative overflow-hidden">
+                            class="group bg-white rounded-xl p-3 md:p-4 border border-gray-200 hover:border-blue-300 hover:shadow-xl hover:shadow-blue-500/10 transition-all duration-300 hover:transform hover:scale-105 relative overflow-hidden">
                             <div
                                 class="absolute top-0 left-0 w-1 h-full bg-gradient-to-b from-blue-500 to-blue-700 transform scale-y-0 group-hover:scale-y-100 transition-transform duration-300 origin-top">
                             </div>
-                            <div class="flex items-start gap-3">
+                            <div class="flex items-center gap-3">
                                 <div
                                     class="w-10 h-10 rounded-lg bg-gradient-to-br from-blue-500 to-blue-700 flex items-center justify-center flex-shrink-0 shadow-lg shadow-blue-500/30">
                                     <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 20 20">
@@ -77,12 +79,13 @@
                             </div>
                         </div>
 
+                        <!-- Card 3: Orange -->
                         <div
-                            class="group bg-white rounded-2xl p-5 md:p-6 border border-gray-200 hover:border-orange-300 hover:shadow-xl hover:shadow-orange-500/10 transition-all duration-300 hover:transform hover:scale-105 relative overflow-hidden">
+                            class="group bg-white rounded-xl p-3 md:p-4 border border-gray-200 hover:border-orange-300 hover:shadow-xl hover:shadow-orange-500/10 transition-all duration-300 hover:transform hover:scale-105 relative overflow-hidden">
                             <div
                                 class="absolute top-0 left-0 w-1 h-full bg-gradient-to-b from-orange-500 to-orange-700 transform scale-y-0 group-hover:scale-y-100 transition-transform duration-300 origin-top">
                             </div>
-                            <div class="flex items-start gap-3">
+                            <div class="flex items-center gap-3">
                                 <div
                                     class="w-10 h-10 rounded-lg bg-gradient-to-br from-orange-500 to-orange-600 flex items-center justify-center flex-shrink-0 shadow-lg shadow-orange-500/30">
                                     <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 20 20">
@@ -98,23 +101,46 @@
                                 </div>
                             </div>
                         </div>
+
+                        <!-- Card 4: Kuning -->
+                        <div
+                            class="group bg-white rounded-xl p-3 md:p-4 border border-gray-200 hover:border-yellow-300 hover:shadow-xl hover:shadow-yellow-500/10 transition-all duration-300 hover:transform hover:scale-105 relative overflow-hidden">
+                            <div
+                                class="absolute top-0 left-0 w-1 h-full bg-gradient-to-b from-yellow-500 to-yellow-600 transform scale-y-0 group-hover:scale-y-100 transition-transform duration-300 origin-top">
+                            </div>
+                            <div class="flex items-center gap-3">
+                                <div
+                                    class="w-10 h-10 rounded-lg bg-gradient-to-br from-yellow-500 to-yellow-600 flex items-center justify-center flex-shrink-0 shadow-lg shadow-yellow-500/30">
+                                    <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 20 20">
+                                        <path
+                                            d="M10 2a8 8 0 100 16 8 8 0 000-16zM9 9a1 1 0 012 0v4a1 1 0 01-2 0V9zm1-5a1 1 0 100 2 1 1 0 000-2z" />
+                                    </svg>
+                                </div>
+                                <div class="flex-1">
+                                    <h6 class="font-bold text-yellow-600 mb-2 text-base md:text-lg">Kuning</h6>
+                                    <p class="mb-0 text-gray-600 text-sm md:text-base leading-relaxed">
+                                        Melambangkan optimisme, harapan, dan semangat inovasi.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
                 {{-- FILOSOFI WARNA --}}
                 <div>
                     <h3
-                        class="font-bold text-center lg:text-left mb-6 text-gray-800 text-xl md:text-2xl flex items-center gap-3">
+                        class="font-bold text-center lg:text-left mb-4 text-gray-800 text-xl md:text-2xl flex items-center gap-3">
                         <span class="w-1 h-8 bg-gradient-to-b from-orange-500 to-orange-700 rounded-full"></span>
                         FILOSOFI WARNA
                     </h3>
-                    <div class="space-y-4">
+                    <div class="space-y-3">
                         <div
-                            class="group bg-white rounded-2xl p-5 md:p-6 border border-gray-200 hover:border-blue-300 hover:shadow-xl hover:shadow-blue-500/10 transition-all duration-300 hover:transform hover:scale-105 relative overflow-hidden">
+                            class="group bg-white rounded-xl p-3 md:p-4 border border-gray-200 hover:border-blue-300 hover:shadow-xl hover:shadow-blue-500/10 transition-all duration-300 hover:transform hover:scale-105 relative overflow-hidden">
                             <div
                                 class="absolute top-0 left-0 w-1 h-full bg-gradient-to-b from-blue-500 to-blue-700 transform scale-y-0 group-hover:scale-y-100 transition-transform duration-300 origin-top">
                             </div>
-                            <div class="flex items-start gap-3">
+                            <div class="flex items-center gap-3">
                                 <div
                                     class="w-10 h-10 rounded-lg bg-gradient-to-br from-blue-500 to-blue-700 flex items-center justify-center flex-shrink-0 shadow-lg shadow-blue-500/30">
                                     <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 20 20">
@@ -133,11 +159,11 @@
                         </div>
 
                         <div
-                            class="group bg-white rounded-2xl p-5 md:p-6 border border-gray-200 hover:border-orange-300 hover:shadow-xl hover:shadow-orange-500/10 transition-all duration-300 hover:transform hover:scale-105 relative overflow-hidden">
+                            class="group bg-white rounded-xl p-3 md:p-4 border border-gray-200 hover:border-orange-300 hover:shadow-xl hover:shadow-orange-500/10 transition-all duration-300 hover:transform hover:scale-105 relative overflow-hidden">
                             <div
                                 class="absolute top-0 left-0 w-1 h-full bg-gradient-to-b from-orange-500 to-orange-700 transform scale-y-0 group-hover:scale-y-100 transition-transform duration-300 origin-top">
                             </div>
-                            <div class="flex items-start gap-3">
+                            <div class="flex items-center gap-3">
                                 <div
                                     class="w-10 h-10 rounded-lg bg-gradient-to-br from-orange-500 to-orange-600 flex items-center justify-center flex-shrink-0 shadow-lg shadow-orange-500/30">
                                     <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 20 20">
@@ -184,6 +210,11 @@
                 </div>
             </div>
 
+        </div>
+        <div class="flex items-center justify-center mt-16 md:mt-20">
+            <div class="flex-1 h-px bg-gradient-to-r from-transparent to-blue-500 max-w-xs"></div>
+            <div class="w-4 h-4 mx-4 bg-blue-500 rotate-45 transform origin-center"></div>
+            <div class="flex-1 h-px bg-gradient-to-l from-transparent to-blue-500 max-w-xs"></div>
         </div>
     </div>
 </section>

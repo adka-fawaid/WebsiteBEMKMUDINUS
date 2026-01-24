@@ -1,15 +1,15 @@
 <section id="berita"
-    class="min-h-screen bg-gradient-to-br from-blue-50/50 via-white to-gray-50 flex items-center py-16 md:py-20 lg:py-24 relative overflow-hidden">
+    class="min-h-screen bg-gradient-to-br from-blue-50/30 via-white to-white flex items-center py-16 md:py-20 lg:py-24 relative overflow-hidden">
     <!-- Decorative Background -->
     <div class="absolute top-0 left-1/4 w-96 h-96 bg-blue-400/10 rounded-full blur-3xl"></div>
     <div class="absolute bottom-0 right-1/4 w-96 h-96 bg-orange-400/10 rounded-full blur-3xl"></div>
 
     <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl relative z-10">
-        <div class="mb-12 md:mb-16 text-center">
+        <div class="mb-6 md:mb-12 text-center">
             <span class="inline-block text-orange-500 font-semibold text-sm uppercase tracking-wider mb-3">Update
                 Terkini</span>
             <h2
-                class="font-bold mb-4 bg-gradient-to-r from-blue-700 via-blue-800 to-orange-500 bg-clip-text text-transparent text-3xl md:text-4xl lg:text-5xl">
+                class="font-bold mb-3 bg-gradient-to-r from-blue-700 via-blue-800 to-orange-500 bg-clip-text text-transparent text-3xl md:text-4xl lg:text-5xl">
                 Berita Terbaru BEM KM UDINUS
             </h2>
             <div class="w-24 h-1 bg-gradient-to-r from-blue-500 to-orange-500 rounded-full mx-auto mb-4"></div>
