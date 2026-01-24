@@ -23,7 +23,7 @@
                     </div>
                     <p class="text-gray-600 text-sm leading-relaxed mb-4">
                         Badan Eksekutif Mahasiswa Keluarga Mahasiswa Universitas Dian Nuswantoro Semarang Tahun
-                        Periode 2025/2026 Kabinet Aksa Sinergi <span class="italic">"Selaras Bermakna Nyata"</span>.
+                        Periode 2025/2026 Kabinet Aksa Sinergi <span class="italic">"Bersinergi dalam Satu Aksi"</span>.
                     </p>
                     <div class="flex gap-2">
                         <img src="{{ asset('img/logo/logo-bemkm-transparan.png') }}" class="h-12 w-12 object-contain"

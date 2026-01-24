@@ -25,7 +25,7 @@ class PartnershipSeeder extends Seeder
             ],
             [
                 'kategori' => 'Sponsorship',
-                'deskripsi' => 'Kerja Sama Konkret merupakan kegiatan menjalin kerja sama kolaborasi, sponsorship secara profesional dengan mitra yang relevan dengan BEM-KM UDINUS.',
+                'deskripsi' => 'Kerja Sponsorship merupakan kegiatan menjalin kerja sama kolaborasi, sponsorship secara profesional dengan mitra yang relevan dengan BEM-KM UDINUS.',
                 'link_pendaftaran' => null,
                 'use_link' => false,
                 'created_at' => now(),

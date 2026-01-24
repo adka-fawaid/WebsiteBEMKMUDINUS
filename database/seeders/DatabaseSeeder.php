@@ -19,6 +19,8 @@ class DatabaseSeeder extends Seeder
                 KabinetSeeder::class,
                 VisiSeeder::class,
                 MisiSeeder::class,
+                MaknaWarnaSeeder::class,
+                MaknaSimbolSeeder::class,
                 UnitOrganisasiSeeder::class,
                 ProgramKerjaSeeder::class,
                 KontakSeeder::class,

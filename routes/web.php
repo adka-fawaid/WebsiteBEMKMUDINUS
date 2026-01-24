@@ -56,7 +56,7 @@ require __DIR__ . '/admin.php';
 * GUEST ROUTES
 */
 // BERANDA
-Route::get('/', [BerandaController::class, 'index']);
+Route::get('/', [BerandaController::class, 'index'])->name('guest.beranda.index');
 
 // PROFIL
 Route::prefix('profil')->group(function () {
@@ -77,7 +77,12 @@ Route::get('/kegiatan', [KegiatanController::class, 'index'])->name('guest.kegia
 Route::get('/berita', [BeritaController::class, 'index'])->name('guest.berita.index');
 
 // PARTNERSHIP
-Route::get('/partnership', [PartnershipController::class, 'index'])->name('guest.partnership.index');
+Route::prefix('partnership')->group(function () {
+    Route::get('/', [PartnershipController::class, 'index'])->name('guest.partnership.index');
+    Route::get('/media-partner', [PartnershipController::class, 'mediaPartner'])->name('guest.partnership.media-partner.index');
+    Route::get('/media-partner/prosedur', [PartnershipController::class, 'prosedurMediaPartner'])->name('guest.partnership.media-partner.prosedur.index');
+    Route::get('/prosedur', [PartnershipController::class, 'prosedur'])->name('guest.partnership.prosedur.index');
+});
 
 // KONTAK
 Route::get('/kontak', [KontakController::class, 'index'])->name('guest.kontak.index');
