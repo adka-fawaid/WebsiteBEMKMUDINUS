@@ -2,24 +2,27 @@
 
 namespace App\Http\Controllers\Guest;
 
-use App\Http\Controllers\Controller;
-use App\Models\MaknaSimbol;
+use App\Models\Kabinet;
 use App\Models\MaknaWarna;
-use App\Models\PresidenMahasiswa;
+use App\Models\MaknaSimbol;
 use Illuminate\Http\Request;
+use App\Models\PresidenMahasiswa;
+use App\Http\Controllers\Controller;
 
 class BerandaController extends Controller
 {
     public function index()
     {
+        $kabinet = Kabinet::first();
         $sambutan = PresidenMahasiswa::latest()->first();
-        $maknaSimbol = MaknaSimbol::all();
-        $maknaWarna = MaknaWarna::all();
+        $maknaSimbolList = MaknaSimbol::all();
+        $maknaWarnaList = MaknaWarna::all();
 
         return view('guest.beranda.index', compact(
+            'kabinet',
             'sambutan',
-            'maknaSimbol',
-            'maknaWarna'
+            'maknaSimbolList',
+            'maknaWarnaList'
         ));
     }
 }

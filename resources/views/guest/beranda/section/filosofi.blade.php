@@ -16,7 +16,7 @@
                 Kabinet</span>
             <h2
                 class="font-bold bg-gradient-to-r from-blue-700 via-blue-800 to-orange-500 bg-clip-text text-transparent text-3xl md:text-4xl lg:text-5xl mb-4">
-                KABINET AKSA SINERGI
+                KABINET {{ $kabinet->nama }}
             </h2>
             <div class="w-24 h-1 bg-gradient-to-r from-blue-500 to-orange-500 rounded-full mx-auto"></div>
         </div>
@@ -30,156 +30,143 @@
                     <h3
                         class="font-bold text-center lg:text-left mb-4 text-gray-800 text-xl md:text-2xl flex items-center gap-3">
                         <span class="w-1 h-8 bg-gradient-to-b from-blue-500 to-blue-700 rounded-full"></span>
-                        MAKNA LOGO
+                        MAKNA SIMBOL
                     </h3>
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                        <!-- Card 1: Merah Bata -->
-                        <div
-                            class="group bg-white rounded-xl p-3 md:p-4 border border-gray-200 hover:border-red-300 hover:shadow-xl hover:shadow-red-500/10 transition-all duration-300 hover:transform hover:scale-105 relative overflow-hidden">
-                            <div
-                                class="absolute top-0 left-0 w-1 h-full bg-gradient-to-b from-red-500 to-red-700 transform scale-y-0 group-hover:scale-y-100 transition-transform duration-300 origin-top">
-                            </div>
-                            <div class="flex items-center gap-3">
-                                <div
-                                    class="w-10 h-10 rounded-lg bg-gradient-to-br from-red-500 to-red-700 flex items-center justify-center flex-shrink-0 shadow-lg shadow-red-500/30">
-                                    <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 20 20">
-                                        <path
-                                            d="M10 2a8 8 0 100 16 8 8 0 000-16zM9 9a1 1 0 012 0v4a1 1 0 01-2 0V9zm1-5a1 1 0 100 2 1 1 0 000-2z" />
-                                    </svg>
-                                </div>
-                                <div class="flex-1">
-                                    <h6 class="font-bold text-red-700 mb-2 text-base md:text-lg">Merah Bata</h6>
-                                    <p class="mb-0 text-gray-600 text-sm md:text-base leading-relaxed">
-                                        Melambangkan semangat juang mahasiswa UDINUS dalam membawa perubahan.
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
+                        @php
+                            $simbolColors = [
+                                [
+                                    'name' => 'red',
+                                    'from' => 'from-red-500',
+                                    'to' => 'to-red-700',
+                                    'border' => 'hover:border-red-300',
+                                    'shadow' => 'hover:shadow-red-500/10',
+                                    'text' => 'text-red-700',
+                                    'shadowIcon' => 'shadow-red-500/30',
+                                ],
+                                [
+                                    'name' => 'blue',
+                                    'from' => 'from-blue-500',
+                                    'to' => 'to-blue-700',
+                                    'border' => 'hover:border-blue-300',
+                                    'shadow' => 'hover:shadow-blue-500/10',
+                                    'text' => 'text-blue-700',
+                                    'shadowIcon' => 'shadow-blue-500/30',
+                                ],
+                                [
+                                    'name' => 'orange',
+                                    'from' => 'from-orange-500',
+                                    'to' => 'to-orange-600',
+                                    'border' => 'hover:border-orange-300',
+                                    'shadow' => 'hover:shadow-orange-500/10',
+                                    'text' => 'text-orange-600',
+                                    'shadowIcon' => 'shadow-orange-500/30',
+                                ],
+                                [
+                                    'name' => 'yellow',
+                                    'from' => 'from-yellow-500',
+                                    'to' => 'to-yellow-600',
+                                    'border' => 'hover:border-yellow-300',
+                                    'shadow' => 'hover:shadow-yellow-500/10',
+                                    'text' => 'text-yellow-600',
+                                    'shadowIcon' => 'shadow-yellow-500/30',
+                                ],
+                                [
+                                    'name' => 'purple',
+                                    'from' => 'from-purple-500',
+                                    'to' => 'to-purple-700',
+                                    'border' => 'hover:border-purple-300',
+                                    'shadow' => 'hover:shadow-purple-500/10',
+                                    'text' => 'text-purple-700',
+                                    'shadowIcon' => 'shadow-purple-500/30',
+                                ],
+                                [
+                                    'name' => 'green',
+                                    'from' => 'from-green-500',
+                                    'to' => 'to-green-700',
+                                    'border' => 'hover:border-green-300',
+                                    'shadow' => 'hover:shadow-green-500/10',
+                                    'text' => 'text-green-700',
+                                    'shadowIcon' => 'shadow-green-500/30',
+                                ],
+                            ];
+                        @endphp
 
-                        <!-- Card 2: Biru Tua -->
-                        <div
-                            class="group bg-white rounded-xl p-3 md:p-4 border border-gray-200 hover:border-blue-300 hover:shadow-xl hover:shadow-blue-500/10 transition-all duration-300 hover:transform hover:scale-105 relative overflow-hidden">
+                        @foreach ($maknaSimbolList as $index => $simbol)
+                            @php
+                                $color = $simbolColors[$index % count($simbolColors)];
+                            @endphp
                             <div
-                                class="absolute top-0 left-0 w-1 h-full bg-gradient-to-b from-blue-500 to-blue-700 transform scale-y-0 group-hover:scale-y-100 transition-transform duration-300 origin-top">
-                            </div>
-                            <div class="flex items-center gap-3">
+                                class="group bg-white rounded-xl p-3 md:p-4 border border-gray-200 {{ $color['border'] }} hover:shadow-xl {{ $color['shadow'] }} transition-all duration-300 hover:transform hover:scale-105 relative overflow-hidden">
                                 <div
-                                    class="w-10 h-10 rounded-lg bg-gradient-to-br from-blue-500 to-blue-700 flex items-center justify-center flex-shrink-0 shadow-lg shadow-blue-500/30">
-                                    <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 20 20">
-                                        <path
-                                            d="M10 2a8 8 0 100 16 8 8 0 000-16zM9 9a1 1 0 012 0v4a1 1 0 01-2 0V9zm1-5a1 1 0 100 2 1 1 0 000-2z" />
-                                    </svg>
+                                    class="absolute top-0 left-0 w-1 h-full bg-gradient-to-b {{ $color['from'] }} {{ $color['to'] }} transform scale-y-0 group-hover:scale-y-100 transition-transform duration-300 origin-top">
                                 </div>
-                                <div class="flex-1">
-                                    <h6 class="font-bold text-blue-700 mb-2 text-base md:text-lg">Biru Tua</h6>
-                                    <p class="mb-0 text-gray-600 text-sm md:text-base leading-relaxed">
-                                        Melambangkan keteguhan, intelektualitas, dan kebijaksanaan.
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Card 3: Orange -->
-                        <div
-                            class="group bg-white rounded-xl p-3 md:p-4 border border-gray-200 hover:border-orange-300 hover:shadow-xl hover:shadow-orange-500/10 transition-all duration-300 hover:transform hover:scale-105 relative overflow-hidden">
-                            <div
-                                class="absolute top-0 left-0 w-1 h-full bg-gradient-to-b from-orange-500 to-orange-700 transform scale-y-0 group-hover:scale-y-100 transition-transform duration-300 origin-top">
-                            </div>
-                            <div class="flex items-center gap-3">
-                                <div
-                                    class="w-10 h-10 rounded-lg bg-gradient-to-br from-orange-500 to-orange-600 flex items-center justify-center flex-shrink-0 shadow-lg shadow-orange-500/30">
-                                    <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 20 20">
-                                        <path
-                                            d="M10 2a8 8 0 100 16 8 8 0 000-16zM9 9a1 1 0 012 0v4a1 1 0 01-2 0V9zm1-5a1 1 0 100 2 1 1 0 000-2z" />
-                                    </svg>
-                                </div>
-                                <div class="flex-1">
-                                    <h6 class="font-bold text-orange-600 mb-2 text-base md:text-lg">Orange</h6>
-                                    <p class="mb-0 text-gray-600 text-sm md:text-base leading-relaxed">
-                                        Melambangkan energi, kreativitas, dan antusiasme dalam setiap aksi.
-                                    </p>
+                                <div class="flex items-center gap-3">
+                                    <div class="flex-1">
+                                        <h6 class="font-bold {{ $color['text'] }} mb-2 text-base md:text-lg">
+                                            {{ $simbol->simbol }}</h6>
+                                        <p class="mb-0 text-gray-600 text-sm md:text-base leading-relaxed">
+                                            {{ Str::limit($simbol->makna, 70) }}
+                                        </p>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-
-                        <!-- Card 4: Kuning -->
-                        <div
-                            class="group bg-white rounded-xl p-3 md:p-4 border border-gray-200 hover:border-yellow-300 hover:shadow-xl hover:shadow-yellow-500/10 transition-all duration-300 hover:transform hover:scale-105 relative overflow-hidden">
-                            <div
-                                class="absolute top-0 left-0 w-1 h-full bg-gradient-to-b from-yellow-500 to-yellow-600 transform scale-y-0 group-hover:scale-y-100 transition-transform duration-300 origin-top">
-                            </div>
-                            <div class="flex items-center gap-3">
-                                <div
-                                    class="w-10 h-10 rounded-lg bg-gradient-to-br from-yellow-500 to-yellow-600 flex items-center justify-center flex-shrink-0 shadow-lg shadow-yellow-500/30">
-                                    <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 20 20">
-                                        <path
-                                            d="M10 2a8 8 0 100 16 8 8 0 000-16zM9 9a1 1 0 012 0v4a1 1 0 01-2 0V9zm1-5a1 1 0 100 2 1 1 0 000-2z" />
-                                    </svg>
-                                </div>
-                                <div class="flex-1">
-                                    <h6 class="font-bold text-yellow-600 mb-2 text-base md:text-lg">Kuning</h6>
-                                    <p class="mb-0 text-gray-600 text-sm md:text-base leading-relaxed">
-                                        Melambangkan optimisme, harapan, dan semangat inovasi.
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
+                        @endforeach
                     </div>
                 </div>
 
-                {{-- FILOSOFI WARNA --}}
+                {{-- MAKNA WARNA --}}
                 <div>
                     <h3
                         class="font-bold text-center lg:text-left mb-4 text-gray-800 text-xl md:text-2xl flex items-center gap-3">
                         <span class="w-1 h-8 bg-gradient-to-b from-orange-500 to-orange-700 rounded-full"></span>
-                        FILOSOFI WARNA
+                        MAKNA WARNA
                     </h3>
                     <div class="space-y-3">
-                        <div
-                            class="group bg-white rounded-xl p-3 md:p-4 border border-gray-200 hover:border-blue-300 hover:shadow-xl hover:shadow-blue-500/10 transition-all duration-300 hover:transform hover:scale-105 relative overflow-hidden">
-                            <div
-                                class="absolute top-0 left-0 w-1 h-full bg-gradient-to-b from-blue-500 to-blue-700 transform scale-y-0 group-hover:scale-y-100 transition-transform duration-300 origin-top">
-                            </div>
-                            <div class="flex items-center gap-3">
-                                <div
-                                    class="w-10 h-10 rounded-lg bg-gradient-to-br from-blue-500 to-blue-700 flex items-center justify-center flex-shrink-0 shadow-lg shadow-blue-500/30">
-                                    <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 20 20">
-                                        <path fill-rule="evenodd"
-                                            d="M12 7a1 1 0 110-2h5a1 1 0 011 1v5a1 1 0 11-2 0V8.414l-4.293 4.293a1 1 0 01-1.414 0L8 10.414l-4.293 4.293a1 1 0 01-1.414-1.414l5-5a1 1 0 011.414 0L11 10.586 14.586 7H12z"
-                                            clip-rule="evenodd"></path>
-                                    </svg>
-                                </div>
-                                <div class="flex-1">
-                                    <h6 class="font-bold text-blue-700 mb-2 text-base md:text-lg">Biru Tua</h6>
-                                    <p class="mb-0 text-gray-600 text-sm md:text-base leading-relaxed">
-                                        Melambangkan kepercayaan, stabilitas, dan dedikasi dalam pengabdian mahasiswa.
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
+                        @php
+                            $warnaColors = [
+                                [
+                                    'from' => 'from-blue-700',
+                                    'to' => 'to-indigo-900',
+                                    'border' => 'hover:border-blue-300',
+                                    'shadow' => 'hover:shadow-blue-500/10',
+                                    'text' => 'text-blue-700',
+                                    'shadowBox' => 'shadow-blue-500/30',
+                                ],
+                                [
+                                    'from' => 'from-orange-500',
+                                    'to' => 'to-amber-600',
+                                    'border' => 'hover:border-orange-300',
+                                    'shadow' => 'hover:shadow-orange-500/10',
+                                    'text' => 'text-orange-600',
+                                    'shadowBox' => 'shadow-orange-500/30',
+                                ],
+                            ];
+                        @endphp
 
-                        <div
-                            class="group bg-white rounded-xl p-3 md:p-4 border border-gray-200 hover:border-orange-300 hover:shadow-xl hover:shadow-orange-500/10 transition-all duration-300 hover:transform hover:scale-105 relative overflow-hidden">
+                        @foreach ($maknaWarnaList as $warnaIndex => $warna)
+                            @php
+                                $color = $warnaColors[$warnaIndex % count($warnaColors)];
+                            @endphp
                             <div
-                                class="absolute top-0 left-0 w-1 h-full bg-gradient-to-b from-orange-500 to-orange-700 transform scale-y-0 group-hover:scale-y-100 transition-transform duration-300 origin-top">
-                            </div>
-                            <div class="flex items-center gap-3">
+                                class="group bg-white rounded-xl p-3 md:p-4 border border-gray-200 {{ $color['border'] }} hover:shadow-xl {{ $color['shadow'] }} transition-all duration-300 hover:transform hover:scale-105 relative overflow-hidden">
                                 <div
-                                    class="w-10 h-10 rounded-lg bg-gradient-to-br from-orange-500 to-orange-600 flex items-center justify-center flex-shrink-0 shadow-lg shadow-orange-500/30">
-                                    <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 20 20">
-                                        <path fill-rule="evenodd"
-                                            d="M11.3 1.046A1 1 0 0112 2v5h4a1 1 0 01.82 1.573l-7 10A1 1 0 018 18v-5H4a1 1 0 01-.82-1.573l7-10a1 1 0 011.12-.38z"
-                                            clip-rule="evenodd"></path>
-                                    </svg>
+                                    class="absolute top-0 left-0 w-1 h-full bg-gradient-to-b {{ $color['from'] }} {{ $color['to'] }} transform scale-y-0 group-hover:scale-y-100 transition-transform duration-300 origin-top">
                                 </div>
-                                <div class="flex-1">
-                                    <h6 class="font-bold text-orange-600 mb-2 text-base md:text-lg">Orange</h6>
-                                    <p class="mb-0 text-gray-600 text-sm md:text-base leading-relaxed">
-                                        Melambangkan semangat kolaborasi, inovasi, dan keberanian untuk berubah.
-                                    </p>
+                                <div class="flex items-center gap-3">
+                                    <div
+                                        class="shrink-0 w-12 h-12 bg-gradient-to-br {{ $color['from'] }} {{ $color['to'] }} rounded-xl shadow-lg {{ $color['shadowBox'] }} group-hover:scale-110 transition-all duration-300">
+                                    </div>
+                                    <div class="flex-1">
+                                        <h6 class="font-bold {{ $color['text'] }} mb-2 text-base md:text-lg">
+                                            {{ $warna->warna }}</h6>
+                                        <p class="mb-0 text-gray-600 text-sm md:text-base leading-relaxed">
+                                            {{ Str::limit($warna->makna, 100) }}
+                                        </p>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
+                        @endforeach
                     </div>
                 </div>
             </div>
@@ -190,7 +177,7 @@
                     <!-- Main Logo Container -->
                     <div
                         class="bg-gradient-to-br from-white to-blue-50 rounded-3xl p-10 md:p-14 w-full max-w-md shadow-2xl shadow-blue-500/10 border border-gray-200 transform transition-all duration-500 hover:scale-105 hover:shadow-3xl hover:shadow-blue-500/20 relative z-10">
-                        <img src="{{ asset('assets/images/logo aksa sinergi.png') }}"
+                        <img src="{{ asset('storage/img/kabinet/' . $kabinet->logo) }}"
                             class="w-full h-auto transform transition-transform duration-500 group-hover:scale-105"
                             alt="Logo Aksa Sinergi">
                     </div>

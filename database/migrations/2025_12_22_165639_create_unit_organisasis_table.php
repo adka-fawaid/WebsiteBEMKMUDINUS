@@ -14,7 +14,14 @@ return new class extends Migration
         Schema::create('unit_organisasis', function (Blueprint $table) {
             $table->id();
             $table->string('nama');
-            $table->enum('kategori', ['Badan Pengurus Harian', 'Biro', 'Kementerian']);
+            $table->enum('kategori', [
+                'Presiden Mahasiswa',
+                'Wakil Presiden Mahasiswa',
+                'Sekretaris Jenderal',
+                'Biro',
+                'Kementerian Koordinator',
+                'Kementerian'
+            ]);
             $table->longText('deskripsi')->nullable();
             $table->string('logo')->nullable();
             $table->timestamps();

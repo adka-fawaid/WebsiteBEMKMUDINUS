@@ -18,7 +18,18 @@ return new class extends Migration
             $table->string('nim');
             $table->string('program_studi');
             $table->year('angkatan');
-            $table->string('jabatan');
+            $table->enum('jabatan', [
+                'Presiden Mahasiswa',
+                'Wakil Presiden Mahasiswa',
+                'Sekretaris Jenderal',
+                'Kepala',
+                'Menteri Koordinator',
+                'Menteri',
+                'Sekretaris',
+                'Ketua Bidang',
+                'Staff Ahli',
+                'Eksekutif Muda',
+            ]);
             $table->string('foto')->nullable();
             $table->timestamps();
         });
