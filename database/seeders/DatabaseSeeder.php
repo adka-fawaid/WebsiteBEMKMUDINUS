@@ -22,6 +22,7 @@ class DatabaseSeeder extends Seeder
                 MaknaWarnaSeeder::class,
                 MaknaSimbolSeeder::class,
                 UnitOrganisasiSeeder::class,
+                AnggotaUnitSeeder::class,
                 ProgramKerjaSeeder::class,
                 KontakSeeder::class,
                 PartnershipSeeder::class,

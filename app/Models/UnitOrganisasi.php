@@ -21,10 +21,4 @@ class UnitOrganisasi extends Model
     {
         return $this->hasMany(AnggotaUnit::class);
     }
-
-    // Define relationship to BeritaKajian
-    public function beritaKajian()
-    {
-        return $this->hasMany(BeritaKajian::class);
-    }
 }

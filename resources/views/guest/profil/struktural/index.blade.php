@@ -17,8 +17,8 @@
                     Struktural Kabinet BEM KM UDINUS
                 </h2>
                 <div class="w-24 h-1 bg-gradient-to-r from-blue-500 to-orange-500 rounded-full mx-auto mb-4"></div>
-                <p class="text-gray-600 text-sm md:text-base max-w-2xl mx-auto">
-                    Mengenal lebih dekat pengurus dan anggota Kabinet BEM KM UDINUS
+                <p class="text-gray-600 text-sm md:text-base max-w-2xl mx-auto inline">
+                    Mengenal lebih dekat struktur organisasi Kabinet Aksa Sinergi BEM KM UDINUS Periode 2025/2026
                 </p>
             </div>
 
