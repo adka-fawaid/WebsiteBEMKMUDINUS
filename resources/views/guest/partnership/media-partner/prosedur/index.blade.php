@@ -9,12 +9,12 @@
         <div class="container mx-auto px-4 md:px-8 relative z-10">
             <!-- Hero Section -->
             <div class="text-center mb-16 mt-12">
-                <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-3">
+                <h1 class="font-bold text-3xl md:text-4xl lg:text-5xl mb-4">
                     <span class="bg-gradient-to-r from-blue-600 to-orange-500 bg-clip-text text-transparent">Prosedur Media Partner</span>
                 </h1>
                 <div class="w-24 h-1 bg-gradient-to-r from-blue-600 to-orange-500 rounded-full mx-auto mb-4"></div>
                 
-                <p class="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+                <p class="text-sm md:text-base text-gray-600 max-w-3xl mx-auto leading-relaxed">
                     Ikuti langkah-langkah berikut untuk menjadi media partner resmi BEM KM UDINUS dan berkontribusi dalam setiap kegiatan kami.
                 </p>
             </div>
