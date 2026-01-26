@@ -8,9 +8,28 @@ use Illuminate\Http\Request;
 
 class BeritaController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        return view('guest.berita.index');
+        $query = Berita::query();
+
+        // Search
+        if ($request->filled('search')) {
+            $search = $request->search;
+            $query->where(function ($q) use ($search) {
+                $q->where('judul', 'like', '%' . $search . '%')
+                    ->orWhere('deskripsi', 'like', '%' . $search . '%');
+            });
+        }
+
+        // Filter by kategori
+        if ($request->filled('kategori')) {
+            $query->where('kategori', $request->kategori);
+        }
+
+        $beritas = $query->latest()->get();
+        $kategoris = Berita::select('kategori')->distinct()->pluck('kategori');
+
+        return view('guest.berita.index', compact('beritas', 'kategoris'));
     }
 
     public function detail($slug)
