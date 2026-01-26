@@ -13,9 +13,7 @@
 
         <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl relative z-10">
             <!-- Section Header -->
-            <div class="text-center mb-5 md:mb-16">
-                <span class="inline-block text-orange-500 font-semibold text-lg uppercase tracking-wider mb-3">Hubungi
-                    Kami</span>
+            <div class="text-center mt-4 mb-5 md:mb-16">
                 <h2
                     class="font-bold bg-gradient-to-r from-blue-700 via-blue-800 to-orange-500 bg-clip-text text-transparent text-3xl md:text-4xl lg:text-5xl mb-4">
                     Kontak BEM KM UDINUS
@@ -95,14 +93,16 @@
                             </h3>
 
                             <!-- Divider -->
-                            <div class="w-16 h-0.5 rounded-full mb-2
+                            <div
+                                class="w-16 h-0.5 rounded-full mb-2
                                 @if ($kontak->tipe === 'Telepon') bg-green-500
                                 @elseif($kontak->tipe === 'Email') bg-red-500
                                 @elseif($kontak->tipe === 'Instagram') bg-pink-500
                                 @elseif($kontak->tipe === 'TikTok') bg-gray-800
                                 @elseif($kontak->tipe === 'YouTube') bg-red-600
                                 @elseif($kontak->tipe === 'LinkedIn') bg-blue-600
-                                @else bg-blue-500 @endif"></div>
+                                @else bg-blue-500 @endif">
+                            </div>
 
                             <!-- Contact Info -->
                             <p class="text-gray-600 text-sm md:text-base font-medium mb-3s">
