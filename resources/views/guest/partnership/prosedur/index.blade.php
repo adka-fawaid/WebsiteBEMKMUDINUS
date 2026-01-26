@@ -4,23 +4,14 @@
     <div class="bg-gradient-to-br from-blue-50 via-white to-indigo-50 py-16 min-h-screen">
         <div class="container mx-auto px-4 md:px-8">
             <!-- Header -->
-            <div class="text-center mb-6 mt-12">
-                <div class="flex items-center justify-center gap-4 mb-4">
-                    <div class="p-3 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-2xl shadow-lg flex-shrink-0">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none"
-                            stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
-                            <polyline points="14 2 14 8 20 8" />
-                            <line x1="16" y1="13" x2="8" y2="13" />
-                            <line x1="16" y1="17" x2="8" y2="17" />
-                            <polyline points="10 9 9 9 8 9" />
-                        </svg>
-                    </div>
-                    <h1 class="text-4xl md:text-5xl font-bold text-gray-900">
-                        Prosedur <span class="text-blue-600">Media Partner</span>
-                    </h1>
-                </div>
-                <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+            <div class="text-center mt-5 mb-8 md:mb-12">
+                <h1 class="font-bold text-3xl md:text-4xl lg:text-5xl mb-4">
+                    <span class="bg-gradient-to-r from-blue-700 via-blue-800 to-orange-500 bg-clip-text text-transparent box-decoration-clone inline">
+                        Prosedur Media Partner
+                    </span>
+                </h1>
+                <div class="w-24 h-1 bg-gradient-to-r from-blue-500 to-orange-500 rounded-full mx-auto mb-4"></div>
+                <p class="text-gray-600 text-sm md:text-base max-w-2xl mx-auto">
                     Ikuti langkah-langkah berikut untuk mengajukan kemitraan media dengan BEM-KM UDINUS
                 </p>
             </div>

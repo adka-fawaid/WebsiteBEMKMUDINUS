@@ -9,11 +9,10 @@
         <div class="container mx-auto px-4 md:px-8 relative z-10">
             <!-- Hero Section -->
             <div class="text-center mb-16 mt-12">
-                <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-4">
-                    Prosedur <span class="bg-gradient-to-r from-blue-600 to-orange-500 bg-clip-text text-transparent">Media Partner</span>
+                <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-3">
+                    <span class="bg-gradient-to-r from-blue-600 to-orange-500 bg-clip-text text-transparent">Prosedur Media Partner</span>
                 </h1>
-                
-                <div class="w-24 h-1 bg-gradient-to-r from-blue-600 to-orange-500 rounded-full mx-auto mb-6"></div>
+                <div class="w-24 h-1 bg-gradient-to-r from-blue-600 to-orange-500 rounded-full mx-auto mb-4"></div>
                 
                 <p class="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
                     Ikuti langkah-langkah berikut untuk menjadi media partner resmi BEM KM UDINUS dan berkontribusi dalam setiap kegiatan kami.
@@ -183,7 +182,7 @@
                 </div>
 
                 <!-- CTA Section -->
-                <div class="bg-gradient-to-br from-blue-600 via-blue-700 to-indigo-600 rounded-3xl p-7 md:p-10 text-center shadow-2xl relative overflow-hidden mt-15">
+                <div class="bg-gradient-to-br from-blue-600 via-blue-700 to-indigo-600 rounded-3xl p-7 md:p-10  text-center shadow-2xl relative overflow-hidden mt-15">
                     <!-- Decorative elements -->
                     <div class="absolute top-0 right-0 w-40 h-40 bg-white/10 rounded-full blur-2xl -mr-20 -mt-20"></div>
                     <div class="absolute bottom-0 left-0 w-40 h-40 bg-white/10 rounded-full blur-2xl -ml-20 -mb-20"></div>

@@ -5,11 +5,14 @@
         <div class="container mx-auto px-4 md:px-8 max-w-7xl">
             
             <!-- Header Section -->
-            <div class="text-center mb-16">
-                <h1 class="text-5xl md:text-6xl font-black text-gray-900 mb-4 tracking-tight mt-8">
-                    Media <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600">Partner</span>
+            <div class="text-center mt-5 mb-8 md:mb-12">
+                <h1 class="font-bold text-3xl md:text-4xl lg:text-5xl mb-4">
+                    <span class="bg-gradient-to-r from-blue-700 via-blue-800 to-orange-500 bg-clip-text text-transparent box-decoration-clone inline">
+                        Media Partner
+                    </span>
                 </h1>
-                <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+                <div class="w-24 h-1 bg-gradient-to-r from-blue-500 to-orange-500 rounded-full mx-auto mb-4"></div>
+                <p class="text-gray-600 text-sm md:text-base max-w-2xl mx-auto">
                     Pilih paket yang sesuai dengan kebutuhan publikasi acara Anda
                 </p>
             </div>

@@ -4,11 +4,14 @@
     <div class="bg-gradient-to-b from-blue-50 to-white py-16">
         <div class="container mx-auto px-4 md:px-8">
             <!-- Header -->
-            <div class="text-center mb-6 pt-8">
-                <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mt-4 mb-4">
-                    Kategori <span class="text-blue-600">Partnership</span>
+            <div class="text-center mt-4 mb-8 md:mb-12 pt-10">
+                <h1 class="font-bold text-3xl md:text-4xl lg:text-5xl mb-4">
+                    <span class="bg-gradient-to-r from-blue-700 via-blue-800 to-orange-500 bg-clip-text text-transparent box-decoration-clone inline">
+                        Kategori Partnership
+                    </span>
                 </h1>
-                <p class="text-lg text-gray-600">
+                <div class="w-24 h-1 bg-gradient-to-r from-blue-500 to-orange-500 rounded-full mx-auto mb-4"></div>
+                <p class="text-gray-600 text-sm md:text-base max-w-2xl mx-auto">
                     Berbagai pilihan kerja sama dengan BEM KM UDINUS
                 </p>
             </div>
