@@ -95,19 +95,36 @@
                         @foreach ($maknaSimbolList as $index => $simbol)
                             @php
                                 $color = $simbolColors[$index % count($simbolColors)];
+                                $isLong = strlen($simbol->makna) > 70;
                             @endphp
                             <div
                                 class="group bg-white rounded-xl p-3 md:p-4 border border-gray-200 {{ $color['border'] }} hover:shadow-xl {{ $color['shadow'] }} transition-all duration-300 hover:transform hover:scale-105 relative overflow-hidden">
                                 <div
                                     class="absolute top-0 left-0 w-1 h-full bg-gradient-to-b {{ $color['from'] }} {{ $color['to'] }} transform scale-y-0 group-hover:scale-y-100 transition-transform duration-300 origin-top">
                                 </div>
-                                <div class="flex items-center gap-3">
+                                <div class="flex items-start gap-3">
                                     <div class="flex-1">
                                         <h6 class="font-bold {{ $color['text'] }} mb-2 text-base md:text-lg">
                                             {{ $simbol->simbol }}</h6>
-                                        <p class="mb-0 text-gray-600 text-sm md:text-base leading-relaxed">
-                                            {{ Str::limit($simbol->makna, 70) }}
-                                        </p>
+                                        <div class="simbol-content-{{ $index }}">
+                                            <p class="mb-0 text-gray-600 text-sm md:text-base leading-relaxed">
+                                                <span class="short-text">{{ Str::limit($simbol->makna, 70) }}</span>
+                                                @if ($isLong)
+                                                    <span class="full-text hidden">{{ $simbol->makna }}</span>
+                                                @endif
+                                            </p>
+                                            @if ($isLong)
+                                                <button onclick="toggleSimbol({{ $index }})"
+                                                    class="mt-2 text-xs font-semibold {{ $color['text'] }} hover:underline focus:outline-none flex items-center gap-1 transition-all">
+                                                    <span class="toggle-text">Selengkapnya</span>
+                                                    <svg class="w-3 h-3 toggle-icon transition-transform" fill="none"
+                                                        stroke="currentColor" viewBox="0 0 24 24">
+                                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                                            stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                                                    </svg>
+                                                </button>
+                                            @endif
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -147,22 +164,39 @@
                         @foreach ($maknaWarnaList as $warnaIndex => $warna)
                             @php
                                 $color = $warnaColors[$warnaIndex % count($warnaColors)];
+                                $isLong = strlen($warna->makna) > 100;
                             @endphp
                             <div
                                 class="group bg-white rounded-xl p-3 md:p-4 border border-gray-200 {{ $color['border'] }} hover:shadow-xl {{ $color['shadow'] }} transition-all duration-300 hover:transform hover:scale-105 relative overflow-hidden">
                                 <div
                                     class="absolute top-0 left-0 w-1 h-full bg-gradient-to-b {{ $color['from'] }} {{ $color['to'] }} transform scale-y-0 group-hover:scale-y-100 transition-transform duration-300 origin-top">
                                 </div>
-                                <div class="flex items-center gap-3">
+                                <div class="flex items-start gap-3">
                                     <div
                                         class="shrink-0 w-12 h-12 bg-gradient-to-br {{ $color['from'] }} {{ $color['to'] }} rounded-xl shadow-lg {{ $color['shadowBox'] }} group-hover:scale-110 transition-all duration-300">
                                     </div>
                                     <div class="flex-1">
                                         <h6 class="font-bold {{ $color['text'] }} mb-2 text-base md:text-lg">
                                             {{ $warna->warna }}</h6>
-                                        <p class="mb-0 text-gray-600 text-sm md:text-base leading-relaxed">
-                                            {{ Str::limit($warna->makna, 100) }}
-                                        </p>
+                                        <div class="warna-content-{{ $warnaIndex }}">
+                                            <p class="mb-0 text-gray-600 text-sm md:text-base leading-relaxed">
+                                                <span class="short-text">{{ Str::limit($warna->makna, 100) }}</span>
+                                                @if ($isLong)
+                                                    <span class="full-text hidden">{{ $warna->makna }}</span>
+                                                @endif
+                                            </p>
+                                            @if ($isLong)
+                                                <button onclick="toggleWarna({{ $warnaIndex }})"
+                                                    class="mt-2 text-xs font-semibold {{ $color['text'] }} hover:underline focus:outline-none flex items-center gap-1 transition-all">
+                                                    <span class="toggle-text">Selengkapnya</span>
+                                                    <svg class="w-3 h-3 toggle-icon transition-transform" fill="none"
+                                                        stroke="currentColor" viewBox="0 0 24 24">
+                                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                                            stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                                                    </svg>
+                                                </button>
+                                            @endif
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -204,4 +238,47 @@
             <div class="flex-1 h-px bg-gradient-to-l from-transparent to-blue-500 max-w-xs"></div>
         </div>
     </div>
+
+    <!-- Toggle Script -->
+    <script>
+        function toggleSimbol(index) {
+            const container = document.querySelector(`.simbol-content-${index}`);
+            const shortText = container.querySelector('.short-text');
+            const fullText = container.querySelector('.full-text');
+            const toggleText = container.querySelector('.toggle-text');
+            const toggleIcon = container.querySelector('.toggle-icon');
+
+            if (fullText.classList.contains('hidden')) {
+                shortText.classList.add('hidden');
+                fullText.classList.remove('hidden');
+                toggleText.textContent = 'Sembunyikan';
+                toggleIcon.style.transform = 'rotate(180deg)';
+            } else {
+                shortText.classList.remove('hidden');
+                fullText.classList.add('hidden');
+                toggleText.textContent = 'Selengkapnya';
+                toggleIcon.style.transform = 'rotate(0deg)';
+            }
+        }
+
+        function toggleWarna(index) {
+            const container = document.querySelector(`.warna-content-${index}`);
+            const shortText = container.querySelector('.short-text');
+            const fullText = container.querySelector('.full-text');
+            const toggleText = container.querySelector('.toggle-text');
+            const toggleIcon = container.querySelector('.toggle-icon');
+
+            if (fullText.classList.contains('hidden')) {
+                shortText.classList.add('hidden');
+                fullText.classList.remove('hidden');
+                toggleText.textContent = 'Sembunyikan';
+                toggleIcon.style.transform = 'rotate(180deg)';
+            } else {
+                shortText.classList.remove('hidden');
+                fullText.classList.add('hidden');
+                toggleText.textContent = 'Selengkapnya';
+                toggleIcon.style.transform = 'rotate(0deg)';
+            }
+        }
+    </script>
 </section>

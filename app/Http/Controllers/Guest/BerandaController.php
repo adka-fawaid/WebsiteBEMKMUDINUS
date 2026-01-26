@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Guest;
 
+use App\Models\Berita;
 use App\Models\Kabinet;
 use App\Models\MaknaWarna;
 use App\Models\MaknaSimbol;
@@ -17,12 +18,14 @@ class BerandaController extends Controller
         $sambutan = PresidenMahasiswa::latest()->first();
         $maknaSimbolList = MaknaSimbol::all();
         $maknaWarnaList = MaknaWarna::all();
+        $beritaTerbaru = Berita::latest()->take(3)->get();
 
         return view('guest.beranda.index', compact(
             'kabinet',
             'sambutan',
             'maknaSimbolList',
-            'maknaWarnaList'
+            'maknaWarnaList',
+            'beritaTerbaru',
         ));
     }
 }

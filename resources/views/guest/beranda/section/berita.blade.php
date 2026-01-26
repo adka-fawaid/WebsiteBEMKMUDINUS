@@ -19,16 +19,15 @@
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
-            {{-- contoh 3 card statis, nanti bisa kamu ganti dinamis --}}
-            @for ($i = 1; $i <= 3; $i++)
+            @forelse ($beritaTerbaru as $berita)
                 <div class="group">
                     <div
                         class="bg-white rounded-2xl overflow-hidden border border-gray-200 shadow-lg hover:shadow-2xl relative transform transition-all duration-500 hover:-translate-y-2">
                         <!-- Image Container -->
-                        <div class="relative overflow-hidden h-48 md:h-56 lg:h-64">
-                            <img src="{{ asset('assets/images/foto_bersama.jpeg') }}"
+                        <div class="relative overflow-hidden aspect-square">
+                            <img src="{{ asset('storage/img/berita/' . $berita->gambar) }}"
                                 class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                                alt="Berita">
+                                alt="{{ $berita->judul }}">
                             <!-- Gradient Overlay -->
                             <div
                                 class="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
@@ -37,35 +36,35 @@
                             <!-- Badge -->
                             <div
                                 class="absolute left-4 top-4 bg-gradient-to-r from-orange-500 to-orange-600 text-white font-bold px-4 py-2.5 rounded-xl leading-tight text-xs shadow-xl shadow-orange-500/50 transform group-hover:scale-110 transition-transform duration-300">
-                                Webinar<br>International
+                                {{ $berita->kategori }}
                             </div>
                         </div>
 
                         <!-- Content -->
-                        <div class="p-5 md:p-6">
+                        <div class="p-4 md:p-5">
                             <h3
-                                class="font-bold text-gray-800 text-base md:text-lg mb-2 group-hover:text-blue-600 transition-colors duration-300">
-                                Webinar International
+                                class="font-bold text-gray-800 text-base md:text-lg mb-2 group-hover:text-blue-600 transition-colors duration-300 line-clamp-2 h-12 md:h-14">
+                                {{ $berita->judul }}
                             </h3>
-                            <div class="flex items-center gap-2 text-gray-500 text-sm mb-4">
-                                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                            <div class="flex items-center gap-2 text-gray-500 text-sm mb-4 h-5">
+                                <svg class="w-4 h-4 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
                                     <path fill-rule="evenodd"
                                         d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z"
                                         clip-rule="evenodd"></path>
                                 </svg>
-                                <span>BEM KM UDINUS</span>
+                                <span class="truncate">{{ $berita->created_at->format('d M Y') }}</span>
                             </div>
 
                             <!-- Read More Button -->
-                            <div
+                            <a href="{{ route('guest.berita.detail', $berita->slug) }}"
                                 class="flex items-center gap-2 text-blue-600 font-semibold text-sm group-hover:gap-3 transition-all duration-300">
                                 <span>Baca Selengkapnya</span>
-                                <svg class="w-4 h-4 transform group-hover:translate-x-1 transition-transform"
+                                <svg class="w-4 h-4 transform group-hover:translate-x-1 transition-transform flex-shrink-0"
                                     fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                         d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
                                 </svg>
-                            </div>
+                            </a>
                         </div>
 
                         <!-- Decorative Border -->
@@ -74,7 +73,19 @@
                         </div>
                     </div>
                 </div>
-            @endfor
+            @empty
+                <div class="col-span-full text-center py-12">
+                    <div class="inline-flex items-center justify-center w-20 h-20 rounded-full bg-gray-100 mb-4">
+                        <svg class="w-10 h-10 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z">
+                            </path>
+                        </svg>
+                    </div>
+                    <h3 class="text-gray-700 font-bold text-lg mb-2">Belum Ada Berita</h3>
+                    <p class="text-gray-500 text-sm">Berita terbaru akan segera hadir</p>
+                </div>
+            @endforelse
         </div>
 
         <!-- View All Button -->

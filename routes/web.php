@@ -74,7 +74,10 @@ Route::prefix('profil')->group(function () {
 Route::get('/kegiatan', [KegiatanController::class, 'index'])->name('guest.kegiatan.index');
 
 // BERITA
-Route::get('/berita', [BeritaController::class, 'index'])->name('guest.berita.index');
+Route::prefix('berita')->group(function () {
+    Route::get('/', [BeritaController::class, 'index'])->name('guest.berita.index');
+    Route::get('/{slug}', [BeritaController::class, 'detail'])->name('guest.berita.detail');
+});
 
 // PARTNERSHIP
 Route::prefix('partnership')->group(function () {
