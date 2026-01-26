@@ -37,7 +37,8 @@
                 @php
                     $isProfilActive =
                         request()->routeIs('guest.profil.kabinet.index') ||
-                        request()->routeIs('guest.profil.struktural.index');
+                        request()->routeIs('guest.profil.struktural.index') ||
+                        request()->routeIs('guest.profil.struktural.detail');
                 @endphp
 
                 <!-- Dropdown Profil -->

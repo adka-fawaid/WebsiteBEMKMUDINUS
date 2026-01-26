@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('slug')->unique();
             $table->string('judul');
-            $table->enum('kategori', ['Berita Acara', 'Berita Kegiatan', 'Press Release', 'Informasi', 'Lain-lain']);
+            $table->enum('kategori', ['Berita Acara', 'Berita Kajian', 'Press Release', 'Informasi', 'Lain-lain']);
             $table->string('gambar')->nullable();
             $table->text('deskripsi');
             $table->string('dokumen')->nullable();

@@ -23,14 +23,11 @@ class DatabaseSeeder extends Seeder
                 MaknaSimbolSeeder::class,
                 UnitOrganisasiSeeder::class,
                 AnggotaUnitSeeder::class,
+                BeritaSeeder::class,
                 ProgramKerjaSeeder::class,
                 KontakSeeder::class,
                 PartnershipSeeder::class,
-                PendaftaranPartnershipSeeder::class,
-                // PressReleaseSeeder::class,
-                // SavePressImagesSeeder::class,
-                // SpotCozyBeritaSeeder::class,
-                // ThreeBeritaSeeder::class,
+                ProsedurPartnershipSeeder::class,
             ]
         );
     }

@@ -98,21 +98,17 @@
                                         class="absolute inset-0 bg-gradient-to-t from-black/60 via-black/25 to-transparent">
                                     </div>
                                     <div class="absolute bottom-0 left-0 right-0 p-6 z-10">
-                                        <div
-                                            class="inline-flex items-center gap-2.5 bg-gradient-to-r from-blue-600/90 to-blue-700/90 backdrop-blur-md px-4 py-2.5 rounded-lg border-2 border-white/40 shadow-2xl hover:shadow-blue-500/50 transform hover:scale-105 transition-all duration-300 cursor-pointer">
-                                            <!-- Lucide: users icon -->
-                                            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor"
-                                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                                                viewBox="0 0 24 24">
-                                                <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
-                                                <circle cx="9" cy="7" r="4" />
-                                                <path d="M22 21v-2a4 4 0 0 0-3-3.87" />
-                                                <path d="M16 3.13a4 4 0 0 1 0 7.75" />
-                                            </svg>
-                                            <div>
-                                                <h3 class="text-white text-xl font-bold drop-shadow-lg leading-tight">
-                                                    Struktural</h3>
-                                                <p class="text-blue-100 text-xs font-medium">Tim Inti Organisasi</p>
+                                        <div class="inline-flex items-center">
+                                            <div
+                                                class="bg-white/95 backdrop-blur-md rounded-xl px-4 py-2.5 border border-gray-200/50 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
+                                                <div class="flex items-center gap-2.5">
+                                                    <div
+                                                        class="w-1 h-6 bg-gradient-to-b from-blue-500 to-blue-700 rounded-full">
+                                                    </div>
+                                                    <span
+                                                        class="text-transparent bg-clip-text bg-gradient-to-r from-blue-700 to-blue-900 font-bold text-sm tracking-wide">Kenali
+                                                        Kami</span>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -126,20 +122,17 @@
                                         class="absolute inset-0 bg-gradient-to-t from-black/60 via-black/25 to-transparent">
                                     </div>
                                     <div class="absolute bottom-0 left-0 right-0 p-6 z-10">
-                                        <div
-                                            class="inline-flex items-center gap-2.5 bg-gradient-to-r from-orange-600/90 to-orange-700/90 backdrop-blur-md px-4 py-2.5 rounded-lg border-2 border-white/40 shadow-2xl hover:shadow-orange-500/50 transform hover:scale-105 transition-all duration-300 cursor-pointer">
-                                            <!-- Lucide: globe icon -->
-                                            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor"
-                                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                                                viewBox="0 0 24 24">
-                                                <circle cx="12" cy="12" r="10" />
-                                                <path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20" />
-                                                <path d="M2 12h20" />
-                                            </svg>
-                                            <div>
-                                                <h3 class="text-white text-xl font-bold drop-shadow-lg leading-tight">
-                                                    Webinter 2026</h3>
-                                                <p class="text-orange-100 text-xs font-medium">Program Unggulan</p>
+                                        <div class="inline-flex items-center">
+                                            <div
+                                                class="bg-white/95 backdrop-blur-md rounded-xl px-4 py-2.5 border border-gray-200/50 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
+                                                <div class="flex items-center gap-2.5">
+                                                    <div
+                                                        class="w-1 h-6 bg-gradient-to-b from-orange-500 to-orange-600 rounded-full">
+                                                    </div>
+                                                    <span
+                                                        class="text-transparent bg-clip-text bg-gradient-to-r from-orange-600 to-orange-700 font-bold text-sm tracking-wide">Program
+                                                        Kerja</span>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -153,24 +146,17 @@
                                         class="absolute inset-0 bg-gradient-to-t from-black/60 via-black/25 to-transparent">
                                     </div>
                                     <div class="absolute bottom-0 left-0 right-0 p-6 z-10">
-                                        <div
-                                            class="inline-flex items-center gap-2.5 bg-gradient-to-r from-purple-600/90 to-purple-700/90 backdrop-blur-md px-4 py-2.5 rounded-lg border-2 border-white/40 shadow-2xl hover:shadow-purple-500/50 transform hover:scale-105 transition-all duration-300 cursor-pointer">
-                                            <!-- Lucide: heart-handshake icon -->
-                                            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor"
-                                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                                                viewBox="0 0 24 24">
-                                                <path
-                                                    d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z" />
-                                                <path
-                                                    d="M12 5 9.04 7.96a2.17 2.17 0 0 0 0 3.08v0c.82.82 2.13.85 3 .07l2.07-1.9a2.82 2.82 0 0 1 3.79 0l2.96 2.66" />
-                                                <path d="m18 15-2-2" />
-                                                <path d="m15 18-2-2" />
-                                            </svg>
-                                            <div>
-                                                <h3 class="text-white text-xl font-bold drop-shadow-lg leading-tight">
-                                                    Kebersamaan</h3>
-                                                <p class="text-purple-100 text-xs font-medium">Solidaritas & Kolaborasi
-                                                </p>
+                                        <div class="inline-flex items-center">
+                                            <div
+                                                class="bg-white/95 backdrop-blur-md rounded-xl px-4 py-2.5 border border-gray-200/50 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
+                                                <div class="flex items-center gap-2.5">
+                                                    <div
+                                                        class="w-1 h-6 bg-gradient-to-b from-blue-500 to-blue-700 rounded-full">
+                                                    </div>
+                                                    <span
+                                                        class="text-transparent bg-clip-text bg-gradient-to-r from-blue-700 to-blue-900 font-bold text-sm tracking-wide">Filosofi
+                                                        Kami</span>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>

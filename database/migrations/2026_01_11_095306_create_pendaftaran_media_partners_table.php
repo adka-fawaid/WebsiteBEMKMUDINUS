@@ -22,7 +22,8 @@ return new class extends Migration
             $table->text('deskripsi_acara');
             $table->string('proposal_acara');
             $table->string('poster_acara');
-            $table->enum('jenis_paket', ['Paket 1', 'Paket 2']);
+            $table->enum('jenis_paket', ['Gratis', 'Berbayar']);
+            $table->string('bukti_pembayaran')->nullable();
             $table->string('bukti_follow');
             $table->string('akun_tag');
             $table->timestamps();

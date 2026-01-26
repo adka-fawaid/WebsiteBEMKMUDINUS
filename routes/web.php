@@ -80,8 +80,8 @@ Route::get('/berita', [BeritaController::class, 'index'])->name('guest.berita.in
 Route::prefix('partnership')->group(function () {
     Route::get('/', [PartnershipController::class, 'index'])->name('guest.partnership.index');
     Route::get('/media-partner', [PartnershipController::class, 'mediaPartner'])->name('guest.partnership.media-partner.index');
-    Route::get('/media-partner/prosedur', [PartnershipController::class, 'prosedurMediaPartner'])->name('guest.partnership.media-partner.prosedur.index');
-    Route::get('/prosedur', [PartnershipController::class, 'prosedur'])->name('guest.partnership.prosedur.index');
+    Route::get('/media-partner/prosedur/{kategori}', [PartnershipController::class, 'prosedurMediaPartner'])->name('guest.partnership.media-partner.prosedur.index');
+    Route::get('/prosedur/{kategori}', [PartnershipController::class, 'prosedur'])->name('guest.partnership.prosedur.index');
 });
 
 // KONTAK

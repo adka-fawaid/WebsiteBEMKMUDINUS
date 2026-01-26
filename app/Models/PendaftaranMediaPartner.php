@@ -20,6 +20,7 @@ class PendaftaranMediaPartner extends Model
         'proposal_acara',
         'poster_acara',
         'jenis_paket',
+        'bukti_pembayaran',
         'bukti_follow',
         'akun_tag',
     ];

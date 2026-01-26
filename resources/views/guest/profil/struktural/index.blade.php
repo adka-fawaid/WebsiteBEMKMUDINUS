@@ -36,11 +36,14 @@
                         <!-- {{ $unit->kategori }} -->
                         <div class="group">
                             <div
-                                class="bg-white rounded-2xl overflow-hidden border border-gray-200 shadow-lg hover:shadow-2xl transform transition-all duration-500 hover:-translate-y-2 h-full relative">
+                                class="bg-white rounded-2xl overflow-hidden border border-gray-200 shadow-lg hover:shadow-2xl transform transition-all duration-500 hover:-translate-y-2 h-full">
                                 <div class="relative overflow-hidden aspect-square">
                                     <img src="{{ asset('storage/img/unit-organisasi/' . $unit->logo) }}"
                                         class="w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-110"
                                         alt="{{ $unit->nama }}">
+                                    <div
+                                        class="absolute inset-x-0 bottom-0 h-1 bg-gradient-to-r from-blue-500 via-purple-500 to-orange-500 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left">
+                                    </div>
                                 </div>
                                 <div class="p-4 md:p-4">
                                     <h6 class="font-bold text-gray-800 text-sm md:text-base mb-3 uppercase tracking-wider">
@@ -55,9 +58,6 @@
                                                 d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
                                         </svg>
                                     </a>
-                                </div>
-                                <div
-                                    class="absolute inset-x-0 bottom-0 h-1 bg-gradient-to-r from-blue-500 via-purple-500 to-orange-500 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left">
                                 </div>
                             </div>
                         </div>
@@ -76,11 +76,14 @@
                         <!-- {{ $unit->kategori }} -->
                         <div class="group">
                             <div
-                                class="bg-white rounded-2xl overflow-hidden border border-gray-200 shadow-lg hover:shadow-2xl transform transition-all duration-500 hover:-translate-y-2 h-full relative">
+                                class="bg-white rounded-2xl overflow-hidden border border-gray-200 shadow-lg hover:shadow-2xl transform transition-all duration-500 hover:-translate-y-2 h-full">
                                 <div class="relative overflow-hidden aspect-square">
                                     <img src="{{ asset('storage/img/unit-organisasi/' . $unit->logo) }}"
                                         class="w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-110"
                                         alt="{{ $unit->nama }}">
+                                    <div
+                                        class="absolute inset-x-0 bottom-0 h-1 bg-gradient-to-r from-blue-500 via-purple-500 to-orange-500 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left">
+                                    </div>
                                 </div>
                                 <div class="p-4 md:p-4">
                                     <h6 class="font-bold text-gray-800 text-sm md:text-base mb-3 uppercase tracking-wider">
@@ -95,9 +98,6 @@
                                                 d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
                                         </svg>
                                     </a>
-                                </div>
-                                <div
-                                    class="absolute inset-x-0 bottom-0 h-1 bg-gradient-to-r from-blue-500 via-purple-500 to-orange-500 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left">
                                 </div>
                             </div>
                         </div>
@@ -116,11 +116,14 @@
                         <!-- {{ $unit->kategori }} -->
                         <div class="group">
                             <div
-                                class="bg-white rounded-2xl overflow-hidden border border-gray-200 shadow-lg hover:shadow-2xl transform transition-all duration-500 hover:-translate-y-2 h-full relative">
+                                class="bg-white rounded-2xl overflow-hidden border border-gray-200 shadow-lg hover:shadow-2xl transform transition-all duration-500 hover:-translate-y-2 h-full">
                                 <div class="relative overflow-hidden aspect-square">
                                     <img src="{{ asset('storage/img/unit-organisasi/' . $unit->logo) }}"
                                         class="w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-110"
                                         alt="{{ $unit->nama }}">
+                                    <div
+                                        class="absolute inset-x-0 bottom-0 h-1 bg-gradient-to-r from-blue-500 via-purple-500 to-orange-500 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left">
+                                    </div>
                                 </div>
                                 <div class="p-4 md:p-4">
                                     <h6 class="font-bold text-gray-800 text-sm md:text-base mb-3 uppercase tracking-wider">
@@ -135,9 +138,6 @@
                                                 d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
                                         </svg>
                                     </a>
-                                </div>
-                                <div
-                                    class="absolute inset-x-0 bottom-0 h-1 bg-gradient-to-r from-blue-500 via-purple-500 to-orange-500 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left">
                                 </div>
                             </div>
                         </div>
@@ -156,11 +156,14 @@
                         <!-- {{ $unit->kategori }} -->
                         <div class="group">
                             <div
-                                class="bg-white rounded-2xl overflow-hidden border border-gray-200 shadow-lg hover:shadow-2xl transform transition-all duration-500 hover:-translate-y-2 h-full relative">
+                                class="bg-white rounded-2xl overflow-hidden border border-gray-200 shadow-lg hover:shadow-2xl transform transition-all duration-500 hover:-translate-y-2 h-full">
                                 <div class="relative overflow-hidden aspect-square">
                                     <img src="{{ asset('storage/img/unit-organisasi/' . $unit->logo) }}"
                                         class="w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-110"
                                         alt="{{ $unit->nama }}">
+                                    <div
+                                        class="absolute inset-x-0 bottom-0 h-1 bg-gradient-to-r from-blue-500 via-purple-500 to-orange-500 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left">
+                                    </div>
                                 </div>
                                 <div class="p-4 md:p-4">
                                     <h6 class="font-bold text-gray-800 text-sm md:text-base mb-3 uppercase tracking-wider">
@@ -175,9 +178,6 @@
                                                 d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
                                         </svg>
                                     </a>
-                                </div>
-                                <div
-                                    class="absolute inset-x-0 bottom-0 h-1 bg-gradient-to-r from-blue-500 via-purple-500 to-orange-500 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left">
                                 </div>
                             </div>
                         </div>
@@ -196,11 +196,14 @@
                         <!-- {{ $unit->kategori }} -->
                         <div class="group">
                             <div
-                                class="bg-white rounded-2xl overflow-hidden border border-gray-200 shadow-lg hover:shadow-2xl transform transition-all duration-500 hover:-translate-y-2 h-full relative">
+                                class="bg-white rounded-2xl overflow-hidden border border-gray-200 shadow-lg hover:shadow-2xl transform transition-all duration-500 hover:-translate-y-2 h-full">
                                 <div class="relative overflow-hidden aspect-square">
                                     <img src="{{ asset('storage/img/unit-organisasi/' . $unit->logo) }}"
                                         class="w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-110"
                                         alt="{{ $unit->nama }}">
+                                    <div
+                                        class="absolute inset-x-0 bottom-0 h-1 bg-gradient-to-r from-blue-500 via-purple-500 to-orange-500 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left">
+                                    </div>
                                 </div>
                                 <div class="p-4 md:p-4">
                                     <h6 class="font-bold text-gray-800 text-sm md:text-base mb-3 uppercase tracking-wider">
@@ -215,9 +218,6 @@
                                                 d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
                                         </svg>
                                     </a>
-                                </div>
-                                <div
-                                    class="absolute inset-x-0 bottom-0 h-1 bg-gradient-to-r from-blue-500 via-purple-500 to-orange-500 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left">
                                 </div>
                             </div>
                         </div>

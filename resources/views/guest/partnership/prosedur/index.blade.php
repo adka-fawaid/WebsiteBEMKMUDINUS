@@ -1,104 +1,137 @@
 @extends('guest.components.layout')
 
 @section('content')
-    <div class="bg-gradient-to-br from-blue-50 via-white to-indigo-50 py-16 min-h-screen">
-        <div class="container mx-auto px-4 md:px-8">
-            <!-- Header -->
-            <div class="text-center mt-5 mb-8 md:mb-12">
+    <div class="bg-gradient-to-br from-blue-50 via-white to-orange-50/50 py-20 min-h-screen relative overflow-hidden">
+        <!-- Decorative Background Elements -->
+        <div class="absolute top-0 right-0 w-96 h-96 bg-blue-400/5 rounded-full blur-3xl"></div>
+        <div class="absolute bottom-0 left-0 w-96 h-96 bg-orange-400/5 rounded-full blur-3xl"></div>
+
+        <div class="container mx-auto px-4 md:px-8 relative z-10">
+            <!-- Hero Section -->
+            <div class="text-center mb-16 mt-12">
                 <h1 class="font-bold text-3xl md:text-4xl lg:text-5xl mb-4">
-                    <span class="bg-gradient-to-r from-blue-700 via-blue-800 to-orange-500 bg-clip-text text-transparent box-decoration-clone inline">
-                        Prosedur Media Partner
+                    <span class="bg-gradient-to-r from-blue-600 to-orange-500 bg-clip-text text-transparent">
+                        Prosedur {{ $kategoriDb }}
                     </span>
                 </h1>
-                <div class="w-24 h-1 bg-gradient-to-r from-blue-500 to-orange-500 rounded-full mx-auto mb-4"></div>
-                <p class="text-gray-600 text-sm md:text-base max-w-2xl mx-auto">
-                    Ikuti langkah-langkah berikut untuk mengajukan kemitraan media dengan BEM-KM UDINUS
+                <div class="w-24 h-1 bg-gradient-to-r from-blue-600 to-orange-500 rounded-full mx-auto mb-4"></div>
+
+                <p class="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+                    Ikuti langkah-langkah berikut untuk mengajukan kemitraan {{ $kategoriDb }} dengan BEM KM UDINUS.
                 </p>
             </div>
 
             <!-- Prosedur Content -->
-            <div class="max-w-4xl mx-auto">
-                <!-- Step by Step -->
-                <div class="space-y-6 mb-12">
-                    <!-- Step 1 -->
-                    <div
-                        class="bg-white rounded-2xl p-6 shadow-lg border border-blue-100 hover:shadow-xl transition-shadow duration-300">
-                        <div class="flex gap-4">
-                            <div class="shrink-0">
-                                <div
-                                    class="w-12 h-12 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-xl flex items-center justify-center text-white font-bold text-lg shadow-lg">
-                                    1
+            <div class="max-w-5xl mx-auto">
+                @if ($prosedurs && $prosedurs->count() > 0)
+                    <!-- Step by Step -->
+                    <div class="space-y-5 mb-16">
+                        @php
+                            $colors = [
+                                'blue' => ['from' => 'from-blue-600', 'to' => 'to-blue-700'],
+                                'orange' => ['from' => 'from-orange-600', 'to' => 'to-orange-700'],
+                                'purple' => ['from' => 'from-purple-600', 'to' => 'to-purple-700'],
+                                'indigo' => ['from' => 'from-indigo-600', 'to' => 'to-indigo-700'],
+                                'rose' => ['from' => 'from-rose-600', 'to' => 'to-pink-600'],
+                                'green' => ['from' => 'from-green-600', 'to' => 'to-green-700'],
+                                'cyan' => ['from' => 'from-cyan-600', 'to' => 'to-blue-600'],
+                                'pink' => ['from' => 'from-pink-600', 'to' => 'to-rose-600'],
+                            ];
+                            $colorKeys = array_keys($colors);
+                        @endphp
+
+                        @foreach ($prosedurs as $index => $prosedur)
+                            @php
+                                $colorIndex = $index % count($colorKeys);
+                                $currentColor = $colors[$colorKeys[$colorIndex]];
+                            @endphp
+
+                            <div
+                                class="group bg-white rounded-2xl p-6 md:p-8 shadow-lg border border-gray-100 hover:shadow-2xl hover:-translate-y-1 transition-all duration-300">
+                                <div class="flex gap-5 md:gap-6">
+                                    <div class="shrink-0">
+                                        <div
+                                            class="w-14 h-14 bg-gradient-to-br {{ $currentColor['from'] }} {{ $currentColor['to'] }} rounded-xl flex items-center justify-center text-white font-bold text-xl shadow-lg">
+                                            {{ $index + 1 }}
+                                        </div>
+                                    </div>
+                                    <div class="flex-1 flex items-center">
+                                        <div class="prose prose-gray max-w-none text-gray-700 leading-relaxed">
+                                            @if ($prosedur->judul)
+                                                <strong>{{ $prosedur->judul }}:</strong>
+                                            @endif
+                                            @if ($prosedur->deskripsi)
+                                                {{ $prosedur->deskripsi }}
+                                            @elseif ($prosedur->prosedur)
+                                                {{ $prosedur->prosedur }}
+                                            @endif
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="flex-1">
-                                <h3 class="text-xl font-bold text-gray-900 mb-3">Kirim Proposal</h3>
-                                <p class="text-gray-600">Kirim proposal partnership ke email resmi BEM-KM UDINUS atau
-                                    melalui contact person yang tersedia.</p>
-                            </div>
-                        </div>
+                        @endforeach
                     </div>
-
-                    <!-- Step 2 -->
-                    <div
-                        class="bg-white rounded-2xl p-6 shadow-lg border border-blue-100 hover:shadow-xl transition-shadow duration-300">
-                        <div class="flex gap-4">
-                            <div class="shrink-0">
+                @else
+                    <!-- Empty State -->
+                    <div class="text-center py-16 mb-16">
+                        <div class="max-w-md mx-auto">
+                            <div class="mb-6">
                                 <div
-                                    class="w-12 h-12 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-xl flex items-center justify-center text-white font-bold text-lg shadow-lg">
-                                    2
+                                    class="inline-flex items-center justify-center w-24 h-24 rounded-full bg-gradient-to-br from-gray-100 to-gray-200 shadow-lg">
+                                    <svg class="w-12 h-12 text-gray-400" fill="none" stroke="currentColor"
+                                        viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                                    </svg>
                                 </div>
                             </div>
-                            <div class="flex-1">
-                                <h3 class="text-xl font-bold text-gray-900 mb-3">Verifikasi Proposal</h3>
-                                <p class="text-gray-600">Proposal akan diverifikasi oleh tim BEM-KM UDINUS dalam waktu <span
-                                        class="font-bold text-blue-600">3-5 hari kerja</span> untuk memastikan kelengkapan
-                                    dan kesesuaian kerja sama.</p>
+                            <h3 class="font-bold text-2xl md:text-3xl text-gray-900 mb-3">
+                                Belum Ada Prosedur
+                            </h3>
+                            <div class="w-16 h-1 bg-gradient-to-r from-blue-500 to-orange-500 rounded-full mx-auto mb-4">
                             </div>
+                            <p class="text-gray-600 text-sm md:text-base mb-8">
+                                Saat ini belum ada prosedur untuk kategori {{ $kategoriDb }}. Silakan hubungi kami untuk
+                                informasi lebih lanjut.
+                            </p>
                         </div>
                     </div>
+                @endif
 
-                    <!-- Step 3 -->
-                    <div
-                        class="bg-white rounded-2xl p-6 shadow-lg border border-blue-100 hover:shadow-xl transition-shadow duration-300">
-                        <div class="flex gap-4">
-                            <div class="shrink-0">
-                                <div
-                                    class="w-12 h-12 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-xl flex items-center justify-center text-white font-bold text-lg shadow-lg">
-                                    3
-                                </div>
-                            </div>
-                            <div class="flex-1">
-                                <h3 class="text-xl font-bold text-gray-900 mb-3">Konfirmasi & Kerjasama</h3>
-                                <p class="text-gray-600">Jika proposal <span
-                                        class="font-bold text-blue-600">disetujui</span>, tim kami akan menghubungi Anda
-                                    untuk membahas detail kerja sama dan langkah-langkah selanjutnya.</p>
-                            </div>
+                <!-- CTA Section -->
+                <div
+                    class="bg-gradient-to-br from-blue-600 via-blue-700 to-indigo-600 rounded-3xl p-7 md:p-10 text-center shadow-2xl relative overflow-hidden mt-15">
+                    <!-- Decorative elements -->
+                    <div class="absolute top-0 right-0 w-40 h-40 bg-white/10 rounded-full blur-2xl -mr-20 -mt-20"></div>
+                    <div class="absolute bottom-0 left-0 w-40 h-40 bg-white/10 rounded-full blur-2xl -ml-20 -mb-20"></div>
+
+                    <div class="relative z-10">
+                        <h3 class="text-3xl md:text-4xl font-bold text-white mb-3">
+                            Siap Bermitra dengan BEM KM UDINUS?
+                        </h3>
+                        <p class="text-blue-100 text-lg mb-8 max-w-2xl mx-auto">
+                            Ikuti prosedur di atas dan hubungi kami untuk memulai kemitraan
+                            {{ $kategoriDb }} bersama BEM KM UDINUS.
+                        </p>
+
+                        <div class="flex flex-wrap gap-4 justify-center">
+                            <a href="{{ route('guest.kontak.index') }}"
+                                class="inline-flex items-center gap-2 bg-white hover:bg-blue-50 text-blue-600 font-bold px-8 py-4 rounded-xl transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
+                                </svg>
+                                Hubungi Kami
+                            </a>
+                            <a href="{{ route('guest.partnership.media-partner.index') }}"
+                                class="inline-flex items-center gap-2 bg-white/20 border-2 border-white hover:bg-white/30 text-white font-bold px-8 py-4 rounded-xl transition-all duration-300">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4" />
+                                </svg>
+                                Daftar Sekarang
+                            </a>
                         </div>
-                    </div>
-                </div>
-
-                <!-- Call to Action -->
-                <div class="bg-gradient-to-r from-blue-600 to-indigo-600 rounded-2xl p-8 text-center shadow-2xl">
-                    <h3 class="text-2xl font-bold text-white mb-4">Siap Bermitra dengan Kami?</h3>
-                    <p class="text-blue-100 mb-6">Ikuti prosedur di atas dan mari berkolaborasi untuk menciptakan dampak
-                        positif!</p>
-                    <div class="flex flex-wrap gap-4 justify-center">
-                        <a href="{{ route('guest.partnership.index') }}"
-                            class="inline-flex items-center gap-2 bg-white hover:bg-blue-50 text-blue-600 font-bold px-8 py-4 rounded-xl transition-all duration-300 shadow-lg hover:shadow-xl">
-                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M17 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-2v4l-4-4H9a1.994 1.994 0 01-1.414-.586m0 0L11 14h4a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2v4l.586-.586z" />
-                            </svg>
-                            Lihat Kategori Partnership
-                        </a>
-                        <a href="{{ route('guest.kontak.index') }}"
-                            class="inline-flex items-center gap-2 bg-transparent border-2 border-white hover:bg-white/10 text-white font-bold px-8 py-4 rounded-xl transition-all duration-300">
-                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                            </svg>
-                            Hubungi Kami
-                        </a>
                     </div>
                 </div>
             </div>
