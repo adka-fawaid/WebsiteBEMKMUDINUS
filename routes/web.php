@@ -66,7 +66,7 @@ Route::prefix('profil')->group(function () {
     // STRUKTURAL
     Route::prefix('struktural')->group(function () {
         Route::get('/', [StrukturalController::class, 'index'])->name('guest.profil.struktural.index');
-        Route::get('/detail', [StrukturalController::class, 'detail'])->name('guest.profil.struktural.detail');
+        Route::get('/{id}', [StrukturalController::class, 'detail'])->name('guest.profil.struktural.detail');
     });
 });
 

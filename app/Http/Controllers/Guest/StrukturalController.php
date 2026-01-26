@@ -13,12 +13,16 @@ class StrukturalController extends Controller
         $unitOrganisasiList = UnitOrganisasi::all();
 
         return view('guest.profil.struktural.index', compact(
-            'unitOrganisasiList'
+            'unitOrganisasiList',
         ));
     }
 
-    public function detail()
+    public function detail($id)
     {
-        return view('guest.profil.struktural.detail');
+        $anggotaUnits = UnitOrganisasi::findOrFail($id)->anggotaUnit;
+
+         return view('guest.profil.struktural.detail', compact(
+            'anggotaUnits',
+        ));
     }
 }
