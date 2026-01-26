@@ -13,7 +13,7 @@
 
         <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl relative z-10">
             <!-- Section Header -->
-            <div class="text-center mb-12 md:mb-16">
+            <div class="text-center mb-5 md:mb-16">
                 <span class="inline-block text-orange-500 font-semibold text-lg uppercase tracking-wider mb-3">Hubungi
                     Kami</span>
                 <h2
@@ -27,10 +27,10 @@
             </div>
 
             <!-- Contact Cards Grid -->
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 mb-16">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 lg:gap-4 mb-16">
                 @foreach ($kontaks as $kontak)
                     <a href="{{ $kontak->url }}" target="_blank"
-                        class="group bg-white rounded-2xl p-6 md:p-8 border border-gray-200 shadow-lg hover:shadow-2xl transform transition-all duration-500 hover:-translate-y-2 relative overflow-hidden">
+                        class="group bg-white rounded-2xl p-6 md:p-8 border border-gray-200 shadow-lg hover:shadow-2xl transform transition-all duration-500 hover:scale-105 hover:-translate-y-3 relative overflow-hidden">
                         <!-- Decorative gradient overlay -->
                         <div
                             class="absolute inset-0 bg-gradient-to-br from-blue-500/0 to-orange-500/0 group-hover:from-blue-500/5 group-hover:to-orange-500/5 transition-all duration-500">
@@ -39,7 +39,7 @@
                         <!-- Content -->
                         <div class="relative z-10">
                             <!-- Icon Container -->
-                            <div class="mb-5">
+                            <div class="mb-3">
                                 <div
                                     class="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-gradient-to-br 
                                     @if ($kontak->tipe === 'Telepon') from-green-500 to-green-600 shadow-green-500/30
@@ -89,44 +89,26 @@
                                 </div>
                             </div>
 
-                            <!-- Contact Type Badge -->
-                            <div class="mb-3">
-                                <span
-                                    class="inline-flex items-center px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wide
-                                    @if ($kontak->tipe === 'Telepon') bg-green-50 text-green-700
-                                    @elseif($kontak->tipe === 'Email') bg-red-50 text-red-700
-                                    @elseif($kontak->tipe === 'Instagram') bg-pink-50 text-pink-700
-                                    @elseif($kontak->tipe === 'TikTok') bg-gray-100 text-gray-800
-                                    @elseif($kontak->tipe === 'YouTube') bg-red-50 text-red-700
-                                    @elseif($kontak->tipe === 'LinkedIn') bg-blue-50 text-blue-700
-                                    @else bg-blue-50 text-blue-700 @endif">
-                                    {{ $kontak->tipe }}
-                                </span>
-                            </div>
-
                             <!-- Contact Name -->
                             <h3 class="font-bold text-gray-800 text-lg mb-2 group-hover:text-blue-600 transition-colors">
                                 {{ $kontak->nama }}
                             </h3>
 
                             <!-- Divider -->
-                            <div class="w-12 h-0.5 bg-orange-500 rounded-full mb-3"></div>
+                            <div class="w-16 h-0.5 rounded-full mb-2
+                                @if ($kontak->tipe === 'Telepon') bg-green-500
+                                @elseif($kontak->tipe === 'Email') bg-red-500
+                                @elseif($kontak->tipe === 'Instagram') bg-pink-500
+                                @elseif($kontak->tipe === 'TikTok') bg-gray-800
+                                @elseif($kontak->tipe === 'YouTube') bg-red-600
+                                @elseif($kontak->tipe === 'LinkedIn') bg-blue-600
+                                @else bg-blue-500 @endif"></div>
 
                             <!-- Contact Info -->
-                            <p class="text-gray-600 text-sm md:text-base font-medium mb-4">
+                            <p class="text-gray-600 text-sm md:text-base font-medium mb-3s">
                                 {{ $kontak->kontak }}
                             </p>
 
-                            <!-- Link Indicator -->
-                            <div
-                                class="flex items-center gap-2 text-blue-600 font-semibold text-sm group-hover:gap-3 transition-all">
-                                <span>Hubungi Kami</span>
-                                <svg class="w-4 h-4 transform group-hover:translate-x-1 transition-transform" fill="none"
-                                    stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
-                                </svg>
-                            </div>
                         </div>
 
                         <!-- Bottom Border Animation -->
