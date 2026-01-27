@@ -63,7 +63,7 @@
                         <div class="overflow-x-auto">
                             <div class="flex items-center justify-between mb-4">
                                 <h3 class="text-lg font-bold text-gray-900">Data Kontak</h3>
-                                <button type="button" data-modal-target="add-kontak-modal"
+                                {{-- <button type="button" data-modal-target="add-kontak-modal"
                                     data-modal-toggle="add-kontak-modal"
                                     class="text-white bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700 font-semibold rounded-lg text-sm px-5 py-2.5 transition-all duration-150 flex items-center gap-2 shadow-lg hover:shadow-xl">
                                     <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -71,7 +71,7 @@
                                             d="M12 4v16m8-8H4" />
                                     </svg>
                                     Tambah Kontak
-                                </button>
+                                </button> --}}
                             </div>
 
                             <div class="overflow-x-auto">
@@ -166,7 +166,7 @@
                                                                 <path d="m15 5 4 4" />
                                                             </svg>
                                                         </button>
-                                                        <button type="button"
+                                                        {{-- <button type="button"
                                                             data-modal-target="delete-kontak-modal-{{ $kontak->id }}"
                                                             data-modal-toggle="delete-kontak-modal-{{ $kontak->id }}"
                                                             class="group p-2 rounded-lg bg-red-50 hover:bg-red-100 transition-all duration-200 hover:shadow-md"
@@ -184,7 +184,7 @@
                                                                 <line x1="14" x2="14" y1="11"
                                                                     y2="17" />
                                                             </svg>
-                                                        </button>
+                                                        </button> --}}
                                                     </div>
                                                 </td>
                                             </tr>
@@ -193,9 +193,9 @@
                                                 'kontak' => $kontak,
                                             ])
                                             <!-- Include Modal Delete Kontak -->
-                                            @include('admin.kontak.delete', [
+                                            {{-- @include('admin.kontak.delete', [
                                                 'kontak' => $kontak,
-                                            ])
+                                            ]) --}}
                                         @empty
                                             <tr>
                                                 <td colspan="7" class="px-6 py-16 text-center">

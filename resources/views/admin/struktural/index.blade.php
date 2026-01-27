@@ -67,7 +67,7 @@
                             <div class="flex flex-col gap-2 mb-6">
                                 <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-2">
                                     <h3 class="text-lg font-bold text-gray-900">Data Unit Organisasi</h3>
-                                    <button type="button" data-modal-target="add-struktural-modal"
+                                    {{-- <button type="button" data-modal-target="add-struktural-modal"
                                         data-modal-toggle="add-struktural-modal"
                                         class="text-white bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700 font-semibold rounded-lg text-sm px-5 py-2.5 transition-all duration-150 flex items-center gap-2 shadow-lg hover:shadow-xl mt-2 md:mt-0">
                                         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -75,7 +75,7 @@
                                                 d="M12 4v16m8-8H4" />
                                         </svg>
                                         Tambah Struktural
-                                    </button>
+                                    </button> --}}
                                 </div>
                                 <form method="GET" action="{{ route('admin.struktural.index') }}" class="w-full mt-2">
                                     <div class="flex flex-col gap-2 w-full">
@@ -304,7 +304,7 @@
                                                             <path d="m15 5 4 4" />
                                                         </svg>
                                                     </button>
-                                                    <button type="button"
+                                                    {{-- <button type="button"
                                                         data-modal-target="delete-struktural-modal-{{ $item->id }}"
                                                         data-modal-toggle="delete-struktural-modal-{{ $item->id }}"
                                                         class="group p-2 rounded-lg bg-red-50 hover:bg-red-100 transition-all duration-200 hover:shadow-md"
@@ -322,7 +322,7 @@
                                                             <line x1="14" x2="14" y1="11"
                                                                 y2="17" />
                                                         </svg>
-                                                    </button>
+                                                    </button> --}}
                                                 </div>
                                             </td>
                                         </tr>
@@ -334,7 +334,7 @@
                                         @include('admin.struktural.edit', ['item' => $item])
 
                                         <!-- Include Delete Modal -->
-                                        @include('admin.struktural.delete', ['item' => $item])
+                                        {{-- @include('admin.struktural.delete', ['item' => $item]) --}}
                                     @empty
                                         <tr>
                                             <td colspan="7" class="px-6 py-16 text-center">
