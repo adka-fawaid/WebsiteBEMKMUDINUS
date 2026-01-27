@@ -219,6 +219,65 @@
                     </div>
                 @endforeach
             </div>
+
+            <!-- SOP Partnership Section -->
+            <div class="max-w-4xl mx-auto">
+                <div
+                    class="bg-white rounded-2xl shadow-xl border border-gray-100 p-8 hover:shadow-2xl transition-all duration-300">
+                    <div class="flex flex-col md:flex-row items-center gap-6">
+                        <!-- Icon -->
+                        <div class="flex-shrink-0">
+                            <div
+                                class="w-20 h-20 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-2xl flex items-center justify-center shadow-lg">
+                                <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                                </svg>
+                            </div>
+                        </div>
+
+                        <!-- Content -->
+                        <div class="flex-1 text-center md:text-left">
+                            <h3 class="text-2xl font-bold text-gray-800 mb-2">SOP Partnership BEM KM UDINUS</h3>
+                            <p class="text-gray-600 mb-4">
+                                Panduan lengkap prosedur dan persyaratan partnership dengan BEM KM UDINUS
+                            </p>
+                            <div class="flex flex-wrap gap-2 justify-center md:justify-start">
+                                <span
+                                    class="inline-flex items-center gap-1 px-3 py-1 bg-blue-50 text-blue-700 text-sm font-medium rounded-full">
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                    </svg>
+                                    Prosedur Lengkap
+                                </span>
+                                <span
+                                    class="inline-flex items-center gap-1 px-3 py-1 bg-indigo-50 text-indigo-700 text-sm font-medium rounded-full">
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                    </svg>
+                                    Format PDF
+                                </span>
+                            </div>
+                        </div>
+
+                        <!-- Button -->
+                        <div class="flex-shrink-0">
+                            <a href="{{ asset('docs/SOP-PARTNERSHIP-BEMKM.pdf') }}" target="_blank"
+                                rel="noopener noreferrer"
+                                class="group inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white font-bold rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
+                                <span>Lihat SOP</span>
+                                <svg class="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none"
+                                    stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 
