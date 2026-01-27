@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\Models\User;
 use Illuminate\View\View;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
@@ -25,37 +26,52 @@ class AuthenticatedSessionController extends Controller
     }
 
     /**
-     * Handle an incoming authentication request.
+     * Handle an incoming authentication request (secured with rate limiting).
      */
     public function store(Request $request): RedirectResponse
     {
-        // Inline validate request
-        $validated = $request->validate([
-            'email' => ['required', 'string', 'email'],
+        $request->validate([
+            'email' => ['required', 'email'],
             'password' => ['required', 'string'],
         ]);
 
-        $email = (string) $validated['email'];
-        $password = (string) $validated['password'];
-        $remember = $request->boolean('remember');
+        $throttleKey = Str::lower($request->input('email')) . '|' . $request->ip();
 
-        // Check email existence first for specific error placement
-        $user = User::where('email', $email)->first();
-        if (! $user) {
+        // ⛔ Rate limit login attempts (5 attempts per 60 seconds)
+        if (RateLimiter::tooManyAttempts($throttleKey, 5)) {
             throw ValidationException::withMessages([
-                'email' => 'Email tidak terdaftar.',
+                'email' => 'Terlalu banyak percobaan login. Coba lagi dalam beberapa menit.',
             ]);
         }
 
-        if (! Auth::attempt(['email' => $email, 'password' => $password], $remember)) {
+        // ⛔ Unified error message for security (don't reveal if email exists)
+        if (! Auth::attempt($request->only('email', 'password'), $request->boolean('remember'))) {
+            RateLimiter::hit($throttleKey, 60);
+
             throw ValidationException::withMessages([
-                'password' => 'Kata sandi salah.',
+                'email' => 'Email atau kata sandi salah.',
             ]);
         }
+
+        // Clear rate limiter on successful login
+        RateLimiter::clear($throttleKey);
 
         $request->session()->regenerate();
 
-        return redirect()->intended(route('admin.dashboard'))->with('success', 'Login berhasil.');
+        $user = Auth::user();
+
+        // ⛔ Optional: Check user status if exists in database
+        if (method_exists($user, 'getAttribute') && $user->getAttribute('status') === 'blokir') {
+            Auth::logout();
+            throw ValidationException::withMessages([
+                'email' => 'Akun Anda diblokir. Hubungi administrator.',
+            ]);
+        }
+
+        // Clear intended URL to prevent redirect issues
+        $request->session()->forget('url.intended');
+
+        return redirect()->route('admin.dashboard')->with('success', 'Login berhasil.');
     }
 
     /**
@@ -63,38 +79,57 @@ class AuthenticatedSessionController extends Controller
      */
     public function redirect()
     {
-        return Socialite::driver('google')->redirect();
+        return Socialite::driver('google')
+            ->stateless()
+            ->redirect();
     }
 
     /**
      * Handle callback from Google and authenticate the user locally.
+     * ⛔ Only allows registered users to login (no auto-registration).
      */
     public function callback(Request $request)
     {
         try {
-            $googleUser = Socialite::driver('google')->user();
-        } catch (\Exception $e) {
-            return redirect()->route('login')->with('error', 'Google authentication failed.');
+            $googleUser = Socialite::driver('google')
+                ->stateless()
+                ->user();
+        } catch (\Throwable $e) {
+            return redirect()->route('login')
+                ->withErrors(['email' => 'Login Google gagal. Silakan coba lagi.']);
         }
 
-        // Only allow registered users to login
+        // ⛔ Only allow registered users to login (security measure)
         $user = User::where('email', $googleUser->email)->first();
 
         if (! $user) {
-            return redirect()->route('login')->with('error', 'Email tidak terdaftar. Periksa kembali email Anda.');
+            return redirect()->route('login')
+                ->withErrors(['email' => 'Email tidak terdaftar. Hubungi administrator untuk registrasi.']);
+        }
+
+        // ⛔ Check user status before allowing login
+        if (method_exists($user, 'getAttribute') && $user->getAttribute('status') === 'blokir') {
+            return redirect()->route('login')
+                ->withErrors(['email' => 'Akun Anda diblokir. Hubungi administrator.']);
         }
 
         // Update Google credentials for existing user
         $user->update([
             'google_id' => $googleUser->id,
-            'google_token' => $googleUser->token,
+            'google_token' => $googleUser->token ?? null,
             'google_refresh_token' => $googleUser->refreshToken ?? null,
-            'avatar' => $googleUser->avatar ?? null,
+            'avatar' => $googleUser->avatar ?? $user->avatar,
         ]);
 
-        Auth::login($user);
+        // Login user with remember token
+        Auth::login($user, true);
 
-        return redirect()->intended(route('admin.dashboard'));
+        $request->session()->regenerate();
+
+        // Clear intended URL to prevent redirect issues
+        $request->session()->forget('url.intended');
+
+        return redirect()->route('admin.dashboard')->with('success', 'Login berhasil.');
     }
 
     /**
