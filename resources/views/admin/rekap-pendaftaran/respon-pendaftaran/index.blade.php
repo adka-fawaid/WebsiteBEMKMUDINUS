@@ -135,17 +135,35 @@
                                             @foreach ($pertanyaans as $pertanyaan)
                                                 @php
                                                     $jawaban = $responses->firstWhere('pertanyaan', $pertanyaan);
+                                                    $isFile =
+                                                        $jawaban &&
+                                                        is_string($jawaban->jawaban) &&
+                                                        Str::startsWith($jawaban->jawaban, 'pendaftaran/');
                                                 @endphp
                                                 <td class="px-6 py-5">
-                                                    <p class="text-sm text-gray-900">
-                                                        {{ $jawaban ? $jawaban->jawaban : '-' }}
-                                                    </p>
+                                                    @if ($isFile)
+                                                        <a href="{{ asset('storage/' . $jawaban->jawaban) }}"
+                                                            target="_blank"
+                                                            class="text-blue-600 hover:underline text-sm font-medium flex items-center gap-2">
+                                                            <svg class="w-4 h-4 text-blue-500" fill="none"
+                                                                stroke="currentColor" viewBox="0 0 24 24">
+                                                                <path stroke-linecap="round" stroke-linejoin="round"
+                                                                    stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                                                            </svg>
+                                                            <span>Lihat File</span>
+                                                        </a>
+                                                    @else
+                                                        <p class="text-sm text-gray-900">
+                                                            {{ $jawaban ? $jawaban->jawaban : '-' }}
+                                                        </p>
+                                                    @endif
                                                 </td>
                                             @endforeach
                                         </tr>
                                     @empty
                                         <tr>
-                                            <td colspan="{{ count($pertanyaans) + 2 }}" class="px-6 py-16 text-center">
+                                            <td colspan="{{ count($pertanyaans) + 2 }}"
+                                                class="px-6 py-16 text-center">
                                                 <div class="flex flex-col items-center justify-center">
                                                     <div
                                                         class="w-20 h-20 rounded-2xl bg-gradient-to-br from-gray-100 to-gray-200 flex items-center justify-center mb-4 shadow-inner">

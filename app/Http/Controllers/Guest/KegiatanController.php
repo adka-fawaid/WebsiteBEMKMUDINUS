@@ -141,7 +141,7 @@ class KegiatanController extends Controller
                 ) {
                     $jawaban = $request
                         ->file("jawaban.{$pertanyaan->id}")
-                        ->store('pendaftaran', 'public');
+                        ->store('pendaftaran/program-kerja', 'public');
                 }
 
                 RespondPendaftaran::create([

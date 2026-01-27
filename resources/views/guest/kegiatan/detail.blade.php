@@ -40,13 +40,45 @@
                                 clip-rule="evenodd"></path>
                         </svg>
                         <span class="text-sm font-medium">
-                            {{ \Carbon\Carbon::parse($kegiatan->tanggal_mulai)->locale('id')->translatedFormat('d M Y') }}
-                            @if ($kegiatan->tanggal_selesai)
+                            @php
+                                $tanggalMulai = \Carbon\Carbon::parse($kegiatan->tanggal_mulai);
+                                $tanggalSelesai = $kegiatan->tanggal_selesai
+                                    ? \Carbon\Carbon::parse($kegiatan->tanggal_selesai)
+                                    : null;
+                            @endphp
+                            {{ $tanggalMulai->locale('id')->translatedFormat('d M Y') }}
+                            @if ($tanggalSelesai && !$tanggalMulai->isSameDay($tanggalSelesai))
                                 -
-                                {{ \Carbon\Carbon::parse($kegiatan->tanggal_selesai)->locale('id')->translatedFormat('d M Y') }}
+                                {{ $tanggalSelesai->locale('id')->translatedFormat('d M Y') }}
                             @endif
                         </span>
                     </div>
+                    <!-- Tanggal Pendaftaran (jika ada) -->
+                    @if (isset($pendaftaran) && $pendaftaran)
+                        <div class="flex items-center gap-2 text-green-600">
+                            <svg class="w-5 h-5 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                            </svg>
+                            <span class="text-sm font-medium">
+                                Pendaftaran:
+                                @php
+                                    $tanggalBuka = $pendaftaran->tanggal_buka
+                                        ? \Carbon\Carbon::parse($pendaftaran->tanggal_buka)
+                                        : null;
+                                    $tanggalTutup = $pendaftaran->tanggal_tutup
+                                        ? \Carbon\Carbon::parse($pendaftaran->tanggal_tutup)
+                                        : null;
+                                @endphp
+                                @if ($tanggalBuka)
+                                    {{ $tanggalBuka->locale('id')->translatedFormat('d M Y') }}
+                                @endif
+                                @if ($tanggalTutup && (!$tanggalBuka || !$tanggalBuka->isSameDay($tanggalTutup)))
+                                    - {{ $tanggalTutup->locale('id')->translatedFormat('d M Y') }}
+                                @endif
+                            </span>
+                        </div>
+                    @endif
                     <!-- Updated Date -->
                     @if ($kegiatan->created_at != $kegiatan->updated_at)
                         <div class="flex items-center gap-2 text-gray-600">
@@ -66,7 +98,7 @@
                     <div class="text-gray-700 text-base md:text-lg leading-relaxed whitespace-pre-line">
                         {!! $kegiatan->deskripsi !!}
                     </div>
-                    @if ($pendaftaran ?? false)
+                    @if (($pendaftaran ?? true) && $kegiatan->pendaftaran)
                         <div class="flex justify-center mt-8">
                             <a href="{{ route('guest.kegiatan.daftar', $kegiatan->id) }}"
                                 class="inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white font-bold rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">

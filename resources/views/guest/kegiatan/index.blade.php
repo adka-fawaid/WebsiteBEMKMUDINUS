@@ -132,10 +132,16 @@
                                             clip-rule="evenodd"></path>
                                     </svg>
                                     <span class="truncate">
-                                        {{ \Carbon\Carbon::parse($kegiatan->tanggal_mulai)->locale('id')->translatedFormat('d M Y') }}
-                                        @if ($kegiatan->tanggal_selesai)
+                                        @php
+                                            $tanggalMulai = \Carbon\Carbon::parse($kegiatan->tanggal_mulai);
+                                            $tanggalSelesai = $kegiatan->tanggal_selesai
+                                                ? \Carbon\Carbon::parse($kegiatan->tanggal_selesai)
+                                                : null;
+                                        @endphp
+                                        {{ $tanggalMulai->locale('id')->translatedFormat('d M Y') }}
+                                        @if ($tanggalSelesai && !$tanggalMulai->isSameDay($tanggalSelesai))
                                             -
-                                            {{ \Carbon\Carbon::parse($kegiatan->tanggal_selesai)->locale('id')->translatedFormat('d M Y') }}
+                                            {{ $tanggalSelesai->locale('id')->translatedFormat('d M Y') }}
                                         @endif
                                     </span>
                                 </div>

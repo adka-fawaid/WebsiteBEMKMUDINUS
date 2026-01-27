@@ -167,14 +167,7 @@ class ProgramKerjaAdminController extends Controller
                 $pendaftaran->update([
                     'judul' => 'Pendaftaran ' . $programKerja->nama,
                     'deskripsi' => $programKerja->deskripsi,
-                    'tanggal_buka' => $programKerja->tanggal_mulai,
-                    'tanggal_tutup' => $programKerja->tanggal_selesai,
                 ]);
-            }
-        } else {
-            // Delete pendaftaran if exists and pendaftaran is false
-            if ($pendaftaran) {
-                $pendaftaran->delete();
             }
         }
 

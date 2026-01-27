@@ -47,11 +47,77 @@
                     </p>
                 </div>
 
-                <!-- Action -->
-                <div class="flex justify-center">
+                <!-- Langkah Selanjutnya: Gabung Grup WhatsApp -->
+                @if (isset($kegiatan->pendaftarans) && $kegiatan->pendaftarans->count() > 0)
+                    @php
+                        $pendaftaranAktif = $kegiatan->pendaftarans->first();
+                    @endphp
+                    @if (!empty($pendaftaranAktif->link_grup))
+                        <div class="bg-blue-50 border-l-4 border-blue-400 p-6 mb-8 rounded-r-lg">
+                            <div class="flex items-start">
+                                <svg class="w-6 h-6 text-blue-600 mt-0.5 mr-3 flex-shrink-0" fill="none"
+                                    stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                </svg>
+                                <div class="flex-1">
+                                    <h3 class="text-lg font-semibold text-blue-800 mb-3">Langkah Selanjutnya</h3>
+                                    <p class="text-sm text-blue-700 mb-4">
+                                        Silakan bergabung ke grup WhatsApp kegiatan untuk mendapatkan informasi lebih
+                                        lanjut:
+                                    </p>
+                                    <div class="space-y-3">
+                                        <a href="{{ $pendaftaranAktif->link_grup }}" target="_blank"
+                                            rel="noopener noreferrer"
+                                            class="flex items-center gap-3 p-3 bg-white rounded-lg hover:bg-blue-100 transition-colors duration-200 group">
+                                            <!-- Icon Grup General (Users) -->
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                                stroke-linecap="round" stroke-linejoin="round"
+                                                class="w-6 h-6 text-blue-600 group-hover:text-blue-700 lucide lucide-users-round-icon lucide-users-round">
+                                                <path d="M18 21a8 8 0 0 0-16 0" />
+                                                <circle cx="10" cy="8" r="5" />
+                                                <path d="M22 20c0-3.37-2-6.5-4-8a5 5 0 0 0-.45-8.3" />
+                                            </svg>
+                                            <div>
+                                                <p class="text-xs text-gray-500">Grup Kegiatan</p>
+                                                <p class="text-sm font-semibold text-gray-800 group-hover:text-blue-700">
+                                                    Gabung Grup
+                                                </p>
+                                            </div>
+                                            <svg class="w-5 h-5 text-gray-400 ml-auto group-hover:text-blue-600"
+                                                fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                    d="M9 5l7 7-7 7" />
+                                            </svg>
+                                        </a>
+                                    </div>
+                                    <p class="text-xs text-blue-600 mt-3">
+                                        📝 Sertakan <strong>Nomor Pendaftaran</strong> Anda saat bergabung ke grup
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    @endif
+                @endif
+
+                <!-- Hubungi Kami -->
+                <div class="flex flex-col sm:flex-row gap-4 justify-center mb-4">
                     <a href="{{ route('guest.kegiatan.index') }}"
-                        class="px-6 py-3 bg-gradient-to-r from-blue-600 to-indigo-600 text-white rounded-lg shadow hover:shadow-xl transition">
+                        class="inline-flex items-center justify-center px-6 py-3 bg-white border-2 border-blue-600 text-blue-600 font-semibold rounded-lg hover:bg-blue-50 transition-all duration-300">
+                        <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+                        </svg>
                         Kembali ke Daftar Kegiatan
+                    </a>
+                    <a href="{{ route('guest.kontak.index') }}"
+                        class="inline-flex items-center justify-center px-6 py-3 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white font-semibold rounded-lg shadow-lg hover:shadow-xl transition-all duration-300">
+                        <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                        </svg>
+                        Hubungi Kami
                     </a>
                 </div>
 
