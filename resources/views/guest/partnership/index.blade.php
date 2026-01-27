@@ -30,6 +30,7 @@
                                 'badge' => 'bg-blue-50 text-blue-600 border-blue-200',
                                 'button' => 'from-blue-600 to-blue-700 shadow-blue-500/30 hover:shadow-blue-500/50',
                                 'icon' => 'text-white',
+                                'text' => 'text-blue-600',
                             ],
                             'Sponsorship' => [
                                 'glow' => 'from-purple-400 to-pink-400',
@@ -39,6 +40,7 @@
                                 'badge' => 'bg-purple-50 text-purple-600 border-purple-200',
                                 'button' =>
                                     'from-purple-600 to-purple-700 shadow-purple-500/30 hover:shadow-purple-500/50',
+                                'text' => 'text-purple-600',
                                 'icon' => 'text-white',
                             ],
                             'Kolaborasi' => [
@@ -48,6 +50,7 @@
                                 'iconBg' => 'from-green-500 to-green-600 shadow-green-200/50',
                                 'badge' => 'bg-green-50 text-green-600 border-green-200',
                                 'button' => 'from-green-600 to-green-700 shadow-green-500/30 hover:shadow-green-500/50',
+                                'text' => 'text-green-600',
                                 'icon' => 'text-white',
                             ],
                             'Kampus Visit' => [
@@ -57,6 +60,7 @@
                                 'iconBg' => 'from-amber-500 to-amber-600 shadow-amber-200/50',
                                 'badge' => 'bg-amber-50 text-amber-600 border-amber-200',
                                 'button' => 'from-amber-600 to-amber-700 shadow-amber-500/30 hover:shadow-amber-500/50',
+                                'text' => 'text-amber-600',
                                 'icon' => 'text-white',
                             ],
                             'Delegasi' => [
@@ -67,6 +71,7 @@
                                 'badge' => 'bg-pink-50 text-pink-600 border-pink-200',
                                 'button' => 'from-pink-600 to-pink-700 shadow-pink-500/30 hover:shadow-pink-500/50',
                                 'icon' => 'text-white',
+                                'text' => 'text-pink-600',
                             ],
                             default => [
                                 'glow' => 'from-gray-400 to-slate-400',
@@ -76,6 +81,7 @@
                                 'badge' => 'bg-gray-50 text-gray-600 border-gray-200',
                                 'button' => 'from-gray-600 to-gray-700 shadow-gray-500/30 hover:shadow-gray-500/50',
                                 'icon' => 'text-white',
+                                'text' => 'text-gray-600',
                             ],
                         };
                     @endphp
@@ -155,9 +161,28 @@
                                 </div>
 
                                 <!-- Description -->
-                                <p class="text-gray-600 text-base leading-relaxed line-clamp-4">
-                                    {{ $partnership['deskripsi'] }}
-                                </p>
+                                @php
+                                    $isLongDesc = strlen($partnership['deskripsi']) > 100;
+                                @endphp
+                                <div class="deskripsi-content-{{ $loop->index }}">
+                                    <p class="text-gray-600 text-base leading-relaxed">
+                                        <span class="short-text">{{ Str::limit($partnership['deskripsi'], 100) }}</span>
+                                        @if ($isLongDesc)
+                                            <span class="full-text hidden">{{ $partnership['deskripsi'] }}</span>
+                                        @endif
+                                    </p>
+                                    @if ($isLongDesc)
+                                        <button onclick="toggleDeskripsi({{ $loop->index }})"
+                                            class="mt-2 text-sm font-semibold {{ $colors['text'] ?? 'text-blue-600' }} hover:underline focus:outline-none flex items-center gap-1 transition-all">
+                                            <span class="toggle-text">Selengkapnya</span>
+                                            <svg class="w-4 h-4 toggle-icon transition-transform" fill="none"
+                                                stroke="currentColor" viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                    d="M19 9l-7 7-7-7"></path>
+                                            </svg>
+                                        </button>
+                                    @endif
+                                </div>
                             </div>
 
                             <!-- CTA Button -->
@@ -196,4 +221,27 @@
             </div>
         </div>
     </div>
+
+    <!-- Toggle Script -->
+    <script>
+        function toggleDeskripsi(index) {
+            const container = document.querySelector(`.deskripsi-content-${index}`);
+            const shortText = container.querySelector('.short-text');
+            const fullText = container.querySelector('.full-text');
+            const toggleText = container.querySelector('.toggle-text');
+            const toggleIcon = container.querySelector('.toggle-icon');
+
+            if (fullText.classList.contains('hidden')) {
+                shortText.classList.add('hidden');
+                fullText.classList.remove('hidden');
+                toggleText.textContent = 'Sembunyikan';
+                toggleIcon.style.transform = 'rotate(180deg)';
+            } else {
+                shortText.classList.remove('hidden');
+                fullText.classList.add('hidden');
+                toggleText.textContent = 'Selengkapnya';
+                toggleIcon.style.transform = 'rotate(0deg)';
+            }
+        }
+    </script>
 @endsection

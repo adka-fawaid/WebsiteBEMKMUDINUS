@@ -17,13 +17,13 @@ class UserSeeder extends Seeder
                 // ADMIN TESTING UNTUK LOGIN MANUAL
                 'name' => 'BEM KM UDINUS',
                 'email' => 'bemkm@orma.dinus.ac.id',
-                'password' => 'bemkm123',
+                'password' => 'Bemkm@Orma2026!',
             ],
             [
                 // KREASI UNTUK LOGIN GOOGLE
                 'name' => 'Kementerian Kreasi',
                 'email' => 'kementeriankreasi@gmail.com',
-                'password' => 'kreasi123',
+                'password' => 'Kreasi@Gmail2026!',
             ]
         ];
 
