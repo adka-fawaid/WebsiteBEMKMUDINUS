@@ -296,10 +296,10 @@
                                         Acara</p>
                                     <div class="space-y-2">
                                         <div class="rounded-lg overflow-hidden border border-gray-200 max-w-xs">
-                                            <img src="{{ asset('storage/img/poster-medpart/' . $medpart->poster_acara) }}"
+                                            <img src="{{ asset('storage/' . $medpart->poster_acara) }}"
                                                 alt="Poster Acara" class="w-full h-auto object-cover">
                                         </div>
-                                        <a href="{{ asset('storage/img/poster-medpart/' . $medpart->poster_acara) }}"
+                                        <a href="{{ asset('storage/' . $medpart->poster_acara) }}"
                                             target="_blank"
                                             class="text-blue-600 hover:text-blue-800 font-semibold truncate break-all inline-flex items-center gap-2">
                                             <span class="truncate">{{ basename($medpart->poster_acara) }}</span>

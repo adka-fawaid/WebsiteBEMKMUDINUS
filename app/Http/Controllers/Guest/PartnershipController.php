@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Guest;
 
 use App\Http\Controllers\Controller;
+use App\Models\Kontak;
 use App\Models\Partnership;
 use App\Models\ProsedurPartnership;
 use App\Models\PendaftaranMediaPartner;
@@ -46,7 +47,15 @@ class PartnershipController extends Controller
             ->orderBy('created_at', 'asc')
             ->get();
 
-        return view('guest.partnership.media-partner.prosedur.index', compact('prosedurs', 'kategori', 'kategoriDb'));
+        // Ambil data partnership untuk cek use_link
+        $partnership = Partnership::where('kategori', 'Media Partner')->first();
+
+        return view('guest.partnership.media-partner.prosedur.index', compact(
+            'prosedurs',
+            'kategori',
+            'kategoriDb',
+            'partnership'
+        ));
     }
 
     public function prosedur($kategori)
@@ -71,12 +80,69 @@ class PartnershipController extends Controller
             ->orderBy('created_at', 'asc')
             ->get();
 
-        return view('guest.partnership.prosedur.index', compact('prosedurs', 'kategori', 'kategoriDb'));
+        // Ambil data partnership untuk cek use_link
+        $partnership = Partnership::where('kategori', $kategoriDb)->first();
+
+        return view('guest.partnership.prosedur.index', compact(
+            'prosedurs',
+            'kategori',
+            'kategoriDb',
+            'partnership'
+        ));
     }
 
     public function daftar($kategori)
     {
+        // Validasi kategori
+        $validKategori = ['media-partner', 'sponsorship', 'kolaborasi', 'kampus-visit', 'delegasi'];
+        if (!in_array(strtolower($kategori), $validKategori)) {
+            abort(404);
+        }
+
+        // Konversi kategori ke format database
+        $kategoriDb = match ($kategori) {
+            'media-partner' => 'Media Partner',
+            'sponsorship' => 'Sponsorship',
+            'kolaborasi' => 'Kolaborasi',
+            'kampus-visit' => 'Kampus Visit',
+            'delegasi' => 'Delegasi',
+            default => abort(404)
+        };
+
+        // Ambil data partnership untuk cek use_link
+        $partnership = Partnership::where('kategori', $kategoriDb)->first();
+
+        // Jika use_link = true, redirect back
+        if ($partnership && $partnership->use_link) {
+            return redirect()->back()->with('error', 'Pendaftaran untuk kategori ini menggunakan link eksternal.');
+        }
+
         return view('guest.partnership.daftar.index', compact('kategori'));
+    }
+
+    public function sukses($kategori)
+    {
+        // Validasi kategori
+        $validKategori = ['media-partner', 'sponsorship', 'kolaborasi', 'kampus-visit', 'delegasi'];
+        if (!in_array(strtolower($kategori), $validKategori)) {
+            abort(404);
+        }
+
+        // Ambil data dari session
+        $nomorPendaftaran = session('nomorPendaftaran');
+
+        // Jika tidak ada data session, redirect ke halaman partnership
+        if (!$nomorPendaftaran) {
+            return redirect()->route('guest.partnership.index');
+        }
+
+        $kontak = Kontak::get();
+
+        return view('guest.partnership.daftar.sukses', compact(
+            'kategori',
+            'nomorPendaftaran',
+            'kontak'
+        ));
     }
 
     public function storeDaftar(Request $request, $kategori)
@@ -132,7 +198,7 @@ class PartnershipController extends Controller
             'poster_acara' => 'required|image|mimes:jpg,jpeg,png|max:5120',
             'jenis_paket' => 'required|in:gratis,berbayar',
             'bukti_pembayaran' => 'nullable|image|mimes:jpg,jpeg,png|max:5120',
-            'bukti_follow' => 'required|image|mimes:jpg,jpeg,png|max:5120',
+            'bukti_follow' => 'required|file|mimes:pdf|max:5120',
             'akun_tag' => 'required|string|max:255',
         ]);
 
@@ -167,7 +233,8 @@ class PartnershipController extends Controller
             'akun_tag' => $validated['akun_tag'],
         ]);
 
-        return redirect()->back()->with('success', 'Pendaftaran Media Partner berhasil! Nomor pendaftaran: ' . $nomorPendaftaran);
+        return redirect()->route('guest.partnership.daftar.sukses', 'media-partner')
+            ->with('nomorPendaftaran', $nomorPendaftaran);
     }
 
     protected function storeDelegasi(Request $request)
@@ -201,7 +268,8 @@ class PartnershipController extends Controller
             'surat_undangan' => $suratPath,
         ]);
 
-        return redirect()->back()->with('success', 'Pendaftaran Delegasi berhasil! Nomor pendaftaran: ' . $nomorPendaftaran);
+        return redirect()->route('guest.partnership.daftar.sukses', 'delegasi')
+            ->with('nomorPendaftaran', $nomorPendaftaran);
     }
 
     protected function storeKampusVisit(Request $request)
@@ -231,7 +299,8 @@ class PartnershipController extends Controller
             'proposal_acara' => $proposalPath,
         ]);
 
-        return redirect()->back()->with('success', 'Pendaftaran Kampus Visit berhasil! Nomor pendaftaran: ' . $nomorPendaftaran);
+        return redirect()->route('guest.partnership.daftar.sukses', 'kampus-visit')
+            ->with('nomorPendaftaran', $nomorPendaftaran);
     }
 
     protected function storeKolaborasi(Request $request)
@@ -265,7 +334,8 @@ class PartnershipController extends Controller
             'proposal_acara' => $proposalPath,
         ]);
 
-        return redirect()->back()->with('success', 'Pendaftaran Kolaborasi berhasil! Nomor pendaftaran: ' . $nomorPendaftaran);
+        return redirect()->route('guest.partnership.daftar.sukses', 'kolaborasi')
+            ->with('nomorPendaftaran', $nomorPendaftaran);
     }
 
     protected function storeSponsorship(Request $request)
@@ -295,6 +365,7 @@ class PartnershipController extends Controller
             'proposal_acara' => $proposalPath,
         ]);
 
-        return redirect()->back()->with('success', 'Pendaftaran Sponsorship berhasil! Nomor pendaftaran: ' . $nomorPendaftaran);
+        return redirect()->route('guest.partnership.daftar.sukses', 'sponsorship')
+            ->with('nomorPendaftaran', $nomorPendaftaran);
     }
 }

@@ -123,7 +123,7 @@
                                 </svg>
                                 Hubungi Kami
                             </a>
-                            <a href="{{ route('guest.partnership.media-partner.index') }}"
+                            <a href="{{ $partnership && $partnership->use_link ? $partnership->link_pendaftaran : route('guest.partnership.daftar.index', $kategori) }}"
                                 class="inline-flex items-center gap-2 bg-white/20 border-2 border-white hover:bg-white/30 text-white font-bold px-8 py-4 rounded-xl transition-all duration-300">
                                 <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"

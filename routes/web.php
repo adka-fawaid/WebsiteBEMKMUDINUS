@@ -87,6 +87,7 @@ Route::prefix('partnership')->group(function () {
     Route::get('/prosedur/{kategori}', [PartnershipController::class, 'prosedur'])->name('guest.partnership.prosedur.index');
     Route::get('/daftar/{kategori}', [PartnershipController::class, 'daftar'])->name('guest.partnership.daftar.index');
     Route::post('/daftar/{kategori}', [PartnershipController::class, 'storeDaftar'])->name('guest.partnership.daftar.store');
+    Route::get('/daftar/{kategori}/sukses', [PartnershipController::class, 'sukses'])->name('guest.partnership.daftar.sukses');
 });
 
 // KONTAK

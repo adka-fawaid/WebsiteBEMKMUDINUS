@@ -132,8 +132,18 @@
                 <label for="proposal_acara" class="block text-sm font-semibold text-gray-700 mb-2">
                     Proposal Kolaborasi (PDF) <span class="text-red-500">*</span>
                 </label>
-                <input type="file" id="proposal_acara" name="proposal_acara" accept=".pdf" required
-                    class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-purple-500 transition @error('proposal_acara') border-red-500 @enderror">
+                <div class="relative">
+                    <input type="file" id="proposal_acara" name="proposal_acara" accept=".pdf" required
+                        onchange="handleFileSelect('proposal_acara')"
+                        class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-purple-500 transition @error('proposal_acara') border-red-500 @enderror">
+                    <button type="button" id="clear-proposal_acara" onclick="clearFileInput('proposal_acara')"
+                        class="hidden absolute right-2 top-1/2 -translate-y-1/2 p-2 text-red-500 hover:text-red-700 hover:bg-red-50 rounded-lg transition">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M6 18L18 6M6 6l12 12" />
+                        </svg>
+                    </button>
+                </div>
                 <p class="text-xs text-gray-500 mt-1">Max: 10MB</p>
                 @error('proposal_acara')
                     <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
@@ -153,45 +163,29 @@
             <div>
                 <p class="text-sm font-semibold text-green-800">Informasi Penting</p>
                 <p class="text-sm text-green-700 mt-1">Setelah pendaftaran, Anda akan menerima nomor pendaftaran dengan
-                    format <strong>KLB-{{ date('Y') }}-XXX</strong>. Simpan nomor ini untuk keperluan tracking.</p>
+                    format <strong>KLB-{{ date('Y') }}-XXX</strong>. Simpan nomor ini untuk keperluan konfirmasi.</p>
             </div>
         </div>
     </div>
-
-    <!-- Additional Info -->
-    <div class="bg-gradient-to-r from-green-100 to-emerald-100 rounded-xl p-6 border border-green-200">
-        <h4 class="font-bold text-green-900 mb-3 flex items-center gap-2">
-            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                    d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
-            </svg>
-            Bentuk Kolaborasi
-        </h4>
-        <ul class="space-y-2 text-sm text-green-800">
-            <li class="flex items-start gap-2">
-                <svg class="w-4 h-4 text-green-600 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
-                    <path fill-rule="evenodd"
-                        d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                        clip-rule="evenodd" />
-                </svg>
-                <span>Event bersama (seminar, workshop, kompetisi)</span>
-            </li>
-            <li class="flex items-start gap-2">
-                <svg class="w-4 h-4 text-green-600 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
-                    <path fill-rule="evenodd"
-                        d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                        clip-rule="evenodd" />
-                </svg>
-                <span>Program pengembangan mahasiswa</span>
-            </li>
-            <li class="flex items-start gap-2">
-                <svg class="w-4 h-4 text-green-600 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
-                    <path fill-rule="evenodd"
-                        d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                        clip-rule="evenodd" />
-                </svg>
-                <span>Pertukaran mahasiswa atau delegasi</span>
-            </li>
-        </ul>
-    </div>
 </div>
+
+<script>
+    function handleFileSelect(fieldName) {
+        const input = document.getElementById(fieldName);
+        const clearBtn = document.getElementById('clear-' + fieldName);
+
+        if (input.files.length > 0) {
+            clearBtn.classList.remove('hidden');
+        } else {
+            clearBtn.classList.add('hidden');
+        }
+    }
+
+    function clearFileInput(fieldName) {
+        const input = document.getElementById(fieldName);
+        const clearBtn = document.getElementById('clear-' + fieldName);
+
+        input.value = '';
+        clearBtn.classList.add('hidden');
+    }
+</script>

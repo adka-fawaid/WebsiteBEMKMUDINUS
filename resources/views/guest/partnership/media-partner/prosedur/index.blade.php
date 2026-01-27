@@ -10,12 +10,14 @@
             <!-- Hero Section -->
             <div class="text-center mb-16 mt-12">
                 <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-3">
-                    <span class="bg-gradient-to-r from-blue-600 to-orange-500 bg-clip-text text-transparent">Prosedur Media Partner</span>
+                    <span class="bg-gradient-to-r from-blue-600 to-orange-500 bg-clip-text text-transparent">Prosedur Media
+                        Partner</span>
                 </h1>
                 <div class="w-24 h-1 bg-gradient-to-r from-blue-600 to-orange-500 rounded-full mx-auto mb-4"></div>
-                
+
                 <p class="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-                    Ikuti langkah-langkah berikut untuk menjadi media partner resmi BEM KM UDINUS dan berkontribusi dalam setiap kegiatan kami.
+                    Ikuti langkah-langkah berikut untuk menjadi media partner resmi BEM KM UDINUS dan berkontribusi dalam
+                    setiap kegiatan kami.
                 </p>
             </div>
 
@@ -114,7 +116,7 @@
                                 </svg>
                                 Hubungi Kami
                             </a>
-                            <a href="{{ route('guest.partnership.media-partner.index') }}"
+                            <a href="{{ $partnership && $partnership->use_link ? $partnership->link_pendaftaran : route('guest.partnership.daftar.index', 'media-partner') }}"
                                 class="inline-flex items-center gap-2 bg-white/20 border-2 border-white hover:bg-white/30 text-white font-bold px-8 py-4 rounded-xl transition-all duration-300">
                                 <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"

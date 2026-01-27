@@ -133,8 +133,18 @@
                 <label for="surat_undangan" class="block text-sm font-semibold text-gray-700 mb-2">
                     Surat Undangan (PDF) <span class="text-red-500">*</span>
                 </label>
-                <input type="file" id="surat_undangan" name="surat_undangan" accept=".pdf" required
-                    class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-amber-500 focus:border-amber-500 transition @error('surat_undangan') border-red-500 @enderror">
+                <div class="relative">
+                    <input type="file" id="surat_undangan" name="surat_undangan" accept=".pdf" required
+                        onchange="handleFileSelect('surat_undangan')"
+                        class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-amber-500 focus:border-amber-500 transition @error('surat_undangan') border-red-500 @enderror">
+                    <button type="button" id="clear-surat_undangan" onclick="clearFileInput('surat_undangan')"
+                        class="hidden absolute right-2 top-1/2 -translate-y-1/2 p-2 text-red-500 hover:text-red-700 hover:bg-red-50 rounded-lg transition">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M6 18L18 6M6 6l12 12" />
+                        </svg>
+                    </button>
+                </div>
                 <p class="text-xs text-gray-500 mt-1">Max: 10MB</p>
                 @error('surat_undangan')
                     <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
@@ -144,18 +154,39 @@
     </div>
 
     <!-- Info Note -->
-    <div class="bg-blue-50 border-l-4 border-blue-500 p-4 rounded-r-lg">
+    <div class="bg-pink-50 border-l-4 border-pink-500 p-4 rounded-r-lg">
         <div class="flex items-start">
-            <svg class="w-5 h-5 text-blue-500 mt-0.5 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+            <svg class="w-5 h-5 text-pink-500 mt-0.5 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
                 <path fill-rule="evenodd"
                     d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z"
                     clip-rule="evenodd" />
             </svg>
             <div>
-                <p class="text-sm font-semibold text-blue-800">Informasi Penting</p>
-                <p class="text-sm text-blue-700 mt-1">Setelah pendaftaran, Anda akan menerima nomor pendaftaran dengan
-                    format <strong>DLG-{{ date('Y') }}-XXX</strong>. Simpan nomor ini untuk keperluan tracking.</p>
+                <p class="text-sm font-semibold text-pink-800">Informasi Penting</p>
+                <p class="text-sm text-pink-700 mt-1">Setelah pendaftaran, Anda akan menerima nomor pendaftaran dengan
+                    format <strong>DLG-{{ date('Y') }}-XXX</strong>. Simpan nomor ini untuk keperluan konfirmasi.</p>
             </div>
         </div>
     </div>
 </div>
+
+<script>
+    function handleFileSelect(fieldName) {
+        const input = document.getElementById(fieldName);
+        const clearBtn = document.getElementById('clear-' + fieldName);
+
+        if (input.files.length > 0) {
+            clearBtn.classList.remove('hidden');
+        } else {
+            clearBtn.classList.add('hidden');
+        }
+    }
+
+    function clearFileInput(fieldName) {
+        const input = document.getElementById(fieldName);
+        const clearBtn = document.getElementById('clear-' + fieldName);
+
+        input.value = '';
+        clearBtn.classList.add('hidden');
+    }
+</script>

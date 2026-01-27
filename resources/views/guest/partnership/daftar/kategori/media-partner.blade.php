@@ -111,12 +111,11 @@
             </label>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <label
-                    class="relative flex items-center p-4 border-2 border-gray-300 rounded-lg cursor-pointer hover:border-purple-500 transition">
+                    class="relative flex items-center p-4 border-2 border-gray-300 rounded-lg cursor-pointer hover:border-purple-500 transition peer-checked:border-purple-600 peer-checked:bg-purple-50 peer-checked:shadow-md has-[:checked]:border-purple-600 has-[:checked]:bg-purple-50 has-[:checked]:shadow-md">
                     <input type="radio" name="jenis_paket" value="gratis"
                         {{ old('jenis_paket') == 'gratis' ? 'checked' : '' }} class="sr-only peer"
                         onchange="toggleBuktiPembayaran()">
-                    <div
-                        class="w-full flex items-center justify-between peer-checked:border-purple-500 peer-checked:bg-purple-50 rounded-lg p-2">
+                    <div class="w-full flex items-center justify-between">
                         <span class="font-semibold text-gray-700 peer-checked:text-purple-700">Gratis</span>
                         <svg class="w-6 h-6 text-purple-600 opacity-0 peer-checked:opacity-100" fill="currentColor"
                             viewBox="0 0 20 20">
@@ -127,12 +126,11 @@
                     </div>
                 </label>
                 <label
-                    class="relative flex items-center p-4 border-2 border-gray-300 rounded-lg cursor-pointer hover:border-purple-500 transition">
+                    class="relative flex items-center p-4 border-2 border-gray-300 rounded-lg cursor-pointer hover:border-purple-500 transition peer-checked:border-purple-600 peer-checked:bg-purple-50 peer-checked:shadow-md has-[:checked]:border-purple-600 has-[:checked]:bg-purple-50 has-[:checked]:shadow-md">
                     <input type="radio" name="jenis_paket" value="berbayar"
                         {{ old('jenis_paket') == 'berbayar' ? 'checked' : '' }} class="sr-only peer"
                         onchange="toggleBuktiPembayaran()">
-                    <div
-                        class="w-full flex items-center justify-between peer-checked:border-purple-500 peer-checked:bg-purple-50 rounded-lg p-2">
+                    <div class="w-full flex items-center justify-between">
                         <span class="font-semibold text-gray-700 peer-checked:text-purple-700">Berbayar</span>
                         <svg class="w-6 h-6 text-purple-600 opacity-0 peer-checked:opacity-100" fill="currentColor"
                             viewBox="0 0 20 20">
@@ -171,8 +169,18 @@
             <label for="proposal_acara" class="block text-sm font-semibold text-gray-700 mb-2">
                 Proposal Acara (PDF) <span class="text-red-500">*</span>
             </label>
-            <input type="file" id="proposal_acara" name="proposal_acara" accept=".pdf" required
-                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500 transition @error('proposal_acara') border-red-500 @enderror">
+            <div class="relative">
+                <input type="file" id="proposal_acara" name="proposal_acara" accept=".pdf" required
+                    onchange="handleFileSelect('proposal_acara')"
+                    class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500 transition @error('proposal_acara') border-red-500 @enderror">
+                <button type="button" id="clear-proposal_acara" onclick="clearFileInput('proposal_acara')"
+                    class="hidden absolute right-2 top-1/2 -translate-y-1/2 p-2 text-red-500 hover:text-red-700 hover:bg-red-50 rounded-lg transition">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                </button>
+            </div>
             <p class="text-xs text-gray-500 mt-1">Max: 10MB</p>
             @error('proposal_acara')
                 <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
@@ -184,9 +192,19 @@
             <label for="poster_acara" class="block text-sm font-semibold text-gray-700 mb-2">
                 Poster Acara (JPG/PNG) <span class="text-red-500">*</span>
             </label>
-            <input type="file" id="poster_acara" name="poster_acara" accept=".jpg,.jpeg,.png" required
-                onchange="previewPoster(event)"
-                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500 transition @error('poster_acara') border-red-500 @enderror">
+            <div class="relative">
+                <input type="file" id="poster_acara" name="poster_acara" accept=".jpg,.jpeg,.png" required
+                    onchange="previewPoster(event); handleFileSelect('poster_acara')"
+                    class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500 transition @error('poster_acara') border-red-500 @enderror">
+                <button type="button" id="clear-poster_acara"
+                    onclick="clearFileInputWithPreview('poster_acara', 'poster-preview')"
+                    class="hidden absolute right-2 top-1/2 -translate-y-1/2 p-2 text-red-500 hover:text-red-700 hover:bg-red-50 rounded-lg transition">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                </button>
+            </div>
             <p class="text-xs text-gray-500 mt-1">Max: 5MB</p>
             @error('poster_acara')
                 <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
@@ -200,19 +218,24 @@
         <!-- Bukti Follow -->
         <div>
             <label for="bukti_follow" class="block text-sm font-semibold text-gray-700 mb-2">
-                Bukti Follow Instagram (JPG/PNG) <span class="text-red-500">*</span>
+                Bukti Follow Instagram (PDF) <span class="text-red-500">*</span>
             </label>
-            <input type="file" id="bukti_follow" name="bukti_follow" accept=".jpg,.jpeg,.png" required
-                onchange="previewBuktiFollow(event)"
-                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500 transition @error('bukti_follow') border-red-500 @enderror">
+            <div class="relative">
+                <input type="file" id="bukti_follow" name="bukti_follow" accept=".pdf" required
+                    onchange="handleFileSelect('bukti_follow')"
+                    class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500 transition @error('bukti_follow') border-red-500 @enderror">
+                <button type="button" id="clear-bukti_follow" onclick="clearFileInput('bukti_follow')"
+                    class="hidden absolute right-2 top-1/2 -translate-y-1/2 p-2 text-red-500 hover:text-red-700 hover:bg-red-50 rounded-lg transition">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                </button>
+            </div>
             <p class="text-xs text-gray-500 mt-1">Max: 5MB</p>
             @error('bukti_follow')
                 <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
             @enderror
-            <!-- Preview Bukti Follow -->
-            <div id="follow-preview" class="mt-3 hidden">
-                <img id="follow-img" src="" alt="Preview" class="w-full h-48 object-cover rounded-lg">
-            </div>
         </div>
 
         <!-- Bukti Pembayaran (Conditional) -->
@@ -220,9 +243,19 @@
             <label for="bukti_pembayaran" class="block text-sm font-semibold text-gray-700 mb-2">
                 Bukti Pembayaran (JPG/PNG)
             </label>
-            <input type="file" id="bukti_pembayaran" name="bukti_pembayaran" accept=".jpg,.jpeg,.png"
-                onchange="previewBuktiPembayaran(event)"
-                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500 transition @error('bukti_pembayaran') border-red-500 @enderror">
+            <div class="relative">
+                <input type="file" id="bukti_pembayaran" name="bukti_pembayaran" accept=".jpg,.jpeg,.png"
+                    onchange="previewBuktiPembayaran(event); handleFileSelect('bukti_pembayaran')"
+                    class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500 transition @error('bukti_pembayaran') border-red-500 @enderror">
+                <button type="button" id="clear-bukti_pembayaran"
+                    onclick="clearFileInputWithPreview('bukti_pembayaran', 'pembayaran-preview')"
+                    class="hidden absolute right-2 top-1/2 -translate-y-1/2 p-2 text-red-500 hover:text-red-700 hover:bg-red-50 rounded-lg transition">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                </button>
+            </div>
             <p class="text-xs text-gray-500 mt-1">Max: 5MB</p>
             @error('bukti_pembayaran')
                 <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
@@ -253,9 +286,51 @@
         </div>
     </div>
 </div>
+<!-- Info Note -->
+<div class=" mt-4 bg-gradient-to-r from-blue-100 to-indigo-100 rounded-xl p-6 border border-blue-200">
+    <h4 class="font-bold text-blue-900 mb-3 flex items-center gap-2">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+        </svg>
+        Informasi Penting
+    </h4>
+    <p class="text-sm text-blue-800">Setelah pendaftaran, Anda akan menerima nomor pendaftaran dengan
+        format <strong>MP-{{ date('Y') }}-XXX</strong>. Simpan nomor ini untuk keperluan tracking.</p>
 </div>
 
 <script>
+    function handleFileSelect(fieldName) {
+        const input = document.getElementById(fieldName);
+        const clearBtn = document.getElementById('clear-' + fieldName);
+
+        if (input.files.length > 0) {
+            clearBtn.classList.remove('hidden');
+        } else {
+            clearBtn.classList.add('hidden');
+        }
+    }
+
+    function clearFileInput(fieldName) {
+        const input = document.getElementById(fieldName);
+        const clearBtn = document.getElementById('clear-' + fieldName);
+
+        input.value = '';
+        clearBtn.classList.add('hidden');
+    }
+
+    function clearFileInputWithPreview(fieldName, previewId) {
+        const input = document.getElementById(fieldName);
+        const clearBtn = document.getElementById('clear-' + fieldName);
+        const preview = document.getElementById(previewId);
+
+        input.value = '';
+        clearBtn.classList.add('hidden');
+        if (preview) {
+            preview.classList.add('hidden');
+        }
+    }
+
     function toggleBuktiPembayaran() {
         const jenisPaket = document.querySelector('input[name="jenis_paket"]:checked');
         const buktiWrapper = document.getElementById('bukti-pembayaran-wrapper');
@@ -269,27 +344,13 @@
             buktiInput.required = false;
             buktiInput.value = '';
             document.getElementById('pembayaran-preview').classList.add('hidden');
+            document.getElementById('clear-bukti_pembayaran').classList.add('hidden');
         }
     }
 
     function previewPoster(event) {
         const preview = document.getElementById('poster-preview');
         const img = document.getElementById('poster-img');
-        const file = event.target.files[0];
-
-        if (file) {
-            const reader = new FileReader();
-            reader.onload = function(e) {
-                img.src = e.target.result;
-                preview.classList.remove('hidden');
-            }
-            reader.readAsDataURL(file);
-        }
-    }
-
-    function previewBuktiFollow(event) {
-        const preview = document.getElementById('follow-preview');
-        const img = document.getElementById('follow-img');
         const file = event.target.files[0];
 
         if (file) {
