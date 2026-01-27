@@ -81,7 +81,7 @@
                                         <svg class="w-16 h-16 text-gray-400" xmlns="http://www.w3.org/2000/svg"
                                             fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                                d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                                                d="M4 16l4.586-4.586a2 2 0 0 0-2.828 0L16 16m-2-2l1.586-1.586a2 2 0 0 1 2.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
                                         </svg>
                                     </div>
                                 @endif
@@ -296,6 +296,65 @@
                                         <span class="ml-2 text-sm text-gray-700">Tidak</span>
                                     </label>
                                 </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Link Pendaftaran -->
+                    <div
+                        class="bg-white rounded-xl p-5 shadow-sm hover:shadow-md transition-all duration-300 border border-gray-100">
+                        <div class="flex items-start gap-3">
+                            <div
+                                class="flex-shrink-0 w-10 h-10 rounded-lg bg-gradient-to-br from-green-500 to-green-600 flex items-center justify-center shadow-sm">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+                                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                    stroke-linecap="round" stroke-linejoin="round" class="text-white">
+                                    <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" />
+                                    <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" />
+                                </svg>
+                            </div>
+                            <div class="flex-1">
+                                <label for="link_pendaftaran-{{ $item->id }}"
+                                    class="block text-xs font-medium text-gray-900 uppercase tracking-wide mb-2">Link
+                                    Pendaftaran</label>
+                                <input type="url" id="link_pendaftaran-{{ $item->id }}"
+                                    name="link_pendaftaran" value="{{ $item->link_pendaftaran }}"
+                                    class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200"
+                                    placeholder="https://example.com/pendaftaran">
+                                <p class="text-xs text-gray-500 mt-1">Opsional, biarkan kosong jika tidak ada link.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Toggle Use Link -->
+                    <div
+                        class="bg-white rounded-xl p-5 shadow-sm hover:shadow-md transition-all duration-300 border border-gray-100">
+                        <div class="flex items-start gap-3">
+                            <div
+                                class="flex-shrink-0 w-10 h-10 rounded-lg bg-gradient-to-br from-amber-500 to-amber-600 flex items-center justify-center shadow-sm">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+                                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                    stroke-linecap="round" stroke-linejoin="round" class="text-white">
+                                    <path d="M6 12h12" />
+                                    <path d="M12 6v12" />
+                                </svg>
+                            </div>
+                            <div class="flex-1">
+                                <label
+                                    class="block text-xs font-medium text-gray-900 uppercase tracking-wide mb-2">Gunakan
+                                    Link</label>
+                                <div class="flex items-center gap-3">
+                                    <input type="hidden" name="use_link" value="0">
+                                    <label class="relative inline-flex items-center cursor-pointer">
+                                        <input type="checkbox" name="use_link" value="1" class="sr-only peer"
+                                            {{ $item->use_link ? 'checked' : '' }}>
+                                        <div
+                                            class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-2 peer-focus:ring-blue-300 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-blue-600">
+                                        </div>
+                                    </label>
+                                </div>
+                                <p class="text-xs text-gray-500 mt-1">Aktifkan jika menggunakan link pendaftaran
+                                    eksternal.</p>
                             </div>
                         </div>
                     </div>

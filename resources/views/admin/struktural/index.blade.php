@@ -82,7 +82,8 @@
                                         <div class="flex flex-col md:flex-row gap-2 w-full">
                                             <div class="relative flex-1 min-w-0">
                                                 <input type="text" name="search" id="search-input"
-                                                    value="{{ request('search') }}" placeholder="Cari unit organisasi..."
+                                                    value="{{ request('search') }}"
+                                                    placeholder="Cari unit organisasi..."
                                                     class="rounded-lg border border-gray-200 px-3 py-2 text-sm focus:ring-2 focus:ring-blue-200 focus:border-blue-400 transition w-full bg-gray-50 pr-10"
                                                     autocomplete="off" />
                                                 <button type="button" id="clear-search-btn"
@@ -102,12 +103,21 @@
                                                 <select name="kategori" id="kategori-select"
                                                     class="rounded-lg border border-gray-200 px-3 py-2 text-sm focus:ring-2 focus:ring-blue-200 focus:border-blue-400 transition bg-gray-50 w-full">
                                                     <option value="">Semua Kategori</option>
-                                                    <option value="Badan Pengurus Harian"
-                                                        {{ request('kategori') == 'Badan Pengurus Harian' ? 'selected' : '' }}>
-                                                        Badan Pengurus Harian</option>
+                                                    <option value="Presiden Mahasiswa"
+                                                        {{ request('kategori') == 'Presiden Mahasiswa' ? 'selected' : '' }}>
+                                                        Presiden Mahasiswa</option>
+                                                    <option value="Wakil Presiden Mahasiswa"
+                                                        {{ request('kategori') == 'Wakil Presiden Mahasiswa' ? 'selected' : '' }}>
+                                                        Wakil Presiden Mahasiswa</option>
+                                                    <option value="Sekretaris Jenderal"
+                                                        {{ request('kategori') == 'Sekretaris Jenderal' ? 'selected' : '' }}>
+                                                        Sekretaris Jenderal</option>
                                                     <option value="Biro"
-                                                        {{ request('kategori') == 'Biro' ? 'selected' : '' }}>
-                                                        Biro</option>
+                                                        {{ request('kategori') == 'Biro' ? 'selected' : '' }}>Biro
+                                                    </option>
+                                                    <option value="Kementerian Koordinator"
+                                                        {{ request('kategori') == 'Kementerian Koordinator' ? 'selected' : '' }}>
+                                                        Kementerian Koordinator</option>
                                                     <option value="Kementerian"
                                                         {{ request('kategori') == 'Kementerian' ? 'selected' : '' }}>
                                                         Kementerian</option>
@@ -231,10 +241,15 @@
                                             </td>
                                             <td class="px-6 py-5 text-center">
                                                 <span
-                                                    class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium 
-                                                    @if ($item->kategori === 'Badan Pengurus Harian') bg-blue-100 text-blue-700
+                                                    class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium
+                                                    @if ($item->kategori === 'Presiden Mahasiswa') bg-yellow-100 text-yellow-800
+                                                    @elseif($item->kategori === 'Wakil Presiden Mahasiswa') bg-orange-100 text-orange-800
+                                                    @elseif($item->kategori === 'Sekretaris Jenderal') bg-green-100 text-green-800
+                                                    @elseif($item->kategori === 'Badan Pengurus Harian') bg-blue-100 text-blue-700
                                                     @elseif($item->kategori === 'Biro') bg-indigo-100 text-indigo-700
-                                                    @else bg-purple-100 text-purple-700 @endif">
+                                                    @elseif($item->kategori === 'Kementerian Koordinator') bg-pink-100 text-pink-700
+                                                    @elseif($item->kategori === 'Kementerian') bg-purple-100 text-purple-700
+                                                    @else bg-gray-100 text-gray-700 @endif">
                                                     {{ $item->kategori }}
                                                 </span>
                                             </td>
@@ -348,58 +363,57 @@
                             </table>
                         </div>
 
-                            <!-- Pagination -->
-                            @if ($unitOrganisasis->total() > 0)
-                                <div
-                                    class="flex flex-col sm:flex-row items-center justify-between gap-4 mt-6 pt-4 border-t border-gray-200">
-                                    <div class="flex items-center gap-2">
-                                        <label for="per-page"
-                                            class="text-sm text-gray-600 font-medium">Tampilkan:</label>
-                                        <select id="per-page"
-                                            onchange="window.location.href='{{ route('admin.struktural.index') }}?per_page=' + this.value + '&search={{ request('search') }}&kategori={{ request('kategori') }}'"
-                                            class="rounded-lg border border-gray-200 px-3 py-1.5 text-sm focus:ring-2 focus:ring-blue-200 focus:border-blue-400 transition bg-gray-50 w-20">
-                                            <option value="5" {{ request('per_page') == 5 ? 'selected' : '' }}>5
-                                            </option>
-                                            <option value="10"
-                                                {{ request('per_page', 10) == 10 ? 'selected' : '' }}>10</option>
-                                            <option value="25" {{ request('per_page') == 25 ? 'selected' : '' }}>
-                                                25</option>
-                                        </select>
-                                        <span class="text-sm text-gray-600">dari {{ $unitOrganisasis->total() }}
-                                            data</span>
-                                    </div>
-
-                                    <div class="flex items-center gap-2">
-                                        @if ($unitOrganisasis->onFirstPage())
-                                            <span
-                                                class="px-3 py-1.5 text-sm text-gray-400 bg-gray-100 rounded-lg cursor-not-allowed">Sebelumnya</span>
-                                        @else
-                                            <a href="{{ $unitOrganisasis->previousPageUrl() }}"
-                                                class="px-3 py-1.5 text-sm text-gray-700 bg-white border border-gray-200 rounded-lg hover:bg-gray-50 transition">Sebelumnya</a>
-                                        @endif
-
-                                        <div class="flex gap-1">
-                                            @foreach ($unitOrganisasis->getUrlRange(1, $unitOrganisasis->lastPage()) as $page => $url)
-                                                @if ($page == $unitOrganisasis->currentPage())
-                                                    <span
-                                                        class="px-3 py-1.5 text-sm text-white bg-gradient-to-r from-blue-600 to-indigo-600 rounded-lg font-semibold">{{ $page }}</span>
-                                                @else
-                                                    <a href="{{ $url }}"
-                                                        class="px-3 py-1.5 text-sm text-gray-700 bg-white border border-gray-200 rounded-lg hover:bg-gray-50 transition">{{ $page }}</a>
-                                                @endif
-                                            @endforeach
-                                        </div>
-
-                                        @if ($unitOrganisasis->hasMorePages())
-                                            <a href="{{ $unitOrganisasis->nextPageUrl() }}"
-                                                class="px-3 py-1.5 text-sm text-gray-700 bg-white border border-gray-200 rounded-lg hover:bg-gray-50 transition">Selanjutnya</a>
-                                        @else
-                                            <span
-                                                class="px-3 py-1.5 text-sm text-gray-400 bg-gray-100 rounded-lg cursor-not-allowed">Selanjutnya</span>
-                                        @endif
-                                    </div>
+                        <!-- Pagination -->
+                        @if ($unitOrganisasis->total() > 0)
+                            <div
+                                class="flex flex-col sm:flex-row items-center justify-between gap-4 mt-6 pt-4 border-t border-gray-200">
+                                <div class="flex items-center gap-2">
+                                    <label for="per-page" class="text-sm text-gray-600 font-medium">Tampilkan:</label>
+                                    <select id="per-page"
+                                        onchange="window.location.href='{{ route('admin.struktural.index') }}?per_page=' + this.value + '&search={{ request('search') }}&kategori={{ request('kategori') }}'"
+                                        class="rounded-lg border border-gray-200 px-3 py-1.5 text-sm focus:ring-2 focus:ring-blue-200 focus:border-blue-400 transition bg-gray-50 w-20">
+                                        <option value="5" {{ request('per_page') == 5 ? 'selected' : '' }}>5
+                                        </option>
+                                        <option value="10" {{ request('per_page', 10) == 10 ? 'selected' : '' }}>
+                                            10</option>
+                                        <option value="25" {{ request('per_page') == 25 ? 'selected' : '' }}>
+                                            25</option>
+                                    </select>
+                                    <span class="text-sm text-gray-600">dari {{ $unitOrganisasis->total() }}
+                                        data</span>
                                 </div>
-                            @endif
+
+                                <div class="flex items-center gap-2">
+                                    @if ($unitOrganisasis->onFirstPage())
+                                        <span
+                                            class="px-3 py-1.5 text-sm text-gray-400 bg-gray-100 rounded-lg cursor-not-allowed">Sebelumnya</span>
+                                    @else
+                                        <a href="{{ $unitOrganisasis->previousPageUrl() }}"
+                                            class="px-3 py-1.5 text-sm text-gray-700 bg-white border border-gray-200 rounded-lg hover:bg-gray-50 transition">Sebelumnya</a>
+                                    @endif
+
+                                    <div class="flex gap-1">
+                                        @foreach ($unitOrganisasis->getUrlRange(1, $unitOrganisasis->lastPage()) as $page => $url)
+                                            @if ($page == $unitOrganisasis->currentPage())
+                                                <span
+                                                    class="px-3 py-1.5 text-sm text-white bg-gradient-to-r from-blue-600 to-indigo-600 rounded-lg font-semibold">{{ $page }}</span>
+                                            @else
+                                                <a href="{{ $url }}"
+                                                    class="px-3 py-1.5 text-sm text-gray-700 bg-white border border-gray-200 rounded-lg hover:bg-gray-50 transition">{{ $page }}</a>
+                                            @endif
+                                        @endforeach
+                                    </div>
+
+                                    @if ($unitOrganisasis->hasMorePages())
+                                        <a href="{{ $unitOrganisasis->nextPageUrl() }}"
+                                            class="px-3 py-1.5 text-sm text-gray-700 bg-white border border-gray-200 rounded-lg hover:bg-gray-50 transition">Selanjutnya</a>
+                                    @else
+                                        <span
+                                            class="px-3 py-1.5 text-sm text-gray-400 bg-gray-100 rounded-lg cursor-not-allowed">Selanjutnya</span>
+                                    @endif
+                                </div>
+                            </div>
+                        @endif
                     </div>
                 </div>
             </div>

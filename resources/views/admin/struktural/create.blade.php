@@ -160,8 +160,11 @@
                                     class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200"
                                     required>
                                     <option value="">Pilih Kategori</option>
-                                    <option value="Badan Pengurus Harian">Badan Pengurus Harian</option>
+                                    <option value="Presiden Mahasiswa">Presiden Mahasiswa</option>
+                                    <option value="Wakil Presiden Mahasiswa">Wakil Presiden Mahasiswa</option>
+                                    <option value="Sekretaris Jenderal">Sekretaris Jenderal</option>
                                     <option value="Biro">Biro</option>
+                                    <option value="Kementerian Koordinator">Kementerian Koordinator</option>
                                     <option value="Kementerian">Kementerian</option>
                                 </select>
                             </div>

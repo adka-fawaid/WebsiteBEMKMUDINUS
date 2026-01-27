@@ -51,6 +51,7 @@ class PendaftaranAdminController extends Controller
             'deskripsi' => 'required|string',
             'tanggal_buka' => 'required|date',
             'tanggal_tutup' => 'required|date|after_or_equal:tanggal_buka',
+            'link_grup' => 'required|url|max:255',
         ]);
 
         Pendaftaran::create($validatedData);
@@ -67,6 +68,7 @@ class PendaftaranAdminController extends Controller
             'deskripsi' => 'required|string',
             'tanggal_buka' => 'required|date',
             'tanggal_tutup' => 'required|date|after_or_equal:tanggal_buka',
+            'link_grup' => 'required|url|max:255',
         ]);
 
         $pendaftaran->update($validatedData);

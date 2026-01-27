@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Berita;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 class BeritaAdminController extends Controller
 {
@@ -48,7 +49,6 @@ class BeritaAdminController extends Controller
         }
 
         $validatedData = $request->validate([
-            'slug' => 'required|unique:beritas,slug',
             'judul' => 'required|string|max:255',
             'kategori' => 'required|string|in:Berita Acara,Berita Kegiatan,Press Release,Informasi,Lain-lain',
             'gambar' => 'nullable|image|max:5120',
@@ -57,6 +57,15 @@ class BeritaAdminController extends Controller
             'url' => 'nullable|url|max:255',
         ]);
 
+        // Generate slug from judul
+        $slug = Str::slug($validatedData['judul']);
+        // Pastikan slug unik
+        $count = Berita::where('slug', $slug)->count();
+        if ($count > 0) {
+            $slug .= '-' . ($count + 1);
+        }
+        $validatedData['slug'] = $slug;
+
         // Handle foto upload
         if ($request->hasFile('gambar')) {
             $imageName = time() . '-' . $request->file('gambar')->getClientOriginalName();
@@ -64,7 +73,7 @@ class BeritaAdminController extends Controller
             $validatedData['gambar'] = $imageName;
         }
 
-        // Handle foto upload
+        // Handle dokumen upload
         if ($request->hasFile('dokumen')) {
             $imageName = time() . '-' . $request->file('dokumen')->getClientOriginalName();
             $request->file('dokumen')->move(public_path('storage/dokumen/berita'), $imageName);
@@ -91,7 +100,6 @@ class BeritaAdminController extends Controller
         }
 
         $validatedData = $request->validate([
-            'slug' => 'required|unique:beritas,slug,' . $berita->id,
             'judul' => 'required|string|max:255',
             'kategori' => 'required|string|in:Berita Acara,Berita Kegiatan,Press Release,Informasi,Lain-lain',
             'gambar' => 'nullable|image|max:5120',
@@ -99,6 +107,15 @@ class BeritaAdminController extends Controller
             'dokumen' => 'nullable|file|max:5120',
             'url' => 'nullable|url|max:255',
         ]);
+
+        // Generate slug from judul
+        $slug = Str::slug($validatedData['judul']);
+        // Pastikan slug unik, kecuali milik sendiri
+        $count = Berita::where('slug', $slug)->where('id', '!=', $berita->id)->count();
+        if ($count > 0) {
+            $slug .= '-' . ($count + 1);
+        }
+        $validatedData['slug'] = $slug;
 
         // Handle foto upload
         if ($request->hasFile('gambar')) {

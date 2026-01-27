@@ -36,6 +36,25 @@ class ProgramKerjaAdminController extends Controller
         return view('admin.program-kerja.index', compact('programKerjas', 'kategori'));
     }
 
+    public function updateLinkStatus(Request $request, $id)
+    {
+        $request->validate([
+            'use_link' => 'required|boolean',
+        ]);
+
+        $programKerja = ProgramKerja::findOrFail($id);
+
+        // Check if link_pendaftaran is null
+        if (empty($programKerja->link_pendaftaran)) {
+            return redirect()->route('admin.program-kerja.index')->with('error', 'Link pendaftaran tidak boleh kosong. Silakan isi link pendaftaran terlebih dahulu.');
+        }
+
+        $programKerja->use_link = $request->use_link;
+        $programKerja->save();
+
+        return redirect()->route('admin.program-kerja.index')->with('success', 'Status link pendaftaran berhasil diperbarui.');
+    }
+
     public function store(Request $request)
     {
         // Check file size
@@ -56,6 +75,8 @@ class ProgramKerjaAdminController extends Controller
             'tanggal_selesai' => 'required|date|after_or_equal:tanggal_mulai',
             'foto' => 'required|image|max:5120',
             'pendaftaran' => 'nullable|boolean',
+            'link_pendaftaran' => 'nullable|url|max:255',
+            'use_link' => 'nullable|boolean',
         ]);
 
         // Handle foto upload
@@ -105,6 +126,8 @@ class ProgramKerjaAdminController extends Controller
             'tanggal_selesai' => 'required|date|after_or_equal:tanggal_mulai',
             'foto' => 'nullable|image|max:5120',
             'pendaftaran' => 'nullable|boolean',
+            'link_pendaftaran' => 'nullable|url|max:255',
+            'use_link' => 'nullable|boolean',
         ]);
 
         // Handle logo upload

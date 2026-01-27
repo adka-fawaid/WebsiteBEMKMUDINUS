@@ -18,6 +18,7 @@ return new class extends Migration
             $table->longText('deskripsi')->nullable();
             $table->date('tanggal_buka');
             $table->date('tanggal_tutup');
+            $table->string('link_grup')->nullable();
             $table->timestamps();
         });
     }

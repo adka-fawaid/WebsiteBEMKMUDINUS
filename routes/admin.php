@@ -113,6 +113,8 @@ Route::middleware(['auth'])->group(function () {
         Route::prefix('program-kerja')->group(function () {
             Route::get('/', [ProgramKerjaAdminController::class, 'index'])
                 ->name('admin.program-kerja.index');
+            Route::post('/update-link-status/{id}', [ProgramKerjaAdminController::class, 'updateLinkStatus'])
+                ->name('admin.program-kerja.update-link-status');
             Route::post('/store', [ProgramKerjaAdminController::class, 'store'])
                 ->name('admin.program-kerja.store');
             Route::put('/update/{id}', [ProgramKerjaAdminController::class, 'update'])

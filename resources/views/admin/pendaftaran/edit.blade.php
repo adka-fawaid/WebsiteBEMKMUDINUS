@@ -197,6 +197,33 @@
                             </div>
                         </div>
                     </div>
+
+                    <!-- Link Grup WhatsApp -->
+                    <div
+                        class="bg-white rounded-xl p-5 shadow-sm hover:shadow-md transition-all duration-300 border border-gray-100">
+                        <div class="flex items-start gap-3">
+                            <div
+                                class="flex-shrink-0 w-10 h-10 rounded-lg bg-gradient-to-br from-green-500 to-green-600 flex items-center justify-center shadow-sm">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+                                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                    stroke-linecap="round" stroke-linejoin="round" class="text-white">
+                                    <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" />
+                                    <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" />
+                                </svg>
+                            </div>
+                            <div class="flex-1">
+                                <label for="link_grup"
+                                    class="block text-xs font-medium text-gray-900 uppercase tracking-wide mb-2">Link
+                                    Grup WhatsApp</label>
+                                <input type="url" id="link_grup" name="link_grup"
+                                    class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200"
+                                    placeholder="https://chat.whatsapp.com/"
+                                    value="{{ old('link_grup', $item->link_grup) }}" required>
+                                <p class="text-xs text-gray-500 mt-1">Wajib diisi, gunakan link grup WhatsApp yang
+                                    valid.</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
                 <!-- Modal footer -->

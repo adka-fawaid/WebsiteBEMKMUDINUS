@@ -127,7 +127,7 @@ class KegiatanController extends Controller
             '0',
             STR_PAD_LEFT
         );
-        $nomorPendaftaran = 'MP-' . $tahun . '-' . $nomorUrut;
+        $nomorPendaftaran = 'REG-' . $tahun . '-' . $nomorUrut;
 
         DB::beginTransaction();
 

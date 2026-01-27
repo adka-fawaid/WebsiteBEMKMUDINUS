@@ -21,7 +21,7 @@ class ProgramKerjaSeeder extends Seeder
             'tanggal_selesai' => '2026-05-10',
             'foto' => 'webinter.jpeg',
             'pendaftaran' => true,
-            'link' => 'https://webinar2026.bemkmudinus.id',
+            'link_pendaftaran' => 'https://webinar2026.bemkmudinus.id',
         ]);
     }
 }

@@ -236,10 +236,36 @@
                             <div class="flex-1">
                                 <label for="jabatan-{{ $anggota->id }}"
                                     class="block text-xs font-medium text-gray-900 uppercase tracking-wide mb-2">Jabatan</label>
-                                <input type="text" id="jabatan-{{ $anggota->id }}" name="jabatan"
-                                    value="{{ $anggota->jabatan }}"
-                                    class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200"
-                                    placeholder="Masukkan jabatan..." required>
+                                <select id="jabatan-{{ $anggota->id }}" name="jabatan" required
+                                    class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200">
+                                    <option value="">Pilih Jabatan</option>
+                                    <option value="Presiden Mahasiswa"
+                                        {{ $anggota->jabatan == 'Presiden Mahasiswa' ? 'selected' : '' }}>Presiden
+                                        Mahasiswa</option>
+                                    <option value="Wakil Presiden Mahasiswa"
+                                        {{ $anggota->jabatan == 'Wakil Presiden Mahasiswa' ? 'selected' : '' }}>Wakil
+                                        Presiden Mahasiswa</option>
+                                    <option value="Sekretaris Jenderal"
+                                        {{ $anggota->jabatan == 'Sekretaris Jenderal' ? 'selected' : '' }}>Sekretaris
+                                        Jenderal</option>
+                                    <option value="Kepala" {{ $anggota->jabatan == 'Kepala' ? 'selected' : '' }}>
+                                        Kepala</option>
+                                    <option value="Menteri Koordinator"
+                                        {{ $anggota->jabatan == 'Menteri Koordinator' ? 'selected' : '' }}>Menteri
+                                        Koordinator</option>
+                                    <option value="Menteri" {{ $anggota->jabatan == 'Menteri' ? 'selected' : '' }}>
+                                        Menteri</option>
+                                    <option value="Sekretaris"
+                                        {{ $anggota->jabatan == 'Sekretaris' ? 'selected' : '' }}>Sekretaris</option>
+                                    <option value="Ketua Bidang"
+                                        {{ $anggota->jabatan == 'Ketua Bidang' ? 'selected' : '' }}>Ketua Bidang
+                                    </option>
+                                    <option value="Staff Ahli"
+                                        {{ $anggota->jabatan == 'Staff Ahli' ? 'selected' : '' }}>Staff Ahli</option>
+                                    <option value="Eksekutif Muda"
+                                        {{ $anggota->jabatan == 'Eksekutif Muda' ? 'selected' : '' }}>Eksekutif Muda
+                                    </option>
+                                </select>
                             </div>
                         </div>
                     </div>

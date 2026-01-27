@@ -225,9 +225,20 @@
                             <div class="flex-1">
                                 <label for="jabatan"
                                     class="block text-xs font-medium text-gray-900 uppercase tracking-wide mb-2">Jabatan</label>
-                                <input type="text" id="jabatan" name="jabatan"
-                                    class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200"
-                                    placeholder="Masukkan jabatan..." required>
+                                <select id="jabatan" name="jabatan" required
+                                    class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200">
+                                    <option value="">Pilih Jabatan</option>
+                                    <option value="Presiden Mahasiswa">Presiden Mahasiswa</option>
+                                    <option value="Wakil Presiden Mahasiswa">Wakil Presiden Mahasiswa</option>
+                                    <option value="Sekretaris Jenderal">Sekretaris Jenderal</option>
+                                    <option value="Kepala">Kepala</option>
+                                    <option value="Menteri Koordinator">Menteri Koordinator</option>
+                                    <option value="Menteri">Menteri</option>
+                                    <option value="Sekretaris">Sekretaris</option>
+                                    <option value="Ketua Bidang">Ketua Bidang</option>
+                                    <option value="Staff Ahli">Staff Ahli</option>
+                                    <option value="Eksekutif Muda">Eksekutif Muda</option>
+                                </select>
                             </div>
                         </div>
                     </div>

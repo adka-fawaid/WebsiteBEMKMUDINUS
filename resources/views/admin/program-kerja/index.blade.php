@@ -185,6 +185,18 @@
                                         </th>
                                         <th scope="col" class="px-6 py-4 text-center font-bold w-40">
                                             <span
+                                                class="text-xs font-extrabold text-gray-700 uppercase tracking-wider">
+                                                Link Pendaftaran
+                                            </span>
+                                        </th>
+                                        <th scope="col" class="px-6 py-4 text-center font-bold w-40">
+                                            <span
+                                                class="text-xs font-extrabold text-gray-700 uppercase tracking-wider">
+                                                Gunakan Link
+                                            </span>
+                                        </th>
+                                        <th scope="col" class="px-6 py-4 text-center font-bold w-40">
+                                            <span
                                                 class="text-xs font-extrabold text-gray-700 uppercase tracking-wider">Aksi</span>
                                         </th>
                                     </tr>
@@ -271,6 +283,50 @@
                                                         Tertutup
                                                     </span>
                                                 @endif
+                                            </td>
+                                            <td class="px-6 py-5 text-center">
+                                                @if ($item->link_pendaftaran)
+                                                    <a href="{{ $item->link_pendaftaran }}" target="_blank"
+                                                        rel="noopener noreferrer"
+                                                        class="inline-flex items-center gap-1.5 text-sm text-blue-600 hover:text-blue-700 font-medium hover:underline transition-all duration-200">
+                                                        <span>{{ Str::limit($item->link_pendaftaran, 30) }}</span>
+                                                        <svg xmlns="http://www.w3.org/2000/svg" width="14"
+                                                            height="14" viewBox="0 0 24 24" fill="none"
+                                                            stroke="currentColor" stroke-width="2"
+                                                            stroke-linecap="round" stroke-linejoin="round">
+                                                            <path
+                                                                d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+                                                            <polyline points="15 3 21 3 21 9" />
+                                                            <line x1="10" y1="14" x2="21"
+                                                                y2="3" />
+                                                        </svg>
+                                                    </a>
+                                                @else
+                                                    <span class="text-sm text-gray-500">-</span>
+                                                @endif
+                                            </td>
+                                            <td class="px-6 py-5 text-center">
+                                                <form
+                                                    action="{{ route('admin.program-kerja.update-link-status', $item->id) }}"
+                                                    method="POST" class="inline-flex items-center gap-3">
+                                                    @csrf
+                                                    <input type="hidden" name="use_link" value="0">
+
+                                                    <label class="relative inline-flex items-center cursor-pointer">
+                                                        <input type="checkbox" name="use_link" value="1"
+                                                            class="sr-only peer"
+                                                            {{ $item->use_link ? 'checked' : '' }}
+                                                            onchange="this.form.submit()">
+                                                        <div
+                                                            class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-2 peer-focus:ring-blue-300 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-blue-600">
+                                                        </div>
+                                                    </label>
+
+                                                    <span
+                                                        class="text-xs font-semibold {{ $item->use_link ? 'text-green-700' : 'text-gray-600' }}">
+                                                        {{ $item->use_link ? 'Aktif' : 'Nonaktif' }}
+                                                    </span>
+                                                </form>
                                             </td>
                                             <td class="px-6 py-5">
                                                 <div class="flex items-center justify-center gap-2">

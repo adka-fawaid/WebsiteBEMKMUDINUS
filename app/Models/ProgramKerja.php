@@ -17,7 +17,8 @@ class ProgramKerja extends Model
         'tanggal_selesai',
         'foto',
         'pendaftaran',
-        'link',
+        'link_pendaftaran',
+        'use_link',
     ];
 
     // Define relationship to Pendaftaran

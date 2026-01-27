@@ -162,6 +162,11 @@
                                         </th>
                                         <th scope="col" class="px-6 py-4 text-center font-bold w-32">
                                             <span
+                                                class="text-xs font-extrabold text-gray-700 uppercase tracking-wider">Link
+                                                Grup</span>
+                                        </th>
+                                        <th scope="col" class="px-6 py-4 text-center font-bold w-32">
+                                            <span
                                                 class="text-xs font-extrabold text-gray-700 uppercase tracking-wider">Kelola</span>
                                         </th>
                                         <th scope="col" class="px-6 py-4 text-center font-bold w-40">
@@ -203,6 +208,27 @@
                                                         </div>
                                                     @endif
                                                 </div>
+                                            </td>
+                                            <td class="px-6 py-5 text-center">
+                                                @if ($item->link_grup)
+                                                    <a href="{{ $item->link_grup }}" target="_blank"
+                                                        rel="noopener noreferrer"
+                                                        class="inline-flex items-center gap-1.5 text-sm text-green-600 hover:text-green-700 font-medium hover:underline transition-all duration-200">
+                                                        <span>{{ Str::limit($item->link_grup, 30) }}</span>
+                                                        <svg xmlns="http://www.w3.org/2000/svg" width="14"
+                                                            height="14" viewBox="0 0 24 24" fill="none"
+                                                            stroke="currentColor" stroke-width="2"
+                                                            stroke-linecap="round" stroke-linejoin="round">
+                                                            <path
+                                                                d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+                                                            <polyline points="15 3 21 3 21 9" />
+                                                            <line x1="10" y1="14" x2="21"
+                                                                y2="3" />
+                                                        </svg>
+                                                    </a>
+                                                @else
+                                                    <span class="text-sm text-gray-500">-</span>
+                                                @endif
                                             </td>
                                             <td class="px-6 py-5 text-center">
                                                 <a href="{{ route('admin.pendaftaran.formulir.index', $item->id) }}"
@@ -271,7 +297,7 @@
                                         @include('admin.pendaftaran.delete', ['item' => $item])
                                     @empty
                                         <tr>
-                                            <td colspan="6" class="px-6 py-16 text-center">
+                                            <td colspan="7" class="px-6 py-16 text-center">
                                                 <div class="flex flex-col items-center justify-center">
                                                     <div
                                                         class="w-20 h-20 rounded-2xl bg-gradient-to-br from-gray-100 to-gray-200 flex items-center justify-center mb-4 shadow-inner">

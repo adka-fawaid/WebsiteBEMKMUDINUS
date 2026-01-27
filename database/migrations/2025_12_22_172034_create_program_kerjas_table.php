@@ -20,7 +20,8 @@ return new class extends Migration
             $table->date('tanggal_selesai')->nullable();
             $table->string('foto')->nullable();
             $table->boolean('pendaftaran')->default(false);
-            $table->string('link')->nullable();
+            $table->string('link_pendaftaran')->nullable();
+            $table->boolean('use_link')->default(false);
             $table->timestamps();
         });
     }

@@ -15,6 +15,7 @@ class Pendaftaran extends Model
         'deskripsi',
         'tanggal_buka',
         'tanggal_tutup',
+        'link_grup',
     ];
 
     // Define relationship to ProgramKerja

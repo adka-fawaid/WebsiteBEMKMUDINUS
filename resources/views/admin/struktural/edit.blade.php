@@ -169,14 +169,22 @@
                                     class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200"
                                     required>
                                     <option value="">Pilih Kategori</option>
-                                    <option value="Badan Pengurus Harian"
-                                        {{ $item->kategori == 'Badan Pengurus Harian' ? 'selected' : '' }}>Badan
-                                        Pengurus Harian</option>
+                                    <option value="Presiden Mahasiswa"
+                                        {{ $item->kategori == 'Presiden Mahasiswa' ? 'selected' : '' }}>Presiden
+                                        Mahasiswa</option>
+                                    <option value="Wakil Presiden Mahasiswa"
+                                        {{ $item->kategori == 'Wakil Presiden Mahasiswa' ? 'selected' : '' }}>Wakil
+                                        Presiden Mahasiswa</option>
+                                    <option value="Sekretaris Jenderal"
+                                        {{ $item->kategori == 'Sekretaris Jenderal' ? 'selected' : '' }}>Sekretaris
+                                        Jenderal</option>
                                     <option value="Biro" {{ $item->kategori == 'Biro' ? 'selected' : '' }}>Biro
                                     </option>
+                                    <option value="Kementerian Koordinator"
+                                        {{ $item->kategori == 'Kementerian Koordinator' ? 'selected' : '' }}>
+                                        Kementerian Koordinator</option>
                                     <option value="Kementerian"
-                                        {{ $item->kategori == 'Kementerian' ? 'selected' : '' }}>
-                                        Kementerian</option>
+                                        {{ $item->kategori == 'Kementerian' ? 'selected' : '' }}>Kementerian</option>
                                 </select>
                             </div>
                         </div>
