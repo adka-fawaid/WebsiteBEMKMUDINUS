@@ -71,7 +71,13 @@ Route::prefix('profil')->group(function () {
 });
 
 // KEGIATAN
-Route::get('/kegiatan', [KegiatanController::class, 'index'])->name('guest.kegiatan.index');
+Route::prefix('kegiatan')->group(function () {
+    Route::get('/', [KegiatanController::class, 'index'])->name('guest.kegiatan.index');
+    Route::get('/{id}', [KegiatanController::class, 'detail'])->name('guest.kegiatan.detail');
+    Route::get('/{id}/daftar', [KegiatanController::class, 'daftar'])->name('guest.kegiatan.daftar');
+    Route::post('/{id}/daftar', [KegiatanController::class, 'storeDaftar'])->name('guest.kegiatan.storeDaftar');
+    Route::get('/{id}/sukses', [KegiatanController::class, 'sukses'])->name('guest.kegiatan.sukses');
+});
 
 // BERITA
 Route::prefix('berita')->group(function () {

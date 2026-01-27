@@ -11,26 +11,25 @@
         <div class="container mx-auto px-2 sm:px-3 lg:px-4 max-w-7xl relative z-10">
             <!-- Main Content -->
             <div class="space-y-4 md:space-y-5 lg:space-y-6">
-                <!-- Title -->
+
+                <!-- Title & Category -->
                 <div class="text-center">
                     <h1
                         class="font-bold bg-gradient-to-r from-blue-700 via-blue-800 to-orange-500 bg-clip-text text-transparent text-2xl md:text-3xl lg:text-4xl mt-4 mb-4">
                         {{ $berita->judul }}
                     </h1>
-                    <div class="w-24 h-1 bg-gradient-to-r from-blue-500 to-orange-500 rounded-full mx-auto"></div>
+                    <div class="w-24 h-1 bg-gradient-to-r from-blue-500 to-orange-500 rounded-full mx-auto mb-4"></div>
+                    <div
+                        class="inline-block bg-gradient-to-r from-orange-500 to-orange-600 text-white font-bold px-5 py-2.5 rounded-xl leading-tight text-sm shadow-xl shadow-orange-500/50 mb-2">
+                        {{ $berita->kategori }}
+                    </div>
                 </div>
-                <!-- Featured Image -->
-                <div class="max-w-xl mx-auto">
-                    <div class="relative overflow-hidden aspect-square rounded-2xl shadow-xl">
-                        <img src="{{ asset('storage/img/berita/' . $berita->gambar) }}" class="w-full h-full object-cover"
-                            alt="{{ $berita->judul }}">
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent"></div>
 
-                        <!-- Category Badge on Image -->
-                        <div
-                            class="absolute left-6 top-6 bg-gradient-to-r from-orange-500 to-orange-600 text-white font-bold px-5 py-2.5 rounded-xl leading-tight text-sm shadow-xl shadow-orange-500/50">
-                            {{ $berita->kategori }}
-                        </div>
+                <!-- Featured Image -->
+                <div class="max-w-4xl mx-auto">
+                    <div class="relative overflow-hidden rounded-2xl shadow-xl bg-gray-50">
+                        <img src="{{ asset('storage/img/berita/' . $berita->gambar) }}"
+                            class="w-full h-auto max-h-[600px] object-contain mx-auto" alt="{{ $berita->judul }}">
                     </div>
                 </div>
 
@@ -55,7 +54,7 @@
                                 </path>
                             </svg>
                             <span class="text-sm font-medium">Diperbarui:
-                                {{ $berita->updated_at->format('d F Y') }}</span>
+                                {{ $berita->updated_at->locale('id')->translatedFormat('d F Y') }}</span>
                         </div>
                     @endif
                 </div>

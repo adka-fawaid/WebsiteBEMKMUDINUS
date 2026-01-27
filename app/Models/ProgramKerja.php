@@ -20,14 +20,8 @@ class ProgramKerja extends Model
         'link',
     ];
 
-    // Define relationship to BeritaAcara
-    public function beritaAcara()
-    {
-        return $this->hasMany(Berita::class);
-    }
-
     // Define relationship to Pendaftaran
-    public function pendaftaran()
+    public function pendaftarans()
     {
         return $this->hasMany(Pendaftaran::class);
     }

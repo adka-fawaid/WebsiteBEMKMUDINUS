@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('respond_pendaftarans', function (Blueprint $table) {
             $table->id();
             $table->foreignId('pendaftaran_id')->constrained('pendaftarans')->onDelete('cascade');
+            $table->string('link_group_whatsapp')->nullable();
             $table->string('nomor_pendaftaran');
             $table->string('pertanyaan');
             $table->longText('jawaban');
