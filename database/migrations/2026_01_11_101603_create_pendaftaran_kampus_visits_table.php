@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('pendaftaran_kampus_visits', function (Blueprint $table) {
             $table->id();
             $table->string('nomor_pendaftaran')->unique();
-            $table->string('email')->unique();
+            $table->string('email');
             $table->string('nama_lengkap');
             $table->string('nama_instansi');
             $table->string('nomor_telepon');
