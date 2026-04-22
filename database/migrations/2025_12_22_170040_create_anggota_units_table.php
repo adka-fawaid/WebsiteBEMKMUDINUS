@@ -27,6 +27,7 @@ return new class extends Migration
                 'Menteri',
                 'Sekretaris',
                 'Ketua Bidang',
+                'Staff Biro',
                 'Staff Ahli',
                 'Eksekutif Muda',
             ]);

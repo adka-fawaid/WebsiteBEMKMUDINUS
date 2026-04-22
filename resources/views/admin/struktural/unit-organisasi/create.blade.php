@@ -231,11 +231,12 @@
                                     <option value="Presiden Mahasiswa">Presiden Mahasiswa</option>
                                     <option value="Wakil Presiden Mahasiswa">Wakil Presiden Mahasiswa</option>
                                     <option value="Sekretaris Jenderal">Sekretaris Jenderal</option>
-                                    <option value="Kepala">Kepala</option>
+                                    <option value="Kepala Biro">Kepala Biro</option>
                                     <option value="Menteri Koordinator">Menteri Koordinator</option>
                                     <option value="Menteri">Menteri</option>
                                     <option value="Sekretaris">Sekretaris</option>
                                     <option value="Ketua Bidang">Ketua Bidang</option>
+                                    <option value="Staff Biro">Staff Biro</option>
                                     <option value="Staff Ahli">Staff Ahli</option>
                                     <option value="Eksekutif Muda">Eksekutif Muda</option>
                                 </select>

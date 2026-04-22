@@ -78,11 +78,11 @@
                     @elseif ($kategori == 'Biro')
                         {{-- Layout Biro --}}
                         @php
-                            $kepalaAndSekretaris = $anggotaUnits->whereIn('jabatan', ['Kepala', 'Sekretaris']);
-                            $staffAndEksekutif = $anggotaUnits->whereIn('jabatan', ['Staff Ahli', 'Eksekutif Muda']);
+                            $kepalaAndSekretaris = $anggotaUnits->whereIn('jabatan', ['Kepala Biro', 'Sekretaris']);
+                            $staffAndEksekutif = $anggotaUnits->whereIn('jabatan', ['Staff Biro', 'Staff Ahli', 'Eksekutif Muda']);
                         @endphp
 
-                        {{-- Grid 2: Kepala & Sekretaris --}}
+                        {{-- Grid 2: Kepala Biro & Sekretaris --}}
                         @if ($kepalaAndSekretaris->count() > 0)
                             <div class="flex justify-center mb-8">
                                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8 max-w-3xl w-full">
@@ -182,7 +182,7 @@
                         @php
                             $menteriAndSekretaris = $anggotaUnits->whereIn('jabatan', ['Menteri', 'Sekretaris']);
                             $ketuaBidang = $anggotaUnits->where('jabatan', 'Ketua Bidang');
-                            $staffAndEksekutif = $anggotaUnits->whereIn('jabatan', ['Staff Ahli', 'Eksekutif Muda']);
+                            $staffAndEksekutif = $anggotaUnits->whereIn('jabatan', ['Staff Biro', 'Staff Ahli', 'Eksekutif Muda']);
                         @endphp
 
                         {{-- Grid 2: Menteri & Sekretaris --}}

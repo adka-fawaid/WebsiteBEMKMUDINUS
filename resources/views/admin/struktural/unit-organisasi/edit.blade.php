@@ -248,8 +248,8 @@
                                     <option value="Sekretaris Jenderal"
                                         {{ $anggota->jabatan == 'Sekretaris Jenderal' ? 'selected' : '' }}>Sekretaris
                                         Jenderal</option>
-                                    <option value="Kepala" {{ $anggota->jabatan == 'Kepala' ? 'selected' : '' }}>
-                                        Kepala</option>
+                                    <option value="Kepala Biro" {{ $anggota->jabatan == 'Kepala Biro' ? 'selected' : '' }}>
+                                        Kepala Biro</option>
                                     <option value="Menteri Koordinator"
                                         {{ $anggota->jabatan == 'Menteri Koordinator' ? 'selected' : '' }}>Menteri
                                         Koordinator</option>
@@ -260,6 +260,8 @@
                                     <option value="Ketua Bidang"
                                         {{ $anggota->jabatan == 'Ketua Bidang' ? 'selected' : '' }}>Ketua Bidang
                                     </option>
+                                    <option value="Staff Biro"
+                                        {{ $anggota->jabatan == 'Staff Biro' ? 'selected' : '' }}>Staff Biro</option>
                                     <option value="Staff Ahli"
                                         {{ $anggota->jabatan == 'Staff Ahli' ? 'selected' : '' }}>Staff Ahli</option>
                                     <option value="Eksekutif Muda"

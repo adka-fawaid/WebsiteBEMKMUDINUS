@@ -144,7 +144,7 @@ class StrukturalAdminController extends Controller
             'nim' => 'nullable|string|max:20',
             'program_studi' => 'nullable|string|max:100',
             'angkatan' => 'required|string|max:4',
-            'jabatan' => 'required|string|in:Presiden Mahasiswa,Wakil Presiden Mahasiswa,Sekretaris Jenderal,Kepala,Menteri Koordinator,Menteri,Sekretaris,Ketua Bidang,Staff Ahli,Eksekutif Muda',
+            'jabatan' => 'required|string|in:Presiden Mahasiswa,Wakil Presiden Mahasiswa,Sekretaris Jenderal,Kepala Biro,Menteri Koordinator,Menteri,Sekretaris,Ketua Bidang,Staff Biro,Staff Ahli,Eksekutif Muda',
             'foto' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:5120',
         ]);
 
@@ -162,9 +162,11 @@ class StrukturalAdminController extends Controller
         return redirect()->route('admin.struktural.unit-organisasi.index', $unitOrganisasiId)->with('success', 'Anggota unit berhasil ditambahkan.');
     }
 
-    public function updateAnggotaUnit(Request $request, $anggotaId)
+    public function updateAnggotaUnit(Request $request, $unitOrganisasiId, $anggotaId)
     {
-        $anggotaUnit = AnggotaUnit::findOrFail($anggotaId);
+        $anggotaUnit = AnggotaUnit::where('id', $anggotaId)
+            ->where('unit_organisasi_id', $unitOrganisasiId)
+            ->firstOrFail();
 
         // Check file size
         if ($request->hasFile('foto') && $request->file('foto')->getSize() > 5120 * 1024) {
@@ -176,7 +178,7 @@ class StrukturalAdminController extends Controller
             'nim' => 'nullable|string|max:20',
             'program_studi' => 'nullable|string|max:100',
             'angkatan' => 'required|string|max:4',
-            'jabatan' => 'required|string|in:Presiden Mahasiswa,Wakil Presiden Mahasiswa,Sekretaris Jenderal,Kepala,Menteri Koordinator,Menteri,Sekretaris,Ketua Bidang,Staff Ahli,Eksekutif Muda',
+            'jabatan' => 'required|string|in:Presiden Mahasiswa,Wakil Presiden Mahasiswa,Sekretaris Jenderal,Kepala Biro,Menteri Koordinator,Menteri,Sekretaris,Ketua Bidang,Staff Biro,Staff Ahli,Eksekutif Muda',
             'foto' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:5120',
         ]);
 
@@ -199,7 +201,7 @@ class StrukturalAdminController extends Controller
 
         $anggotaUnit->update($validatedData);
 
-        return redirect()->route('admin.struktural.unit-organisasi.index', $anggotaUnit->unit_organisasi_id)->with('success', 'Anggota unit berhasil diperbarui.');
+        return redirect()->route('admin.struktural.unit-organisasi.index', $unitOrganisasiId)->with('success', 'Anggota unit berhasil diperbarui.');
     }
 
     public function destroyAnggotaUnit($unitOrganisasiId, $anggotaId)
